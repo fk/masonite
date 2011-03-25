@@ -437,6 +437,7 @@ em {
 }
 
 .post .footer ul {
+    color: #aaaaaa;
 	list-style: none;
 }
 
@@ -457,6 +458,23 @@ em {
 .post .footer .notes a {
 	display: block;
 	padding-left: 18px;
+}
+
+.post .footer .date a {
+    float: left;
+}
+
+.post .footer .date span.reblogged-from {
+    float: left;
+    display: block;
+    padding-left: 4px;
+}
+
+.post .footer .date span.reblogged-from a {
+    padding-left: 0;
+    display: inline;
+    float: none;
+    background: none !important;
 }
 
 .post .footer .tags {
@@ -1152,24 +1170,19 @@ em {
 
                 <div class="footer clearfix">
                     <ul class="clearfix">
-                        <li class="date {block:Reblog}reblogged{/block:Reblog}">
-                            <a href="{Permalink}">
-                                {block:IndexPage}
+                        <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
+                            {block:IndexPage}
+                                <a href="{Permalink}">
                                     {TimeAgo}
-                                {/block:IndexPage}
-                                {block:PermalinkPage}
-                                    {block:Reblog}
-                                        Reblogged
-                                    {/block:Reblog}
-                                    {block:NotReblog}
-                                        Posted
-                                    {/block:NotReblog}
+                                </a>
+                            {/block:IndexPage}
+                            {block:PermalinkPage}
+                                <a href="{Permalink}">
                                     {TimeAgo}
-                                        {block:Reblog}from {ReblogParentName} {block:RebloggedFromReblog}(originally from {ReblogRootName}){block:RebloggedFromReblog}{/block:Reblog}
-                                    {block:FromBookmarklet}from bookmarklet{/block:FromBookmarklet}
-                                    {block:FromMobile}from mobile{/block:FromMobile}
-                                {/block:PermalinkPage}
-                            </a>
+                                </a>
+                            {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}" class="reblog">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}" class="reblog">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
+                            {/block:PermalinkPage}
+                            
                         </li>
                         {block:NoteCount}
                             <li class="notes">
