@@ -40,6 +40,7 @@
     <meta name="if:Show Tags on Index Page" content="1" />
     <meta name="if:Two Column Navigation" content="1" />
     <meta name="if:Header Left" content="1" />
+    <meta name="if:Header Top" content="1" />
     <meta name="if:Show Tags" content="1" />
     <meta name="if:Show Avatar" content="1" />
     <meta name="if:Show Title" content="1" />
@@ -342,6 +343,10 @@ em {
         left: 0;
         padding: 0 0 0 40px;
     {/block:IfHeaderLeft}
+    {block:IfHeaderTop}
+        bottom: auto;
+        top: 40px
+    {/block:IfHeaderTop}
 }
 
 #header a {
