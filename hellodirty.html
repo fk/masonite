@@ -99,10 +99,24 @@ body {
         right: 40px;
         left: auto;
     {/block:IfHeaderLeft}
+    {block:IfCustomtriggerInfiniteScrolling}
+    left: 200px;
+    right: auto;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    line-height: 1;    
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    {/block:IfCustomtriggerInfiniteScrolling}
 }
 
 #infscr-loading img {
     margin-bottom: 6px;
+    {block:IfCustomtriggerInfiniteScrolling}
+    display: none;
+    {/block:IfCustomtriggerInfiniteScrolling}
 }
 
 /* Global */
@@ -319,12 +333,18 @@ em {
     {/block:IfHeaderLeft}
 }
 
+#single #posts {
+    margin: 40px 160px 40px 40px;
+    {block:IfHeaderLeft}
+        margin: 40px 40px 40px 160px;
+    {/block:IfHeaderLeft}
+}
+
 #single #content {
     margin-right: 180px;
     max-width: 760px;
     {block:IfHeaderLeft}
         margin-right: 0;
-        margin-left: 180px;
     {/block:IfHeaderLeft}
 }
 
@@ -949,12 +969,18 @@ em {
 
 #pagination {
 	list-style: none;
-	margin: 20px 40px;
 	line-height: 1;
+    margin: 0 40px 0 40px;
+    {block:IfHeaderLeft}
+	margin: 0 40px 0 200px;
+    {/block:IfHeaderLeft}
 }
 
 #single #pagination {
     margin: 0;
+    {block:IfHeaderLeft}
+    margin: 0 0 0 200px;
+    {/block:IfHeaderLeft}
 }
 
 #pagination li {
@@ -965,6 +991,18 @@ em {
 #pagination li a {
 	text-decoration: none;
 }
+
+{block:IfCustomtriggerInfiniteScrolling}
+#index #pagination li a {
+    background: #000;
+    display: block;
+    padding: 10px;
+    color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+{/block:IfCustomtriggerInfiniteScrolling}
 
 /* Colorbox */
 
@@ -1262,18 +1300,34 @@ em {
             </div><!-- /#{PostID} -->
         {/block:Posts}
     </div><!-- /#posts -->
-</div><!-- /#content -->
+    
+    {block:Pagination}
+        <ul id="pagination" class="clearfix">
+            {block:PreviousPage}
+                <li class="previous"><a href="{PreviousPage}">&larr; Previous Page</a></li>
+            {/block:PreviousPage}
+            {block:NextPage}
+                <li class="next last"><a href="{NextPage}">Next Page &rarr;</a></li>
+            {/block:NextPage}
+        </ul>
+    {/block:Pagination}
 
-{block:Pagination}
-    <ul id="pagination" class="clearfix">
-        {block:PreviousPage}
-            <li class="previous"><a href="{PreviousPage}">&larr; Previous</a></li>
-        {/block:PreviousPage}
-        {block:NextPage}
-            <li class="next last"><a href="{NextPage}">Next &rarr;</a></li>
-        {/block:NextPage}
-    </ul>
-{/block:Pagination}
+    {block:PermalinkPagination}
+        <ul id="pagination">
+            {block:PreviousPost}
+                <li class="previous">
+                    <a href="{PreviousPost}">&larr; Previous</a>
+                </li>
+            {/block:PreviousPost}
+            {block:NextPost}
+                <li class="next last">
+                    <a href="{NextPost}">Next &rarr;</a>
+                </li>
+            {/block:NextPost}
+        </ul>
+    {/block:PermalinkPagination}
+    
+</div><!-- /#content -->
 
 <div id="footer" class="container clearfix">
 
@@ -1313,21 +1367,6 @@ em {
             </script>
         </div>
     {/block:Twitter}
-
-    {block:PermalinkPagination}
-        <ul id="pagination">
-            {block:PreviousPost}
-                <li class="previous">
-                    <a href="{PreviousPost}">&larr; Previous</a>
-                </li>
-            {/block:PreviousPost}
-            {block:NextPost}
-                <li class="next last">
-                    <a href="{NextPost}">Next &rarr;</a>
-                </li>
-            {/block:NextPost}
-        </ul>
-    {/block:PermalinkPagination}
 
 </div><!-- /#footer -->
 
