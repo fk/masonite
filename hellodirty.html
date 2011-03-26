@@ -44,6 +44,7 @@
     <meta name="if:Show Tags" content="1" />
     <meta name="if:Show Avatar" content="1" />
     <meta name="if:Show Title" content="1" />
+    <meta name="if:Custom trigger Infinite Scrolling" content="1" />
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <!-- meta name="if:Use 500px wide Post Content" content="0" / -->
 
@@ -1046,6 +1047,12 @@ em {
 
 <script type="text/javascript" charset="utf-8">
     var Whites = "{color:Whites}";
+    var trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}"
+    if(trueOrFalse){
+        var customTrigger = true;
+    }else{
+        var customTrigger = false;
+    }
     var Accents = "{color:Accents}";
     Whites = Whites.slice( 1 );
     Accents = Accents.slice( 1 );
