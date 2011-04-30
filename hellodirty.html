@@ -19,9 +19,9 @@
 
     <meta name="viewport" content="width=1080, initial-scale=1.0">
 
-    {block:Description}
-        <meta name="description" content="{MetaDescription}">
-    {/block:Description}
+{block:Description}
+    <meta name="description" content="{MetaDescription}">
+{/block:Description}
 
     <meta name="color:Whites" content="#ffffff" />
     <meta name="color:Brights" content="#eeeeee" />
@@ -100,9 +100,9 @@ body {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    {block:IfHeaderLeft}
-        left: 200px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    left: 200px;
+{/block:IfHeaderLeft}
 }
 
 #infscr-loading div {
@@ -115,7 +115,7 @@ body {
 
 /* Global */
 
-.ie7 img { -ms-interpolation-mode: bicubic; }
+.ie7 img { -ms-interpolation-mode:bicubic; }
 
 a {
 	color: {color:Darks};
@@ -149,7 +149,7 @@ input.query {
     text-shadow: none;
 }
 
-a:link { -webkit-tap-highlight-color: {color:Accents}; }
+a:link { -webkit-tap-highlight-color:{color:Accents}; }
 
 /* Typography */
 
@@ -170,6 +170,7 @@ blockquote {
 	margin: 15px 0 0;
 	padding: 0 0 0 15px;
     border-left: 1px solid {color:Brights};
+    color: {color:Mids};
 }
 
 #index .post .copy blockquote img {
@@ -236,9 +237,9 @@ h2 {
 
 h2.searchresultcount {
     margin: 40px 0 0 40px;
-    {block:IfHeaderLeft}
+{block:IfHeaderLeft}
     margin: 40px 0 0 200px;
-    {/block:IfHeaderLeft}
+{/block:IfHeaderLeft}
 }
 
 h3 {
@@ -311,9 +312,9 @@ em {
 
 #footer {
     margin: 0px 200px 0 40px;
-    {block:IfHeaderLeft}
-        margin: 0px 40px 0 200px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    margin: 0px 40px 0 200px;
+{/block:IfHeaderLeft}
 }
 
 #content {
@@ -322,24 +323,24 @@ em {
 
 #posts {
     margin: 40px 160px 40px 40px;
-    {block:IfHeaderLeft}
-        margin: 40px 40px 40px 160px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    margin: 40px 40px 40px 160px;
+{/block:IfHeaderLeft}
 }
 
 #single #posts {
     margin: 40px 160px 40px 40px;
-    {block:IfHeaderLeft}
-        margin: 40px 40px 40px 160px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    margin: 40px 40px 40px 160px;
+{/block:IfHeaderLeft}
 }
 
 #single #content {
     margin-right: 180px;
     max-width: 760px;
-    {block:IfHeaderLeft}
-        margin-right: 0;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    margin-right: 0;
+{/block:IfHeaderLeft}
 }
 
 .notecontainer {
@@ -357,15 +358,15 @@ em {
 	padding: 0 40px 0 0;
 	z-index: 9999;
     line-height: 1.5;
-    {block:IfHeaderLeft}
-        right: auto;
-        left: 0;
-        padding: 0 0 0 40px;
-    {/block:IfHeaderLeft}
-    {block:IfHeaderTop}
-        bottom: auto;
-        top: 40px
-    {/block:IfHeaderTop}
+{block:IfHeaderLeft}
+    right: auto;
+    left: 0;
+    padding: 0 0 0 40px;
+{/block:IfHeaderLeft}
+{block:IfHeaderTop}
+    bottom: auto;
+    top: 40px
+{/block:IfHeaderTop}
 }
 
 #header a {
@@ -374,9 +375,9 @@ em {
 /* Title */
 
 #header #title {
-    {block:IfNotShowTitle}
-        display: none;
-    {/block:IfNotShowTitle}
+{block:IfNotShowTitle}
+    display: none;
+{/block:IfNotShowTitle}
 }
 
 #header h1 {
@@ -392,9 +393,9 @@ em {
 }
 
 #avatar {
-    {block:IfNotShowAvatar}
-        display: none;
-    {/block:IfNotShowAvatar}
+{block:IfNotShowAvatar}
+    display: none;
+{/block:IfNotShowAvatar}
 }
 
 /* Navigation */
@@ -410,11 +411,11 @@ em {
 	background: none;
 	padding: 0;
 	margin: 0;
-    {block:IfTwoColumnNavigation}
+{block:IfTwoColumnNavigation}
     float: left;
     width: 50px;
     padding-right: 10px;
-    {/block:IfTwoColumnNavigation}
+{/block:IfTwoColumnNavigation}
 }
 
 #navigation li a {
@@ -534,10 +535,10 @@ em {
 	padding: 0;
 	margin-right: 40px;
 	margin-bottom: 40px;
-    {block:IfHeaderLeft}
-        margin-right: 0;
-        margin-left: 40px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    margin-right: 0;
+    margin-left: 40px;
+{/block:IfHeaderLeft}
 }
 
 .post .media {
@@ -758,12 +759,20 @@ em {
     border-bottom: 1px solid {color:Brights};
 }
 
+.post blockquote {
+    -webkit-transition: color 0.2s linear;
+}
+
 .post a:hover {
     border-color: {color:Accents};
 }
 
 .post .media a {
     border: none;
+}
+
+.post:hover blockquote {
+    color: {color:Darks};
 }
 
 .post:hover a,
@@ -868,11 +877,11 @@ em {
 	width: 120px;
 	padding: 0 40px 0 0;
     color: {color:Mids};
-    {block:IfHeaderLeft}
-        right: auto;
-        left: 0;
-        padding: 0 0 0 40px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    right: auto;
+    left: 0;
+    padding: 0 0 0 40px;
+{/block:IfHeaderLeft}
 }
 
 /* Footer */
@@ -975,15 +984,15 @@ em {
 	list-style: none;
 	line-height: 1;
     margin: 0 40px 0 40px;
-    {block:IfHeaderLeft}
-	margin: 0 40px 0 200px;
-    {/block:IfHeaderLeft}
+{block:IfHeaderLeft}
+    margin: 0 40px 0 200px;
+{/block:IfHeaderLeft}
 }
 
 #single #pagination {
-    {block:IfHeaderLeft}
+{block:IfHeaderLeft}
     margin: 0 0 0 200px;
-    {/block:IfHeaderLeft}
+{/block:IfHeaderLeft}
 }
 
 #pagination li {
@@ -1054,7 +1063,13 @@ em {
         .cboxSlideshow_off #cboxSlideshow.hover{background-position:-75px -25px;}
 
 /* Clearfix */
-.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:before,
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
@@ -1065,19 +1080,19 @@ em {
 <!--[if lt IE 7.]>
 <style type="text/css">
     #index .post.photo img, #index .post.audio .album_art img {
-		width:expression(this.offsetWidth> 400?400:'auto');
+		width: expression(this.offsetWidth> 400?400:'auto');
 	}
 
 	#likes li img {
-		width:120px;
+		width: 120px;
 	}
 
 	#index .post {
-		width:400px;
+		width: 400px;
 	}
 
 	#sidebar {
-		margin-left:-10px;
+		margin-left: -10px;
 	}
 </style>
 <![endif]-->
@@ -1085,7 +1100,7 @@ em {
 <!--[if lt IE 8.]>
 <style type="text/css">
      #header {
-		margin-bottom:40px;
+		margin-bottom: 40px;
 	}
 </style>
 <![endif]-->
