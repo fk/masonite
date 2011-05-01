@@ -452,13 +452,13 @@ function fadingSidebar() {
 		$("a.fullsize")
 			.hide()
 			.colorbox({
-				slideshow:true, 
-				slideshowAuto:false, 
-				speed:200, 
-				photo:true, 
-				maxWidth:"90%", 
+				slideshow:true,
+				slideshowAuto:false,
+				speed:200,
+				photo:true,
+				maxWidth:"90%",
 				maxHeight:"90%"});
-				
+
 		$posts = $('#container .post');
 
 		$posts.live({
