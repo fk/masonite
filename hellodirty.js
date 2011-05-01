@@ -553,7 +553,7 @@ function fadingSidebar() {
 						}
 					});
 
-					//fix Vimeo
+					// fix Vimeo (refactor)
 					var color = Accents;
 					var opts = "title=0&byline=0&portrait=0";
 					$elems.find("iframe[src^='http://player.vimeo.com']").each(function() {
@@ -584,7 +584,7 @@ function fadingSidebar() {
 						);
 					});
 
-					// fix YouTube
+					// fix YouTube (refactor)
 					$elems.find("embed[src^='http://www.youtube.com']").each(function() {
 						// Identify and hide embed(s)
 						var parent = $(this).closest('object');
