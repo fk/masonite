@@ -463,21 +463,25 @@ function fadingSidebar() {
 
 		$posts.live({
 			mouseenter: function(event) {
-			 $(this).find('a.fullsize').stop().fadeIn({duration: 200, easing: 'easeInOutCubic'});
+			 $(this)
+			  .addClass('active')
+			  .find('a.fullsize')
+			  .stop()
+			  .fadeIn({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			},
 			mouseleave: function(event) {
-				$(this).find('a.fullsize').stop().fadeOut({duration: 200, easing: 'easeInOutCubic'});
+			  $(this)
+				  .removeClass('active')
+				  .find('a.fullsize')
+				  .stop()
+				  .fadeOut({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			}
 		});
 
 		// fix pngs
 		$(document).pngFix({blankgif:'http://static.tumblr.com/vkmldjw/LKtkxpcr0/blank.gif'});
-
-		// bind .active on mouseenter
-		$('.post').mouseenter(function() { $(this).addClass('active'); });
-		$('.post').mouseleave(function() { $(this).removeClass('active'); });
 
 		$("#likes li:first-child").addClass('first');
 		$("#likes li:last-child").addClass('last');
