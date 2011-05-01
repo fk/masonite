@@ -450,32 +450,32 @@ function fadingSidebar() {
 		fadingSidebar();
 
 		$("a.fullsize")
-		  .hide()
-		  .colorbox({
-		    slideshow:true, 
-		    slideshowAuto:false, 
-		    speed:200, 
-		    photo:true, 
-		    maxWidth:"90%", 
-		    maxHeight:"90%"});
-		    
+			.hide()
+			.colorbox({
+				slideshow:true, 
+				slideshowAuto:false, 
+				speed:200, 
+				photo:true, 
+				maxWidth:"90%", 
+				maxHeight:"90%"});
+				
 		$posts = $('#container .post');
 
 		$posts.live({
 			mouseenter: function(event) {
 			 $(this)
-			  .addClass('active')
-			  .find('a.fullsize')
-			  .stop()
-			  .fadeIn({duration: 200, easing: 'easeInOutCubic'});
+				.addClass('active')
+				.find('a.fullsize')
+				.stop()
+				.fadeIn({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			},
 			mouseleave: function(event) {
-			  $(this)
-				  .removeClass('active')
-				  .find('a.fullsize')
-				  .stop()
-				  .fadeOut({duration: 200, easing: 'easeInOutCubic'});
+				$(this)
+					.removeClass('active')
+					.find('a.fullsize')
+					.stop()
+					.fadeOut({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			}
 		});
@@ -495,23 +495,23 @@ function fadingSidebar() {
 
 			$(window).load(function() {
 				$wall.masonry({
-					singleMode: true,
-					animate: true,
-					itemSelector: '.post',
-					saveOptions: true
+					singleMode    : true,
+					animate       : true,
+					itemSelector  : '.post',
+					saveOptions   : true
 				});
 			});
 
 			// infinite scroll
 			$wall.infinitescroll({
-				navSelector   : '#pagination li.next a',  // selector for the paged navigation
-				nextSelector  : '#pagination li.next a',  // selector for the NEXT link (to page 2)
-				itemSelector  : '#posts .post',           // selector for all items you'll retrieve
-				loadingImg    : 'http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif',
-				loadingText   : 'Loading next page',
-				donetext      : 'No more pages to load',
-				debug         : false,
-				errorCallback : function() {
+				navSelector     : '#pagination li.next a',   // selector for the paged navigation
+				nextSelector    : '#pagination li.next a',  // selector for the NEXT link (to page 2)
+				itemSelector    : '#posts .post',           // selector for all items you'll retrieve
+				loadingImg      : 'http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif',
+				loadingText     : 'Loading next page',
+				donetext        : 'No more pages to load',
+				debug           : false,
+				errorCallback   : function() {
 					// fade out the error message after 2 seconds
 					$('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');
 				}
@@ -655,8 +655,8 @@ function fadingSidebar() {
 				});
 			}
 
-      // leftover from the original theme
-      // for the yet totally untested disqus-comments
+			// leftover from the original theme
+			// for the yet totally untested disqus-comments
 			$('#container .post .footer .comments a').each(function() {
 				$(this).html($(this).text().replace('Comments',''));
 				$(this).html($(this).text().replace('Comment',''));
