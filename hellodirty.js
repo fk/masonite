@@ -425,17 +425,12 @@ function webkitSearch() {
 	//Ready
 	$(function() {
 
+		fixVimeo();
+		fixYouTube();
+
 		webkitSearch();
 
-		function setup(){
-			// fix videos
-			fixVimeo();
-			fixYouTube();
-			// hide fullsize links
-			$("a.fullsize").hide();
-			// colorbox
-			$(".fullsize").colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
-		};
+		$("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
 
 		// fix pngs
 		$(document).pngFix({blankgif:'http://static.tumblr.com/vkmldjw/LKtkxpcr0/blank.gif'});
@@ -472,9 +467,6 @@ function webkitSearch() {
 			var $wall = $('#posts');
 
 			$(window).load(function(){
-
-				var $wall = $('#posts');
-				setup($wall);
 
 				$wall.masonry({
 					singleMode: true,
