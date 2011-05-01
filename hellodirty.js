@@ -605,8 +605,7 @@ function fadingSidebar() {
 					$elems.imagesLoaded( function(){
 					$wall.masonry({ appendedContent: $elems },
 						function() {
-							$(this).find("a.fullsize").hide();
-							$(this).find(".fullsize").colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
+							$(this).find("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
 
 							$elems.animate({opacity: 1.0}, 200, 'swing');
 							if(customTrigger){
