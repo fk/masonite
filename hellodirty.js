@@ -418,20 +418,23 @@ function webkitSearch() {
 }
 
 function fadingSidebar() {
-	// fading menu
 	// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
-	menu = $('#header, #copyright');
-	menu.css('opacity', 0.5);
+	$sidebar = $('#header, #copyright');
+	$sidebar.css('opacity', 0.5);
 
-	menu.mouseenter(function() {
-		menu.stop().animate({
-			opacity: 1
-		}, 250);
+	$sidebar.mouseenter(function() {
+		$sidebar
+		  .stop()
+		  .animate({
+  			opacity: 1
+    	}, 250);
 	}).mouseleave(function() {
 		if($('#header input:focus').length == 0) {
-			menu.stop().animate({
-				opacity: 0.5
-			}, 250);
+			$sidebar
+			  .stop()
+			  .animate({
+  				opacity: 0.5
+  			}, 250);
 		}
 	});
 }
