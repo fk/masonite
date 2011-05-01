@@ -479,14 +479,14 @@ function fadingSidebar() {
 
 			// infinite scroll
 			$wall.infinitescroll({
-				navSelector	 : '#pagination li.next a',	 // selector for the paged navigation
-				nextSelector : '#pagination li.next a',	 // selector for the NEXT link (to page 2)
-				itemSelector : '#posts .post',		// selector for all items you'll retrieve
-				loadingImg	 : 'http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif',
-				loadingText	 : 'Loading next page',
-				donetext		 : 'No more pages to load',
-				debug		 : false,
-				errorCallback: function() {
+				navSelector   : '#pagination li.next a',  // selector for the paged navigation
+				nextSelector  : '#pagination li.next a',  // selector for the NEXT link (to page 2)
+				itemSelector  : '#posts .post',           // selector for all items you'll retrieve
+				loadingImg    : 'http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif',
+				loadingText   : 'Loading next page',
+				donetext      : 'No more pages to load',
+				debug         : false,
+				errorCallback : function() {
 					// fade out the error message after 2 seconds
 					$('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');
 				}
