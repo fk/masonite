@@ -417,6 +417,25 @@ function webkitSearch() {
 	}
 }
 
+function fadingSidebar() {
+	// fading menu
+	// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
+	menu = $('#header, #copyright');
+	menu.css('opacity', 0.5);
+
+	menu.mouseenter(function() {
+		menu.stop().animate({
+			opacity: 1
+		}, 250);
+	}).mouseleave(function() {
+		if($('#header input:focus').length == 0) {
+			menu.stop().animate({
+				opacity: 0.5
+			}, 250);
+		}
+	});
+}
+
 // hellodirty
 
 // remap jQuery to $
@@ -427,8 +446,8 @@ function webkitSearch() {
 
 		fixVimeo();
 		fixYouTube();
-
 		webkitSearch();
+		fadingSidebar();
 
 		$("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
 
@@ -442,23 +461,6 @@ function webkitSearch() {
 		$("#likes li:first-child").addClass('first');
 		$("#likes li:last-child").addClass('last');
 
-		// fading menu
-		// kudos to http://www.tumblr.com/theme/11862, hadn't tought about search
-		menu = $('#header, #copyright');
-		menu.css('opacity', 0.5);
-
-		menu.mouseenter(function() {
-			menu.stop().animate({
-				opacity: 1
-			}, 250);
-		}).mouseleave(function() {
-			if($('#header input:focus').length == 0) {
-				menu.stop().animate({
-					opacity: 0.5
-				}, 250);
-			}
-		});
-
 		// break down according to body.class (=site section)
 		// see http://somedirection.com/2008/03/14/structuring-jquery-for-speed-and-efficiency/
 		// index pages
@@ -467,14 +469,12 @@ function webkitSearch() {
 			var $wall = $('#posts');
 
 			$(window).load(function(){
-
 				$wall.masonry({
 					singleMode: true,
 					animate: true,
 					itemSelector: '.post',
 					saveOptions: true
 				});
-
 			});
 
 			// infinite scroll
@@ -620,13 +620,11 @@ function webkitSearch() {
 			if(customTrigger){
 				// kill scroll binding
 				$(window).unbind('.infscr');
-
 				// hook up the manual click guy.
 				$('#pagination li.next a').text('Load more posts').click(function(){
 					 $(document).trigger('retrieve.infscr');
 					 return false;
 				});
-
 				// remove the paginator when we're done.
 				$(document).ajaxError(function(e,xhr,opt){
 					 if (xhr.status == 404) $('#pagination li.next a').remove();
