@@ -293,45 +293,6 @@ if(f===1)g.placeBrick(i,a.colCount,a.colY,a,b);else{var k=a.colCount+1-f,m=[];fo
 g.arrange(d,b,a)}};return this.each(function(){var d=e(this),b={};b.masoned=!!d.data("masonry");var a=b.masoned?d.data("masonry").options:{},c=e.extend({},e.fn.masonry.defaults,a,j),h=a.resizeable;b.options=c.saveOptions?c:a;l=l||function(){};g.getBricks(d,b,c);if(!b.$bricks.length)return this;g.setup(d,c,b);g.arrange(d,c,b);!h&&c.resizeable&&e(window).bind("smartresize.masonry",function(){g.resize(d,c,b)});h&&!c.resizeable&&e(window).unbind("smartresize.masonry")})};e.fn.masonry.defaults={singleMode:false,
 columnWidth:undefined,itemSelector:undefined,appendedContent:undefined,saveOptions:true,resizeable:true,animate:false,animationOptions:{}}})(jQuery);
 
-function fixVimeo() {
-	/*
-		Better Vimeo Embeds 2.1 by Matthew Buchanan
-		Modelled on the Vimeo Embedinator Script
-		http://mattbu.ch/tumblr/vimeo-embeds/
-
-		Released under a Creative Commons attribution license:
-		http://creativecommons.org/licenses/by/3.0/nz/
-	*/
-	var color = Accents;
-	var opts = "title=0&byline=0&portrait=0";
-	$("iframe[src^='http://player.vimeo.com']").each(function() {
-		var src = $(this).attr("src");
-		var w = $(this).attr("width");
-		var h = $(this).attr("height");
-		if (src.indexOf("?") == -1) {
-			$(this).replaceWith(
-				"<iframe src='"+src+"?"+opts+"&color="+
-				color+"' width='"+w+"' height='"+h+
-				"' frameborder='0'></iframe>"
-			);
-		}
-	});
-	$("object[data^='http://vimeo.com']").each(function() {
-		var $obj = $(this);
-		var data = $obj.attr("data");
-		var temp = data.split("clip_id=")[1];
-		var id = temp.split("&")[0];
-		var server = temp.split("&")[1];
-		var w = $obj.attr("width");
-		var h = $obj.attr("height");
-		$obj.replaceWith(
-			"<iframe src='http://player.vimeo.com/video/"
-			+id+"?"+server+"&"+opts+"&color="+color+
-			"' width='"+w+"' height='"+h+
-			"' frameborder='0'></iframe>"
-		);
-	});
-}
 
 function fixYouTube() {
 	/*
@@ -387,6 +348,100 @@ function fixYouTube() {
 			});
 		}
 	});
+}
+
+$.fn.fixYT = function() {
+    // fix YouTube (refactor)
+		$(this).find("embed[src^='http://www.youtube.com']").each(function() {
+			// Identify and hide embed(s)
+			var parent = $(this).closest('object');
+			parent.css("visibility","hidden");
+			var youtubeCode = parent.html();
+			var params = "";
+			if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
+				// IE doesn't return params with html(), soâ€¦
+				$("param", this).each(function () {
+					params += $(this).get(0).outerHTML;
+				});
+			}
+			// Set colours in control bar to match page background
+			var oldOpts = /rel=0/g;
+			var newOpts = "rel=0&amp;color1=0x"+Whites+"&amp;color2=0x"+Whites;
+			youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+			if (params != "") {
+				params = params.replace(oldOpts, newOpts);
+				youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+			}
+			// Extract YouTube ID and calculate ideal height
+			var youtubeIDParam = $(this).attr("src");
+			var youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/;
+			var youtubeID = youtubeIDParam.match(youtubeIDPattern);
+			var youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3);
+			var youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
+			// Test for widescreen aspect ratio
+			$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
+				oldOpts = /height="?([0-9]*)"?/g;
+				if (data.entry.media$group.yt$aspectRatio != null) {
+					newOpts = 'height="' + youtubeHeightWide + '"';
+				} else {
+					newOpts = 'height="' + youtubeHeight + '"';
+				}
+				youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+				if (params != "") {
+					params = params.replace(oldOpts, newOpts);
+					youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+				}
+				// Replace YouTube embed with new code
+				parent.html(youtubeCode).css("visibility","visible");
+			});
+
+		});
+   
+    return $(this);
+    
+}
+
+$.fn.fixVimeo = function() {
+	/*
+		Better Vimeo Embeds 2.1 by Matthew Buchanan
+		Modelled on the Vimeo Embedinator Script
+		http://mattbu.ch/tumblr/vimeo-embeds/
+
+		Released under a Creative Commons attribution license:
+		http://creativecommons.org/licenses/by/3.0/nz/
+	*/
+	var color = Accents;
+	var opts = "title=0&byline=0&portrait=0";
+	$(this).find("iframe[src^='http://player.vimeo.com']").each(function() {
+		var src = $(this).attr("src");
+		var w = $(this).attr("width");
+		var h = $(this).attr("height");
+		if (src.indexOf("?") == -1) {
+			$(this).replaceWith(
+				"<iframe src='"+src+"?"+opts+"&color="+
+				color+"' width='"+w+"' height='"+h+
+				"' frameborder='0'></iframe>"
+			);
+		}
+	});
+	$(this).find("object[data^='http://vimeo.com']").each(function() {
+		var $obj = $(this);
+		var data = $obj.attr("data");
+		var temp = data.split("clip_id=")[1];
+		var id = temp.split("&")[0];
+		var server = temp.split("&")[1];
+		var w = $obj.attr("width");
+		var h = $obj.attr("height");
+		$obj.replaceWith(
+			"<iframe src='http://player.vimeo.com/video/"
+			+id+"?"+server+"&"+opts+"&color="+color+
+			"' width='"+w+"' height='"+h+
+			"' frameborder='0'></iframe>"
+		);
+	});
+
+  return $(this);
+
 }
 
 function webkitSearch() {
@@ -447,7 +502,6 @@ function fadingSidebar() {
 	// ready
 	$(function() {
 
-		fixVimeo();
 		fixYouTube();
 		webkitSearch();
 		fadingSidebar();
@@ -464,7 +518,7 @@ function fadingSidebar() {
 
 		$posts = $('#container .post');
 
-		$posts.live({
+		$posts.fixVimeo().live({
 			mouseenter: function(event) {
 			 $(this)
 				.addClass('active')
@@ -553,82 +607,8 @@ function fadingSidebar() {
 						}
 					});
 
-					// fix Vimeo (refactor)
-					var color = Accents;
-					var opts = "title=0&byline=0&portrait=0";
-					$elems.find("iframe[src^='http://player.vimeo.com']").each(function() {
-						var src = $(this).attr("src");
-						var w = $(this).attr("width");
-						var h = $(this).attr("height");
-						if (src.indexOf("?") == -1) {
-							$(this).replaceWith(
-								"<iframe src='"+src+"?"+opts+"&color="+
-								color+"' width='"+w+"' height='"+h+
-								"' frameborder='0'></iframe>"
-							);
-						}
-					});
-					$elems.find("object[data^='http://vimeo.com']").each(function() {
-						var $obj = $(this);
-						var data = $obj.attr("data");
-						var temp = data.split("clip_id=")[1];
-						var id = temp.split("&")[0];
-						var server = temp.split("&")[1];
-						var w = $obj.attr("width");
-						var h = $obj.attr("height");
-						$obj.replaceWith(
-							"<iframe src='http://player.vimeo.com/video/"
-							+id+"?"+server+"&"+opts+"&color="+color+
-							"' width='"+w+"' height='"+h+
-							"' frameborder='0'></iframe>"
-						);
-					});
-
 					// fix YouTube (refactor)
-					$elems.find("embed[src^='http://www.youtube.com']").each(function() {
-						// Identify and hide embed(s)
-						var parent = $(this).closest('object');
-						parent.css("visibility","hidden");
-						var youtubeCode = parent.html();
-						var params = "";
-						if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
-							// IE doesn't return params with html(), soâ€¦
-							$("param", this).each(function () {
-								params += $(this).get(0).outerHTML;
-							});
-						}
-						// Set colours in control bar to match page background
-						var oldOpts = /rel=0/g;
-						var newOpts = "rel=0&amp;color1=0x"+Whites+"&amp;color2=0x"+Whites;
-						youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-						if (params != "") {
-							params = params.replace(oldOpts, newOpts);
-							youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
-						}
-						// Extract YouTube ID and calculate ideal height
-						var youtubeIDParam = $(this).attr("src");
-						var youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/;
-						var youtubeID = youtubeIDParam.match(youtubeIDPattern);
-						var youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3);
-						var youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
-						// Test for widescreen aspect ratio
-						$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
-							oldOpts = /height="?([0-9]*)"?/g;
-							if (data.entry.media$group.yt$aspectRatio != null) {
-								newOpts = 'height="' + youtubeHeightWide + '"';
-							} else {
-								newOpts = 'height="' + youtubeHeight + '"';
-							}
-							youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-							if (params != "") {
-								params = params.replace(oldOpts, newOpts);
-								youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
-							}
-							// Replace YouTube embed with new code
-							parent.html(youtubeCode).css("visibility","visible");
-						});
-
-					});
+					$elems.fixYT().fixVimeo();
 
 					$elems.imagesLoaded( function(){
 					$wall.masonry({ appendedContent: $elems },
