@@ -449,7 +449,28 @@ function fadingSidebar() {
 		webkitSearch();
 		fadingSidebar();
 
-		$("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
+		$("a.fullsize")
+		  .hide()
+		  .colorbox({
+		    slideshow:true, 
+		    slideshowAuto:false, 
+		    speed:200, 
+		    photo:true, 
+		    maxWidth:"90%", 
+		    maxHeight:"90%"});
+		    
+		$posts = $('#container .post');
+
+		$posts.live({
+			mouseenter: function(event) {
+			 $(this).find('a.fullsize').stop().fadeIn({duration: 200, easing: 'easeInOutCubic'});
+				event.stopPropagation();
+			},
+			mouseleave: function(event) {
+				$(this).find('a.fullsize').stop().fadeOut({duration: 200, easing: 'easeInOutCubic'});
+				event.stopPropagation();
+			}
+		});
 
 		// fix pngs
 		$(document).pngFix({blankgif:'http://static.tumblr.com/vkmldjw/LKtkxpcr0/blank.gif'});
@@ -468,7 +489,7 @@ function fadingSidebar() {
 
 			var $wall = $('#posts');
 
-			$(window).load(function(){
+			$(window).load(function() {
 				$wall.masonry({
 					singleMode: true,
 					animate: true,
@@ -630,28 +651,15 @@ function fadingSidebar() {
 				});
 			}
 
-			$posts = $('#container .post');
-
-			$posts.find('a.fullsize').fadeOut({duration: 50, easing: 'easeInOutCubic'});
-
-			$posts.live({
-				mouseenter: function(event) {
-				 $(this).find('a.fullsize').stop().fadeIn({duration: 200, easing: 'easeInOutCubic'});
-					event.stopPropagation();
-				},
-				mouseleave: function(event) {
-					$(this).find('a.fullsize').stop().fadeOut({duration: 200, easing: 'easeInOutCubic'});
-					event.stopPropagation();
-				}
-			});
-
+      // leftover from the original theme
+      // for the yet totally untested disqus-comments
 			$('#container .post .footer .comments a').each(function() {
 				$(this).html($(this).text().replace('Comments',''));
 				$(this).html($(this).text().replace('Comment',''));
 			})
 
-		}
+		} // body#index
 
-	}); //ready
+	}); // ready
 
 })(window.jQuery);
