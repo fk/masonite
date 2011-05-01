@@ -441,7 +441,7 @@ function fadingSidebar() {
 // remap jQuery to $
 (function($){
 
-	//Ready
+	// ready
 	$(function() {
 
 		fixVimeo();
