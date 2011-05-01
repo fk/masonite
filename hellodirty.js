@@ -351,7 +351,14 @@ function fixYouTube() {
 }
 
 $.fn.fixYT = function() {
-    // fix YouTube (refactor)
+	/*
+		Widescreen YouTube Embeds by Matthew Buchanan & Hayden Hunter
+		http://matthewbuchanan.name/451892574
+		http://blog.haydenhunter.me
+
+		Released under a Creative Commons attribution license:
+		http://creativecommons.org/licenses/by/3.0/nz/
+	*/
 		$(this).find("embed[src^='http://www.youtube.com']").each(function() {
 			// Identify and hide embed(s)
 			var parent = $(this).closest('object');
