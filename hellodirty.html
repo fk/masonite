@@ -532,6 +532,9 @@ em {
 	font-weight: bold;
 }
 
+.title.question h3 {
+}
+
 .post {
 	padding: 0;
 	margin-right: 40px;
@@ -585,17 +588,20 @@ em {
 }
 
 /* Photo Post */
-
-#index .post.photo img,
-#index .post.audio .album_art img {
-	min-width: 400px;
-	max-width: 400px;
+.post.photo img,
+.post.audio .album_art img {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
 }
 
-#index .post.photo .media .fullsize {
+#index .post.photo img,
+#index .post.audio .album_art img {
+	min-width: 400px;
+	max-width: 400px;
+}
+
+.post.photo .media .fullsize {
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -609,7 +615,7 @@ em {
     background: {color:Mids};
 }
 
-#index .post.photo .media .fullsize:hover {
+.post.photo .media .fullsize:hover {
 	background: {color:Accents};
 }
 
@@ -630,7 +636,7 @@ em {
     top: 8px;
 }
 
-#index .post.photo .media .fullsize span,
+.post.photo .media .fullsize span,
 .post .quote,
 .post .link.title a span,
 .post .footer .date a,
@@ -642,7 +648,7 @@ em {
     background-repeat: no-repeat;
 }
 
-#index .post.photo .media .fullsize span {
+.post.photo .media .fullsize span {
     background-position: 0 0;
 	display: block;
 	width: 24px;
@@ -864,6 +870,7 @@ em {
 
 #single .post {
 	float: none;
+	width: 500px;
 }
 
 #single .post.audio object,
@@ -1170,9 +1177,7 @@ em {
                         {LinkOpenTag}
                             <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{PhotoURL-400}{/block:IndexPage}" alt="{PhotoAlt}" />
                         {LinkCloseTag}
-                        {block:IndexPage}
-                            <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>View full size</span></a>
-                        {/block:IndexPage}
+                        <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>View full size</span></a>
                     </div>
                     {block:Caption}
                         <div class="copy">{Caption}</div>
