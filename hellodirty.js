@@ -466,16 +466,16 @@ function fadingSidebar() {
 			 $(this)
 				.addClass('active')
 				.find('a.fullsize')
-				.stop()
-				.fadeIn({duration: 200, easing: 'easeInOutCubic'});
+				  .stop()
+				  .fadeIn({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			},
 			mouseleave: function(event) {
 				$(this)
 					.removeClass('active')
 					.find('a.fullsize')
-					.stop()
-					.fadeOut({duration: 200, easing: 'easeInOutCubic'});
+					  .stop()
+					  .fadeOut({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			}
 		});
