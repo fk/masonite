@@ -444,7 +444,7 @@ function fadingSidebar() {
 	});
 }
 
-// hellodirty
+// masonite
 
 // remap jQuery to $
 (function($){
