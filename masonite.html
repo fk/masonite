@@ -51,6 +51,7 @@
 
     <meta name="text:Disqus Shortname" content="" />
     <meta name="text:Google Analytics" content="" />
+    <meta name="text:Clicky Tracking" content="" />
 
 <style type="text/css">
 
@@ -1440,5 +1441,23 @@ em {
     </script>
     <!-- /google analytics -->
 {/block:IfGoogleAnalytics}
+
+{block:IfClickyTracking}
+    <!-- clicky analytics, asynchronous: http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
+    <script type="text/javascript">
+        var f = Function(),
+            clicky = { log: f, goal: f },
+            clicky_site_id = {text:Clicky Tracking};
+        (function(d, t) {
+            var c = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+            c.async = 1;
+            c.src = '//static.getclicky.com/js';
+            s.parentNode.insertBefore(c, s);
+        })(document, 'script');
+    </script>
+    <noscript><img alt="" width="1" height="1" src="http://in.getclicky.com/{text:Clicky Tracking}ns.gif" /></noscript>
+    <!-- /clicky analytics -->
+{/block:IfClickyTracking}
 </body>
 </html>
