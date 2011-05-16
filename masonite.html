@@ -1134,7 +1134,7 @@ em {
 <div id="header">
     <a href="/"><img id="avatar" src="{PortraitURL-64}" alt="Portrait" /></a>
     <div id="title">
-        <h1><a href="/" title="Back Home">{Title}</a></h1>
+        <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
     </div>
     <div id="description">
         {Description}
@@ -1151,10 +1151,10 @@ em {
         {block:AskEnabled}
             <li class="ask"><a href="/ask">{AskLabel}</a></li>
         {/block:AskEnabled}
-        <li class="archive"><a href="/archive">Archive</a></li>
-        <li class="random"><a href="/random">Random</a></li>
-        <li class="mobile"><a href="/mobile">Mobile</a></li>
-        <li class="rss last"><a href="{RSS}">RSS</a></li>
+        <li class="archive"><a href="/archive">{lang:Archive}</a></li>
+        <li class="random"><a href="/random">{lang:Random}</a></li>
+        <li class="mobile"><a href="/mobile">{lang:Mobile}</a></li>
+        <li class="rss last"><a href="{RSS}">{lang:RSS}</a></li>
     </ul>
     
     <div id="search">
@@ -1166,7 +1166,7 @@ em {
 
 <div id="content">
     {block:SearchPage}
-        <h2 class="searchresultcount">{SearchResultCount} results for "{SearchQuery}"</h2>
+        <h2 class="searchresultcount">{lang:SearchResultCount results for SearchQuery 2}</h2>
     {/block:SearchPage}
 
     <div id="posts">
@@ -1177,7 +1177,7 @@ em {
                         {LinkOpenTag}
                             <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{PhotoURL-400}{/block:IndexPage}" alt="{PhotoAlt}" />
                         {LinkCloseTag}
-                        <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>View full size</span></a>
+                        <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>{lang:Click for high-res photo}</span></a>
                     </div>
                     {block:Caption}
                         <div class="copy">{Caption}</div>
@@ -1281,7 +1281,7 @@ em {
                             {block:HasTags}
                                 <dl class="tags clearfix">
                                     <dt class="header">
-                                        <span>Tagged:</span>
+                                        <span>{lang:Tagged}</span>
                                     </dt>
                                     {block:Tags}
                                         <dd><a href="{TagURL}">{Tag}</a></dd>
@@ -1295,7 +1295,7 @@ em {
                         {block:IfShowTags}
                             {block:HasTags}
                                 <dl class="tags clearfix">
-                                    <dt class="header"><span>Tagged:</span></dt>
+                                    <dt class="header"><span>{lang:Tagged}</span></dt>
                                     {block:Tags}
                                         <dd><a href="{TagURL}">{Tag}</a></dd>
                                     {/block:Tags}
@@ -1328,10 +1328,10 @@ em {
     {block:Pagination}
         <ul id="pagination" class="clearfix">
             {block:PreviousPage}
-                <li class="previous"><a href="{PreviousPage}">&larr; Previous Page</a></li>
+                <li class="previous"><a href="{PreviousPage}">&larr; {lang:Previous page}</a></li>
             {/block:PreviousPage}
             {block:NextPage}
-                <li class="next last"><a href="{NextPage}">Next Page &rarr;</a></li>
+                <li class="next last"><a href="{NextPage}">{lang:Next page} &rarr;</a></li>
             {/block:NextPage}
         </ul>
     {/block:Pagination}
@@ -1340,12 +1340,12 @@ em {
         <ul id="pagination">
             {block:PreviousPost}
                 <li class="previous">
-                    <a href="{PreviousPost}">&larr; Previous</a>
+                    <a href="{PreviousPost}">&larr; {lang:Previous post}</a>
                 </li>
             {/block:PreviousPost}
             {block:NextPost}
                 <li class="next last">
-                    <a href="{NextPost}">Next &rarr;</a>
+                    <a href="{NextPost}">{lang:Next post} &rarr;</a>
                 </li>
             {/block:NextPost}
         </ul>
@@ -1358,7 +1358,7 @@ em {
     {block:IfShowLikes}
         {block:Likes}
             <div id="likes_container">
-                <h3><a href="http://www.tumblr.com/liked/by/{Name}">Likes</a></h3>
+                <h3><a href="http://www.tumblr.com/liked/by/{Name}">{lang:Likes}</a></h3>
                 {Likes limit="6" summarize="70" width="120"}
             </div>
         {/block:Likes}
@@ -1367,7 +1367,7 @@ em {
     {block:IfShowPeopleIFollow}
         {block:Following}
             <div id="following" class="clearfix">
-                <h3>Following</h3>
+                <h3>{lang:Following}</h3>
                 <div class="content" id="following-avatars">
                     {block:Followed}
                         <a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}" /></a>
