@@ -12,7 +12,7 @@ Features
 *  Masonry-powered layout
 *  Infinite Scrolling (automatic or user-invoked)
 *  Customizable colors (Whites, Brights, Mids, Darks, Blacks, Accents)
-*  Customizable Fonts (title, post-meta, body, quote)
+*  Customizable fonts (title, post-meta, body, quote)
 *  View high-resolution versions of images in a lightbox, with optional slideshow
 *  One- or two-column navigation, left or right of the main content and on top or bottom of the viewport
 *  Optional display of tags, avatar, tumblr title, likes and "people i follow"
