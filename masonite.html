@@ -1070,14 +1070,9 @@ em {
         .cboxSlideshow_off #cboxSlideshow{background-position:-100px 0px; right:44px;}
         .cboxSlideshow_off #cboxSlideshow.hover{background-position:-75px -25px;}
 
-/* Clearfix */
-.clearfix:before,
-.clearfix:after {
-    content: "\0020";
-    display: block;
-    height: 0;
-    overflow: hidden;
-}
+/* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements in most situations.
+   nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
