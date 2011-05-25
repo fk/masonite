@@ -4,7 +4,7 @@ masonry + infinite-scroll = masonite.
 Clever, huh?
 
 [http://hellodirty.com](http://hellodirty.com)  
-[http://andrewharlow.tumblr.com](http://andrewharlow.tumblr.com)
+[http://andrewharlow.co/](http://andrewharlow.co/)
 
 Features
 --------
