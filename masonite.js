@@ -295,9 +295,9 @@ $.fn.fixYouTube = function() {
 			});
 
 		});
-   
+
     return $(this);
-    
+
 }
 
 $.fn.fixVimeo = function() {
