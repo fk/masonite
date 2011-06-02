@@ -450,7 +450,6 @@ function fadingSidebar() {
 
 			$wall.imagesLoaded(function() {
 				$wall.masonry({
-					singleMode    : true,
 					isAnimated    : true,
 					itemSelector  : '.post'
 				});
