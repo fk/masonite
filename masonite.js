@@ -506,12 +506,13 @@ function fadingSidebar() {
 					$elems.fixYouTube().fixVimeo();
 
 					$elems.imagesLoaded( function(){
-						$wall.masonry( 'appended', $elems, true );
-						$elems.find("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
-						$elems.animate({opacity: 1.0}, 200, 'swing');
-						if(customTrigger){
-							$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});
-						}
+						$wall.masonry( 'appended', $elems, true, function(){
+							$elems.find("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
+							$elems.animate({opacity: 1.0}, 200, 'swing');
+							if(customTrigger){
+								$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});
+							}
+						});
 					});
 					
 				}
