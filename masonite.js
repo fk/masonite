@@ -258,7 +258,7 @@ $.fn.fixYouTube = function() {
 			var youtubeCode = parent.html();
 			var params = "";
 			if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
-				// IE doesn't return params with html(), soâ€¦
+				// IE doesn't return params with html(), so…
 				$("param", this).each(function () {
 					params += $(this).get(0).outerHTML;
 				});
@@ -296,7 +296,7 @@ $.fn.fixYouTube = function() {
 
 		});
 
-    return $(this);
+		return $(this);
 
 }
 
@@ -339,7 +339,7 @@ $.fn.fixVimeo = function() {
 		);
 	});
 
-  return $(this);
+	return $(this);
 
 }
 
@@ -378,17 +378,17 @@ function fadingSidebar() {
 
 	$sidebar.mouseenter(function() {
 		$sidebar
-		  .stop()
-		  .animate({
-  			opacity: 1
-    	}, 250);
+			.stop()
+			.animate({
+				opacity: 1
+			}, 250);
 	}).mouseleave(function() {
 		if($('#header input:focus').length == 0) {
 			$sidebar
-			  .stop()
-			  .animate({
-  				opacity: 0.5
-  			}, 250);
+				.stop()
+				.animate({
+					opacity: 0.5
+				}, 250);
 		}
 	});
 }
@@ -421,16 +421,16 @@ function fadingSidebar() {
 			 $(this)
 				.addClass('active')
 				.find('a.fullsize')
-				  .stop()
-				  .fadeIn({duration: 200, easing: 'easeInOutCubic'});
+					.stop()
+					.fadeIn({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			},
 			mouseleave: function(event) {
 				$(this)
 					.removeClass('active')
 					.find('a.fullsize')
-					  .stop()
-					  .fadeOut({duration: 200, easing: 'easeInOutCubic'});
+						.stop()
+						.fadeOut({duration: 200, easing: 'easeInOutCubic'});
 				event.stopPropagation();
 			}
 		});
@@ -457,7 +457,7 @@ function fadingSidebar() {
 
 			// infinite scroll
 			$wall.infinitescroll({
-				navSelector     : '#pagination li.next a',   // selector for the paged navigation
+				navSelector     : '#pagination li.next a',  // selector for the paged navigation
 				nextSelector    : '#pagination li.next a',  // selector for the NEXT link (to page 2)
 				itemSelector    : '#posts .post',           // selector for all items you'll retrieve
 				loadingImg      : 'http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif',
@@ -506,14 +506,16 @@ function fadingSidebar() {
 					$elems.fixYouTube().fixVimeo();
 
 					$elems.imagesLoaded( function(){
-  					$wall.masonry( 'appended', $elems, true );
-  					$elems.find("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
-  					$elems.animate({opacity: 1.0}, 200, 'swing');
-  					if(customTrigger){
-  						$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});
-  					}
-				});
-			});
+						$wall.masonry( 'appended', $elems, true );
+						$elems.find("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
+						$elems.animate({opacity: 1.0}, 200, 'swing');
+						if(customTrigger){
+							$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});
+						}
+					});
+					
+				}
+			);
 
 			if(customTrigger){
 				// kill scroll binding
@@ -534,7 +536,7 @@ function fadingSidebar() {
 			$('#container .post .footer .comments a').each(function() {
 				$(this).html($(this).text().replace('Comments',''));
 				$(this).html($(this).text().replace('Comment',''));
-			})
+			});
 
 		} // body#index
 
