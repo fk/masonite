@@ -407,7 +407,10 @@ function fadingSidebar() {
 	$(function() {
 
 		webkitSearch();
-		fadingSidebar();
+		
+		if(fadeSidebar){
+		  fadingSidebar();
+    }
 
 		$("a.fullsize")
 			.hide()

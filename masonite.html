@@ -47,6 +47,7 @@
     <meta name="if:Show Avatar" content="1" />
     <meta name="if:Show Title" content="1" />
     <meta name="if:Custom trigger Infinite Scrolling" content="0" />
+    <meta name="if:Fading Sidebar" content="0" />
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <!-- meta name="if:Use 500px wide Post Content" content="0" / -->
 
@@ -1147,12 +1148,19 @@ em {
 
 <script type="text/javascript" charset="utf-8">
     var Whites = "{color:Whites}";
-    var trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}"
+    var trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}";
     if(trueOrFalse){
         var customTrigger = true;
     }else{
         var customTrigger = false;
     }
+    // no time to do this the right way
+    var fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}";
+    if(fadeSidebar){
+        var fadeSidebar = true;
+    }else{
+        var fadeSidebar = false;
+    }    
     var Accents = "{color:Accents}";
     Whites = Whites.slice( 1 );
     Accents = Accents.slice( 1 );
@@ -1433,7 +1441,7 @@ em {
 </div><!-- /#container -->
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js" ></script>
-<script type="text/javascript" src="http://static.tumblr.com/wccjej0/6DGlm70s9/masonite.js" ></script>
+<script type="text/javascript" src="http://static.tumblr.com/wccjej0/5jqls584s/masonite.js" ></script>
 
 {block:Twitter}
     <!-- twitter -->
