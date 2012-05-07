@@ -51,6 +51,46 @@ instance[options].apply(instance,args);});break;case'object':this.each(function(
 return this;};var event=$.event,scrollTimeout;event.special.smartscroll={setup:function(){$(this).bind("scroll",event.special.smartscroll.handler);},teardown:function(){$(this).unbind("scroll",event.special.smartscroll.handler);},handler:function(event,execAsap){var context=this,args=arguments;event.type="smartscroll";if(scrollTimeout){clearTimeout(scrollTimeout);}
 scrollTimeout=setTimeout(function(){$.event.handle.apply(context,args);},execAsap==="execAsap"?0:100);}};$.fn.smartscroll=function(fn){return fn?this.bind("smartscroll",fn):this.trigger("smartscroll",["execAsap"]);};})(window,jQuery);
 
+/*
+	--------------------------------
+	Infinite Scroll Behavior
+	Manual / Twitter-style
+	--------------------------------
+	+ https://github.com/paulirish/infinitescroll/
+	+ version 2.0b2.110617
+	+ Copyright 2011 Paul Irish & Luke Shumard
+	+ Licensed under the MIT license
+	
+	+ Documentation: http://infinite-scroll.com/
+	
+*/
+
+$.extend($.infinitescroll.prototype,{
+
+	_setup_twitter: function infscr_setup_twitter () {
+		var opts = this.options,
+			instance = this;
+
+		// Bind nextSelector link to retrieve
+		$(opts.nextSelector).click(function(e) {
+			if (e.which == 1 && !e.metaKey && !e.shiftKey) {
+				e.preventDefault();
+				instance.retrieve();
+			}
+		});
+
+		// Define loadingStart to never hide pager
+		instance.options.loading.start = function (opts) {
+			opts.loading.msg
+				.appendTo(opts.loading.selector)
+				.show(opts.loading.speed, function () {
+                	beginAjax(opts);
+            });
+		}
+	}
+
+});
+
 // ColorBox v1.3.17.1 - a full featured, light-weight, customizable lightbox based on jQuery 1.3+
 // Copyright (c) 2011 Jack Moore - jack@colorpowered.com
 // Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
@@ -502,6 +542,11 @@ function fadingSidebar() {
 				});
 			});
 
+			if(customTrigger){
+				var infinitescroll_behavior = 'twitter';
+				$('#pagination li.next a').text('Load more posts');
+			}
+
 			// infinite scroll
 			$wall.infinitescroll({
 				loading: {
@@ -512,6 +557,7 @@ function fadingSidebar() {
 				navSelector     : '#pagination li.next a',  // selector for the paged navigation
 				nextSelector    : '#pagination li.next a',  // selector for the NEXT link (to page 2)
 				itemSelector    : '#posts .post',           // selector for all items you'll retrieve
+				behavior : infinitescroll_behavior,
 				errorCallback   : function() {
 					// fade out the error message after 2 seconds
 					$('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');
@@ -519,10 +565,7 @@ function fadingSidebar() {
 				},
 				// call masonry as a callback
 				function( newElements ) {
-					var $elems = $(newElements);
-
-					//set opacity to 0 for all new elements while they get arranged
-					$elems.css('opacity', "0.0");
+					var $elems = $( newElements ).css({ opacity: 0 });
 
 					// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
 					// – thanks to the excellent http://inspirewell.tumblr.com/
@@ -565,20 +608,6 @@ function fadingSidebar() {
 					
 				}
 			);
-
-			if(customTrigger){
-				// kill scroll binding
-				$(window).unbind('.infscr');
-				// hook up the manual click guy.
-				$('#pagination li.next a').text('Load more posts').click(function(){
-					 $(document).trigger('retrieve.infscr');
-					 return false;
-				});
-				// remove the paginator when we're done.
-				$(document).ajaxError(function(e,xhr,opt){
-					 if (xhr.status == 404) $('#pagination li.next a').remove();
-				});
-			}
 
 			// leftover from the original theme
 			// for the yet totally untested disqus-comments
