@@ -411,6 +411,12 @@ em {
 {block:IfNotShowAvatar}
     display: none;
 {/block:IfNotShowAvatar}
+{block:IfShowAvatar}
+  margin-bottom: 0;
+  {block:IfNotShowTitle}
+    margin-bottom: 1em;
+  {/block:IfNotShowTitle}
+{/block:IfShowAvatar}
 }
 
 /* Navigation */
