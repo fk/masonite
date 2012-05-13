@@ -13,6 +13,7 @@ Features
 *  Infinite Scrolling (automatic or user-invoked)
 *  Customizable colors (Whites, Brights, Mids, Darks, Blacks, Accents)
 *  Customizable fonts (title, post-meta, body, quote)
+*  optional 500-pixels wide posts (400 pixels are the default)
 *  View high-resolution versions of images in a lightbox, with optional slideshow
 *  One- or two-column navigation, left or right of the main content and on top or bottom of the viewport
 *  Optional display of tags, avatar, tumblr title, likes and "people i follow"
@@ -26,5 +27,5 @@ Credits
 
 *  originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/) by [P.J. Onori](http://somerandomdude.com/)
 *  Pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
-*  layout powered by David DeSandro’s [jQuery Masonry](http://desandro.com/resources/jquery-masonry/) 
+*  layout powered by David DeSandro’s [jQuery Masonry](http://desandro.com/resources/jquery-masonry/)
 *  infinite scrolling courtesy of the [Infinite Scroll jQuery plugin](http://www.infinite-scroll.com) by Paul Irish
