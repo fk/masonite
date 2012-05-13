@@ -50,7 +50,7 @@
     <meta name="if:Fading Sidebar" content="0" />
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Hide Copyright" content="1" />
-    <!-- meta name="if:Use 500px wide Post Content" content="0" / -->
+    <meta name="if:500px Posts" content="0" />
 
     <meta name="text:Disqus Shortname" content="" />
     <meta name="text:Google Analytics" content="" />
@@ -607,8 +607,14 @@ em {
 /* Video Post */
 
 #index .post.video object {
+    {block:IfNot500pxPosts}
     width: 400px;
     height: 300px;
+    {/block:IfNot500pxPosts}
+    {block:If500pxPosts}
+    width: 500px;
+    height: 375px;
+    {/block:If500pxPosts}
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -624,8 +630,14 @@ em {
 
 #index .post.photo img,
 #index .post.audio .album_art img {
+    {block:IfNot500pxPosts}
     min-width: 400px;
     max-width: 400px;
+    {/block:IfNot500pxPosts}
+    {block:If500pxPosts}
+    min-width: 500px;
+    max-width: 500px;
+    {/block:If500pxPosts}
 }
 
 .post.photo .media .fullsize {
@@ -766,11 +778,21 @@ em {
 #index .post {
     z-index: 0;
     float: left;
+    {block:IfNot500pxPosts}
     width: 400px;
+    {/block:IfNot500pxPosts}
+    {block:If500pxPosts}
+    width: 500px;
+    {/block:If500pxPosts}
 }
 
 #index .post .copy img {
+    {block:IfNot500pxPosts}
     max-width: 400px;
+    {/block:IfNot500pxPosts}
+    {block:If500pxPosts}
+    max-width: 500px;
+    {/block:If500pxPosts}
 }
 
 #index .post .copy,
@@ -1145,16 +1167,25 @@ em {
 
 <!--[if lt IE 7.]>
 <style type="text/css">
-    #index .post.photo img, #index .post.audio .album_art img {
+    .width-400 #index .post.photo img, .width-400 #index .post.audio .album_art img {
     width: expression(this.offsetWidth> 400?400:'auto');
   }
+
+  .width-500 #index .post.photo img, .width-500 #index .post.audio .album_art img {
+  width: expression(this.offsetWidth> 500?500:'auto');
+}
 
   #likes li img {
     width: 120px;
   }
 
   #index .post {
+    {block:IfNot500pxPosts}
     width: 400px;
+    {/block:IfNot500pxPosts}
+    {block:If500pxPosts}
+    width: 500px;
+    {/block:If500pxPosts}
   }
 
   #sidebar {
@@ -1192,7 +1223,7 @@ em {
 </script>
 </head>
 
-<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}">
+<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts}">
 
 <div id="container" class="clearfix {block:PermalinkPage}single{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} container">
 
@@ -1240,7 +1271,7 @@ em {
                 {block:Photo}
                     <div class="media">
                         {LinkOpenTag}
-                            <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{PhotoURL-400}{/block:IndexPage}" alt="{PhotoAlt}" />
+                            <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{PhotoURL-400}{/block:IfNot500pxPosts} {block:If500pxPosts}{PhotoURL-500}{/block:If500pxPosts}{/block:IndexPage}" alt="{PhotoAlt}" />
                         {LinkCloseTag}
                         <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>{lang:Click for high-res photo}</span></a>
                     </div>
@@ -1251,7 +1282,7 @@ em {
 
                 {block:Video}
                     <div class="media">
-                        {block:PermalinkPage}{Video-500}{/block:PermalinkPage}{block:IndexPage}{Video-400}{/block:IndexPage}
+                        {block:PermalinkPage}{Video-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{Video-400}{/block:IfNot500pxPosts} {block:If500pxPosts}{Video-500}{/block:If500pxPosts}{/block:IndexPage}
                     </div>
                     {block:Caption}
                         <div class="copy">{Caption}</div>
