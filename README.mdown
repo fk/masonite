@@ -3,8 +3,13 @@
 masonry + infinite-scroll = masonite.  
 Clever, huh?
 
-[http://hellodirty.com](http://hellodirty.com)  
-[http://andrewharlow.co/](http://andrewharlow.co/)
+Now [http://www.tumblr.com/theme/34822](up for grabs) in the Tumblr Theme Garden.
+
+See it in action at:
+* [http://hellodirty.com](http://hellodirty.com)
+* [http://andrewharlow.co/](http://andrewharlow.co/)
+* [http://lionskeleton.co/](http://lionskeleton.co/)
+
 
 Features
 --------
