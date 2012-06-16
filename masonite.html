@@ -50,6 +50,7 @@
     <meta name="if:Fading Sidebar" content="0" />
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Hide Copyright" content="1" />
+    <meta name="if:Show Twitter" content="0" />
     <meta name="if:500px Posts" content="0" />
 
     <meta name="text:Disqus Shortname" content="" />
@@ -1468,20 +1469,22 @@ em {
         {/block:Following}
     {/block:IfShowPeopleIFollow}
 
-    {block:Twitter}
-        <div id="twitterwrapper">
-            <h3><a href="http://twitter.com/{TwitterUsername}">Latest Tweets</a></h3>
-            <div id="tweetcontainer"></div>
-            <script type="text/javascript">
-                function recent_tweets(data) {
-                    document.getElementById("twitterwrapper").style.display = "block";
-                    for(i = 0; i < data.length; i++) {
-                        document.getElementById("tweetcontainer").innerHTML = document.getElementById("tweetcontainer").innerHTML + '<a href="http://twitter.com/{TwitterUsername}/status/' + data[i].id + '"><div class="content">' + data[i].text + '</div></a>';
+    {block:IfShowTwitter}
+        {block:Twitter}
+            <div id="twitterwrapper">
+                <h3><a href="http://twitter.com/{TwitterUsername}">Latest Tweets</a></h3>
+                <div id="tweetcontainer"></div>
+                <script type="text/javascript">
+                    function recent_tweets(data) {
+                        document.getElementById("twitterwrapper").style.display = "block";
+                        for(i = 0; i < data.length; i++) {
+                            document.getElementById("tweetcontainer").innerHTML = document.getElementById("tweetcontainer").innerHTML + '<a href="http://twitter.com/{TwitterUsername}/status/' + data[i].id + '"><div class="content">' + data[i].text + '</div></a>';
+                        }
                     }
-                }
-            </script>
-        </div>
-    {/block:Twitter}
+                </script>
+            </div>
+        {/block:Twitter}
+    {/block:IfShowPeopleIFollow}
 
 </div><!-- /#footer -->
 
