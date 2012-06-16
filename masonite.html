@@ -592,7 +592,33 @@ em {
     font-weight: bold;
 }
 
-.title.question h3 {
+.title.question {
+    background: {color:Brights};
+    padding: 10px;
+    position: relative;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.title.question:after {
+    content: " ";
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 15px;
+    bottom: -8px;
+    display: block;
+    border-right: 8px solid {color:Whites};
+    border-top: 8px solid {color:Brights};
+}
+
+.asker_container {
+    font-size: 12px;
+}
+
+.asker_container img {
+    margin: 0 10px;
 }
 
 .post {
@@ -1318,7 +1344,7 @@ em {
 
                 {block:Answer}
                     <h3 class="title question">{Question}</h3>
-                    <div class="asker_container"><img src="{AskerPortraitURL-16}">{Asker}</div>
+                    <div class="asker_container"><img src="{AskerPortraitURL-16}"> {Asker}</div>
                     <div class="copy">{Answer}</div>
                 {block:Answer}
 
