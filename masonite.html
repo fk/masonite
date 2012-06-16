@@ -1511,7 +1511,7 @@ em {
 
 {block:IfDisqusShortname}
     <!-- disqus -->
-    <script type="text/javascript">
+    <script>
         (function() {
             var links = document.getElementsByTagName('a');
             var query = '?';
@@ -1528,13 +1528,13 @@ em {
 
 {block:IfGoogleAnalytics}
     <!-- google analytics, asynchronous: mathiasbynens.be/notes/async-analytics-snippet -->
-    <script type="text/javascript">
+    <script>
         var _gaq = [['_setAccount', '{text:Google Analytics}'], ['_trackPageview']];
         (function(d, t) {
              var g = d.createElement(t),
              s = d.getElementsByTagName(t)[0];
              g.async = true;
-             g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
              s.parentNode.insertBefore(g, s);
         })(document, 'script');
     </script>
@@ -1543,7 +1543,7 @@ em {
 
 {block:IfClickyTracking}
     <!-- clicky analytics, asynchronous: http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
-    <script type="text/javascript">
+    <script>
         var f = Function(),
             clicky = { log: f, goal: f },
             clicky_site_id = {text:Clicky Tracking};
