@@ -11,7 +11,7 @@ See it in action at:
 Features
 --------
 
-*  masonry-powered layout
+*  masonry-powered index layout (w/ opt-out to one-column)
 *  infinite scrolling (automatic or user-invoked)
 *  customizable colors (Whites, Brights, Mids, Darks, Blacks, Accents)
 *  customizable fonts (title, post-meta, body, quote)

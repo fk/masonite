@@ -42,6 +42,7 @@
     <meta name="if:Fading Sidebar" content="0" />
     <meta name="if:Header Left" content="1" />
     <meta name="if:Header Top" content="0" />
+    <meta name="if:One Column Content" content="0" />
     <meta name="if:Two Column Navigation" content="1" />
 
     <meta name="if:Show Album Art on Audio Posts" content="1" />
@@ -364,6 +365,15 @@ em {
 #container {
     margin: 0 0 40px;
     width: 100%;
+{block:IfOneColumnContent}
+    width: 740px;
+{/block:IfOneColumnContent}
+}
+
+.width-400 #container {
+{block:IfOneColumnContent}
+    width: 640px;
+{/block:IfOneColumnContent}
 }
 
 #footer {
