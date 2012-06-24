@@ -24,40 +24,53 @@
     <meta name="description" content="{MetaDescription}">
 {/block:Description}
 
-    <meta name="color:Whites" content="#ffffff" />
+    <meta name="color:Background" content="#ffffff" />
     <meta name="color:Brights" content="#eeeeee" />
+    <meta name="color:Lights" content="#ccc">
     <meta name="color:Mids" content="#999999" />
     <meta name="color:Darks" content="#555555" />
-    <meta name="color:Blacks" content="#000000" />
-    <meta name="color:Accents" content="#ff1e00" />
+    <meta name="color:Copy" content="#333333" />
+    <meta name="color:Accents" content="#ff6600" />
 
-    <meta name="font:Title" content="Arial,sans-serif" />
-    <meta name="font:PostMeta" content="Arial,sans-serif" />
     <meta name="font:Body" content="Arial,sans-serif" />
+    <meta name="font:PostMeta" content="Arial,sans-serif" />
     <meta name="font:Quote" content="Palatino,Georgia,serif" />
+    <meta name="font:Title" content="Arial,sans-serif" />
 
-    <meta name="if:Show Likes" content="0" />
-    <meta name="if:Show People I Follow" content="0" />
-    <meta name="if:Show Tags on Index Page" content="1" />
-    <meta name="if:Show Post Footer Border" content="1" />
-    <meta name="if:Two Column Navigation" content="1" />
-    <meta name="if:Header Left" content="1" />
-    <meta name="if:Header Top" content="0" />
-    <meta name="if:Show Tags" content="1" />
-    <meta name="if:Show Avatar" content="1" />
-    <meta name="if:Show Title" content="1" />
+    <meta name="if:500px Posts" content="0" />
     <meta name="if:Custom trigger Infinite Scrolling" content="0" />
     <meta name="if:Fading Sidebar" content="0" />
+    <meta name="if:Header Left" content="1" />
+    <meta name="if:Header Top" content="0" />
+    <meta name="if:Two Column Navigation" content="1" />
+
     <meta name="if:Show Album Art on Audio Posts" content="1" />
-    <meta name="if:Hide Copyright" content="1" />
+    <meta name="if:Show Avatar" content="1" />
+    <meta name="if:Show Copyright" content="0" />
+    <meta name="if:Show Likes" content="0" />
+    <meta name="if:Show People I Follow" content="0" />
+    <meta name="if:Show Post Footer Border" content="1" />
+    <meta name="if:Show Tags" content="1" />
+    <meta name="if:Show Tags on Index Page" content="1" />
+    <meta name="if:Show Title" content="1" />
     <meta name="if:Show Twitter" content="0" />
-    <meta name="if:500px Posts" content="0" />
 
     <meta name="text:Disqus Shortname" content="" />
     <meta name="text:Google Analytics" content="" />
     <meta name="text:Clicky Tracking" content="" />
 
 <style type="text/css">
+
+@font-face {
+  font-family: 'IcoMoon';
+  src: url('http://static.tumblr.com/wccjej0/PQYm5ql0r/icomoon.eot');
+  src: url('http://static.tumblr.com/wccjej0/PQYm5ql0r/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('http://static.tumblr.com/wccjej0/eu4m5ql16/icomoon.svg#IcoMoon') format('svg'),
+    url('http://static.tumblr.com/wccjej0/2Hdm5ql1z/icomoon.woff') format('woff'),
+    url('http://static.tumblr.com/wccjej0/OEEm5ql1l/icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html, body, body div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -89,15 +102,15 @@ body {
     margin:0;
     padding:0;
     font-family: {font:Body};
-    background: {color:Whites};
-    color: {color:Blacks};
+    background: {color:Background};
+    color: {color:Copy};
 }
 
 /* webkit scrollbar */
-
 ::-webkit-scrollbar-thumb:vertical { height:10px; background-color:{color:Mids}; }
-::-webkit-scrollbar { width:5px; height:5px; background:{color:Whites}; }
-::-webkit-scrollbar-track-piece { background-color:{color:Brights}; }
+::-webkit-scrollbar { width:5px; height:5px; background:{color:Background}; }
+::-webkit-scrollbar-track-piece { background-color:{color:Background}; }
+::-webkit-scrollbar-thumb:vertical:active { background-color:{color:Accents}; }
 
 /* Infinite Scroll loader */
 
@@ -111,11 +124,11 @@ body {
     bottom: 40px;
     opacity: 0.8;
     padding: 6px 10px 6px 8px;
-    background: {color:Blacks};
-    color: {color:Whites};
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    background: {color:Copy};
+    color: {color:Background};
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 {block:IfHeaderLeft}
     left: 200px;
 {/block:IfHeaderLeft}
@@ -187,8 +200,8 @@ input.query {
 #tumblr_controls {
 }
 
-::-moz-selection { background: {color:Accents}; color: {color:Whites}; text-shadow: none; }
-::selection { background: {color:Accents}; color: {color:Whites}; text-shadow: none; }
+::-moz-selection { background: {color:Accents}; color: {color:Background}; text-shadow: none; }
+::selection { background: {color:Accents}; color: {color:Background}; text-shadow: none; }
 
 /* j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: {color:Accents}; }
@@ -329,10 +342,6 @@ em {
 
 /* Masonry */
 
-#posts,
-#content {
-}
-
 #posts:after,
 #content:after {
     content: '.';
@@ -437,7 +446,7 @@ em {
     text-decoration: none;
     font-weight: bold;
     font-size: 12px;
-    color: {color:Blacks};
+    color: {color:Copy};
 }
 
 #avatar {
@@ -477,7 +486,7 @@ em {
 }
 
 #navigation li a:hover {
-    color: {color:Blacks};
+    color: {color:Copy};
 }
 
 /* Search */
@@ -516,6 +525,7 @@ em {
     display: block;
     border-bottom: 1px solid {color:Brights};
     font-family: {font:PostMeta};
+    color: {color:Lights};
 }
 
 .index .post .footer {
@@ -526,7 +536,6 @@ em {
 }
 
 .post .footer ul {
-    color: #aaaaaa;
     list-style: none;
 }
 
@@ -537,7 +546,7 @@ em {
 
 .post .footer a {
     text-decoration: none;
-    color: #aaaaaa;
+    color: {color:Lights};
     font-weight: normal;
     border: none;
 }
@@ -546,7 +555,11 @@ em {
 .post .footer .comments a,
 .post .footer .notes a {
     display: block;
-    padding-left: 18px;
+}
+
+.post .footer .date a {
+    display: block;
+    padding-left: 0;
 }
 
 .post .footer .date a {
@@ -566,20 +579,44 @@ em {
     background: none !important;
 }
 
+.post .footer .notes {
+{block:IfShowPostFooterBorder}
+    float: right;
+    margin-right: 0;
+    margin-left: 10px;
+{/block:IfShowPostFooterBorder}
+}
+
 .post .footer .tags {
     display: block;
     clear: both;
     font-size: 10px;
 }
 
-.post .footer .tags .header {
-    float: left;
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
-.post .footer .tags .header span {
-    display: block;
-    width: 12px;
-    text-indent: -99999px;
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
 }
 
 .post .footer .tags dd {
@@ -593,9 +630,11 @@ em {
 }
 
 .title.question {
-    background: {color:Brights};
     padding: 10px;
     position: relative;
+    background: {color:Copy};
+    color: {color:Background};
+    -webkit-transition: all 0.2s linear;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -606,11 +645,12 @@ em {
     width: 0;
     height: 0;
     position: absolute;
-    left: 15px;
+    left: 10px;
     bottom: -8px;
     display: block;
-    border-right: 8px solid {color:Whites};
-    border-top: 8px solid {color:Brights};
+    border-right: 8px solid {color:Background};
+    border-top: 8px solid {color:Copy};
+    -webkit-transition: all 0.2s linear;
 }
 
 .asker_container {
@@ -619,6 +659,15 @@ em {
 
 .asker_container img {
     margin: 0 10px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid {color:Brights};
+    margin: 20px 0;
+    padding: 0;
 }
 
 .post {
@@ -644,7 +693,8 @@ em {
     font-size: 14px;
 }
 
-.post.quote {
+.post .copy strong a {
+    font-weight: normal;
 }
 
 .post.quote .quote {
@@ -701,20 +751,33 @@ em {
 
 .post.photo .media .fullsize {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 24px;
-    height: 24px;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    margin-top: -32px;
+    margin-left: -32px;
     display: block;
-    text-indent: -9999px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    background: {color:Mids};
+    color: {color:Background};
+    background-color: {color:Accents};
+    opacity: .8;
+    -webkit-transition: all 0.2s linear;
+    display: block;
+    border-radius: 32px;
+}
+
+.post.photo .media .fullsize span {
+    display: block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .post.photo .media .fullsize:hover {
-    background: {color:Accents};
+    color: {color:Accents};
+    opacity: 1;
+    background-color: {color:Background};
+    box-shadow: 0px 0px 48px #fff;
 }
 
 .link a em {
@@ -722,67 +785,89 @@ em {
     padding: 0 4px;
 }
 
+.link a em:before {
+    content: "\e01c";
+    color: {color:Background};
+    background: {color:Copy};
+    border-radius: 8px;
+    font-size: 16px;
+}
+
 .link a em span {
-    width: 16px;
-    height: 16px;
-    text-indent: -9999em;
-    position: absolute;
-    top: 2px;
+    display: none;
 }
 
 #single a em span {
     top: 8px;
 }
 
-.post.photo .media .fullsize span,
-.post .quote,
-.post .link.title a span,
-.post .footer .date a,
-.post .footer .date.reblogged a,
-.post .footer .notes a,
-.post .footer .comments a,
-.post .footer .tags .header span {
-    background-image: url(http://static.tumblr.com/wccjej0/pAllhtqxz/sprites.png);
-    background-repeat: no-repeat;
+.post.photo .media .fullsize:before,
+.post .quote:before,
+.post .link.title a em:before,
+.post .footer .date a:before,
+.post .footer .date.reblogged a:before,
+.post .footer .notes a:before,
+.post .footer .comments a:before,
+.post .footer .tags:before {
+    font-family: 'IcoMoon';
+    font-style: normal;
+    speak: none;
+    margin-right: 4px;
 }
 
-.post.photo .media .fullsize span {
-    background-position: 0 0;
+.post.photo .media .fullsize:before {
+    content: "\e023";
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 38px;
+    text-align: center;
 }
 
-#index .post .quote {
-    background-position: 0 -1000px;
+#index .post .quote:before {
+   content: "\e018";
+   position: relative;
+   font-size: 16px;
+   margin-right: 1em;
+   top: -0.8em;
 }
 
-#single .post .quote {
-    background-position: 0 -1900px;
+#single .post .quote:before {
+   content: "\e018";
 }
 
-.post .footer .date a {
-    background-position: 0 -100px;
+.post .footer .date a:before {
+    content: "\e00d";
 }
+
+.post .footer .date .reblogged-from a:before {
+    content: "" !important;
+    margin-right: 0 !important;
+}
+
 
 .post .link.title a span {
     background-position: 0 -600px;
 }
 
-.post .footer .date.reblogged a {
-    background-position: 0 -200px;
+.post .footer .date.reblogged a:before {
+    content: "\e01b";
 }
 
-.post .footer .notes a {
-    background-position: 0 -300px;
+.post .footer .notes a:before {
+    content: "\e009";
 }
 
-.post .footer .comments a {
-    background-position: 0 -400px;
+.post .footer .comments a:before {
+    content: "\e011";
 }
 
-.post .footer .tags .header span {
-    background-position: 0 -400px;
+.post .footer .tags:before {
+    content: "\e020";
+    margin-right: 0;
+    float: left;
+    display: block;
 }
 
 /* Audio Post */
@@ -796,7 +881,7 @@ em {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    background: {color:Blacks};
+    background: {color:Copy};
 }
 
 .post.audio .meta {
@@ -822,7 +907,6 @@ em {
 
 #index .post .quote {
     line-height: 1.5;
-    text-indent: 24px;
 }
 
 #index .post .quote.short {
@@ -870,7 +954,7 @@ em {
 }
 
 .post a {
-    -webkit-transition: color 0.2s linear;
+    -webkit-transition: color 0.2s linear, border 0.2s linear;
     border-bottom: 1px solid {color:Brights};
 }
 
@@ -893,11 +977,22 @@ em {
 .post:hover a,
 .post.active a {
     color: {color:Accents};
+    border-color: {color:Accents};
 }
 
 .post:hover .footer a,
-.post.active .footer a {
+.post.active .footer a,
+.post:hover .footer .tags,
+.post.active .footer .tags {
     color: {color:Darks};
+}
+
+.post.answer:hover .question {
+    background-color: {color:Accents};
+}
+
+.post.answer:hover .question:after {
+    border-top: 8px solid {color:Accents};
 }
 
 /* Single */
@@ -935,7 +1030,7 @@ em {
 }
 
 #dsq-comments .dsq-comment-header {
-    border-left: 3px solid {color:Blacks};
+    border-left: 3px solid {color:Copy};
     padding-left: 5px;
 }
 
@@ -960,16 +1055,11 @@ em {
 #single .post .quote {
   font-size: 36px;
   line-height: 40px;
-  text-indent: 36px;
-}
-
-.post .link .title {
-    padding-right: 24px;
 }
 
 .post .link.title a {
     border: none;
-    color: {color:Blacks};
+    color: {color:Copy};
 }
 
 #single .post .title {
@@ -1002,9 +1092,9 @@ em {
 }
 
 #copyright span {
-    {block:IfHideCopyright}
+    {block:IfNotShowCopyright}
     display: none;
-    {/block:IfHideCopyright}
+    {/block:IfNotShowCopyright}
 }
 
 /* Footer */
@@ -1077,8 +1167,8 @@ em {
 }
 
 #likes li:hover {
-  background: {color:Blacks};
-  color: {color:Whites};
+  background: {color:Copy};
+  color: {color:Background};
 }
 
 #likes li.like_text_post {
@@ -1140,8 +1230,8 @@ em {
 }
 
 #index #pagination li a:hover {
-    background: {color:Blacks};
-    color: {color:Whites};
+    background: {color:Copy};
+    color: {color:Background};
 
 }
 {/block:IfCustomtriggerInfiniteScrolling}
@@ -1169,13 +1259,13 @@ em {
     order/nesting of the generated HTML, so that the structure easier to understand.
 */
 
-#cboxOverlay{background:{color:Blacks};}
+#cboxOverlay{background:{color:Copy};}
 #colorbox{}
     #cboxContent{ margin-top:32px; }
         #cboxError{ padding:50px; }
-        #cboxLoadedContent{ background:{color:Blacks}; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+        #cboxLoadedContent{ background:{color:Copy}; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
         #cboxLoadingGraphic{ background:url(http://static.tumblr.com/wccjej0/CzMlckwya/activity_indicator.gif) center center no-repeat; }
-        #cboxLoadingOverlay{background:{color:Blacks};}
+        #cboxLoadingOverlay{background:{color:Copy};}
         #cboxTitle{position:absolute; top:-22px; left:0; color:{color:Mids};}
         #cboxCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}
         #cboxSlideshow, #cboxPrevious, #cboxNext, #cboxClose{text-indent:-9999px; width:20px; height:20px; position:absolute; top:-24px; right:1px; background:url(http://static.tumblr.com/wccjej0/NYulhtuk1/controls.png) 0 0 no-repeat;}
@@ -1225,7 +1315,7 @@ em {
 </style>
 
 <script type="text/javascript" charset="utf-8">
-    var Whites = "{color:Whites}";
+    var Whites = "{color:Background}";
     var trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}";
     if(trueOrFalse){
         var customTrigger = true;
@@ -1398,7 +1488,7 @@ em {
                         {block:IfShowTagsonIndexPage}
                             {block:HasTags}
                                 <dl class="tags clearfix">
-                                    <dt class="header">
+                                    <dt class="header visuallyhidden">
                                         <span>{lang:Tagged}</span>
                                     </dt>
                                     {block:Tags}
@@ -1413,7 +1503,9 @@ em {
                         {block:IfShowTags}
                             {block:HasTags}
                                 <dl class="tags clearfix">
-                                    <dt class="header"><span>{lang:Tagged}</span></dt>
+                                    <dt class="header visuallyhidden">
+                                        <span>{lang:Tagged}</span>
+                                    </dt>
                                     {block:Tags}
                                         <dd><a href="{TagURL}">{Tag}</a></dd>
                                     {/block:Tags}
