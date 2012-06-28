@@ -18,7 +18,17 @@
     <link rel="apple-touch-icon" href="{PortraitURL-128}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-    <meta name="viewport" content="width=1080, initial-scale=1.0">
+{block:IfNot500pxPosts}
+    <meta name="viewport" content="width=1080">
+{/block:IfNot500pxPosts}
+
+{block:If500pxPosts}
+    <meta name="viewport" content="width=1280">
+{/block:If500pxPosts}
+
+{block:IfOneColumnContent}
+    <meta name="viewport" content="width=device-width">
+{/block:IfOneColumnContent}
 
 {block:Description}
     <meta name="description" content="{MetaDescription}">
