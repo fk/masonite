@@ -1472,6 +1472,7 @@ hr {
 
                 <div class="footer clearfix">
                     <ul class="clearfix">
+                    {block:Date}
                         <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
                             {block:IndexPage}
                                 <a href="{Permalink}">
@@ -1484,18 +1485,18 @@ hr {
                                 </a>
                             {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}" class="reblog">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}" class="reblog">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
                             {/block:PermalinkPage}
-
                         </li>
-                        {block:NoteCount}
-                            <li class="notes">
-                                <a href="{Permalink}">{NoteCount}</a>
-                            </li>
-                        {/block:NoteCount}
-                        {block:IfDisqusShortname}
-                            <li class="comments">
-                                <a href="{Permalink}#disqus_thread">Comments</a>
-                            </li>
-                        {/block:IfDisqusShortname}
+                    {/block:Date}
+                    {block:NoteCount}
+                        <li class="notes">
+                            <a href="{Permalink}">{NoteCount}</a>
+                        </li>
+                    {/block:NoteCount}
+                    {block:IfDisqusShortname}
+                        <li class="comments">
+                            <a href="{Permalink}#disqus_thread">Comments</a>
+                        </li>
+                    {/block:IfDisqusShortname}
                     </ul>
 
                     {block:IndexPage}
