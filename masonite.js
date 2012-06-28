@@ -552,7 +552,7 @@ function fadingSidebar() {
 				loading: {
 			    finishedMsg: "No more pages to load",
 			    img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-			    msgText: "Loading next page"
+			    msgText: "Loading page 2/" + totalPages
 			  },
 				navSelector     : '#pagination li.next a',  // selector for the paged navigation
 				nextSelector    : '#pagination li.next a',  // selector for the NEXT link (to page 2)
@@ -565,6 +565,8 @@ function fadingSidebar() {
 				},
 				// call masonry as a callback
 				function( newElements ) {
+					// get opts by getting internal data of infinite scroll instance
+					var opts = $wall.data('infinitescroll').options;
 					var $elems = $( newElements ).css({ opacity: 0 });
 
 					// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
@@ -605,7 +607,11 @@ function fadingSidebar() {
 							}
 						});
 					});
-					
+
+					setTimeout(function() {
+					   $('#infscr-loading > div').html("Loading page " + (opts.state.currPage + 1) + "/" + totalPages);
+					}, 400);
+
 				}
 			);
 
