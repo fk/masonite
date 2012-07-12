@@ -1601,7 +1601,6 @@ hr {
             <div id="tweetcontainer"></div>
             <script type="text/javascript">
                 function recent_tweets(data) {
-                    document.getElementById("twitterwrapper").style.display = "block";
                     for(i = 0; i < data.length; i++) {
                         document.getElementById("tweetcontainer").innerHTML = document.getElementById("tweetcontainer").innerHTML + '<a href="http://twitter.com/{TwitterUsername}/status/' + data[i].id + '"><div class="content">' + data[i].text + '</div></a>';
                     }
