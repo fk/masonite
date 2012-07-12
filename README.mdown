@@ -1,6 +1,6 @@
 **A tumblr theme.**
 
-masonry + infinite-scroll = masonite.  
+masonry + infinite-scroll = masonite.
 Clever, huh?
 
 Now [up for grabs](http://www.tumblr.com/theme/34822) in the Tumblr Theme Garden.
@@ -31,3 +31,4 @@ Credits
 *  pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 *  layout powered by David DeSandro’s [jQuery Masonry](http://desandro.com/resources/jquery-masonry/)
 *  infinite scrolling courtesy of the [Infinite Scroll jQuery plugin](http://www.infinite-scroll.com) by Paul Irish
+*  icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/)
