@@ -1,6 +1,6 @@
 **A tumblr theme.**
 
-masonry + infinite-scroll = masonite.
+masonry + infinite-scroll = masonite.  
 Clever, huh?
 
 Now [up for grabs](http://www.tumblr.com/theme/34822) in the Tumblr Theme Garden.
