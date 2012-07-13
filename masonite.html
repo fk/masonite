@@ -44,6 +44,7 @@
     <meta name="if:Header Top" content="0" />
     <meta name="if:One Column Content" content="0" />
     <meta name="if:Two Column Navigation" content="1" />
+    <meta name="if:Dog Ear Zoom Icon" content="0" />
 
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Show Avatar" content="1" />
@@ -766,8 +767,45 @@ hr {
     opacity: .8;
     -webkit-transition: all 0.2s linear;
     display: block;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
     border-radius: 32px;
+    {block:IfDogEarZoomIcon}
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    margin-top: 0;
+    margin-left: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: {color:Copy};
+    opacity: 1;
+    background-color: transparent;
+    {/block:IfDogEarZoomIcon}
 }
+
+{block:IfDogEarZoomIcon}
+.post.photo .media .fullsize:after {
+    content: ' ';
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-bottom: 24px solid {color:Copy};
+    border-right: 24px solid {color:Background};
+    z-index: 0;
+    -webkit-transition: 2s linear;
+}
+
+.post.photo .media .fullsize:hover:after {
+    border-bottom: 24px solid {color:Accents};
+    border-right: 24px solid {color:Background};
+}
+{/block:IfDogEarZoomIcon}
 
 .post.photo .media .fullsize span {
     display: block;
@@ -781,6 +819,12 @@ hr {
     opacity: 1;
     background-color: {color:Background};
     box-shadow: 0px 0px 48px #fff;
+    {block:IfDogEarZoomIcon}
+    color: {color:Background};
+    background-color: transparent;
+    color: {color:Accents};
+    box-shadow: none;
+    {/block:IfDogEarZoomIcon}
 }
 
 .link a em {
@@ -826,6 +870,15 @@ hr {
     line-height: 64px;
     font-size: 38px;
     text-align: center;
+    {block:IfDogEarZoomIcon}
+    position: relative;
+    width: 24px;
+    height: 24px;
+    line-height: 15px;
+    font-size: 15px;
+    text-align: right;
+    z-index: 10;
+    {/block:IfDogEarZoomIcon}
 }
 
 #index .post .quote:before {
