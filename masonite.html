@@ -1319,7 +1319,13 @@ hr {
     order/nesting of the generated HTML, so that the structure easier to understand.
 */
 
-#cboxOverlay{background:{color:Copy};}
+#cboxOverlay {
+    background: #000;
+    -moz-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+    -o-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+}
 #colorbox{}
     #cboxContent{ margin-top:32px; }
         #cboxError{ padding:50px; }
