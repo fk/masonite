@@ -60,6 +60,12 @@
     <meta name="text:Disqus Shortname" content="" />
     <meta name="text:Google Analytics" content="" />
     <meta name="text:Clicky Tracking" content="" />
+    <meta name="text:Soundcloud" content="" />
+    <meta name="text:Facebook" content="" />
+    <meta name="text:Github" content="" />
+    <meta name="text:Dribbble" content="" />
+    <meta name="text:Vimeo" content="" />
+    <meta name="text:Twitter" content="" />
 
 <link href="http://static.tumblr.com/wccjej0/WDJm72j3h/hellodirty.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -464,23 +470,64 @@ em {
 
 /* Navigation */
 
-#navigation {
+#navigation,
+#external {
     font-family: {font:PostMeta};
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-#navigation li {
+#external {
+    {block:IfTwitter}
+        margin-top: 2em;
+    {/block:IfTwitter}
+    {block:IfSoundcloud}
+        margin-top: 2em;
+    {/block:IfSoundcloud}
+    {block:IfFacebook}
+        margin-top: 2em;
+    {/block:IfFacebook}
+    {block:IfGithub}
+        margin-top: 2em;
+    {/block:IfGithub}
+    {block:IfVimeo}
+        margin-top: 2em;
+    {/block:IfVimeo}
+    {block:IfDribbble}
+        margin-top: 2em;
+    {/block:IfDribbble}
+}
+
+#navigation li,
+#external li {
     background: none;
     padding: 0;
     margin: 0;
+}
+
+#external li {
+    float: left;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#external li a {
+    display: block;
+    color: {color:Mids};
+}
+
+#external li a:hover {
+    color: {color:Accents};
+}
+
 {block:IfTwoColumnNavigation}
+#navigation li {
     float: left;
     width: 50px;
     padding-right: 10px;
-{/block:IfTwoColumnNavigation}
 }
+{/block:IfTwoColumnNavigation}
 
 #navigation li a {
     text-decoration: none;
@@ -596,7 +643,8 @@ em {
     font-size: 10px;
 }
 
-.visuallyhidden {
+.visuallyhidden,
+#external span {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -781,7 +829,7 @@ hr {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    color: {color:Copy};
+    color: {color:Mids};
     opacity: 1;
     background-color: transparent;
     {/block:IfDogEarZoomIcon}
@@ -795,7 +843,7 @@ hr {
     position: absolute;
     right: 0;
     top: 0;
-    border-bottom: 24px solid {color:Copy};
+    border-bottom: 24px solid {color:Mids};
     border-right: 24px solid {color:Background};
     z-index: 0;
     -webkit-transition: 2s linear;
@@ -855,11 +903,31 @@ hr {
 .post .footer .date.reblogged a:before,
 .post .footer .notes a:before,
 .post .footer .comments a:before,
-.post .footer .tags:before {
+.post .footer .tags:before,
+#external a:before {
     font-family: 'hellodirty';
     font-style: normal;
     speak: none;
     margin-right: 4px;
+}
+
+#external .github a:before {
+    content: "\e02b";
+}
+#external .soundcloud a:before {
+    content: "\e02e";
+}
+#external .twitter a:before {
+    content: "\e028";
+}
+#external .facebook a:before {
+    content: "\e025";
+}
+#external .dribbble a:before {
+    content: "\e030";
+}
+#external .vimeo a:before {
+    content: "\e029";
 }
 
 .post.photo .media .fullsize:before {
@@ -1448,6 +1516,27 @@ hr {
         <li class="random"><a href="/random">{lang:Random}</a></li>
         <li class="mobile"><a href="/mobile">{lang:Mobile}</a></li>
         <li class="rss last"><a href="{RSS}">{lang:RSS}</a></li>
+    </ul>
+
+    <ul id="external" class="clearfix">
+        {block:IfDribbble}
+        <li class="dribbble"><a href="{text:Dribbble}"> <span>Dribbble</span></a></li>
+        {/block:IfDribbble}
+        {block:IfFacebook}
+        <li class="facebook"><a href="{text:Facebook}"> <span>Facebook</span></a></li>
+        {/block:IfFacebook}
+        {block:IfGithub}
+        <li class="github"><a href="{text:Github}"> <span>Github</span></a></li>
+        {/block:IfGithub}
+        {block:IfSoundcloud}
+        <li class="soundcloud"><a href="{text:Soundcloud}"> <span>Soundcloud</span></a></li>
+        {/block:IfSoundcloud}
+        {block:IfTwitter}
+        <li class="twitter"><a href="{text:Twitter}"> <span>Twitter</span></a></li>
+        {/block:IfTwitter}
+        {block:IfVimeo}
+        <li class="vimeo"><a href="{text:Vimeo}"> <span>Vimeo</span></a></li>
+        {/block:IfVimeo}
     </ul>
 
     <div id="search">
