@@ -1464,24 +1464,26 @@
         {CustomCSS}
     </style>
     <script type="text/javascript" charset="utf-8">
-        var Whites = "{color:Background}";
-        var trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}";
-        if(trueOrFalse){
-            var customTrigger = true;
-        }else{
-            var customTrigger = false;
-        }
-        // no time to do this the right way
-        var fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}";
-        if(fadeSidebar){
-            var fadeSidebar = true;
-        }else{
-            var fadeSidebar = false;
-        }
-        var Accents = "{color:Accents}";
-        var totalPages = {totalPages};
+        var Whites = "{color:Background}",
+            Accents = "{color:Accents}",
+            totalPages = {totalPages},
+            trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
+            fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}";
+        
         Whites = Whites.slice( 1 );
         Accents = Accents.slice( 1 );
+            
+        if ( trueOrFalse ) {
+            var customTrigger = true;
+        } else {
+            var customTrigger = false;
+        }
+        
+        if ( fadeSidebar ) {
+            var fadeSidebar = true;
+        } else {
+            var fadeSidebar = false;
+        }
     </script>
 </head>
 
