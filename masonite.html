@@ -97,8 +97,8 @@
             margin: 0;
             padding: 0;
             line-height: 20px;
-            margin:0;
-            padding:0;
+            margin: 0;
+            padding: 0;
             font-family: {font:Body};
             background: {color:Background};
             color: {color:Copy};
@@ -108,10 +108,24 @@
            WebKit Scrollbar
            ========================================================================== */
 
-        ::-webkit-scrollbar-thumb:vertical { height:10px; background-color:{color:Mids}; }
-        ::-webkit-scrollbar { width:5px; height:5px; background:{color:Background}; }
-        ::-webkit-scrollbar-track-piece { background-color:{color:Background}; }
-        ::-webkit-scrollbar-thumb:vertical:active { background-color:{color:Accents}; }
+        ::-webkit-scrollbar-thumb:vertical {
+            height: 1 0px;
+            background-color: {color:Mids};
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            background: {color:Background};
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: {color:Background};
+        }
+
+        ::-webkit-scrollbar-thumb:vertical:active {
+            background-color: {color:Accents};
+        }
 
         /* ==========================================================================
            Infinite Scroll Loader
@@ -138,7 +152,7 @@
         }
 
         #infscr-loading div {
-            float:right;
+            float: right;
         }
 
         #infscr-loading img {
@@ -158,20 +172,20 @@
 
         .lt-ie7 .width-500 #index .post.photo img,
         .lt-ie7 .width-500 #index .post.audio .album_art img {
-          width: expression(this.offsetWidth> 500?500:'auto');
+            width: expression(this.offsetWidth> 500?500:'auto');
         }
 
         .lt-ie7 #likes li img {
-          width: 120px;
+            width: 120px;
         }
 
         .lt-ie7 #index .post {
-            {block:IfNot500pxPosts}
+        {block:IfNot500pxPosts}
             width: 400px;
-            {/block:IfNot500pxPosts}
-            {block:If500pxPosts}
+        {/block:IfNot500pxPosts}
+        {block:If500pxPosts}
             width: 500px;
-            {/block:If500pxPosts}
+        {/block:If500pxPosts}
         }
 
         .lt-ie7  #sidebar {
@@ -179,7 +193,7 @@
         }
 
         .lt-ie8 #header {
-          margin-bottom: 40px;
+            margin-bottom: 40px;
         }
 
         /* Bicubic resizing for non-native sized IMG:
@@ -208,17 +222,33 @@
         #tumblr_controls {
         }
 
-        ::-moz-selection { background: {color:Accents}; color: {color:Background}; text-shadow: none; }
-        ::selection { background: {color:Accents}; color: {color:Background}; text-shadow: none; }
+        ::-moz-selection {
+            background: {color:Accents};
+            color: {color:Background};
+            text-shadow: none;
+        }
+
+        ::selection {
+            background: {color:Accents};
+            color: {color:Background};
+            text-shadow: none;
+        }
 
         /* j.mp/webkit-tap-highlight-color */
-        a:link { -webkit-tap-highlight-color: {color:Accents}; }
+        a:link {
+            -webkit-tap-highlight-color: {color:Accents};
+        }
 
         /* ==========================================================================
            Typography
            ========================================================================== */
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             margin: 15px 0 20px 0;
         }
 
@@ -338,11 +368,11 @@
 
         textarea {
             font-size: 12px;
-            font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
 
         pre,code,tt {
-            font: 10px 'andale mono','monotype.com','lucida console',monospace;
+            font: 10px 'andale mono', 'monotype.com', 'lucida console', monospace;
             line-height: 1.5;
         }
 
@@ -466,6 +496,7 @@
             padding: 0 0 1em;
             font-family: {font:Title};
         }
+
         #header h1 a {
             text-decoration: none;
             font-weight: bold;
@@ -478,10 +509,10 @@
             display: none;
         {/block:IfNotShowAvatar}
         {block:IfShowAvatar}
-          margin-bottom: 0;
-          {block:IfNotShowTitle}
+            margin-bottom: 0;
+            {block:IfNotShowTitle}
             margin-bottom: 1em;
-          {/block:IfNotShowTitle}
+            {/block:IfNotShowTitle}
         {/block:IfShowAvatar}
         }
 
@@ -497,24 +528,24 @@
         }
 
         #external {
-            {block:IfTwitter}
-                margin-top: 2em;
-            {/block:IfTwitter}
-            {block:IfSoundcloud}
-                margin-top: 2em;
-            {/block:IfSoundcloud}
-            {block:IfFacebook}
-                margin-top: 2em;
-            {/block:IfFacebook}
-            {block:IfGithub}
-                margin-top: 2em;
-            {/block:IfGithub}
-            {block:IfVimeo}
-                margin-top: 2em;
-            {/block:IfVimeo}
-            {block:IfDribbble}
-                margin-top: 2em;
-            {/block:IfDribbble}
+        {block:IfTwitter}
+            margin-top: 2em;
+        {/block:IfTwitter}
+        {block:IfSoundcloud}
+            margin-top: 2em;
+        {/block:IfSoundcloud}
+        {block:IfFacebook}
+            margin-top: 2em;
+        {/block:IfFacebook}
+        {block:IfGithub}
+            margin-top: 2em;
+        {/block:IfGithub}
+        {block:IfVimeo}
+            margin-top: 2em;
+        {/block:IfVimeo}
+        {block:IfDribbble}
+            margin-top: 2em;
+        {/block:IfDribbble}
         }
 
         #navigation li,
@@ -794,14 +825,14 @@
            ========================================================================== */
 
         #index .post.video object {
-            {block:IfNot500pxPosts}
+        {block:IfNot500pxPosts}
             width: 400px;
             height: 300px;
-            {/block:IfNot500pxPosts}
-            {block:If500pxPosts}
+        {/block:IfNot500pxPosts}
+        {block:If500pxPosts}
             width: 500px;
             height: 375px;
-            {/block:If500pxPosts}
+        {/block:If500pxPosts}
             -webkit-border-radius: 2px;
             -moz-border-radius: 2px;
             border-radius: 2px;
@@ -819,14 +850,14 @@
 
         #index .post.photo img,
         #index .post.audio .album_art img {
-            {block:IfNot500pxPosts}
+        {block:IfNot500pxPosts}
             min-width: 400px;
             max-width: 400px;
-            {/block:IfNot500pxPosts}
-            {block:If500pxPosts}
+        {/block:IfNot500pxPosts}
+        {block:If500pxPosts}
             min-width: 500px;
             max-width: 500px;
-            {/block:If500pxPosts}
+        {/block:If500pxPosts}
         }
 
         .post.photo .media .fullsize {
@@ -846,7 +877,7 @@
             -webkit-border-radius: 32px;
             -moz-border-radius: 32px;
             border-radius: 32px;
-            {block:IfDogEarZoomIcon}
+        {block:IfDogEarZoomIcon}
             top: 0;
             left: auto;
             right: 0;
@@ -860,7 +891,7 @@
             color: {color:Mids};
             opacity: 1;
             background-color: transparent;
-            {/block:IfDogEarZoomIcon}
+        {/block:IfDogEarZoomIcon}
         }
 
         {block:IfDogEarZoomIcon}
@@ -895,12 +926,12 @@
             opacity: 1;
             background-color: {color:Background};
             box-shadow: 0px 0px 48px #fff;
-            {block:IfDogEarZoomIcon}
+        {block:IfDogEarZoomIcon}
             color: {color:Background};
             background-color: transparent;
             color: {color:Accents};
             box-shadow: none;
-            {/block:IfDogEarZoomIcon}
+        {/block:IfDogEarZoomIcon}
         }
 
         .link a em {
@@ -942,18 +973,23 @@
         #external .github a:before {
             content: "\e02b";
         }
+
         #external .soundcloud a:before {
             content: "\e02e";
         }
+
         #external .twitter a:before {
             content: "\e028";
         }
+
         #external .facebook a:before {
             content: "\e025";
         }
+
         #external .dribbble a:before {
             content: "\e030";
         }
+
         #external .vimeo a:before {
             content: "\e029";
         }
@@ -966,7 +1002,7 @@
             line-height: 64px;
             font-size: 38px;
             text-align: center;
-            {block:IfDogEarZoomIcon}
+        {block:IfDogEarZoomIcon}
             position: relative;
             width: 24px;
             height: 24px;
@@ -974,7 +1010,7 @@
             font-size: 15px;
             text-align: right;
             z-index: 10;
-            {/block:IfDogEarZoomIcon}
+        {/block:IfDogEarZoomIcon}
         }
 
         #index .post .quote:before {
@@ -1075,21 +1111,21 @@
         #index .post {
             z-index: 0;
             float: left;
-            {block:IfNot500pxPosts}
+        {block:IfNot500pxPosts}
             width: 400px;
-            {/block:IfNot500pxPosts}
-            {block:If500pxPosts}
+        {/block:IfNot500pxPosts}
+        {block:If500pxPosts}
             width: 500px;
-            {/block:If500pxPosts}
+        {/block:If500pxPosts}
         }
 
         #index .post .copy img {
-            {block:IfNot500pxPosts}
+        {block:IfNot500pxPosts}
             max-width: 400px;
-            {/block:IfNot500pxPosts}
-            {block:If500pxPosts}
+        {/block:IfNot500pxPosts}
+        {block:If500pxPosts}
             max-width: 500px;
-            {/block:If500pxPosts}
+        {/block:If500pxPosts}
         }
 
         #index .post .copy,
@@ -1235,25 +1271,25 @@
         }
 
         #copyright {
-          position: fixed;
-          bottom: 40px;
-          line-height: 1.2;
-          right: 0;
-          width: 120px;
-          padding: 0 40px 0 0;
-          color: {color:Mids};
-          z-index: 9997;
+            position: fixed;
+            bottom: 40px;
+            line-height: 1.2;
+            right: 0;
+            width: 120px;
+            padding: 0 40px 0 0;
+            color: {color:Mids};
+            z-index: 9997;
         {block:IfHeaderLeft}
-          right: auto;
-          left: 0;
-          padding: 0 0 0 40px;
+            right: auto;
+            left: 0;
+            padding: 0 0 0 40px;
         {/block:IfHeaderLeft}
         }
 
         #copyright span {
-            {block:IfNotShowCopyright}
+        {block:IfNotShowCopyright}
             display: none;
-            {/block:IfNotShowCopyright}
+        {/block:IfNotShowCopyright}
         }
 
         #copyright a {
@@ -1268,11 +1304,11 @@
            ========================================================================== */
 
         #following {
-          margin-top: 20px;
+            margin-top: 20px;
         }
 
         #following h3 {
-          text-decoration: none;
+            text-decoration: none;
         }
 
         #following a {
@@ -1286,44 +1322,44 @@
            ========================================================================== */
 
         #twitterwrapper {
-          overflow: hidden;
-          margin: 40px 40px 20px 0;
-          {block:IfNotShowTwitter}
-          display: none;
-          {/block:IfNotShowTwitter}
+            overflow: hidden;
+            margin: 40px 40px 20px 0;
+        {block:IfNotShowTwitter}
+            display: none;
+        {/block:IfNotShowTwitter}
         }
 
         #tweetcontainer {
-          font-size: 12px;
+            font-size: 12px;
         }
 
         #tweetcontainer a {
-          text-decoration: none;
+            text-decoration: none;
         }
 
         /* Likes
            ========================================================================== */
 
         #likes_container {
-          margin-top: 20px;
+            margin-top: 20px;
         }
 
         #likes_container h3 a {
-          text-decoration: none;
+            text-decoration: none;
         }
 
         #likes {
-          margin: 0;
-          padding: 0;
-          list-style: none;
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
         #likes li {
-          width: 120px;
-          float: left;
-          margin-right: 10px;
-          padding: 5px;
-          overflow: hidden !important;
+            width: 120px;
+            float: left;
+            margin-right: 10px;
+            padding: 5px;
+            overflow: hidden !important;
         }
 
         #likes li:first-child,
@@ -1332,45 +1368,45 @@
 
         #likes li:last-child,
         #likes li.last {
-          margin-right: 0;
+            margin-right: 0;
         }
 
         #likes li p {
-          font-size: 11px;
+            font-size: 11px;
         }
 
         #likes li:hover {
-          background: {color:Copy};
-          color: {color:Background};
+            background: {color:Copy};
+            color: {color:Background};
         }
 
         #likes li.like_text_post {
-          font-size: 12px;
+            font-size: 12px;
         }
 
         #likes li.like_quote_post {
-          font-size: 12px;
+            font-size: 12px;
         }
 
         #likes blockquote {
-          padding-left: 4px;
+            padding-left: 4px;
         }
 
         #likes blockquote p {
-          font-size: 12px !important;
-          line-height: 20px !important;
+            font-size: 12px !important;
+            line-height: 20px !important;
         }
 
         #likes li img {
-          max-width: 120px;
+            max-width: 120px;
         }
 
         /* Pagination
            ========================================================================== */
 
         #pagination {
-          list-style: none;
-          line-height: 1;
+            list-style: none;
+            line-height: 1;
             margin: 0 40px 0 40px;
         {block:IfHeaderLeft}
             margin: 0 40px 0 200px;
@@ -1389,7 +1425,7 @@
         }
 
         #pagination li a {
-          text-decoration: none;
+            text-decoration: none;
         }
 
         {block:IfCustomtriggerInfiniteScrolling}
@@ -1406,7 +1442,6 @@
         #index #pagination li a:hover {
             background: {color:Copy};
             color: {color:Background};
-
         }
         {/block:IfCustomtriggerInfiniteScrolling}
 
@@ -1501,9 +1536,11 @@
             content: "";
             display: table;
         }
+        
         .clearfix:after {
             clear: both;
         }
+        
         .clearfix {
             zoom: 1;
         }
