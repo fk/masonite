@@ -410,15 +410,14 @@
         #container {
             margin: 0 0 40px;
             width: 100%;
-        {block:IfOneColumnContent}
-            width: 740px;
-        {/block:IfOneColumnContent}
         }
 
-        .width-400 #container {
-        {block:IfOneColumnContent}
+        .single-column #container {
+            width: 740px;
+        }
+
+        .width-400.single-column #container {
             width: 640px;
-        {/block:IfOneColumnContent}
         }
 
         #footer {
@@ -1589,7 +1588,7 @@
     </script>
 </head>
 
-<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft}">
+<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent}">
 
 <div id="container" class="clearfix {block:PermalinkPage}single{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} container">
 
