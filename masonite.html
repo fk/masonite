@@ -183,12 +183,11 @@
         }
 
         .lt-ie7 #index .post {
-        {block:IfNot500pxPosts}
             width: 400px;
-        {/block:IfNot500pxPosts}
-        {block:If500pxPosts}
+        }
+
+        .lt-ie7 .width-500 #index .post {
             width: 500px;
-        {/block:If500pxPosts}
         }
 
         .lt-ie7  #sidebar {
@@ -829,17 +828,16 @@
            ========================================================================== */
 
         #index .post.video object {
-        {block:IfNot500pxPosts}
             width: 400px;
             height: 300px;
-        {/block:IfNot500pxPosts}
-        {block:If500pxPosts}
-            width: 500px;
-            height: 375px;
-        {/block:If500pxPosts}
             -webkit-border-radius: 2px;
             -moz-border-radius: 2px;
             border-radius: 2px;
+        }
+
+        #index .width-500 .post.video object {
+            width: 500px;
+            height: 375px;
         }
 
         /* Photo Post
@@ -854,14 +852,14 @@
 
         #index .post.photo img,
         #index .post.audio .album_art img {
-        {block:IfNot500pxPosts}
             min-width: 400px;
             max-width: 400px;
-        {/block:IfNot500pxPosts}
-        {block:If500pxPosts}
+        }
+
+        #index .width-500 .post.photo img,
+        #index .width-500 .post.audio .album_art img {
             min-width: 500px;
             max-width: 500px;
-        {/block:If500pxPosts}
         }
 
         .post.photo .media .fullsize {
@@ -1115,21 +1113,19 @@
         #index .post {
             z-index: 0;
             float: left;
-        {block:IfNot500pxPosts}
             width: 400px;
-        {/block:IfNot500pxPosts}
-        {block:If500pxPosts}
+        }
+
+        #index .width-500 .post {
             width: 500px;
-        {/block:If500pxPosts}
         }
 
         #index .post .copy img {
-        {block:IfNot500pxPosts}
             max-width: 400px;
-        {/block:IfNot500pxPosts}
-        {block:If500pxPosts}
+        }
+
+        #index .width-500 .post .copy img {
             max-width: 500px;
-        {/block:If500pxPosts}
         }
 
         #index .post .copy,
