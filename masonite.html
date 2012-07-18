@@ -167,13 +167,13 @@
         /* IE Fixes
            ========================================================================== */
 
-        .lt-ie7 .width-400 #index .post.photo img,
-        .lt-ie7 .width-400 #index .post.audio .album_art img {
+        .lt-ie7 #index.width-400 .post.photo img,
+        .lt-ie7 #index.width-400 .post.audio .album_art img {
             width: expression(this.offsetWidth> 400?400:'auto');
         }
 
-        .lt-ie7 .width-500 #index .post.photo img,
-        .lt-ie7 .width-500 #index .post.audio .album_art img {
+        .lt-ie7 #index.width-500 .post.photo img,
+        .lt-ie7 #index.width-500 .post.audio .album_art img {
             width: expression(this.offsetWidth> 500?500:'auto');
         }
 
@@ -438,7 +438,7 @@
             margin: 40px 160px 40px 40px;
         }
 
-        .header-left {
+        .header-left #posts {
             margin: 40px 40px 40px 160px;
         }
 
@@ -446,7 +446,7 @@
             margin: 40px 160px 40px 40px;
         }
 
-        .header-left #single #posts {
+        #single.header-left #posts {
             margin: 40px 40px 40px 160px;
         }
 
@@ -455,7 +455,7 @@
             max-width: 760px;
         }
 
-        .header-left #single #content {
+        #single.header-left #content {
             margin-right: 0;
         }
 
@@ -843,7 +843,7 @@
             border-radius: 2px;
         }
 
-        #index .width-500 .post.video object {
+        #index.width-500 .post.video object {
             width: 500px;
             height: 375px;
         }
@@ -864,8 +864,8 @@
             max-width: 400px;
         }
 
-        #index .width-500 .post.photo img,
-        #index .width-500 .post.audio .album_art img {
+        #index.width-500 .post.photo img,
+        #index.width-500 .post.audio .album_art img {
             min-width: 500px;
             max-width: 500px;
         }
@@ -1124,7 +1124,7 @@
             width: 400px;
         }
 
-        #index .width-500 .post {
+        #index.width-500 .post {
             width: 500px;
         }
 
@@ -1132,7 +1132,7 @@
             max-width: 400px;
         }
 
-        #index .width-500 .post .copy img {
+        #index.width-500 .post .copy img {
             max-width: 500px;
         }
 
@@ -1423,7 +1423,7 @@
             margin: 0 40px 0 200px;
         }
 
-        .header-left #single #pagination {
+        #single.header-left #pagination {
             margin: 0 0 0 200px;
         }
 
