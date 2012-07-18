@@ -199,8 +199,9 @@
 
         /* Bicubic resizing for non-native sized IMG:
            code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+
         .lt-ie8 img {
-            -ms-interpolation-mode:bicubic;
+            -ms-interpolation-mode: bicubic;
         }
 
         a {
@@ -236,6 +237,7 @@
         }
 
         /* j.mp/webkit-tap-highlight-color */
+
         a:link {
             -webkit-tap-highlight-color: {color:Accents};
         }
@@ -474,10 +476,11 @@
             padding: 0 40px 0 0;
             z-index: 9998;
             line-height: 1.5;
-        {block:IfHeaderTop}
+        }
+
+        .header-top #header {
             bottom: auto;
             top: 40px
-        {/block:IfHeaderTop}
         }
 
         .header-left #header {
@@ -1588,7 +1591,7 @@
     </script>
 </head>
 
-<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent}">
+<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent}">
 
 <div id="container" class="clearfix {block:PermalinkPage}single{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} container">
 
