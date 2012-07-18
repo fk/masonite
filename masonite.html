@@ -1565,28 +1565,32 @@
             border-radius: 4px;
         }
 
+        /* ==========================================================================
+           Custom CSS
+           ========================================================================== */
+
         {CustomCSS}
     </style>
     <script>
         var Whites = "{color:Background}",
             Accents = "{color:Accents}",
             totalPages = {totalPages},
-            trueOrFalse = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
+            customTrigger = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
             fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}";
 
         Whites = Whites.slice( 1 );
         Accents = Accents.slice( 1 );
 
-        if ( trueOrFalse ) {
-            var customTrigger = true;
+        if ( customTrigger ) {
+            customTrigger = true;
         } else {
-            var customTrigger = false;
+            customTrigger = false;
         }
 
         if ( fadeSidebar ) {
-            var fadeSidebar = true;
+            fadeSidebar = true;
         } else {
-            var fadeSidebar = false;
+            fadeSidebar = false;
         }
     </script>
 </head>
