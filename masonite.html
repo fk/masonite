@@ -146,9 +146,10 @@
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left #infscr-loading {
             left: 200px;
-        {/block:IfHeaderLeft}
         }
 
         #infscr-loading div {
@@ -337,9 +338,10 @@
 
         h2.searchresultcount {
             margin: 40px 0 0 40px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left h2.searchresultcount {
             margin: 40px 0 0 200px;
-        {/block:IfHeaderLeft}
         }
 
         h3 {
@@ -421,9 +423,10 @@
 
         #footer {
             margin: 0px 200px 0 40px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left #footer {
             margin: 0px 40px 0 200px;
-        {/block:IfHeaderLeft}
         }
 
         #content {
@@ -432,24 +435,27 @@
 
         #posts {
             margin: 40px 160px 40px 40px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left {
             margin: 40px 40px 40px 160px;
-        {/block:IfHeaderLeft}
         }
 
         #single #posts {
             margin: 40px 160px 40px 40px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left #single #posts {
             margin: 40px 40px 40px 160px;
-        {/block:IfHeaderLeft}
         }
 
         #single #content {
             margin-right: 180px;
             max-width: 760px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left #single #content {
             margin-right: 0;
-        {/block:IfHeaderLeft}
         }
 
         .notecontainer {
@@ -469,15 +475,16 @@
             padding: 0 40px 0 0;
             z-index: 9998;
             line-height: 1.5;
-        {block:IfHeaderLeft}
-            right: auto;
-            left: 0;
-            padding: 0 0 0 40px;
-        {/block:IfHeaderLeft}
         {block:IfHeaderTop}
             bottom: auto;
             top: 40px
         {/block:IfHeaderTop}
+        }
+
+        .header-left #header {
+            right: auto;
+            left: 0;
+            padding: 0 0 0 40px;
         }
 
         #header a {
@@ -781,10 +788,11 @@
             padding: 0;
             margin-right: 40px;
             margin-bottom: 40px;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left .post {
             margin-right: 0;
             margin-left: 40px;
-        {/block:IfHeaderLeft}
         }
 
         .post .media {
@@ -1277,11 +1285,12 @@
             padding: 0 40px 0 0;
             color: {color:Mids};
             z-index: 9997;
-        {block:IfHeaderLeft}
+        }
+
+        .header-left #copyright {
             right: auto;
             left: 0;
             padding: 0 0 0 40px;
-        {/block:IfHeaderLeft}
         }
 
         #copyright span {
@@ -1406,15 +1415,14 @@
             list-style: none;
             line-height: 1;
             margin: 0 40px 0 40px;
-        {block:IfHeaderLeft}
-            margin: 0 40px 0 200px;
-        {/block:IfHeaderLeft}
         }
 
-        #single #pagination {
-        {block:IfHeaderLeft}
+        .header-left #pagination {
+            margin: 0 40px 0 200px;
+        }
+
+        .header-left #single #pagination {
             margin: 0 0 0 200px;
-        {/block:IfHeaderLeft}
         }
 
         #pagination li {
@@ -1581,7 +1589,7 @@
     </script>
 </head>
 
-<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts}">
+<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft}">
 
 <div id="container" class="clearfix {block:PermalinkPage}single{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} container">
 
