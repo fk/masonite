@@ -388,15 +388,6 @@
            Masonry
            ========================================================================== */
 
-        #posts:after,
-        #content:after {
-            content: '.';
-            display: block;
-            height: 0;
-            clear: both;
-            visibility: hidden;
-        }
-
         #index .post img {
             max-width: none;
         }
@@ -404,10 +395,6 @@
         /* ==========================================================================
            Top-level
            ========================================================================== */
-
-        .container {
-            margin: 0;
-        }
 
         #container {
             margin: 0 0 40px;
@@ -1632,12 +1619,12 @@
     </div>
 </div><!-- /#header -->
 
-<div id="content">
+<div id="content" class="clearfix">
     {block:SearchPage}
         <h2 class="searchresultcount">{lang:SearchResultCount results for SearchQuery 2}</h2>
     {/block:SearchPage}
 
-    <div id="posts">
+    <div id="posts" class="clearfix">
         {block:Posts}
             <div id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}">
                 {block:Photo}
