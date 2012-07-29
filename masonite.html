@@ -1879,7 +1879,8 @@
         Accents = "{color:Accents}",
         totalPages = {totalPages},
         customTrigger = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
-        fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}";
+        fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}",
+        googleAnalytics = "{text:Google Analytics}";
 
     Whites = Whites.slice( 1 );
     Accents = Accents.slice( 1 );
@@ -1895,6 +1896,10 @@
     } else {
         fadeSidebar = false;
     }
+    
+    if ( googleAnalytics !== "") {
+        window._gaq = [['_setAccount', googleAnalytics],['_trackPageview'],['_trackPageLoadTime']];
+    }
 
     Modernizr.load([
       {
@@ -1909,6 +1914,10 @@
         // This will wait for the fallback to load and
         // execute if it needs to.
         load: 'http://static.tumblr.com/wccjej0/Uaem7w9q0/masonite.js'
+      },
+      {
+        test: window._gaq,
+        yep: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
       }
     ]);
 </script>
@@ -1935,21 +1944,6 @@
     </script>
     <!-- /disqus -->
 {/block:IfDisqusShortname}
-
-{block:IfGoogleAnalytics}
-    <!-- google analytics, asynchronous: mathiasbynens.be/notes/async-analytics-snippet -->
-    <script>
-        var _gaq = [['_setAccount', '{text:Google Analytics}'], ['_trackPageview']];
-        (function(d, t) {
-             var g = d.createElement(t),
-             s = d.getElementsByTagName(t)[0];
-             g.async = true;
-             g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
-             s.parentNode.insertBefore(g, s);
-        })(document, 'script');
-    </script>
-    <!-- /google analytics -->
-{/block:IfGoogleAnalytics}
 
 {block:IfClickyTracking}
     <!-- clicky analytics, asynchronous: http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
