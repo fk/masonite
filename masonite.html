@@ -1874,9 +1874,6 @@
 
 </div><!-- /#container -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://static.tumblr.com/wccjej0/Vm6m5ou7y/jquery-1.7.2.min.js"><\/script>')</script>
-
 <script>
     var Whites = "{color:Background}",
         Accents = "{color:Accents}",
@@ -1898,9 +1895,23 @@
     } else {
         fadeSidebar = false;
     }
-</script>
 
-<script src="http://static.tumblr.com/wccjej0/Uaem7w9q0/masonite.js" ></script>
+    Modernizr.load([
+      {
+        load: '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js',
+        complete: function () {
+          if ( !window.jQuery ) {
+                Modernizr.load('http://static.tumblr.com/wccjej0/Vm6m5ou7y/jquery-1.7.2.min.js');
+          }
+        }
+      },
+      {
+        // This will wait for the fallback to load and
+        // execute if it needs to.
+        load: 'http://static.tumblr.com/wccjej0/Uaem7w9q0/masonite.js'
+      }
+    ]);
+</script>
 
 {block:Twitter}
     <!-- twitter -->
