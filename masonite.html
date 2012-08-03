@@ -67,7 +67,7 @@
     <meta name="text:Vimeo" content="" />
     <meta name="text:Twitter" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/yJMm85ond/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/21Gm85qn1/masonite.css">
 
     <style type="text/css">
 
@@ -122,30 +122,19 @@
         {/block:IfDribbble}
         }
 
-        .post.photo .media .fullsize:hover {
-            color: {color:Accents};
-            opacity: 1;
-            background-color: {color:Background};
-            box-shadow: 0px 0px 48px #fff;
-        {block:IfDogEarZoomIcon}
-            color: {color:Background};
-            background-color: transparent;
-            color: {color:Accents};
-            box-shadow: none;
-        {/block:IfDogEarZoomIcon}
-        }
-
         /* ==========================================================================
            Background Colors
            ========================================================================== */
 
         .post.photo .media .fullsize,
-        .post.answer:hover .question {
+        .post.answer:hover .question,
+        .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
             background-color: {color:Accents};
         }
 
-        body {
-            background: {color:Background};
+        body,
+        .post.photo .media .fullsize:hover {
+            background-color: {color:Background};
         }
 
         .post img,

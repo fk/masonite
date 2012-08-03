@@ -1,8 +1,6 @@
 // compass modules
 // http://compass-style.org/reference/compass/
 @import compass/css3
-@import compass/typography
-@import compass/utilities
 
 // html5boilerplate styles, top part
 @import partials/h5bp-top
@@ -362,6 +360,12 @@ em
     -webkit-border-radius: 32px
     -moz-border-radius: 32px
     border-radius: 32px
+    &:hover
+      opacity: 1
+      box-shadow: 0px 0px 48px #fff
+      .dog-ear-zoom-icon &
+        box-shadow: none
+        background-color: transparent
     .dog-ear-zoom-icon &
       top: 0
       left: auto
@@ -535,14 +539,6 @@ em
   display: block
   padding: 10px
   +border-radius(6px)
-
-#dsq-comments
-  .dsq-comment-body
-    margin-left: 20px
-  li div
-    background: none !important
-  .dsq-comment-header
-    padding-left: 5px
 
 
 .post
@@ -723,6 +719,8 @@ em
   +border-radius(2px)
 
 
+
+
 .post .link.title a
   border: none
 
@@ -755,6 +753,14 @@ em
 #disqus_thread
   padding: 10px
   +border-radius(4px)
+
+#dsq-comments
+  .dsq-comment-body
+    margin-left: 20px
+  li div
+    background: none !important
+  .dsq-comment-header
+    padding-left: 5px
 
 // colorbox styles
 @import partials/colorbox
