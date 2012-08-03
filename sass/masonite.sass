@@ -217,6 +217,19 @@ em
   .width-500.single-column &
     width: 740px
 
+.centered-content
+  &.single-column.header-left #header,
+  &.single-column.header-left #copyright
+    right: auto !important
+    left: auto !important
+
+  &.single-column.header-left #container
+    margin: 0 auto 40px
+
+  &.single-column.header-left #infscr-loading
+    left: auto
+    margin-left: 40px
+
 #footer
   margin: 0 200px 0 40px
   .header-left &
@@ -743,6 +756,10 @@ em
   content: "\e01c"
   border-radius: 8px
   font-size: 16px
+
+/* ==========================================================================
+   Header Elements
+   ========================================================================== */
 
 #navigation,
 #external
