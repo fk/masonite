@@ -16,18 +16,8 @@
 .hide-copyright #copyright span
   display: none
 
-#twitterwrapper
-  overflow: hidden
-  margin: 40px 40px 20px 0
-  .hide-twitter &
-    display: none
-
 #description
   padding: 0 0 15px
-
-.post.chat .line
-  margin: 0 0 10px 0
-  padding-bottom: 10px
 
 hr
   display: block
@@ -278,29 +268,6 @@ em
       font-weight: bold
       font-size: 12px
 
-#index .post.video object
-  width: 400px
-  height: 300px
-  +border-radius(2px)
-
-#index.width-500 .post.video object
-  width: 500px
-  height: 375px
-
-.post.photo img,
-.post.audio .album_art img
-  +border-radius(2px)
-
-#index .post.photo img,
-#index .post.audio .album_art img
-  min-width: 400px
-  max-width: 400px
-
-#index.width-500 .post.photo img,
-#index.width-500 .post.audio .album_art img
-  min-width: 500px
-  max-width: 500px
-
 .link a em span
   display: none
 
@@ -345,45 +312,95 @@ em
 #single .post .quote:before
   content: "\e018"
 
-.post .link.title a span
-  background-position: 0 -600px
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
 
 .post
   padding: 0
   margin-right: 40px
   margin-bottom: 40px
-  &.photo .media .fullsize
-    position: absolute
-    top: 50%
-    left: 50%
-    width: 64px
-    height: 64px
-    margin-top: -32px
-    margin-left: -32px
-    display: block
-    opacity: .8
-    -webkit-transition: all 0.2s linear
-    display: block
-    -webkit-border-radius: 32px
-    -moz-border-radius: 32px
-    border-radius: 32px
-    &:hover
-      opacity: 1
-      box-shadow: 0px 0px 48px #fff
-      .dog-ear-zoom-icon &
-        box-shadow: none
-        background-color: transparent
-    .dog-ear-zoom-icon &
-      top: 0
-      left: auto
-      right: 0
-      width: 24px
-      height: 24px
-      margin-top: 0
-      margin-left: 0
+  .link.title a span
+    background-position: 0 -600px
+  &.photo img,
+  &.audio .album_art img
+    +border-radius(2px)
+  &.chat .line
+    margin: 0 0 10px 0
+    padding-bottom: 10px
+  &.audio
+    object,
+    embed
       +border-radius(2px)
-      opacity: 1
-      background-color: transparent
+    .meta
+      font-size: 10px
+      font-style: italic
+      top: 5px
+      left: 250px
+      position: absolute
+  .media a
+    border: none
+  .footer .notes
+    float: right
+    margin-right: 0
+    margin-left: 10px
+  .link.title a
+    border: none
+  &.photo
+    .media .fullsize
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 64px
+      height: 64px
+      margin-top: -32px
+      margin-left: -32px
+      display: block
+      opacity: .8
+      -webkit-transition: all 0.2s linear
+      display: block
+      -webkit-border-radius: 32px
+      -moz-border-radius: 32px
+      border-radius: 32px
+      span
+        display: block
+        text-indent: 100%
+        white-space: nowrap
+        overflow: hidden
+      &:before
+        content: "\e023"
+        display: block
+        width: 64px
+        height: 64px
+        line-height: 64px
+        font-size: 38px
+        text-align: center
+        .dog-ear-zoom-icon &
+          position: relative
+          width: 24px
+          height: 24px
+          line-height: 15px
+          font-size: 15px
+          text-align: right
+          z-index: 10
+      &:hover
+        opacity: 1
+        box-shadow: 0px 0px 48px #fff
+        .dog-ear-zoom-icon &
+          box-shadow: none
+          background-color: transparent
+      .dog-ear-zoom-icon &
+        top: 0
+        left: auto
+        right: 0
+        width: 24px
+        height: 24px
+        margin-top: 0
+        margin-left: 0
+        +border-radius(2px)
+        opacity: 1
+        background-color: transparent
   a
     -webkit-transition: color 0.2s linear, border 0.2s linear
   .header-left &
@@ -402,22 +419,6 @@ em
     line-height: 1.3
   blockquote
     -webkit-transition: color 0.2s linear
-  &.photo .media .fullsize:before
-    content: "\e023"
-    display: block
-    width: 64px
-    height: 64px
-    line-height: 64px
-    font-size: 38px
-    text-align: center
-    .dog-ear-zoom-icon &
-      position: relative
-      width: 24px
-      height: 24px
-      line-height: 15px
-      font-size: 15px
-      text-align: right
-      z-index: 10
   .footer
     margin-top: 10px
     padding-top: 5px
@@ -475,11 +476,39 @@ em
       content: "" !important
       margin-right: 0 !important
 
+
+/* ==========================================================================
+   Index Pages
+   ========================================================================== */
+
+#index.width-500 .post
+  width: 500px
+
+#index.width-500 .post.video object
+  width: 500px
+  height: 375px
+
+#index.width-500 .post.photo img,
+#index.width-500 .post.audio .album_art img
+  min-width: 500px
+  max-width: 500px
+
+#index.width-500 .post .copy img
+  max-width: 500px
+
 #index .post
   z-index: 0
   float: left
   width: 400px
   overflow-x: hidden
+  &.video object
+    width: 400px
+    height: 300px
+    +border-radius(2px)
+  &.photo img,
+  &.audio .album_art img
+    min-width: 400px
+    max-width: 400px
   &.chat
     .line.last
       margin-bottom: 15px
@@ -493,28 +522,29 @@ em
       font-size: 16px
     &.short
       font-size: 24px
+  .copy img
+    max-width: 400px
+  .copy,
+  .copy p
+    padding: 0
+    font-size: 12px
+    margin-top: 10px
+  a.more
+    display: block
+    font-size: 11px
+    font-style: italic
+    text-decoration: none
+    background: left center no-repeat
 
-#index.width-500 .post
-  width: 500px
 
-#index .post .copy img
-  max-width: 400px
+/* ==========================================================================
+   Likes
+   ========================================================================== */
 
-#index.width-500 .post .copy img
-  max-width: 500px
-
-#index .post .copy,
-#index .post .copy p
-  padding: 0
-  font-size: 12px
-  margin-top: 10px
-
-#index .post a.more
-  display: block
-  font-size: 11px
-  font-style: italic
-  text-decoration: none
-  background: left center no-repeat
+#likes_container
+  margin-top: 20px
+  h3 a
+    text-decoration: none
 
 #likes
   margin: 0
@@ -547,14 +577,6 @@ em
   padding: 10px
   +border-radius(6px)
 
-
-.post
-  &.photo .media .fullsize span
-    display: block
-    text-indent: 100%
-    white-space: nowrap
-    overflow: hidden
-
 .link a em
   position: relative
   padding: 0 4px
@@ -562,38 +584,31 @@ em
 #attribution
   font-style: italic
 
-
 .asker_container
   font-size: 12px
   img
     margin: 0 10px
 
-#single .post
-  float: none
-  width: 500px
-  .copy
-    margin-top: 20px
-  .title
-    font-size: 24px
-  .quote
-    font-size: 36px
-    line-height: 40px
-  &.chat .lines
-    font-size: 14px
-  .footer
-    margin-top: 35px
-    margin-bottom: 20px
-    border: 0
+
+/* ==========================================================================
+   Twitter
+   ========================================================================== */
 
 #tweetcontainer
   font-size: 12px
   a
     text-decoration: none
 
-#likes_container
-  margin-top: 20px
-  h3 a
-    text-decoration: none
+#twitterwrapper
+  overflow: hidden
+  margin: 40px 40px 20px 0
+  .hide-twitter &
+    display: none
+
+
+/* ==========================================================================
+   Following
+   ========================================================================== */
 
 #following
   margin-top: 20px
@@ -605,7 +620,28 @@ em
     width: 30px
     height: 30px
 
+
+/* ==========================================================================
+   Single Pages
+   ========================================================================== */
+
 #single
+  .post
+    float: none
+    width: 500px
+    .copy
+      margin-top: 20px
+    .title
+      font-size: 24px
+    .quote
+      font-size: 36px
+      line-height: 40px
+    &.chat .lines
+      font-size: 14px
+    .footer
+      margin-top: 35px
+      margin-bottom: 20px
+      border: 0
   ol.notes
     font-size: 12px
     list-style: none
@@ -626,16 +662,6 @@ em
 
 .audio-wrapper
   position: relative
-
-.post.audio .meta
-  font-size: 10px
-  font-style: italic
-  top: 5px
-  left: 250px
-  position: absolute
-
-.post .media a
-  border: none
 
 .title.question
   padding: 10px
@@ -690,11 +716,6 @@ em
   #title
     display: none
 
-.post .footer .notes
-  float: right
-  margin-right: 0
-  margin-left: 10px
-
 .hide-post-footer-border .index .post .footer
   border: 0
   padding-bottom: 0
@@ -721,13 +742,6 @@ em
   border-radius: 8px
   font-size: 16px
 
-.post.audio object,
-.post.audio embed
-  +border-radius(2px)
-
-.post .link.title a
-  border: none
-
 #navigation,
 #external
   list-style: none
@@ -745,13 +759,13 @@ em
   a
     display: block
 
-.two-column-navigation #navigation li
-  float: left
-  width: 50px
-  padding-right: 10px
-
-#navigation li a
-  text-decoration: none
+#navigation li
+  a
+    text-decoration: none
+  .two-column-navigation &
+    float: left
+    width: 50px
+    padding-right: 10px
 
 
 /* ==========================================================================
