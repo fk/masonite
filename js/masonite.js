@@ -532,8 +532,32 @@ function fadingSidebar() {
 			$wall.imagesLoaded(function() {
 				$wall.masonry({
 					isAnimated    : !Modernizr.csstransitions,
-					itemSelector  : '.post'
+					itemSelector  : '.post',
+					isFitWidth    : centeredContent,
+					resizable     : !centeredContent,
+					columnWidth   : $('.post').outerWidth(true)
 				});
+
+				if ( centeredContent && !$('body').hasClass('single-column') && $('body').hasClass('header-left') ) {
+				  var $page = $('#container'),
+				      $offset = $('#header'),
+				      colW = $('.post').outerWidth(true),
+				      columns = null;
+
+				  $(window).smartresize(function(){
+				    // check if columns has changed
+				    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(true) ) / colW );
+				    if ( currentColumns !== columns ) {
+				      // set new column count
+				      columns = currentColumns;
+				      // apply width to container manually, then trigger relayout
+							$page.width( columns * colW + $offset.outerWidth(true) );
+				      $wall.width( columns * colW )
+				        .masonry('reload');
+				    }
+				  }).smartresize(); // trigger resize to set container width
+				}
+
 			});
 
 			if(customTrigger){

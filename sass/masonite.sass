@@ -211,24 +211,28 @@ em
 
 #container
   margin: 0 0 40px
-  width: 100%
+  .centered-content &
+    margin: 0 auto 40px
+    width: auto
+    padding-right: 40px
   .single-column &
     width: 640px
   .width-500.single-column &
     width: 740px
 
 .centered-content
-  &.single-column.header-left #header,
-  &.single-column.header-left #copyright
+  &.header-left #header,
+  &.header-left #copyright
     right: auto !important
     left: auto !important
-
-  &.single-column.header-left #container
+  &.single-column.header-left #container,
+  &.header-left #container
     margin: 0 auto 40px
-
-  &.single-column.header-left #infscr-loading
+  &.header-left #infscr-loading
     left: auto
     margin-left: 40px
+  #posts
+    margin: 0 auto
 
 #footer
   margin: 0 200px 0 40px
@@ -236,7 +240,6 @@ em
     margin: 0 40px 0 200px
 
 #content
-  width: 100%
   #single &
     margin-right: 180px
     max-width: 760px
@@ -244,13 +247,14 @@ em
     margin-right: 0
 
 #posts
-  margin: 40px 160px 40px 40px
+  margin: 0
+  padding: 40px 160px 40px 40px
   .header-left &
-    margin: 40px 40px 40px 160px
+    padding: 40px 40px 40px 160px
   #single &
-    margin: 40px 160px 40px 40px
+    padding: 40px 160px 40px 40px
   #single.header-left &
-    margin: 40px 40px 40px 160px
+    padding: 40px 40px 40px 160px
 
 #header
   background: transparent

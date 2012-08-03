@@ -69,7 +69,7 @@
     <meta name="text:Vimeo" content="" />
     <meta name="text:Twitter" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/Ml4m86n14/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/cb4m86zpz/masonite.css">
 
     <style type="text/css">
 
@@ -294,7 +294,7 @@
     <script src="http://static.tumblr.com/wccjej0/HoKm7w9cm/modernizr-2.6.1.min.js"></script>
 </head>
 
-<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar}">
+<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar}">
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -603,7 +603,8 @@
         totalPages = {totalPages},
         customTrigger = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
         fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}",
-        googleAnalytics = "{text:Google Analytics}";
+        googleAnalytics = "{text:Google Analytics}",
+        centeredContent = "{block:IfCenteredContent}true{/block:IfCenteredContent}";
 
     Whites = Whites.slice( 1 );
     Accents = Accents.slice( 1 );
@@ -618,6 +619,12 @@
         fadeSidebar = true;
     } else {
         fadeSidebar = false;
+    }
+
+    if ( centeredContent ) {
+        centeredContent = true;
+    } else {
+        centeredContent = false;
     }
 
     if ( googleAnalytics !== "" ) {
@@ -636,7 +643,7 @@
         {
             // This will wait for the fallback to load and
             // execute if it needs to.
-            load: 'http://static.tumblr.com/wccjej0/Uaem7w9q0/masonite.js'
+            load: 'http://static.tumblr.com/wccjej0/k64m86zow/masonite.js'
         },
         {
             test: window._gaq,
