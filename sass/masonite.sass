@@ -15,7 +15,752 @@
    Author: flo@6230.org
    ========================================================================== */
 
+.hide-copyright #copyright span
+  display: none
 
+#twitterwrapper
+  overflow: hidden
+  margin: 40px 40px 20px 0
+  .hide-twitter &
+    display: none
+
+#description
+  padding: 0 0 15px
+
+.post.chat .line
+  margin: 0 0 10px 0
+  padding-bottom: 10px
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  margin: 20px 0
+  padding: 0
+  border-top-width: 1px
+  border-top-style: solid
+
+body
+  font-size: 62.5%
+  height: 100%
+  margin: 0
+  padding: 0
+  line-height: 20px
+  margin: 0
+  padding: 0
+
+::-webkit-scrollbar-thumb:vertical
+  height: 1 0px
+
+::-webkit-scrollbar
+  width: 5px
+  height: 5px
+
+// infinite scroll loader
+#infscr-loading
+  z-index: 5000
+  position: fixed
+  font-size: 11px
+  line-height: 16px
+  height: 16px
+  left: 40px
+  bottom: 40px
+  opacity: 0.8
+  padding: 6px 10px 6px 8px
+  +border-radius(4px)
+  .header-left &
+    left: 200px
+  div
+    float: right
+  img
+    margin-right: 6px
+
+// ie fixes
+.lt-ie7
+  #index
+    .post
+      width: 400px
+      &.photo img,
+      &.audio .album_art img
+        width: expression(this.offsetWidth> 400?400:'auto')
+    &.width-500
+      width: 500px
+      .post
+        &.photo img,
+        &.audio .album_art img
+          width: expression(this.offsetWidth> 500?500:'auto')
+  #likes li img
+    width: 120px
+  #sidebar
+    margin-left: -10px
+.lt-ie8
+  #header
+    margin-bottom: 40px
+  // Bicubic resizing for non-native sized IMG:
+  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+  img
+    -ms-interpolation-mode: bicubic
+
+a
+  text-decoration: none
+
+blockquote
+  margin: 10px 0 10px 20px
+  border-left-width: 1px
+  border-left-style: solid
+
+input.query
+  width: 40px
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 15px 0 20px 0
+  &:first-child
+    margin-top: 0
+
+blockquote
+  margin: 15px 0 0
+  padding: 0 0 0 15px
+  blockquote
+    margin-top: 0
+  p
+    padding: 0
+    margin-bottom: 15px
+  ul,
+  ol
+    padding-left: 15px
+  &:first-child,
+  p:first-child
+    margin-top: 0
+  &:last-child,
+  p:last-child
+    margin-bottom: 0
+
+#index .post .copy blockquote
+  img
+    min-width: 384px
+    max-width: 384px
+  blockquote img
+    min-width: 368px
+    max-width: 368px
+  blockquote img
+    min-width: 352px
+    max-width: 352px
+
+p
+  margin: 15px 0
+  padding-top: 5px
+  margin-bottom: 13px
+  font-size: 12px
+  line-height: 20px
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+
+h1
+  font-size: 24px
+  padding-top: 0
+  margin-bottom: 20px
+
+h2
+  font-size: 20px
+  padding-top: 1px
+  margin-bottom: 19px
+
+h2.searchresultcount
+  margin: 40px 0 0 40px
+  .header-left &
+    margin: 40px 0 0 200px
+
+h3
+  font-size: 18px
+  padding-top: 2px
+  margin-bottom: 18px
+
+h4
+  font-size: 16px
+  padding-top: 3px
+  margin-bottom: 17px
+
+h5
+  font-size: 14px
+  padding-top: 5px
+  margin-bottom: 15px
+
+h6
+  font-size: 12px
+  padding-top: 6px
+  margin: 14px 0
+
+textarea
+  font-size: 12px
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+pre,
+code,
+tt
+  font: 10px 'andale mono', 'monotype.com', 'lucida console', monospace
+  line-height: 1.5
+
+em
+  font-style: italic
+
+// masonry
+#index .post img
+  max-width: none
+
+#container
+  margin: 0 0 40px
+  width: 100%
+  .single-column &
+    width: 640px
+  .width-500.single-column &
+    width: 740px
+
+#footer
+  margin: 0 200px 0 40px
+  .header-left &
+    margin: 0 40px 0 200px
+
+#content
+  width: 100%
+  #single &
+    margin-right: 180px
+    max-width: 760px
+  #single.header-left &
+    margin-right: 0
+
+#posts
+  margin: 40px 160px 40px 40px
+  .header-left &
+    margin: 40px 40px 40px 160px
+  #single &
+    margin: 40px 160px 40px 40px
+  #single.header-left &
+    margin: 40px 40px 40px 160px
+
+#header
+  background: transparent
+  position: fixed
+  right: 0
+  bottom: 100px
+  width: 120px
+  padding: 0 40px 0 0
+  z-index: 9998
+  line-height: 1.5
+  .header-top &
+    bottom: auto
+    top: 40px
+  .header-left &
+    right: auto
+    left: 0
+    padding: 0 0 0 40px
+  #search
+    margin-top: 2em
+    input
+      width: 118px
+      border-width: 1px
+  h1
+    margin: 0
+    padding: 0 0 1em
+    a
+      text-decoration: none
+      font-weight: bold
+      font-size: 12px
+
+#index .post.video object
+  width: 400px
+  height: 300px
+  +border-radius(2px)
+
+#index.width-500 .post.video object
+  width: 500px
+  height: 375px
+
+.post.photo img,
+.post.audio .album_art img
+  +border-radius(2px)
+
+#index .post.photo img,
+#index .post.audio .album_art img
+  min-width: 400px
+  max-width: 400px
+
+#index.width-500 .post.photo img,
+#index.width-500 .post.audio .album_art img
+  min-width: 500px
+  max-width: 500px
+
+.link a em span
+  display: none
+
+#single a em span
+  top: 8px
+
+.post.photo .media .fullsize:before,
+.post .quote:before,
+.post .link.title a em:before,
+.post .footer .date a:before,
+.post .footer .date.reblogged a:before,
+.post .footer .notes a:before,
+.post .footer .comments a:before,
+.post .footer .tags:before,
+#external a:before
+  font-family: 'hellodirty'
+  font-style: normal
+  speak: none
+  margin-right: 4px
+
+#external
+  .github a:before
+    content: "\e02b"
+  .soundcloud a:before
+    content: "\e02e"
+  .twitter a:before
+    content: "\e028"
+  .facebook a:before
+    content: "\e025"
+  .dribbble a:before
+    content: "\e030"
+  .vimeo a:before
+    content: "\e029"
+
+#index .post .quote:before
+  content: "\e018"
+  position: relative
+  font-size: 16px
+  margin-right: 1em
+  top: -0.8em
+
+#single .post .quote:before
+  content: "\e018"
+
+.post .link.title a span
+  background-position: 0 -600px
+
+.post
+  padding: 0
+  margin-right: 40px
+  margin-bottom: 40px
+  &.photo .media .fullsize
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 64px
+    height: 64px
+    margin-top: -32px
+    margin-left: -32px
+    display: block
+    opacity: .8
+    -webkit-transition: all 0.2s linear
+    display: block
+    -webkit-border-radius: 32px
+    -moz-border-radius: 32px
+    border-radius: 32px
+    .dog-ear-zoom-icon &
+      top: 0
+      left: auto
+      right: 0
+      width: 24px
+      height: 24px
+      margin-top: 0
+      margin-left: 0
+      +border-radius(2px)
+      opacity: 1
+      background-color: transparent
+  a
+    -webkit-transition: color 0.2s linear, border 0.2s linear
+  .header-left &
+    margin-right: 0
+    margin-left: 40px
+  .copy,
+  .copy p
+    font-size: 14px
+  .copy strong a
+    font-weight: normal
+  .media
+    position: relative
+  .title
+    font-size: 18px
+    font-weight: bold
+    line-height: 1.3
+  blockquote
+    -webkit-transition: color 0.2s linear
+  &.photo .media .fullsize:before
+    content: "\e023"
+    display: block
+    width: 64px
+    height: 64px
+    line-height: 64px
+    font-size: 38px
+    text-align: center
+    .dog-ear-zoom-icon &
+      position: relative
+      width: 24px
+      height: 24px
+      line-height: 15px
+      font-size: 15px
+      text-align: right
+      z-index: 10
+  .footer
+    margin-top: 10px
+    padding-top: 5px
+    padding-bottom: 5px
+    display: block
+    .date a,
+    .comments a,
+    .notes a
+      display: block
+    .date a
+      padding-left: 0
+      float: left
+    .date span.reblogged-from
+      float: left
+      display: block
+      padding-left: 4px
+      a
+        padding-left: 0
+        display: inline
+        float: none
+        background: none !important
+    a
+      text-decoration: none
+      font-weight: normal
+      border: none
+    .tags
+      display: block
+      clear: both
+      font-size: 10px
+      margin: 0
+      dd
+        float: left
+        margin-left: 8px
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+    li
+      margin-right: 10px
+      float: left
+    .date.reblogged a:before
+      content: "\e01b"
+    .notes a:before
+      content: "\e009"
+    .comments a:before
+      content: "\e011"
+    .tags:before
+      content: "\e020"
+      margin-right: 0
+      float: left
+      display: block
+    .date a:before
+      content: "\e00d"
+    .date .reblogged-from a:before
+      content: "" !important
+      margin-right: 0 !important
+
+#index .post
+  z-index: 0
+  float: left
+  width: 400px
+  overflow-x: hidden
+  &.chat
+    .line.last
+      margin-bottom: 15px
+      padding-bottom: 0
+    .lines
+      font-size: 12px
+  .quote
+    line-height: 1.5
+    &.medium,
+    &.long
+      font-size: 16px
+    &.short
+      font-size: 24px
+
+#index.width-500 .post
+  width: 500px
+
+#index .post .copy img
+  max-width: 400px
+
+#index.width-500 .post .copy img
+  max-width: 500px
+
+#index .post .copy,
+#index .post .copy p
+  padding: 0
+  font-size: 12px
+  margin-top: 10px
+
+#index .post a.more
+  display: block
+  font-size: 11px
+  font-style: italic
+  text-decoration: none
+  background: left center no-repeat
+
+#likes
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    width: 120px
+    float: left
+    margin-right: 10px
+    padding: 5px
+    overflow: hidden !important
+    &.like_text_post,
+    &.like_quote_post
+      font-size: 12px
+    &:last-child,
+    &.last
+      margin-right: 0
+    img
+      max-width: 120px
+    p
+      font-size: 11px
+  blockquote
+    padding-left: 4px
+    p
+      font-size: 12px !important
+      line-height: 20px !important
+
+#index.custom-trigger-infinite-scrolling #pagination li a
+  display: block
+  padding: 10px
+  +border-radius(6px)
+
+#dsq-comments
+  .dsq-comment-body
+    margin-left: 20px
+  li div
+    background: none !important
+  .dsq-comment-header
+    padding-left: 5px
+
+
+.post
+  &.photo .media .fullsize span
+    display: block
+    text-indent: 100%
+    white-space: nowrap
+    overflow: hidden
+
+.link a em
+  position: relative
+  padding: 0 4px
+
+#attribution
+  font-style: italic
+
+
+.asker_container
+  font-size: 12px
+  img
+    margin: 0 10px
+
+#single .post
+  float: none
+  width: 500px
+  .copy
+    margin-top: 20px
+  .title
+    font-size: 24px
+  .quote
+    font-size: 36px
+    line-height: 40px
+  &.chat .lines
+    font-size: 14px
+  .footer
+    margin-top: 35px
+    margin-bottom: 20px
+    border: 0
+
+#tweetcontainer
+  font-size: 12px
+  a
+    text-decoration: none
+
+#likes_container
+  margin-top: 20px
+  h3 a
+    text-decoration: none
+
+#following
+  margin-top: 20px
+  h3
+    text-decoration: none
+  a
+    display: block
+    float: left
+    width: 30px
+    height: 30px
+
+#single
+  ol.notes
+    font-size: 12px
+    list-style: none
+    li
+      margin-bottom: 10px
+      line-height: 16px
+      a
+        border: none
+        img.avatar
+          margin-right: 4px
+          vertical-align: middle
+      &.note.more_notes_link_container
+        margin-bottom: 0
+        text-align: left !important
+
+.notecontainer
+  padding-top: 40px
+
+.audio-wrapper
+  position: relative
+
+.post.audio .meta
+  font-size: 10px
+  font-style: italic
+  top: 5px
+  left: 250px
+  position: absolute
+
+.post .media a
+  border: none
+
+.title.question
+  padding: 10px
+  position: relative
+  -webkit-transition: all 0.2s linear
+  +border-radius(2px)
+  &:after
+    content: " "
+    width: 0
+    height: 0
+    position: absolute
+    left: 10px
+    bottom: -8px
+    display: block
+    -webkit-transition: all 0.2s linear
+
+#avatar
+  margin-bottom: 0
+  .hide-avatar &
+    display: none
+  .hide-title &
+    margin-bottom: 1em
+
+#pagination
+  list-style: none
+  line-height: 1
+  margin: 0 40px 0 40px
+  .header-left &
+    margin: 0 40px 0 200px
+  #single.header-left &
+    margin: 0 0 0 200px
+  li
+    float: left
+    margin-right: 10px
+    a
+      text-decoration: none
+
+#copyright
+  position: fixed
+  bottom: 40px
+  line-height: 1.2
+  right: 0
+  width: 120px
+  padding: 0 40px 0 0
+  z-index: 9997
+  .header-left &
+    right: auto
+    left: 0
+    padding: 0 0 0 40px
+
+.hide-title
+  #title
+    display: none
+
+.post .footer .notes
+  float: right
+  margin-right: 0
+  margin-left: 10px
+
+.hide-post-footer-border .index .post .footer
+  border: 0
+  padding-bottom: 0
+
+.dog-ear-zoom-icon
+  .post.photo .media .fullsize
+    &:after
+      content: ' '
+      width: 0
+      height: 0
+      position: absolute
+      right: 0
+      top: 0
+      border-bottom-width: 24px
+      border-right-width: 24px
+      z-index: 0
+      -webkit-transition: 2s linear
+    &:hover:after
+      border-bottom-width: 24px
+      border-right-width: 24px
+
+.link a em:before
+  content: "\e01c"
+  border-radius: 8px
+  font-size: 16px
+
+.post.audio object,
+.post.audio embed
+  +border-radius(2px)
+
+
+.post .link.title a
+  border: none
+
+#navigation,
+#external
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    background: none
+    padding: 0
+    margin: 0
+
+#external li
+  float: left
+  font-size: 16px
+  margin-right: 10px
+  a
+    display: block
+
+.two-column-navigation #navigation li
+  float: left
+  width: 50px
+  padding-right: 10px
+
+#navigation li a
+  text-decoration: none
+
+// disqus comments
+#disqus_thread
+  padding: 10px
+  +border-radius(4px)
+
+// colorbox styles
+@import partials/colorbox
+
+// masonry styles
+@import partials/masonry
 
 // html5boilerplate styles, bottom part
 @import partials/h5bp-bottom
