@@ -1,15 +1,13 @@
 masonite
 ========
 
-**A tumblr theme.**
-
+**A tumblr theme.**  
 masonry + infinite-scroll = masonite.  
 Clever, huh?
 
 Now [up for grabs](http://www.tumblr.com/theme/34822) in the Tumblr Theme Garden.
 
-See it in action at:
-* [http://hellodirty.com](http://hellodirty.com)
+See it in action at [http://hellodirty.com](http://hellodirty.com)
 
 Features
 --------
