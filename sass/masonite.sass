@@ -13,6 +13,23 @@
    Author: flo@6230.org
    ========================================================================== */
 
+input[type="search"]
+  -webkit-appearance: searchfield
+
+input[type="search"]::-webkit-search-decoration
+  webkit-appearance: searchfield-decoration
+
+input[type="search"]::-webkit-search-cancel-button
+  -webkit-appearance: searchfield-cancel-button
+
+::-webkit-scrollbar-thumb:vertical
+  height: 1 0px
+
+::-webkit-scrollbar
+  width: 5px
+  height: 5px
+
+
 .hide-copyright #copyright span
   display: none
 
@@ -27,13 +44,6 @@ body
   height: 100%
   line-height: 20px
   padding: 0
-
-::-webkit-scrollbar-thumb:vertical
-  height: 1 0px
-
-::-webkit-scrollbar
-  width: 5px
-  height: 5px
 
 
 /* ==========================================================================
@@ -84,7 +94,7 @@ body
   #header
     margin-bottom: 40px
   // Bicubic resizing for non-native sized IMG:
-  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
   img
     -ms-interpolation-mode: bicubic
 
@@ -186,12 +196,11 @@ h6
 
 textarea
   font-size: 12px
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
 
 pre,
 code,
 tt
-  font: 10px 'andale mono', 'monotype.com', 'lucida console', monospace
+  font-size: 10px
   line-height: 1.5
 
 em
@@ -246,11 +255,6 @@ em
     right: auto
     left: 0
     padding: 0 0 0 40px
-  #search
-    margin-top: 2em
-    input
-      width: 118px
-      border-width: 1px
   h1
     margin: 0
     padding: 0 0 1em
@@ -258,6 +262,12 @@ em
       text-decoration: none
       font-weight: bold
       font-size: 12px
+
+#search
+  margin-top: 2em
+  input
+    width: 118px
+    border-width: 1px
 
 .link a em span
   display: none
@@ -472,20 +482,18 @@ em
    Index Pages
    ========================================================================== */
 
-#index.width-500 .post
-  width: 500px
-
-#index.width-500 .post.video object
-  width: 500px
-  height: 375px
-
-#index.width-500 .post.photo img,
-#index.width-500 .post.audio .album_art img
-  min-width: 500px
-  max-width: 500px
-
-#index.width-500 .post .copy img
-  max-width: 500px
+#index.width-500
+  .post
+    width: 500px
+    &.video object
+      width: 500px
+      height: 375px
+    &.photo img,
+    &.audio .album_art img
+      min-width: 500px
+      max-width: 500px
+    .copy img
+      max-width: 500px
 
 #index .post
   z-index: 0
@@ -508,11 +516,11 @@ em
       font-size: 12px
   .quote
     line-height: 1.5
+    &.short
+      font-size: 24px
     &.medium,
     &.long
       font-size: 16px
-    &.short
-      font-size: 24px
   .copy img
     max-width: 400px
   .copy,
@@ -618,7 +626,6 @@ em
 
 #single
   .post
-    float: none
     width: 500px
     .copy
       margin-top: 20px
@@ -668,6 +675,10 @@ em
     bottom: -8px
     display: block
     -webkit-transition: all 0.2s linear
+    border-right-width: 8px
+    border-top-width: 8px
+    border-right-style: solid
+    border-top-style: solid
 
 #avatar
   margin-bottom: 0
@@ -758,6 +769,17 @@ em
     width: 50px
     padding-right: 10px
 
+.post a,
+.post .footer,
+.post.chat .line,
+#description a
+  border-bottom-width: 1px
+  border-bottom-style: solid
+
+.post.answer:hover .question:after
+  border-top-width: 8px
+  border-top-style: solid
+
 
 /* ==========================================================================
    Disqus Comments
@@ -774,6 +796,8 @@ em
     background: none !important
   .dsq-comment-header
     padding-left: 5px
+    border-left-width: 3px
+    border-left-style: solid
 
 // colorbox styles
 @import partials/colorbox

@@ -36,6 +36,7 @@
     <meta name="font:PostMeta" content="Arial,sans-serif" />
     <meta name="font:Quote" content="Palatino,Georgia,serif" />
     <meta name="font:Title" content="Arial,sans-serif" />
+    <meta name="font:Pre" content="andale mono,monotype.com,lucida console,monospace" />
 
     <meta name="if:500px Posts" content="0" />
     <meta name="if:Custom trigger Infinite Scrolling" content="0" />
@@ -67,7 +68,7 @@
     <meta name="text:Vimeo" content="" />
     <meta name="text:Twitter" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/yQbm85viu/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/uWcm860rp/masonite.css">
 
     <style type="text/css">
 
@@ -169,33 +170,27 @@
        }
 
        blockquote,
-       hr {
-           border-color: {color:Brights};
-       }
-
+       hr,
        .post a,
        .post .footer,
        .post.chat .line,
        #description a {
-           border-bottom: 1px solid {color:Brights};
-       }
-
-       .post.answer:hover .question:after {
-           border-top: 8px solid {color:Accents};
+           border-color: {color:Brights};
        }
 
        #dsq-comments .dsq-comment-header {
-           border-left: 3px solid {color:Copy};
-       }
-
-       .title.question:after {
-           border-right: 8px solid {color:Background};
-           border-top: 8px solid {color:Copy};
+           border-color: {color:Copy};
        }
 
        .post:hover a,
-       .post.active a {
+       .post.active a,
+       .post.answer:hover .question:after {
            border-color: {color:Accents};
+       }
+
+       .title.question:after {
+           border-right-color: {color:Background};
+           border-top-color: {color:Copy};
        }
 
 
@@ -263,7 +258,8 @@
            Fonts
            ========================================================================== */
 
-        body {
+        body,
+        textarea {
             font-family: {font:Body};
         }
 
@@ -280,6 +276,13 @@
         #external {
             font-family: {font:PostMeta};
         }
+
+        pre,
+        code,
+        tt {
+            font-family: {font:Pre;}
+        }
+
 
         /* ==========================================================================
            Custom CSS
