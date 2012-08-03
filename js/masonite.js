@@ -542,16 +542,17 @@ function fadingSidebar() {
 				  var $page = $('#container'),
 				      $offset = $('#header'),
 				      colW = $('.post').outerWidth(true),
+							postHOff = colW - $('.post').width(),
 				      columns = null;
 
 				  $(window).smartresize(function(){
 				    // check if columns has changed
-				    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(true) ) / colW );
-				    if ( currentColumns !== columns ) {
+				    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(true) - postHOff ) / colW );
+				    if ( currentColumns !== columns && currentColumns > 0 ) {
 				      // set new column count
 				      columns = currentColumns;
 				      // apply width to container manually, then trigger relayout
-							$page.width( columns * colW + $offset.outerWidth(true) );
+				      $page.width( columns * colW + $offset.outerWidth(true) );
 				      $wall.width( columns * colW )
 				        .masonry('reload');
 				    }
