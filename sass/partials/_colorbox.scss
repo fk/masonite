@@ -33,7 +33,7 @@
 #colorbox{}
     #cboxContent{ margin-top:32px; }
         #cboxError{ padding:50px; }
-        #cboxLoadedContent{ -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+        #cboxLoadedContent{ @include border-radius(3px); }
         #cboxLoadingGraphic{ background:url(http://static.tumblr.com/wccjej0/CzMlckwya/activity_indicator.gif) center center no-repeat; }
         #cboxTitle{position:absolute; top:-22px; left:0; }
         #cboxCurrent{position:absolute; top:-22px; right:205px; text-indent:-9999px;}
