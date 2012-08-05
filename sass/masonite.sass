@@ -40,7 +40,7 @@ hr
   margin: 20px 0
 
 body
-  font-size: 62.5%
+  font-size: 14px
   height: 100%
   line-height: 20px
   padding: 0
@@ -137,23 +137,10 @@ blockquote
   p:last-child
     margin-bottom: 0
 
-#index .post .copy blockquote
-  img
-    min-width: 384px
-    max-width: 384px
-  blockquote img
-    min-width: 368px
-    max-width: 368px
-  blockquote img
-    min-width: 352px
-    max-width: 352px
-
-p
-  margin: 15px 0
-  padding-top: 5px
-  margin-bottom: 13px
-  font-size: 12px
-  line-height: 20px
+p,
+.copy
+  margin: 1em 0
+  line-height: 1.6
   &:first-child
     margin-top: 0
   &:last-child
@@ -206,9 +193,6 @@ tt
 em
   font-style: italic
 
-#index .post img
-  max-width: none
-
 #container
   margin: 0 0 40px
   .centered-content &
@@ -235,6 +219,7 @@ em
     margin: 0 auto
 
 #footer
+  font-size: 11px
   margin: 0 200px 0 40px
   .header-left &
     margin: 0 40px 0 200px
@@ -265,6 +250,7 @@ em
   padding: 0 40px 0 0
   z-index: 9998
   line-height: 1.5
+  font-size: 11px
   .header-top &
     bottom: auto
     top: 40px
@@ -327,6 +313,9 @@ em
   margin-right: 1em
   top: -0.8em
 
+#index .post .quote.long:before
+  top: -0.4em
+
 #single .post .quote:before
   content: "\e018"
 
@@ -339,8 +328,6 @@ em
   padding: 0
   margin-right: 40px
   margin-bottom: 40px
-  .link.title a span
-    background-position: 0 -600px
   &.photo img,
   &.audio .album_art img
     +border-radius(2px)
@@ -363,6 +350,10 @@ em
     float: right
     margin-right: 0
     margin-left: 10px
+    .hide-post-footer-border &
+      float: left
+      margin-left: 0
+      margin-right: 10px
   .link.title a
     border: none
   &.photo
@@ -396,10 +387,10 @@ em
         text-align: center
         .dog-ear-zoom-icon &
           position: relative
-          width: 24px
-          height: 24px
-          line-height: 15px
-          font-size: 15px
+          width: 28px
+          height: 28px
+          line-height: 20px
+          font-size: 18px
           text-align: right
           z-index: 10
       &:hover
@@ -412,8 +403,8 @@ em
         top: 0
         left: auto
         right: 0
-        width: 24px
-        height: 24px
+        width: 28px
+        height: 28px
         margin-top: 0
         margin-left: 0
         +border-radius(2px)
@@ -424,9 +415,6 @@ em
   .header-left &
     margin-right: 0
     margin-left: 40px
-  .copy,
-  .copy p
-    font-size: 14px
   .copy strong a
     font-weight: normal
   .media
@@ -442,6 +430,7 @@ em
     padding-top: 5px
     padding-bottom: 5px
     display: block
+    font-size: 10px
     .date a,
     .comments a,
     .notes a
@@ -502,6 +491,7 @@ em
 #index.width-500
   .post
     width: 500px
+    font-size: 14px
     &.video object
       width: 500px
       height: 375px
@@ -517,6 +507,19 @@ em
   float: left
   width: 400px
   overflow-x: hidden
+  font-size: 12px
+  .copy blockquote
+    img
+      min-width: 384px
+      max-width: 384px
+    blockquote img
+      min-width: 368px
+      max-width: 368px
+    blockquote img
+      min-width: 352px
+      max-width: 352px
+  img
+    max-width: none
   &.video object
     width: 400px
     height: 300px
@@ -529,8 +532,6 @@ em
     .line.last
       margin-bottom: 15px
       padding-bottom: 0
-    .lines
-      font-size: 12px
   .quote
     line-height: 1.5
     &.short
@@ -540,11 +541,6 @@ em
       font-size: 16px
   .copy img
     max-width: 400px
-  .copy,
-  .copy p
-    padding: 0
-    font-size: 12px
-    margin-top: 10px
   a.more
     display: block
     font-size: 11px
@@ -651,8 +647,6 @@ em
     .quote
       font-size: 36px
       line-height: 40px
-    &.chat .lines
-      font-size: 14px
     .footer
       margin-top: 35px
       margin-bottom: 20px
@@ -728,6 +722,7 @@ em
   width: 120px
   padding: 0 40px 0 0
   z-index: 9997
+  font-size: 11px
   .header-left &
     right: auto
     left: 0
@@ -750,13 +745,15 @@ em
       position: absolute
       right: 0
       top: 0
-      border-bottom-width: 24px
-      border-right-width: 24px
+      border-bottom-width: 28px
+      border-right-width: 28px
+      border-bottom-style: solid
+      border-right-style: solid
       z-index: 0
       -webkit-transition: 2s linear
     &:hover:after
-      border-bottom-width: 24px
-      border-right-width: 24px
+      border-bottom-width: 28px
+      border-right-width: 28px
 
 .link a em:before
   content: "\e01c"

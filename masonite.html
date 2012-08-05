@@ -69,7 +69,9 @@
     <meta name="text:Vimeo" content="" />
     <meta name="text:Twitter" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/B7Em879ya/masonite.css">
+    <meta name="text:Google Web Font" content="" />
+
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/USDm89qxa/masonite.css">
 
     <style type="text/css">
 
@@ -152,7 +154,8 @@
         .post.audio object,
         .post.audio embed,
         #infscr-loading,
-        .link a em:before {
+        .link a em:before,
+        .title.question {
             background: {color:Copy};
         }
 
@@ -184,10 +187,23 @@
        }
 
        .post:hover a,
-       .post.active a,
-       .post.answer:hover .question:after {
+       .post.active a {
            border-color: {color:Accents};
        }
+
+       .post.answer:hover .question:after {
+           border-top-color: {color:Accents};
+       }
+
+       .dog-ear-zoom-icon .post.photo .media .fullsize:after {
+           border-bottom-color: {color:Mids};
+           border-right-color: {color:Background};
+       }
+
+       .dog-ear-zoom-icon .post.photo .media .fullsize:hover:after {
+           border-bottom-color: {color:Accents};
+           border-right-color: {color:Background};
+        }
 
        .title.question:after {
            border-right-color: {color:Background};
@@ -234,7 +250,6 @@
         body,
         #navigation li a:hover,
         #header h1 a,
-        .title.question,
         .post .link.title a {
             color: {color:Copy};
         }
@@ -259,6 +274,7 @@
            Fonts
            ========================================================================== */
 
+        {block:IfNotGoogleWebFont}
         body,
         textarea {
             font-family: {font:Body};
@@ -281,8 +297,16 @@
         pre,
         code,
         tt {
-            font-family: {font:Pre;}
+            font-family: {font:Pre}
         }
+        {/block:IfNotGoogleWebFont}
+
+        {block:IfGoogleWebFont}
+        body,
+        textarea {
+            font-family: '{text:Google Web Font}', sans-serif;
+        }
+        {/block:IfGoogleWebFont}
 
 
         /* ==========================================================================
@@ -596,6 +620,17 @@
 </div><!-- /#copyright -->
 
 </div><!-- /#container -->
+
+{block:IfGoogleWebFont}
+<script src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['{text:Google Web Font}']
+    }
+  });
+</script>
+{/block:IfGoogleWebFont}
 
 <script>
     var Whites = "{color:Background}",
