@@ -14,7 +14,7 @@ Features
 *  [jQuery Masonry](http://masonry.desandro.com/)-powered index layout (w/ opt-out to one-column and optional centered layout)
 *  infinite scrolling (automatic or user-invoked)
 *  fully customizable colors (Whites, Brights, Lights, Mids, Darks, Blacks, Accents) thanks to using @font-face for all theme icons
-*  customizable fonts (title, post-meta, body, quote, pre)
+*  customizable fonts (title, post-meta, body, quote, pre) – alernatively you may specify a web font family and style(s) from the [Google Web Fonts API](http://www.google.com/webfonts)
 *  optional 500-pixels wide posts (400 pixels are the default)
 *  view high-resolution versions of images in a lightbox, with optional slideshow
 *  one- or two-column navigation, left or right of the main content and on top or bottom of the viewport
@@ -36,9 +36,14 @@ Credits
 Appearance Options Overview
 ---------------------------
 
-* Colors: Background, Brights, Lights, Mids, Darks, Copy, Accents
-* Fonts: Body, PostMeta, Quote, Title, Pre – alernatively you may specify a web font family and style(s) from the [Google Web Fonts API](http://www.google.com/webfonts)
-* 500px Posts
+* **Custom Colors**  
+  Background, Brights, Lights, Mids, Darks, Copy, Accents
+* **Custom Fonts**  
+  Body, PostMeta, Quote, Title, Pre – alternatively a Google Web Font and Google Web Font Style(s)
+* **Post Width**  
+  defaults to 400px, can be switched to 500px
+* **Social Icons**  
+  Soundcloud, Facebook, Github, Dribbble, Vimeo, Twitter
 * Custom trigger Infinite Scroll
 * Fading Sidebar
 * Header Left
