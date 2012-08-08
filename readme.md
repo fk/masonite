@@ -37,7 +37,7 @@ Appearance Options Overview
 ---------------------------
 
 * Colors: Background, Brights, Lights, Mids, Darks, Copy, Accents
-* Fonts: Body, PostMeta, Quote, Title, Pre
+* Fonts: Body, PostMeta, Quote, Title, Pre – alernatively you may specify a web font family and style(s) from the [Google Web Fonts API](http://www.google.com/webfonts)
 * 500px Posts
 * Custom trigger Infinite Scroll
 * Fading Sidebar
