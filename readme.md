@@ -6,15 +6,15 @@ masonry + infinite-scroll = masonite.
 Clever, huh?
 
 [Up for grabs](http://www.tumblr.com/theme/34822) in the Tumblr Theme Garden,  
-live at [http://hellodirty.com](http://hellodirty.com).
+live at [hellodirty.com](http://hellodirty.com).
 
 Features
 --------
 
 *  [jQuery Masonry](http://masonry.desandro.com/)-powered index layout (w/ opt-out to one-column and optional centered layout)
 *  infinite scrolling (automatic or user-invoked)
-*  fully customizable colors (Whites, Brights, Lights, Mids, Darks, Blacks, Accents) thanks to using @font-face for all theme icons
-*  customizable fonts (title, post-meta, body, quote, pre) – alernatively you may specify a web font family and style(s) from the [Google Web Fonts API](http://www.google.com/webfonts)
+*  fully customizable colors thanks to using @font-face for all theme icons
+*  customizable fonts – alernatively you may specify a web font family and style(s) from the [Google Web Fonts API](http://www.google.com/webfonts)
 *  optional 500-pixels wide posts (400 pixels are the default)
 *  view high-resolution versions of images in a lightbox, with optional slideshow
 *  one- or two-column navigation, left or right of the main content and on top or bottom of the viewport
