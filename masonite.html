@@ -72,7 +72,7 @@
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Styles" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/pJem8m396/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/V22m8m5m6/masonite.css">
 
     <style type="text/css">
 
@@ -149,7 +149,6 @@
 
         #cboxLoadedContent,
         #cboxLoadingOverlay,
-        #disqus_thread,
         #index #pagination li a:hover,
         #likes li:hover,
         .post.audio object,
@@ -244,14 +243,16 @@
         #external li a:hover,
         .post:hover a,
         .post.active a,
-        .post.photo .media .fullsize:hover {
+        .post.photo .media .fullsize:hover,
+        #disqus_thread a {
             color: {color:Accents};
         }
 
         body,
         #navigation li a:hover,
         #header h1 a,
-        .post .link.title a {
+        .post .link.title a,
+        #disqus_thread {
             color: {color:Copy};
         }
 
@@ -531,12 +532,32 @@
                 {block:IfDisqusShortname}
                     {block:Permalink}
                         <div class="notecontainer">
+                            <script>
+                                var disqus_url = "{Permalink}";
+                                var disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}";
+                            </script>
                             <div id="disqus_thread"></div>
-                            <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                            <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
-                        </div>
-                        <div style="text-align: right; margin-top: 5px">
+                            <script>
+                              /**
+                                * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+                                */
+                              (function() {
+                               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                               dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+                               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                              })();
+                            </script>
+                            <noscript>
+                                Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
                             <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+                            <script type="text/javascript">
+                            var disqus_shortname = '{text:Disqus Shortname}';
+                            (function () {
+                              var s = document.createElement('script'); s.async = true;
+                              s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+                              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+                            }());
+                            </script>
                         </div>
                       {/block:Permalink}
                   {/block:IfDisqusShortname}
@@ -640,7 +661,8 @@
         customTrigger = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
         fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}",
         googleAnalytics = "{text:Google Analytics}",
-        centeredContent = "{block:IfCenteredContent}true{/block:IfCenteredContent}";
+        centeredContent = "{block:IfCenteredContent}true{/block:IfCenteredContent}",
+        disqusShortname = "{block:IfDisqusShortname}{text:Disqus Shortname}{/block:IfDisqusShortname}";
 
     Whites = Whites.slice( 1 );
     Accents = Accents.slice( 1 );
@@ -679,7 +701,7 @@
         {
             // This will wait for the fallback to load and
             // execute if it needs to.
-            load: 'http://static.tumblr.com/wccjej0/gVim87bxz/masonite.js'
+            load: 'http://static.tumblr.com/wccjej0/EAUm8mb4s/masonite.js'
         },
         {
             test: window._gaq,
@@ -693,23 +715,6 @@
     <script src="/tweets.js"></script>
     <!-- /twitter -->
 {/block:Twitter}
-
-{block:IfDisqusShortname}
-    <!-- disqus -->
-    <script>
-        (function() {
-            var links = document.getElementsByTagName('a');
-            var query = '?';
-            for(var i = 0; i < links.length; i++) {
-                if(links[i].href.indexOf('#disqus_thread') >= 0) {
-                    query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
-                }
-            }
-            document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
-        })();
-    </script>
-    <!-- /disqus -->
-{/block:IfDisqusShortname}
 
 {block:IfClickyTracking}
     <!-- clicky analytics, asynchronous: http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->

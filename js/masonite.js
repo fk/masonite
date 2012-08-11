@@ -378,7 +378,6 @@ $.fn.fixYouTube = function() {
 		});
 
 		return $(this);
-
 }
 
 $.fn.fixVimeo = function() {
@@ -421,7 +420,30 @@ $.fn.fixVimeo = function() {
 	});
 
 	return $(this);
+}
 
+$.fn.disqusCommentCount = function() {
+	var query = '?',
+			$elems = $('.post').find('.footer .comments a');
+	
+	$elems.each(function(i) {
+		query += 'url' + i + '=' + encodeURIComponent( $(this).attr('href') ) + '&';
+	});
+
+	$.getScript('http://disqus.com/forums/' + disqusShortname + '/get_num_replies.js' + query, function(data, textStatus, jqxhr) {
+		console.log(query);
+		console.log(data);
+		console.log(textStatus);
+		console.log(jqxhr.status);
+		console.log('Load was performed.');
+		
+		$elems.each(function() {
+			$(this).html($(this).text().replace('Comments',''));
+			$(this).html($(this).text().replace('Comment',''));
+		});
+	});
+
+	return $(this);
 }
 
 function webkitSearch() {
@@ -500,7 +522,7 @@ function fadingSidebar() {
 
 		$posts = $('#container .post');
 
-		$posts.fixYouTube().fixVimeo().live({
+		$posts.fixYouTube().fixVimeo().disqusCommentCount().live({
 			mouseenter: function(event) {
 			 $(this)
 				.addClass('active')
@@ -624,6 +646,7 @@ function fadingSidebar() {
 							if(customTrigger){
 								$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});
 							}
+							$('#container .post').disqusCommentCount();
 						});
 					});
 
@@ -633,13 +656,6 @@ function fadingSidebar() {
 
 				}
 			);
-
-			// leftover from the original theme
-			// for the yet totally untested disqus-comments
-			$('#container .post .footer .comments a').each(function() {
-				$(this).html($(this).text().replace('Comments',''));
-				$(this).html($(this).text().replace('Comment',''));
-			});
 
 		} // body#index
 

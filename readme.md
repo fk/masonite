@@ -20,9 +20,9 @@ Features
 *  one- or two-column navigation, left or right of the main content and on top or bottom of the viewport
 *  optional display of tags, avatar, tumblr title, likes and "people i follow"
 *  [Google Analytics](http://www.google.com/analytics/) and [Clicky](http://getclicky.com/) integration
-*  Disqus integration (based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/), currently untested)
-*  pretty YouTube-videos (via [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds))
-*  Vimeo-videos incorporating the "Accents"-color ([Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/))
+*  [Disqus](http://disqus.com/) 2012 integration
+*  Vimeo-videos incorporating the "Accents"-color
+*  pretty YouTube-videos
 
 Credits
 -------
