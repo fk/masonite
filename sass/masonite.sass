@@ -51,7 +51,7 @@ body
    ========================================================================== */
 
 #infscr-loading
-  z-index: 5000
+  z-index: 1000
   position: fixed
   font-size: 11px
   line-height: 16px
@@ -183,23 +183,21 @@ h6
 
 #container
   margin: 0 0 40px
-  .centered-content &
-    margin: 0 auto 40px
-    width: auto
-    padding-right: 40px
   .single-column &
     width: 640px
   .width-500.single-column &
     width: 740px
 
 .centered-content
-  &.header-left #header,
-  &.header-left #copyright
-    right: auto !important
-    left: auto !important
-  &.single-column.header-left #container,
-  &.header-left #container
+  &.header-left
+    #header,
+    #copyright
+      left: auto !important
+      right: auto !important
+  #container
     margin: 0 auto 40px
+    width: auto
+    padding-right: 40px
   &.header-left #infscr-loading
     left: auto
     margin-left: 40px
@@ -236,7 +234,7 @@ h6
   bottom: 100px
   width: 120px
   padding: 0 40px 0 0
-  z-index: 9998
+  z-index: 800
   line-height: 1.5
   font-size: 11px
   .header-top &
@@ -711,7 +709,7 @@ h6
   right: 0
   width: 120px
   padding: 0 40px 0 0
-  z-index: 9997
+  z-index: 800
   font-size: 11px
   .header-left &
     right: auto

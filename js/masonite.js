@@ -558,7 +558,7 @@ function fadingSidebar() {
 					columnWidth   : $('.post').outerWidth(true)
 				});
 
-				if ( centeredContent && !$('body').hasClass('single-column') && $('body').hasClass('header-left') ) {
+				if ( centeredContent && !$('body').hasClass('single-column') ) {
 				  var $page = $('#container'),
 				      $offset = $('#header'),
 				      colW = $('.post').outerWidth(true),
@@ -567,14 +567,16 @@ function fadingSidebar() {
 
 				  $(window).smartresize(function(){
 				    // check if columns has changed
-				    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(true) - postHOff ) / colW );
+				    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(false) - postHOff ) / colW );
 				    if ( currentColumns !== columns && currentColumns > 0 ) {
 				      // set new column count
 				      columns = currentColumns;
 				      // apply width to container manually, then trigger relayout
-				      $page.width( columns * colW + $offset.outerWidth(true) );
-				      $wall.width( columns * colW )
-				        .masonry('reload');
+				      $page.width( columns * colW + $offset.outerWidth(false) );
+				      $wall.width( columns * colW ).masonry('reload');
+							if ( !$('body').hasClass('header-left') ) {
+								$('#header, #copyright').css( {'margin-left':columns * colW + postHOff, 'right':'auto'} );
+							}
 				    }
 				  }).smartresize(); // trigger resize to set container width
 				}
