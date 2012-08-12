@@ -427,16 +427,14 @@ $.fn.disqusCommentCount = function() {
 			$elems = $('.post').find('.footer .comments a');
 	
 	$elems.each(function(i) {
+		// https://groups.google.com/forum/?fromgroups#!topic/disqus-dev/w6U9S3vPKU4%5B1-25%5D
+		// "I did some length testing - if I edit the javascript so that the query
+		// generation stops after 41 links (7256 chars) it works for those 41
+		// links. For 42 links (7435 chars) then simply nothing happens."
 		query += 'url' + i + '=' + encodeURIComponent( $(this).attr('href') ) + '&';
 	});
 
 	$.getScript('http://disqus.com/forums/' + disqusShortname + '/get_num_replies.js' + query, function(data, textStatus, jqxhr) {
-		console.log(query);
-		console.log(data);
-		console.log(textStatus);
-		console.log(jqxhr.status);
-		console.log('Load was performed.');
-		
 		$elems.each(function() {
 			$(this).html($(this).text().replace('Comments',''));
 			$(this).html($(this).text().replace('Comment',''));
