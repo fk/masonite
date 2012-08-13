@@ -388,6 +388,9 @@
 
 <div id="content" class="clearfix">
     {block:SearchPage}
+        {block:NoSearchResults}
+        <h2 class="searchresultcount">{lang:Sorry no results for SearchQuery 2}</h2>
+        {/block:NoSearchResults}
         <h2 class="searchresultcount">{lang:SearchResultCount results for SearchQuery 2}</h2>
     {/block:SearchPage}
 
