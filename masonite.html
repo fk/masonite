@@ -10,8 +10,9 @@
 
     <title>
         {Title}
-        {block:SearchPage}, Search results for: {SearchQuery}{/block:SearchPage}
-        {block:PostSummary}, {PostSummary}{/block:PostSummary}
+        {block:PostSummary}| {PostSummary}{/block:PostSummary}
+        {block:SearchPage}| Search Results for &lsquo;{SearchQuery}&rsquo;{/block:SearchPage}
+        {block:TagPage}| Posts Tagged &lsquo;{Tag}&rsquo;{/block:TagPage}
     </title>
 
 {block:Description}
