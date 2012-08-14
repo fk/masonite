@@ -73,7 +73,7 @@
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Styles" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/Q0Ym8o4iz/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/xGdm8pvpy/masonite.css">
 
     <style type="text/css">
 
@@ -133,13 +133,15 @@
            ========================================================================== */
 
         .post.photo .media .fullsize,
+        .post .reblog,
         .post.answer:hover .question,
         .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
             background-color: {color:Accents};
         }
 
         body,
-        .post.photo .media .fullsize:hover {
+        .post.photo .media .fullsize:hover,
+        .post .reblog:hover {
             background-color: {color:Background};
         }
 
@@ -228,7 +230,8 @@
         .link a em:before,
         #infscr-loading,
         .title.question,
-        .post.photo .media .fullsize {
+        .post.photo .media .fullsize,
+        .post .reblog:before {
             color: {color:Background};
         }
 
@@ -247,7 +250,8 @@
         .post:hover a,
         .post.active a,
         .post.photo .media .fullsize:hover,
-        #disqus_thread a {
+        #disqus_thread a,
+        .post .reblog:hover:before {
             color: {color:Accents};
         }
 
@@ -472,6 +476,8 @@
                     </h3>
                     {block:Description}<div class="copy">{Description}</div>{/block:Description}
                 {/block:Link}
+
+                <a href='{ReblogURL}' class='reblog'><span>Reblog</span></a>
 
                 <div class="footer clearfix">
                     <ul class="clearfix">
@@ -709,7 +715,7 @@
         {
             // This will wait for the fallback to load and
             // execute if it needs to.
-            load: 'http://static.tumblr.com/wccjej0/HuZm8mjix/masonite.js'
+            load: 'http://static.tumblr.com/wccjej0/QwGm8pzhd/masonite.js'
         },
         {
             test: window._gaq,

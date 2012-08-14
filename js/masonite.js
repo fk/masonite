@@ -508,36 +508,35 @@ function fadingSidebar() {
 		  fadingSidebar();
     }
 
-		$("a.fullsize")
-			.hide()
-			.colorbox({
-				slideshow:true,
-				slideshowAuto:false,
-				speed:200,
-				photo:true,
-				maxWidth:"90%",
-				maxHeight:"90%"});
-
-		$posts = $('#container .post');
-
-		$posts.fixYouTube().fixVimeo().disqusCommentCount().live({
-			mouseenter: function(event) {
-			 $(this)
-				.addClass('active')
-				.find('a.fullsize')
-					.stop()
-					.fadeIn({duration: 200, easing: 'easeInOutCubic'});
-				event.stopPropagation();
-			},
-			mouseleave: function(event) {
-				$(this)
-					.removeClass('active')
-					.find('a.fullsize')
-						.stop()
-						.fadeOut({duration: 200, easing: 'easeInOutCubic'});
-				event.stopPropagation();
-			}
+		$("a.fullsize").colorbox({
+			slideshow: true,
+			slideshowAuto: false,
+			speed: 200,
+			photo: true,
+			maxWidth: "90%",
+			maxHeight: "90%"
 		});
+
+		$('#posts .post').fixYouTube().fixVimeo().disqusCommentCount();
+		$('#posts').on(
+			{
+				mouseenter: function(event) {
+				 $(this)
+					.addClass('active')
+					.find('a.fullsize, a.reblog')
+						.stop()
+						.fadeIn({duration: 200, easing: 'easeInOutCubic'});
+				},
+				mouseleave: function(event) {
+					$(this)
+						.removeClass('active')
+						.find('a.fullsize, a.reblog')
+							.stop()
+							.fadeOut({duration: 200, easing: 'easeInOutCubic'});
+				}
+			},
+			'.post'
+		);
 
 		$("#likes li:first-child").addClass('first');
 		$("#likes li:last-child").addClass('last');
@@ -641,7 +640,7 @@ function fadingSidebar() {
 
 					$elems.imagesLoaded( function(){
 						$wall.masonry( 'appended', $elems, true, function(){
-							$elems.find("a.fullsize").hide().colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
+							$elems.find('a.fullsize').colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
 							$elems.animate({opacity: 1.0}, 200, 'swing');
 							if(customTrigger){
 								$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});

@@ -267,6 +267,7 @@ h6
   top: 8px
 
 .post.photo .media .fullsize:before,
+.post .reblog:before,
 .post .quote:before,
 .post .link.title a em:before,
 .post .footer .date a:before,
@@ -344,62 +345,78 @@ h6
       margin-right: 10px
   .link.title a
     border: none
-  &.photo
-    .media .fullsize
-      position: absolute
-      top: 50%
-      left: 50%
+  .reblog,
+  .media .fullsize
+    position: absolute
+    top: 10px
+    right: 10px
+    opacity: .8
+    display: block
+    width: 28px
+    height: 28px
+    -webkit-transition: all 0.2s linear
+    +border-radius(2px)
+    border: 0
+    span
+      display: block
+      text-indent: 100%
+      white-space: nowrap
+      overflow: hidden
+    .js &
+      display: none
+    &:before
+      content: "\e01b"
+      display: block
+      width: 28px
+      height: 28px
+      line-height: 20px
+      font-size: 18px
+      text-align: center
+    &:hover
+      opacity: 1
+      box-shadow: 0px 0px 48px #fff
+      .dog-ear-zoom-icon &
+        box-shadow: none
+        background-color: transparent
+  .reblog:before
+    font-size: 22px
+    line-height: 28px
+    margin-top: 1px
+  .media .fullsize
+    top: 50%
+    left: 50%
+    width: 64px
+    height: 64px
+    margin-top: -32px
+    margin-left: -32px
+    +border-radius(32px)
+    &:before
+      content: "\e023"
+      display: block
       width: 64px
       height: 64px
-      margin-top: -32px
-      margin-left: -32px
-      display: block
-      opacity: .8
-      -webkit-transition: all 0.2s linear
-      display: block
-      -webkit-border-radius: 32px
-      -moz-border-radius: 32px
-      border-radius: 32px
-      .js &
-        display: none
-      span
-        display: block
-        text-indent: 100%
-        white-space: nowrap
-        overflow: hidden
-      &:before
-        content: "\e023"
-        display: block
-        width: 64px
-        height: 64px
-        line-height: 64px
-        font-size: 38px
-        text-align: center
-        .dog-ear-zoom-icon &
-          position: relative
-          width: 28px
-          height: 28px
-          line-height: 20px
-          font-size: 18px
-          text-align: right
-          z-index: 10
-      &:hover
-        opacity: 1
-        box-shadow: 0px 0px 48px #fff
-        .dog-ear-zoom-icon &
-          box-shadow: none
-          background-color: transparent
+      line-height: 64px
+      font-size: 38px
+      text-align: center
       .dog-ear-zoom-icon &
-        top: 0
-        left: auto
-        right: 0
+        position: relative
         width: 28px
         height: 28px
-        margin-top: 0
-        margin-left: 0
-        +border-radius(2px)
-        opacity: 1
-        background-color: transparent
+        line-height: 20px
+        font-size: 18px
+        text-align: right
+        z-index: 10
+    .dog-ear-zoom-icon &
+      top: 0
+      left: auto
+      right: 0
+      width: 28px
+      height: 28px
+      margin-top: 0
+      margin-left: 0
+      +border-radius(2px)
+      opacity: 1
+      background-color: transparent
   a
     -webkit-transition: color 0.2s linear, border 0.2s linear
   .header-left &
