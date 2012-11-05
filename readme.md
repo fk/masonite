@@ -42,28 +42,31 @@ Appearance Options Overview
   Background, Brights, Lights, Mids, Darks, Copy, Accents
 * **Custom Fonts**  
   Body, PostMeta, Quote, Title, Pre – alternatively a Google Web Font and Google Web Font Style(s)
-* **Post Width**  
-  defaults to 400px, can be switched to 500px
+  * **Google Web Font**  
+    If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used; additionaly, you may define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
 * **Social Icons**  
   Soundcloud, Facebook, Github, Dribbble, Vimeo, Twitter
-* **Layout Options**  
-  Header Left, Header Top, One Column Content, Centered Content
-* **Google Web Font**  
-  If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used; additionaly, you may define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
-* Custom trigger Infinite Scroll
-* Fading Sidebar
-* Two Column Navigation
-* Dog Ear Zoom Icon
-* Enable Google Prettify
+* **Post Width**  
+  defaults to 400px, can be switched to 500px
+* **Header Options**
+  * **Header Left, Header Top**  
+    activate these to override the header default (right- and bottom-aligned) position
+  * Show Avatar
+  * Show Title
+  * Fading Sidebar
+  * Two Column Navigation
+* One Column Content
+* Centered Content
 * Show Album Art on Audio Posts
-* Show Avatar
 * Show Copyright
 * Show Likes
 * Show People I Follow
 * Show Post Footer Border
 * Show Tags
 * Show Tags on Index Page
-* Show Title
+* Custom trigger Infinite Scroll
+* Dog Ear Zoom Icon
+* Enable Google Prettify
 * Show Twitter
 * Disqus Shortname
 * Google Analytics
