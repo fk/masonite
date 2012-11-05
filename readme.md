@@ -31,6 +31,7 @@ Credits
 *  originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/) by [P.J. Onori](http://somerandomdude.com/)
 *  pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 *  layout powered by David DeSandro’s [jQuery Masonry](http://masonry.desandro.com/)
+*  lightbox and slideshow powered by [jQuery ColorBox](http://jacklmoore.com/colorbox/)
 *  infinite scrolling courtesy of the [Infinite Scroll jQuery plugin](http://www.infinite-scroll.com) by Paul Irish
 *  icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/)
 
