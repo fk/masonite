@@ -49,6 +49,7 @@
     <meta name="if:Two Column Navigation" content="1" />
     <meta name="if:Dog Ear Zoom Icon" content="0" />
     <meta name="if:Enable Google Prettify" content="0" />
+    <meta name="if:Enable Reblog Links on Index Pages" content="0" />
 
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Show Avatar" content="1" />
@@ -512,7 +513,9 @@
                     {block:Description}<div class="copy">{Description}</div>{/block:Description}
                 {/block:Link}
 
+                {block:IfEnableReblogLinksonIndexPages}
                 <a href='{ReblogURL}' class='reblog'><span>Reblog</span></a>
+                {/block:IfEnableReblogLinksonIndexPages}
 
                 <div class="footer clearfix">
                     <ul class="clearfix">
@@ -527,7 +530,7 @@
                                 <a href="{Permalink}">
                                     {TimeAgo}
                                 </a>
-                            {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}" class="reblog">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}" class="reblog">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
+                            {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
                             {/block:PermalinkPage}
                         </li>
                     {/block:Date}
