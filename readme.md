@@ -23,6 +23,7 @@ Features
 *  [Disqus](http://disqus.com/) 2012 integration
 *  Vimeo-videos incorporating the "Accents"-color
 *  pretty YouTube-videos
+*  optional syntax highlighting via [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 
 Credits
 -------
