@@ -23,6 +23,7 @@ Features
 *  [Disqus](http://disqus.com/) 2012 integration
 *  Vimeo-videos incorporating the "Accents"-color
 *  pretty YouTube-videos
+*  optional syntax highlighting via [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 
 Credits
 -------
@@ -44,12 +45,15 @@ Appearance Options Overview
   defaults to 400px, can be switched to 500px
 * **Social Icons**  
   Soundcloud, Facebook, Github, Dribbble, Vimeo, Twitter
+* **Layout Options**  
+  Header Left, Header Top, One Column Content, Centered Content
+* **Google Web Font**  
+  If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used; additionaly, you may define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
 * Custom trigger Infinite Scroll
 * Fading Sidebar
-* Header Left
-* Header Top
-* One Column Content
 * Two Column Navigation
+* Dog Ear Zoom Icon
+* Enable Google Prettify
 * Show Album Art on Audio Posts
 * Show Avatar
 * Show Copyright
