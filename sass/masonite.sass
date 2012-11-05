@@ -381,10 +381,16 @@ h6
       .dog-ear-zoom-icon &
         box-shadow: none
         background-color: transparent
-  .reblog:before
-    font-size: 22px
-    line-height: 28px
-    margin-top: 1px
+  .reblog
+    &:before
+      font-size: 22px
+      line-height: 28px
+      margin-top: 1px
+  &.photo
+    .dog-ear-zoom-icon &
+      .reblog
+        right: auto
+        left: 10px
   .media .fullsize
     top: 50%
     left: 50%
