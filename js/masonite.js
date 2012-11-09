@@ -418,23 +418,25 @@ $.fn.fixVimeo = function() {
 }
 
 $.fn.disqusCommentCount = function() {
-	var query = '?',
-			$elems = $('.post').find('.footer .comments a');
+  if(disqusShortname){
+  	var query = '?',
+  			$elems = $('.post').find('.footer .comments a');
 	
-	$elems.each(function(i) {
-		// https://groups.google.com/forum/?fromgroups#!topic/disqus-dev/w6U9S3vPKU4%5B1-25%5D
-		// "I did some length testing - if I edit the javascript so that the query
-		// generation stops after 41 links (7256 chars) it works for those 41
-		// links. For 42 links (7435 chars) then simply nothing happens."
-		query += 'url' + i + '=' + encodeURIComponent( $(this).attr('href') ) + '&';
-	});
+  	$elems.each(function(i) {
+  		// https://groups.google.com/forum/?fromgroups#!topic/disqus-dev/w6U9S3vPKU4%5B1-25%5D
+  		// "I did some length testing - if I edit the javascript so that the query
+  		// generation stops after 41 links (7256 chars) it works for those 41
+  		// links. For 42 links (7435 chars) then simply nothing happens."
+  		query += 'url' + i + '=' + encodeURIComponent( $(this).attr('href') ) + '&';
+  	});
 
-	$.getScript('http://disqus.com/forums/' + disqusShortname + '/get_num_replies.js' + query, function(data, textStatus, jqxhr) {
-		$elems.each(function() {
-			$(this).html($(this).text().replace('Comments',''));
-			$(this).html($(this).text().replace('Comment',''));
-		});
-	});
+  	$.getScript('http://disqus.com/forums/' + disqusShortname + '/get_num_replies.js' + query, function(data, textStatus, jqxhr) {
+  		$elems.each(function() {
+  			$(this).html($(this).text().replace('Comments',''));
+  			$(this).html($(this).text().replace('Comment',''));
+  		});
+  	});
+  }
 
 	return $(this);
 }
@@ -465,6 +467,23 @@ function webkitSearch() {
 			}
 		});
 	}
+}
+
+function prettifyCode() {
+  if (googlePrettify){
+      var a = false;
+
+      $("pre code").parent().each(function(){
+          if (!$(this).hasClass("prettyprint")){
+            $(this).addClass("prettyprint");
+            a = true;
+          }
+      });
+
+      if (a) {
+        prettyPrint();
+      }
+  }
 }
 
 function fadingSidebar() {
@@ -513,6 +532,8 @@ function fadingSidebar() {
 		});
 
 		$('#posts .post').fixYouTube().fixVimeo().disqusCommentCount();
+		prettifyCode();
+		
 		$('#posts').on(
 			{
 				mouseenter: function(event) {
@@ -585,10 +606,10 @@ function fadingSidebar() {
 			// infinite scroll
 			$wall.infinitescroll({
 				loading: {
-			    finishedMsg: "No more pages to load",
-			    img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-			    msgText: "Loading page 2/" + totalPages
-			  },
+					finishedMsg: "No more pages to load",
+					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
+					msgText: "Loading page 2/" + totalPages
+				},
 				navSelector     : '#pagination li.next a',  // selector for the paged navigation
 				nextSelector    : '#pagination li.next a',  // selector for the NEXT link (to page 2)
 				itemSelector    : '#posts .post',           // selector for all items you'll retrieve
@@ -600,6 +621,8 @@ function fadingSidebar() {
 				},
 				// call masonry as a callback
 				function( newElements ) {
+
+					prettifyCode();
 					// get opts by getting internal data of infinite scroll instance
 					var opts = $wall.data('infinitescroll').options;
 					var $elems = $( newElements ).css({ opacity: 0 });
