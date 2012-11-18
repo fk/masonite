@@ -517,7 +517,9 @@
                 {/block:Link}
 
                 {block:IfEnableReblogLinksonIndexPages}
-                <a href='{ReblogURL}' class='reblog'><span>Reblog</span></a>
+                    {block:IndexPage}
+                        <a href='{ReblogURL}' class='reblog'><span>Reblog</span></a>
+                    {/block:IndexPage}
                 {/block:IfEnableReblogLinksonIndexPages}
 
                 <div class="footer clearfix">
