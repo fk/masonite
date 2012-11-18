@@ -1,5 +1,4 @@
-masonite
-========
+# masonite
 
 **A tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -8,12 +7,11 @@ Clever, huh?
 [Up for grabs](http://www.tumblr.com/theme/34822) in the Tumblr Theme Garden,  
 live at [hellodirty.com](http://hellodirty.com).
 
-Features
---------
+## Features
 
 * [jQuery Masonry](http://masonry.desandro.com/)-powered index page layout (w/ opt-out to one-column and optional centered layout)
 * infinite scrolling (automatic or user-invoked)
-* fully customizable colors thanks to using @font-face for all theme icons
+* fully customizable colors thanks to using `@font-face` for all theme icons
 * customizable fonts – alernatively you may specify a web font family and style(s) from the [Google Web Fonts API](http://www.google.com/webfonts)
 * one- or two-column navigation, left or right of the main content and on top or bottom of the viewport
 * optional
@@ -26,8 +24,7 @@ Features
 * Vimeo-videos incorporating the "Accents"-color
 * pretty YouTube-videos
 
-Credits
--------
+## Credits
 
 * originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/) by [P.J. Onori](http://somerandomdude.com/)
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
@@ -37,8 +34,7 @@ Credits
 * [jQuery](http://jquery.com/) v1.8.2
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/)
 
-Appearance Options Overview
----------------------------
+## Appearance Options Overview
 
 * **Custom Colors**  
   Background, Brights, Lights, Mids, Darks, Copy, Accents
@@ -73,3 +69,8 @@ Appearance Options Overview
 * Disqus Shortname
 * Google Analytics
 * Clicky Tracking
+
+## Branches, Contributing
+
+Contributions are welcome!  
+We use [git-flow](https://github.com/nvie/gitflow) and it's branching model: the *master* branch always contains stable, production-ready code while the *develop* branch contains the latest development code.
