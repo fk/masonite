@@ -95,9 +95,7 @@ But I don't want to leave you high and dry. If you can follow the steps below, I
 
 ### Provide a live URL
 
-If you have a live site, add the link. **Without seeing it in the browser, I don't have a good idea of what you're trying to achieve.**  
-**Pasting code does not help** as much as a live URL.
-
+If you have a live site, add the link. **Without seeing it in the browser, I don't have a good idea of what you're trying to achieve. Pasting code does not help as much as a live URL.**  
 [Like @desandro sayz](http://twitter.com/desandro/status/105371678204366848):
 
 > Describing a dev problem is like showing a picture of your car to a mechanic. If you want me to fix it, I need to put my own hands on it. 
