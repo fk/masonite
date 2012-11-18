@@ -270,7 +270,7 @@ h6
   top: 8px
 
 .post.photo .media .fullsize:before,
-.post .reblog:before,
+.post .footer .reblog a:before,
 .post .quote:before,
 .post .link.title a em:before,
 .post .footer .date a:before,
@@ -349,7 +349,7 @@ h6
       margin-right: 10px
   .link.title a
     border: none
-  .reblog,
+  .footer .reblog a,
   .media .fullsize
     position: absolute
     top: 10px
@@ -382,14 +382,14 @@ h6
       .dog-ear-zoom-icon &
         box-shadow: none
         background-color: transparent
-  .reblog
+  .footer .reblog a
     &:before
       font-size: 22px
       line-height: 28px
       margin-top: 1px
   &.photo
     .dog-ear-zoom-icon &
-      .reblog
+      .footer .reblog a
         right: auto
         left: 10px
   .media .fullsize
