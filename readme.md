@@ -86,9 +86,7 @@ Before submitting an issue, please take a moment and read the following paragrap
 
 **Hey, I'm just one guy.** As such, I simply do not have the bandwidth to provide personal support for everyone's implementation issues. The issue tracker is best used for bugs and feature requests. 
 
-But I don't want to leave you high and dry. If you can follow the steps below, I'll be best-suited to possibly provide a solution.
-
-I reserve the right to close any issue I deem as an implementation issue, general development question, or personal support request.
+But I don't want to leave you high and dry. If you can follow the steps below, I'll be best-suited to possibly provide a solution. I reserve the right to close any issue I deem as an implementation issue, general development question, or personal support request.
 
 ### Isolate the issue
 
@@ -97,8 +95,7 @@ I reserve the right to close any issue I deem as an implementation issue, genera
 
 ### Provide a live URL
 
-If you have a live site, add the link. **Without seeing it in the browser, I don't have a good idea of what you're trying to achieve.**
-
+If you have a live site, add the link. **Without seeing it in the browser, I don't have a good idea of what you're trying to achieve.**  
 **Pasting code does not help** as much as a live URL.
 
 [Like @desandro sayz](http://twitter.com/desandro/status/105371678204366848):
