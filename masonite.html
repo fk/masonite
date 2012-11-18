@@ -50,6 +50,7 @@
     <meta name="if:Dog Ear Zoom Icon" content="0" />
     <meta name="if:Enable Google Prettify" content="0" />
     <meta name="if:Enable Reblog Links on Index Pages" content="0" />
+    <meta name="if:Enable Colorbox" content="0" />
 
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Show Avatar" content="1" />
@@ -75,7 +76,7 @@
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Styles" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/5Dtmczqly/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/jjNmdnuka/masonite.css">
 
     <style type="text/css">
 
@@ -442,7 +443,9 @@
                         {LinkOpenTag}
                             <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{PhotoURL-400}{/block:IfNot500pxPosts} {block:If500pxPosts}{PhotoURL-500}{/block:If500pxPosts}{/block:IndexPage}" alt="{PhotoAlt}" />
                         {LinkCloseTag}
-                        <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>{lang:Click for high-res photo}</span></a>
+                        {block:IfEnableColorbox}
+                            <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>{lang:Click for high-res photo}</span></a>
+                        {/block:IfEnableColorbox}
                     </div>
                     {block:Caption}
                         <div class="copy">{Caption}</div>
@@ -707,52 +710,22 @@
 {/block:IfGoogleWebFont}
 
 <script>
-    var Whites = "{color:Background}",
-        Accents = "{color:Accents}",
-        totalPages = {totalPages},
-        customTrigger = "{block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}",
-        fadeSidebar = "{block:IfFadingSidebar}true{/block:IfFadingSidebar}",
-        googleAnalytics = "{text:Google Analytics}",
-        centeredContent = "{block:IfCenteredContent}true{/block:IfCenteredContent}",
-        disqusShortname = "{block:IfDisqusShortname}{text:Disqus Shortname}{/block:IfDisqusShortname}",
-        googlePrettify = "{block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}";
-
-    Whites = Whites.slice( 1 );
-    Accents = Accents.slice( 1 );
-
-    if ( customTrigger ) {
-        customTrigger = true;
-    } else {
-        customTrigger = false;
-    }
-    
-    if ( disqusShortname ) {
-        disqusShortname = true;
-    } else {
-        disqusShortname = false;
+    masonite = {
+        whites          : "{color:Background}",
+        accents         : "{color:Accents}",
+        centeredContent : {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
+        colorbox        : {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
+        customTrigger   : {block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}{block:IfNotCustomtriggerInfiniteScrolling}false{/block:IfNotCustomtriggerInfiniteScrolling},
+        disqusShortname : {block:IfDisqusShortname}"{text:Disqus Shortname}"{/block:IfDisqusShortname}{block:IfNotDisqusShortname}false{/block:IfNotDisqusShortname},
+        fadeSidebar     : {block:IfFadingSidebar}true{/block:IfFadingSidebar}{block:IfNotFadingSidebar}false{/block:IfNotFadingSidebar},
+        googleAnalytics : {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
+        googlePrettify  : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
+        totalPages      : {totalPages}
     }
 
-    if ( fadeSidebar ) {
-        fadeSidebar = true;
-    } else {
-        fadeSidebar = false;
-    }
-
-    if ( centeredContent ) {
-        centeredContent = true;
-    } else {
-        centeredContent = false;
-    }
-
-    if ( googleAnalytics !== "" ) {
-        window._gaq = [['_setAccount', googleAnalytics],['_trackPageview'],['_trackPageLoadTime']];
-    }
-
-    if ( googlePrettify !== "" ) {
-        googlePrettify = true;
-    } else {
-        googlePrettify = false;
-    }
+    masonite.whites = masonite.whites.slice( 1 );
+    masonite.accents = masonite.accents.slice( 1 );
+    window._gaq = masonite.googleAnalytics;
 
     Modernizr.load([
         {
@@ -764,12 +737,20 @@
             }
         },
         {
-            test: googlePrettify,
-            yep: '//cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js',
-            both: 'http://static.tumblr.com/wccjej0/b0jmd76mn/masonite.js'
+            test: masonite.colorbox,
+            yep: ['http://static.tumblr.com/wccjej0/pxYmdnti5/colorbox.js', 'http://static.tumblr.com/wccjej0/STgmdnul2/colorbox.css']
         },
         {
-            test: window._gaq,
+            test: masonite.googlePrettify,
+            yep: '//cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js'
+        },
+        {
+            complete: function (url, res, key) {
+                Modernizr.load('http://static.tumblr.com/wccjej0/1cjmdnus6/masonite.js');
+             }
+        },
+        {
+            test: masonite.googleAnalytics,
             yep: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
         }
     ]);
