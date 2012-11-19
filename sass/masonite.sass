@@ -193,15 +193,22 @@ h6
     width: 740px
 
 .centered-content
+  #header,
+  #copyright
+    right: auto
+    margin-left: 580px
   &.header-left
     #header,
     #copyright
-      left: auto !important
-      right: auto !important
+      left: auto
+      right: auto
+      margin-left: auto
   #container
     margin: 0 auto 40px
-    width: auto
+    width: 640px
     padding-right: 40px
+  &.width-500 #container
+    width: 740px
   &.header-left #infscr-loading
     left: auto
     margin-left: 40px

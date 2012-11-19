@@ -582,6 +582,8 @@ function fadingSidebar() {
 						}
 						if ( !$('body').hasClass('header-left') ) {
 							$('#header, #copyright').css( {'margin-left':columns * colW + postHOff, 'right':'auto'} );
+						} else {
+							$('#header, #copyright').css( 'margin-left', 0 );
 						}
 			    }
 			  }).smartresize(); // trigger resize to set container width
