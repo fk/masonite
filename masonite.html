@@ -76,7 +76,7 @@
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Styles" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/jjNmdnuka/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/vMMmdpo57/masonite.css">
 
     <style type="text/css">
 
@@ -136,7 +136,7 @@
            ========================================================================== */
 
         .post.photo .media .fullsize,
-        .post .reblog,
+        .post .footer .reblog a,
         .post.answer:hover .question,
         .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
             background-color: {color:Accents};
@@ -144,7 +144,7 @@
 
         body,
         .post.photo .media .fullsize:hover,
-        .post .reblog:hover {
+        .post .footer .reblog a:hover {
             background-color: {color:Background};
         }
 
@@ -233,7 +233,7 @@
         #infscr-loading,
         .title.question,
         .post.photo .media .fullsize,
-        .post .reblog:before {
+        .post .footer .reblog a:before {
             color: {color:Background};
         }
 
@@ -253,7 +253,7 @@
         .post.active a,
         .post.photo .media .fullsize:hover,
         #disqus_thread a,
-        .post .reblog:hover:before {
+        .post .footer .reblog a:hover:before {
             color: {color:Accents};
         }
 
@@ -516,10 +516,6 @@
                     {block:Description}<div class="copy">{Description}</div>{/block:Description}
                 {/block:Link}
 
-                {block:IfEnableReblogLinksonIndexPages}
-                <a href='{ReblogURL}' class='reblog'><span>Reblog</span></a>
-                {/block:IfEnableReblogLinksonIndexPages}
-
                 <div class="footer clearfix">
                     <ul class="clearfix">
                     {block:Date}
@@ -537,6 +533,13 @@
                             {/block:PermalinkPage}
                         </li>
                     {/block:Date}
+                    {block:IfEnableReblogLinksonIndexPages}
+                        {block:IndexPage}
+                            <li class="reblog">
+                                <a href='{ReblogURL}'><span>Reblog</span></a>
+                            </li>
+                        {/block:IndexPage}
+                    {/block:IfEnableReblogLinksonIndexPages}
                     {block:NoteCount}
                         <li class="notes">
                             <a href="{Permalink}">{NoteCount}</a>
@@ -746,7 +749,7 @@
         },
         {
             complete: function (url, res, key) {
-                Modernizr.load('http://static.tumblr.com/wccjej0/1cjmdnus6/masonite.js');
+                Modernizr.load('http://static.tumblr.com/wccjej0/Summdpo41/masonite.js');
              }
         },
         {

@@ -536,14 +536,14 @@ function fadingSidebar() {
 				mouseenter: function(event) {
 				 $(this)
 					.addClass('active')
-					.find('a.fullsize, a.reblog')
+					.find('a.fullsize, .footer .reblog a')
 						.stop()
 						.fadeIn({duration: 200, easing: 'easeInOutCubic'});
 				},
 				mouseleave: function(event) {
 					$(this)
 						.removeClass('active')
-						.find('a.fullsize, a.reblog')
+						.find('a.fullsize, .footer .reblog a')
 							.stop()
 							.fadeOut({duration: 200, easing: 'easeInOutCubic'});
 				}
@@ -561,6 +561,34 @@ function fadingSidebar() {
 
 			var $wall = $('#posts');
 
+			if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
+			  var $page = $('#container'),
+			      $offset = $('#header'),
+			      colW = $('.post').outerWidth(true),
+						postHOff = colW - $('.post').width(),
+			      columns = null;
+
+			  $(window).smartresize(function(){
+			    // check if columns has changed
+			    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(false) - postHOff ) / colW );
+			    if ( currentColumns !== columns && currentColumns > 0 ) {
+			      // set new column count
+			      columns = currentColumns;
+			      // apply width to container manually, then trigger relayout
+			      $page.width( columns * colW + $offset.outerWidth(false) );
+			      $wall.width( columns * colW );
+						if($wall.hasClass('masonry')){
+							$wall.masonry('reload');
+						}
+						if ( !$('body').hasClass('header-left') ) {
+							$('#header, #copyright').css( {'margin-left':columns * colW + postHOff, 'right':'auto'} );
+						} else {
+							$('#header, #copyright').css( 'margin-left', 0 );
+						}
+			    }
+			  }).smartresize(); // trigger resize to set container width
+			}
+
 			$wall.imagesLoaded(function() {
 				$wall.masonry({
 					isAnimated    : !Modernizr.csstransitions,
@@ -569,29 +597,6 @@ function fadingSidebar() {
 					resizable     : !masonite.centeredContent,
 					columnWidth   : $('.post').outerWidth(true)
 				});
-
-				if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
-				  var $page = $('#container'),
-				      $offset = $('#header'),
-				      colW = $('.post').outerWidth(true),
-							postHOff = colW - $('.post').width(),
-				      columns = null;
-
-				  $(window).smartresize(function(){
-				    // check if columns has changed
-				    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(false) - postHOff ) / colW );
-				    if ( currentColumns !== columns && currentColumns > 0 ) {
-				      // set new column count
-				      columns = currentColumns;
-				      // apply width to container manually, then trigger relayout
-				      $page.width( columns * colW + $offset.outerWidth(false) );
-				      $wall.width( columns * colW ).masonry('reload');
-							if ( !$('body').hasClass('header-left') ) {
-								$('#header, #copyright').css( {'margin-left':columns * colW + postHOff, 'right':'auto'} );
-							}
-				    }
-				  }).smartresize(); // trigger resize to set container width
-				}
 
 			});
 
