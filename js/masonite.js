@@ -517,15 +517,17 @@ function fadingSidebar() {
 		  fadingSidebar();
     }
 
+		masonite.colorbox.opts = {
+			slideshow: true,
+			slideshowAuto: false,
+			speed: 200,
+			photo: true,
+			maxWidth: "90%",
+			maxHeight: "90%"
+		}
+
 		if(masonite.colorbox){
-			$("a.fullsize").colorbox({
-				slideshow: true,
-				slideshowAuto: false,
-				speed: 200,
-				photo: true,
-				maxWidth: "90%",
-				maxHeight: "90%"
-			});
+			$("a.fullsize").colorbox(masonite.colorbox.opts);
 		}
 
 		$('#posts .post').fixYouTube().fixVimeo().disqusCommentCount();
@@ -661,13 +663,15 @@ function fadingSidebar() {
 					$elems.imagesLoaded( function(){
 						$wall.masonry( 'appended', $elems, true, function(){
 							if(masonite.colorbox){
-								$elems.find('a.fullsize').colorbox({slideshow:true, slideshowAuto:false, speed:200, photo:true, maxWidth:"90%", maxHeight:"90%"});
+								$elems.find('a.fullsize').colorbox(masonite.colorbox.opts);
 							}
-							$elems.animate({opacity: 1.0}, 200, 'swing');
+							$elems.animate({ opacity: 1.0 }, 200, 'swing');
 							if(masonite.customTrigger){
-								$('#pagination li.next a').fadeIn({duration: 200, easing: 'easeInOutCubic'});
+								$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
 							}
-							$('#container .post').disqusCommentCount();
+							if(masonite.disqusShortname){
+								$('#container .post').disqusCommentCount();
+							}
 						});
 					});
 
