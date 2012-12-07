@@ -30,16 +30,23 @@ live at [hellodirty.com](http://hellodirty.com).
   * [Clicky](http://getclicky.com/) integration
   * [Google Code Prettify](http://code.google.com/p/google-code-prettify/) syntax highlighting
 
-### Appearance Options Overview
+### Customization Options
 
-* **Custom Colors**  
-  Background, Brights, Lights, Mids, Darks, Copy, Accents
-* **Custom Fonts**  
-  Body, PostMeta, Quote, Title, Pre – alternatively a Google Web Font and Google Web Font Style(s)
-  * **Google Web Font**  
-    If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used; additionaly, you may define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
-* **Social Icons**  
-  Soundcloud, Facebook, Github, Dribbble, Vimeo, Twitter
+#### Colors
+
+* Background, Brights, Lights, Mids, Darks, Copy, Accents
+
+#### Fonts
+
+* **Body, PostMeta, Quote, Title, Pre**
+* **Google Web Font** – If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used; additionaly, you may define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
+
+#### Images
+
+* **Avatar** – Upload an image to replace the Tumblr avatar with a logo.
+
+#### Options
+
 * **Post Width**  
   defaults to 400px, can be switched to 500px
 * **Header Options**
@@ -62,9 +69,24 @@ live at [hellodirty.com](http://hellodirty.com).
 * Dog Ear Zoom Icon
 * Enable Google Prettify
 * Show Twitter
-* Disqus Shortname
-* Google Analytics
-* Clicky Tracking
+
+#### Analytics & User Tracking
+
+masonite comes with two analytics options built in, Google Analytics and realtime user tracking with Clicky.
+
+To setup Google Analytics [sign up for an account](http://www.google.com/analytics/) first; once you have your site information added, Google will provide you with both a Google Analytics ID and embed code. Just grab the ID (e. g. `UA-000000-1`) and paste it into _Customize > Appearance > Google Analytics_.
+
+Alternately (or in addition), you can use Clicky to see in realtime what people are doing on your site. [Sign up for a Clicky account](http://getclicky.com/) and paste your site ID into _Customize > Appearance > Clicky Tracking_.
+
+#### Disqus Comments
+
+To setup comments with your blog, you'll need to [register a Disqus account for your site](http://disqus.com/admin/register/).  After you're done, grab the Disqus Site Shortname you selected and paste it into _Customize > Appearance > Disqus Shortname_.
+
+#### Social Links
+
+Add URLs to display the following social site icons below your site description. _Make sure you add the full URL, including “http://”._
+
+_Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo_
 
 ## Credits
 
