@@ -591,12 +591,14 @@ function fadingSidebar() {
 			  }).smartresize(); // trigger resize to set container width
 			}
 
+			// http://masonry.desandro.com/docs/options.html
+			// http://masonry.desandro.com/docs/animating.html#modernizr
 			$wall.imagesLoaded(function() {
 				$wall.masonry({
 					isAnimated    : !Modernizr.csstransitions,
 					itemSelector  : '.post',
 					isFitWidth    : masonite.centeredContent,
-					resizable     : !masonite.centeredContent,
+					isResizable   : !masonite.centeredContent,
 					columnWidth   : $('.post').outerWidth(true)
 				});
 
