@@ -47,8 +47,7 @@ live at [hellodirty.com](http://hellodirty.com).
 
 #### Options
 
-* **Post Width**  
-  defaults to 400px, can be switched to 500px
+* **Post Width** – defaults to 400px, can be switched to 500px
 * **Header Options**
   * **Header Left, Header Top**  
     activate these to override the header default (right- and bottom-aligned) position
