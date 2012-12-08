@@ -408,14 +408,6 @@ h6
       position: absolute
   .media a
     border: none
-  .footer .notes
-    float: right
-    margin-right: 0
-    margin-left: 10px
-    .hide-post-footer-border &
-      float: left
-      margin-left: 0
-      margin-right: 10px
   .link.title a
     border: none
   .media .fullsize
@@ -453,25 +445,25 @@ h6
   .media .fullsize
     top: 50%
     left: 50%
-    width: 64px
-    height: 64px
-    margin-top: -32px
-    margin-left: -32px
-    +border-radius(32px)
+    width: 48px
+    height: 48px
+    margin-top: -24px
+    margin-left: -24px
+    +border-radius(24px)
     &:before
       content: "\e006"
       display: block
-      width: 64px
-      height: 64px
-      line-height: 64px
-      font-size: 38px
+      width: 48px
+      height: 48px
+      line-height: 48px
+      font-size: 28px
       text-align: center
       .dog-ear-zoom-icon &
         position: relative
         width: 28px
         height: 28px
-        line-height: 20px
-        font-size: 18px
+        line-height: 16px
+        font-size: 16px
         text-align: right
         z-index: 10
     .dog-ear-zoom-icon &
@@ -515,6 +507,8 @@ h6
       float: left
     li.reblog
       float: right
+      margin-right: 0
+      margin-left: 10px
       .js &
         display: none
     .date span.reblogged-from
