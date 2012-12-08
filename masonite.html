@@ -696,9 +696,16 @@
                         </li>
                     {/block:NoteCount}
                     {block:IfDisqusShortname}
-                        <li class="comments">
-                            <a href="{Permalink}#disqus_thread">Comments</a>
-                        </li>
+                        {block:PermalinkPagination}
+                            <li class="comments">
+                                <a href="{Permalink}#disqus_thread">Comments</a>
+                            </li>
+                        {/block:PermalinkPagination}
+                        {block:IndexPage}
+                            <li class="comments">
+                                <a href="{Permalink}#disqus_thread">Comments</a>
+                            </li>
+                        {/block:IndexPage}
                     {/block:IfDisqusShortname}
                     </ul>
 
@@ -738,7 +745,7 @@
                 {/block:PostNotes}
 
                 {block:IfDisqusShortname}
-                    {block:Permalink}
+                    {block:PermalinkPagination}
                         <div class="notecontainer">
                             <script>
                                 var disqus_url = "{Permalink}";
@@ -767,7 +774,7 @@
                             }());
                             </script>
                         </div>
-                      {/block:Permalink}
+                      {/block:PermalinkPagination}
                   {/block:IfDisqusShortname}
             </div><!-- /#{PostID} -->
         {/block:Posts}
