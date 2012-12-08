@@ -580,6 +580,10 @@
         {/block:NoSearchResults}
         <h2 class="searchresultcount">{lang:SearchResultCount results for SearchQuery 2}</h2>
     {/block:SearchPage}
+    
+    {block:TagPage}
+        <h2 class="searchresultcount">{lang:Posts tagged Tag}</h2>
+    {/block:TagPage}
 
     <div id="posts" class="clearfix">
         {block:Posts}
