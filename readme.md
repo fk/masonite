@@ -85,7 +85,7 @@ To setup comments with your blog, you'll need to [register a Disqus account for 
 
 Add URLs to display the following social site icons below your site description. _Make sure you add the full URL, including “http://”._
 
-_Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo_
+_Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Evernote, Delicious, Behance, XING, LinkedIn, Picasa, YouTube, StumbledUpon, Last.fm, Google+, Forrst, Pinterest, Flickr, deviantART, Instagram, Blogger, Flattr_
 
 ## Credits
 

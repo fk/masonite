@@ -67,17 +67,38 @@
     <meta name="text:Disqus Shortname" content="" />
     <meta name="text:Google Analytics" content="" />
     <meta name="text:Clicky Tracking" content="" />
+
     <meta name="text:Soundcloud" content="" />
     <meta name="text:Facebook" content="" />
     <meta name="text:Github" content="" />
     <meta name="text:Dribbble" content="" />
     <meta name="text:Vimeo" content="" />
     <meta name="text:Twitter" content="" />
+    <meta name="text:Rdio" content="" />
+    <meta name="text:Yahoo" content="" />
+    <meta name="text:Skype" content="" />
+    <meta name="text:Evernote" content="" />
+    <meta name="text:Delicious" content="" />
+    <meta name="text:Behance" content="" />
+    <meta name="text:XING" content="" />
+    <meta name="text:LinkedIn" content="" />
+    <meta name="text:Picasa" content="" />
+    <meta name="text:YouTube" content="" />
+    <meta name="text:StumbledUpon" content="" />
+    <meta name="text:LastFM" content="" />
+    <meta name="text:GooglePlus" content="" />
+    <meta name="text:Forrst" content="" />
+    <meta name="text:Pinterest" content="" />
+    <meta name="text:Flickr" content="" />
+    <meta name="text:deviantART" content="" />
+    <meta name="text:Instagram" content="" />
+    <meta name="text:Blogger" content="" />
+    <meta name="text:Flattr" content="" />
 
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Styles" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/CFZmel351/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/zlhmeos8q/masonite.css">
 
     <style type="text/css">
 
@@ -130,6 +151,67 @@
         {block:IfDribbble}
             margin-top: 2em;
         {/block:IfDribbble}
+        {block:IfRdio}
+            margin-top: 2em;
+        {/block:IfRdio}
+        {block:IfYahoo}
+            margin-top: 2em;
+        {/block:IfYahoo}
+        {block:IfSkype}
+            margin-top: 2em;
+        {/block:IfSkype}
+        {block:IfEvernote}
+            margin-top: 2em;
+        {/block:IfEvernote}
+        {block:IfDelicious}
+            margin-top: 2em;
+        {/block:IfDelicious}
+        {block:IfBehance}
+            margin-top: 2em;
+        {/block:IfBehance}
+        {block:IfXING}
+            margin-top: 2em;
+        {/block:IfXING}
+        {block:IfLinkedIn}
+            margin-top: 2em;
+        {/block:IfLinkedIn}
+        {block:IfPicasa}
+            margin-top: 2em;
+        {/block:IfPicasa}
+        {block:IfYouTube}
+            margin-top: 2em;
+        {/block:IfYouTube}
+        {block:IfStumbledUpon}
+            margin-top: 2em;
+        {/block:IfStumbledUpon}
+        {block:IfLastFM}
+            margin-top: 2em;
+        {/block:IfLastFM}
+        {block:IfGooglePlus}
+            margin-top: 2em;
+        {/block:IfGooglePlus}
+        {block:IfForrst}
+            margin-top: 2em;
+        {/block:IfForrst}
+        {block:IfPinterest}
+            margin-top: 2em;
+        {/block:IfPinterest}
+        {block:IfFlickr}
+            margin-top: 2em;
+        {/block:IfFlickr}
+        {block:IfDeviantArt}
+            margin-top: 2em;
+        {/block:IfDeviantArt}
+        {block:IfInstagram}
+            margin-top: 2em;
+        {/block:IfInstagram}
+        {block:IfBlogger}
+            margin-top: 2em;
+        {/block:IfBlogger}
+        {block:IfFlattr}
+            margin-top: 2em;
+        {/block:IfFlattr}
+        
         }
 
         /* ==========================================================================
@@ -137,15 +219,13 @@
            ========================================================================== */
 
         .post.photo .media .fullsize,
-        .post .footer .reblog a,
         .post.answer:hover .question,
         .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
             background-color: {color:Accents};
         }
 
         body,
-        .post.photo .media .fullsize:hover,
-        .post .footer .reblog a:hover {
+        .post.photo .media .fullsize:hover {
             background-color: {color:Background};
         }
 
@@ -233,8 +313,7 @@
         .link a em:before,
         #infscr-loading,
         .title.question,
-        .post.photo .media .fullsize,
-        .post .footer .reblog a:before {
+        .post.photo .media .fullsize {
             color: {color:Background};
         }
 
@@ -253,8 +332,7 @@
         .post:hover a,
         .post.active a,
         .post.photo .media .fullsize:hover,
-        #disqus_thread a,
-        .post .footer .reblog a:hover:before {
+        #disqus_thread a {
             color: {color:Accents};
         }
 
@@ -409,24 +487,84 @@
 
     <ul id="external" class="clearfix">
         {block:IfDribbble}
-        <li class="dribbble"><a href="{text:Dribbble}"> <span class="visuallyhidden">Dribbble</span></a></li>
+            <li class="dribbble"><a href="{text:Dribbble}"> <span class="visuallyhidden">Dribbble</span></a></li>
         {/block:IfDribbble}
         {block:IfFacebook}
-        <li class="facebook"><a href="{text:Facebook}"> <span class="visuallyhidden">Facebook</span></a></li>
+            <li class="facebook"><a href="{text:Facebook}"> <span class="visuallyhidden">Facebook</span></a></li>
         {/block:IfFacebook}
         {block:IfGithub}
-        <li class="github"><a href="{text:Github}"> <span class="visuallyhidden">Github</span></a></li>
+            <li class="github"><a href="{text:Github}"> <span class="visuallyhidden">Github</span></a></li>
         {/block:IfGithub}
         {block:IfSoundcloud}
-        <li class="soundcloud"><a href="{text:Soundcloud}"> <span class="visuallyhidden">Soundcloud</span></a></li>
+            <li class="soundcloud"><a href="{text:Soundcloud}"> <span class="visuallyhidden">Soundcloud</span></a></li>
         {/block:IfSoundcloud}
         {block:IfTwitter}
-        <li class="twitter"><a href="{text:Twitter}"> <span class="visuallyhidden">Twitter</span></a></li>
+            <li class="twitter"><a href="{text:Twitter}"> <span class="visuallyhidden">Twitter</span></a></li>
         {/block:IfTwitter}
         {block:IfVimeo}
-        <li class="vimeo"><a href="{text:Vimeo}"> <span class="visuallyhidden">Vimeo</span></a></li>
+            <li class="vimeo"><a href="{text:Vimeo}"> <span class="visuallyhidden">Vimeo</span></a></li>
         {/block:IfVimeo}
-    </ul>
+        {block:IfRdio}
+            <li class="rdio"><a href="{text:Rdio}"> <span class="visuallyhidden">Rdio</span></a></li>
+        {/block:IfRdio}
+        {block:IfYahoo}
+            <li class="yahoo"><a href="{text:Yahoo}"> <span class="visuallyhidden">Yahoo</span></a></li>
+        {/block:IfYahoo}
+        {block:IfSkype}
+            <li class="skype"><a href="{text:Skype}"> <span class="visuallyhidden">Skype</span></a></li>
+        {/block:IfSkype}
+        {block:IfEvernote}
+            <li class="evernote"><a href="{text:Evernote}"> <span class="visuallyhidden">Evernote</span></a></li>
+        {/block:IfEvernote}
+        {block:IfDelicious}
+            <li class="delicious"><a href="{text:Delicious}"> <span class="visuallyhidden">Delicious</span></a></li>
+        {/block:IfDelicious}
+        {block:IfBehance}
+            <li class="behance"><a href="{text:Behance}"> <span class="visuallyhidden">Behance</span></a></li>
+        {/block:IfBehance}
+        {block:IfXING}
+            <li class="xing"><a href="{text:XING}"> <span class="visuallyhidden">XING</span></a></li>
+        {/block:IfXING}
+        {block:IfLinkedIn}
+            <li class="linkedin"><a href="{text:LinkedIn}"> <span class="visuallyhidden">LinkedIn</span></a></li>
+        {/block:IfLinkedIn}
+        {block:IfPicasa}
+            <li class="picasa"><a href="{text:Picasa}"> <span class="visuallyhidden">Picasa</span></a></li>
+        {/block:IfPicasa}
+        {block:IfYouTube}
+            <li class="youtube"><a href="{text:YouTube}"> <span class="visuallyhidden">YouTube</span></a></li>
+        {/block:IfYouTube}
+        {block:IfStumbledUpon}
+            <li class="stubledupon"><a href="{text:StumbledUpon}"> <span class="visuallyhidden">StumbledUpon</span></a></li>
+        {/block:IfStumbledUpon}
+        {block:IfLastFM}
+            <li class="lastfm"><a href="{text:LastFM}"> <span class="visuallyhidden">Last.fm</span></a></li>
+        {/block:IfLastFM}
+        {block:IfGooglePlus}
+            <li class="googleplus"><a href="{text:GooglePlus}"> <span class="visuallyhidden">Google+</span></a></li>
+        {/block:IfGooglePlus}
+        {block:IfForrst}
+            <li class="forrst"><a href="{text:Forrst}"> <span class="visuallyhidden">Forrst</span></a></li>
+        {/block:IfForrst}
+        {block:IfPinterest}
+            <li class="pinterest"><a href="{text:Pinterest}"> <span class="visuallyhidden">Pinterest</span></a></li>
+        {/block:IfPinterest}
+        {block:IfFlickr}
+            <li class="flickr"><a href="{text:Flickr}"> <span class="visuallyhidden">Flickr</span></a></li>
+        {/block:IfFlickr}
+        {block:IfdeviantART}
+            <li class="deviantart"><a href="{text:deviantART}"> <span class="visuallyhidden">deviantART</span></a></li>
+        {/block:IfdeviantART}
+        {block:IfInstagram}
+            <li class="instagram"><a href="{text:Instagram}"> <span class="visuallyhidden">Instagram</span></a></li>
+        {/block:IfInstagram}
+        {block:IfBlogger}
+            <li class="blogger"><a href="{text:Blogger}"> <span class="visuallyhidden">Blogger</span></a></li>
+        {/block:IfBlogger}
+        {block:IfFlattr}
+            <li class="flattr"><a href="{text:Flattr}"> <span class="visuallyhidden">Flattr</span></a></li>
+        {/block:IfFlattr}
+      </ul>
 
     <div id="search">
         <form id="search-form" action="/search" method="get">
@@ -757,7 +895,7 @@
         },
         {
             complete: function (url, res, key) {
-                Modernizr.load('http://static.tumblr.com/wccjej0/RCcmen4ki/masonite.js');
+                Modernizr.load('http://static.tumblr.com/wccjej0/4KMmeos9g/masonite.js');
              }
         },
         {

@@ -305,27 +305,70 @@ h6
 .post .footer .comments a:before,
 .post .footer .tags:before,
 #external a:before
-  font-family: 'hellodirty'
+  font-family: 'masonite'
   font-style: normal
   speak: none
   margin-right: 4px
+  -webkit-font-smoothing: antialiased
 
 #external
   .github a:before
-    content: "\e02b"
-  .soundcloud a:before
-    content: "\e02e"
-  .twitter a:before
     content: "\e028"
+  .soundcloud a:before
+    content: "\e01b"
+  .twitter a:before
+    content: "\e015"
   .facebook a:before
-    content: "\e025"
+    content: "\e00b"
   .dribbble a:before
-    content: "\e030"
+    content: "\e00e"
   .vimeo a:before
-    content: "\e029"
+    content: "\e019"
+    
+  .flickr a:before
+    content: "\e02e"
+  .pinterest a:before
+    content: "\e057"
+  .forrst a:before
+    content: "\e011"
+  .google-plus a:before
+    content: "\e018"
+  .lastfm a:before
+    content: "\e01f"
+  .stumbledupon a:before
+    content: "\e025"
+  .youtube a:before
+    content: "\e02f"
+  .picasa a:before
+    content: "\e02a"
+  .linkedin a:before
+    content: "\e059"
+  .xing a:before
+    content: "\e021"
+  .behance a:before
+    content: "\e061"
+  .delicious a:before
+    content: "\e026"
+  .evernote a:before
+    content: "\e062"
+  .skype a:before
+    content: "\e05f"
+  .yahoo a:before
+    content: "\e027"
+  .rdio a:before
+    content: "\e063"
+
+  .deviantart a:before
+    content: "\e001"
+  .instagram a:before
+    content: "\e004"
+  .blogger a:before
+    content: "\e005"
+  .flattr a:before
+    content: "\e00a"
 
 #index .post .quote:before
-  content: "\e018"
+  content: "\e03b"
   position: relative
   font-size: 16px
   margin-right: 1em
@@ -335,7 +378,7 @@ h6
   top: -0.4em
 
 #single .post .quote:before
-  content: "\e018"
+  content: "\e03b"
 
 
 /* ==========================================================================
@@ -375,7 +418,6 @@ h6
       margin-right: 10px
   .link.title a
     border: none
-  .footer .reblog a,
   .media .fullsize
     position: absolute
     top: 10px
@@ -395,7 +437,7 @@ h6
     .js &
       display: none
     &:before
-      content: "\e01b"
+      content: "\e006"
       display: block
       width: 28px
       height: 28px
@@ -408,16 +450,6 @@ h6
       .dog-ear-zoom-icon &
         box-shadow: none
         background-color: transparent
-  .footer .reblog a
-    &:before
-      font-size: 22px
-      line-height: 28px
-      margin-top: 1px
-  &.photo
-    .dog-ear-zoom-icon &
-      .footer .reblog a
-        right: auto
-        left: 10px
   .media .fullsize
     top: 50%
     left: 50%
@@ -427,7 +459,7 @@ h6
     margin-left: -32px
     +border-radius(32px)
     &:before
-      content: "\e023"
+      content: "\e006"
       display: block
       width: 64px
       height: 64px
@@ -481,6 +513,10 @@ h6
     .date a
       padding-left: 0
       float: left
+    li.reblog
+      float: right
+      .js &
+        display: none
     .date span.reblogged-from
       float: left
       display: block
@@ -510,18 +546,20 @@ h6
       margin-right: 10px
       float: left
     .date.reblogged a:before
-      content: "\e01b"
+      content: "\e046"
+    .reblog a:before
+      content: "\e046"
     .notes a:before
-      content: "\e009"
+      content: "\e03f"
     .comments a:before
-      content: "\e011"
+      content: "\e002"
     .tags:before
-      content: "\e020"
+      content: "\e044"
       margin-right: 0
       float: left
       display: block
     .date a:before
-      content: "\e00d"
+      content: "\e03d"
     .date .reblogged-from a:before
       content: "" !important
       margin-right: 0 !important
