@@ -20,14 +20,15 @@ live at [hellodirty.com](http://hellodirty.com).
 * Vimeo-videos incorporating the "Accents"-color and pretty YouTube-videos
 * customizable fonts
   * via Tumblr's own custom fonts functionality
-  * or you may override those by specifying a web font family (and style(s)) from the [Google Web Fonts API](http://www.google.com/webfonts)
+  * or by specifying a web font family (and style(s)) from the [Google Web Fonts API](http://www.google.com/webfonts)
 * optional
   * lightbox-view of high resolution images, including a (user-invoked) slideshow
-  * display of tags
-  * Tumblr avatar and/or title, Likes and "People I follow"
+  * hide Tumblr avatar and/or title
+  * show latest Likes and/or Tweets
+  * show "People I follow"
+  * links to "Reblog" and "Like" and tag display on index pages
   * [Disqus](http://disqus.com/) 2012 integration
-  * [Google Analytics](http://www.google.com/analytics/) integration
-  * [Clicky](http://getclicky.com/) integration
+  * [Google Analytics](http://www.google.com/analytics/) and [Clicky](http://getclicky.com/) integration
   * [Google Code Prettify](http://code.google.com/p/google-code-prettify/) syntax highlighting
 
 ### Customization Options
