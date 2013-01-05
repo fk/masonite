@@ -432,10 +432,10 @@ $.fn.initColorbox = function() {
 }
 
 $.fn.disqusCommentCount = function() {
-  if(masonite.disqusShortname){
-  	var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
-  	$.getScript(scriptURL)
-  }
+	if(masonite.disqusShortname){
+		var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
+		$.getScript(scriptURL)
+	}
 
 	return this;
 }
@@ -500,20 +500,20 @@ function webkitSearch() {
 }
 
 function prettifyCode() {
-  if (masonite.googlePrettify){
-      var a = false;
+	if (masonite.googlePrettify){
+		var a = false;
 
-      $("pre code").parent().each(function(){
-          if (!$(this).hasClass("prettyprint")){
-            $(this).addClass("prettyprint");
-            a = true;
-          }
-      });
+		$("pre code").parent().each(function(){
+			if (!$(this).hasClass("prettyprint")){
+				$(this).addClass("prettyprint");
+					a = true;
+				}
+		});
 
-      if (a) {
-        prettyPrint();
-      }
-  }
+		if (a) {
+			prettyPrint();
+		}
+	}
 }
 
 function fadingSidebar() {
@@ -549,8 +549,8 @@ function fadingSidebar() {
 		webkitSearch();
 		
 		if(masonite.fadeSidebar){
-		  fadingSidebar();
-    }
+			fadingSidebar();
+		}
 
 		masonite.colorboxOptions = {
 			slideshow: true,
@@ -563,7 +563,7 @@ function fadingSidebar() {
 
 		$('#posts .post').initColorbox().fixYouTube().fixVimeo().disqusCommentCount();
 		prettifyCode();
-		
+
 		$('#posts').on(
 			{
 				mouseenter: function(event) {
@@ -586,14 +586,14 @@ function fadingSidebar() {
 
 		$("#likes li:first-child").addClass('first');
 		$("#likes li:last-child").addClass('last');
-    
+
     $('.title').widowFix();
 
 		// index pages
 		if ( $('body#index').length ) {
 
 			var $wall = $('#posts');
-			
+
 			if ( masonite.likeLinks ){
 				$('body').append('<iframe id="like"></iframe>');
 				$('.footer').on(
@@ -614,25 +614,25 @@ function fadingSidebar() {
 					},
 					'.like a'
 				);
-				
+
 			}
 
 			if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
-			  var $page = $('#container'),
-			      $offset = $('#header'),
-			      colW = $('.post').outerWidth(true),
+				var $page = $('#container'),
+						$offset = $('#header'),
+						colW = $('.post').outerWidth(true),
 						postHOff = colW - $('.post').width(),
-			      columns = null;
+						columns = null;
 
-			  $(window).smartresize(function(){
-			    // check if columns has changed
-			    var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(false) - postHOff ) / colW );
-			    if ( currentColumns !== columns && currentColumns > 0 ) {
-			      // set new column count
-			      columns = currentColumns;
-			      // apply width to container manually, then trigger relayout
-			      $page.width( columns * colW + $offset.outerWidth(false) );
-			      $wall.width( columns * colW );
+				$(window).smartresize(function(){
+					// check if columns has changed
+					var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(false) - postHOff ) / colW );
+					if ( currentColumns !== columns && currentColumns > 0 ) {
+						// set new column count
+						columns = currentColumns;
+						// apply width to container manually, then trigger relayout
+						$page.width( columns * colW + $offset.outerWidth(false) );
+						$wall.width( columns * colW );
 						if($wall.hasClass('masonry')){
 							$wall.masonry('reload');
 						}
@@ -641,8 +641,8 @@ function fadingSidebar() {
 						} else {
 							$('#header, #copyright').css( 'margin-left', 0 );
 						}
-			    }
-			  }).smartresize(); // trigger resize to set container width
+					}
+				}).smartresize(); // trigger resize to set container width
 			}
 
 			// http://masonry.desandro.com/docs/options.html
@@ -700,7 +700,7 @@ function fadingSidebar() {
 					});
 
 					setTimeout(function() {
-					   $('#infscr-loading > div').html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
+						$('#infscr-loading > div').html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
 					}, 400);
 
 				}
