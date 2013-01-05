@@ -472,34 +472,6 @@ $.fn.fixTumblrAudio = function() {
 	return this;
 }
 
-function webkitSearch() {
-	var defaultValue = "Search"; // Default Value
-	if ($.browser.webkit) {
-		var sf = document.getElementById("searchfield");
-		sf.setAttribute("type", "search");
-		sf.setAttribute("autosave", "saved.data");
-		sf.setAttribute("results", "10");
-		sf.setAttribute("placeholder", defaultValue);
-		$("#searchfield").addClass("webkit");
-		$("#search .button").hide();
-	} else {
-		$("#searchfield").val(defaultValue);
-		$("#searchfield").css("color", "#889");
-		$("#searchfield").focus( function() {
-			if ($(this).val() == defaultValue) {
-				$(this).val("");
-			}
-			$(this).css("color", "#334");
-		});
-		$("#searchfield").blur( function() {
-			if ($(this).val() == "") {
-				$(this).val(defaultValue);
-				$(this).css("color", "#889");
-			}
-		});
-	}
-}
-
 function prettifyCode() {
 	if (masonite.googlePrettify){
 		var a = false;
@@ -547,8 +519,6 @@ function fadingSidebar() {
 	// ready
 	$(function() {
 
-		webkitSearch();
-		
 		if(masonite.fadeSidebar){
 			fadingSidebar();
 		}
