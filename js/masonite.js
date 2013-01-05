@@ -677,9 +677,9 @@ function fadingSidebar() {
 							var $audioPost = $(this);
 							$audioPost.find(".player span").css({ visibility: 'hidden' });
 
-							var script=document.createElement('script');
-							script.type='text/javascript';
-							script.src="http://assets.tumblr.com/javascript/tumblelog.js?16";
+							var script = document.createElement('script');
+							script.type = 'text/javascript';
+							script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
 
 							$("body").append(script);
 
