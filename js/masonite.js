@@ -423,6 +423,14 @@ $.fn.fixVimeo = function() {
 	return $(this);
 }
 
+$.fn.initColorbox = function() {
+	if(masonite.colorbox){
+		this.find("a.fullsize").colorbox(masonite.colorboxOptions);
+	}
+
+	return $(this);
+}
+
 $.fn.disqusCommentCount = function() {
   if(masonite.disqusShortname){
   	var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
@@ -554,11 +562,7 @@ function fadingSidebar() {
 			maxHeight: "90%"
 		};
 
-		if(masonite.colorbox){
-			$("a.fullsize").colorbox(masonite.colorboxOptions);
-		}
-
-		$('#posts .post').fixYouTube().fixVimeo().disqusCommentCount();
+		$('#posts .post').initColorbox().fixYouTube().fixVimeo().disqusCommentCount();
 		prettifyCode();
 		
 		$('#posts').on(
@@ -680,17 +684,15 @@ function fadingSidebar() {
 				function( newElements ) {
 
 					prettifyCode();
+
 					// get opts by getting internal data of infinite scroll instance
 					var opts = $wall.data('infinitescroll').options;
 					var $elems = $( newElements ).css({ opacity: 0 });
 
-					$elems.fixTumblrAudio().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
+					$elems.fixTumblrAudio().initColorbox().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
 
 					$elems.imagesLoaded( function(){
 						$wall.masonry( 'appended', $elems, true, function(){
-							if(masonite.colorbox){
-								$elems.find('a.fullsize').colorbox(masonite.colorboxOptions);
-							}
 							$elems.animate({ opacity: 1.0 }, 200, 'swing');
 							if(masonite.customTrigger){
 								$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
