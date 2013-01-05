@@ -333,7 +333,7 @@ $.fn.fixYouTube = function() {
 		Released under a Creative Commons attribution license:
 		http://creativecommons.org/licenses/by/3.0/nz/
 	*/
-		$(this).find("embed[src^='http://www.youtube.com']").each(function() {
+		this.find("embed[src^='http://www.youtube.com']").each(function() {
 			// Identify and hide embed(s)
 			var parent = $(this).closest('object');
 			parent.css("visibility","hidden");
@@ -378,7 +378,7 @@ $.fn.fixYouTube = function() {
 
 		});
 
-		return $(this);
+		return this;
 }
 
 $.fn.fixVimeo = function() {
@@ -392,7 +392,7 @@ $.fn.fixVimeo = function() {
 	*/
 	var color = masonite.accents;
 	var opts = "title=0&byline=0&portrait=0";
-	$(this).find("iframe[src^='http://player.vimeo.com']").each(function() {
+	this.find("iframe[src^='http://player.vimeo.com']").each(function() {
 		var src = $(this).attr("src");
 		var w = $(this).attr("width");
 		var h = $(this).attr("height");
@@ -404,7 +404,7 @@ $.fn.fixVimeo = function() {
 			);
 		}
 	});
-	$(this).find("object[data^='http://vimeo.com']").each(function() {
+	this.find("object[data^='http://vimeo.com']").each(function() {
 		var $obj = $(this);
 		var data = $obj.attr("data");
 		var temp = data.split("clip_id=")[1];
@@ -420,7 +420,7 @@ $.fn.fixVimeo = function() {
 		);
 	});
 
-	return $(this);
+	return this;
 }
 
 $.fn.initColorbox = function() {
@@ -428,7 +428,7 @@ $.fn.initColorbox = function() {
 		this.find("a.fullsize").colorbox(masonite.colorboxOptions);
 	}
 
-	return $(this);
+	return this;
 }
 
 $.fn.disqusCommentCount = function() {
@@ -437,7 +437,7 @@ $.fn.disqusCommentCount = function() {
   	$.getScript(scriptURL)
   }
 
-	return $(this);
+	return this;
 }
 
 $.fn.fixTumblrAudio = function() {
@@ -468,7 +468,7 @@ $.fn.fixTumblrAudio = function() {
 		}
 	});
 
-	return $(this);
+	return this;
 }
 
 
