@@ -432,6 +432,38 @@ $.fn.disqusCommentCount = function() {
 	return $(this);
 }
 
+$.fn.fixTumblrAudio = function() {
+	// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
+	// – thanks to the excellent http://inspirewell.tumblr.com/
+	this.each(function() {
+		if($(this).hasClass("audio")){
+			var audioID = $(this).attr("id");
+			var $audioPost = $(this);
+			$audioPost.find(".player span").css({ visibility: 'hidden' });
+
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
+
+			$("body").append(script);
+
+			$.ajax({
+				url: "/api/read/json?id=" + audioID,
+				dataType: "jsonp",
+				timeout: 5000,
+				success: function(data){
+					$audioPost.find(".player span").css({ visibility: 'visible' });
+					embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
+					$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed +'\x3c/div\x3e\')</script>');
+				}
+			});
+		}
+	});
+
+	return $(this);
+}
+
+
 function webkitSearch() {
 	var defaultValue = "Search"; // Default Value
 	if ($.browser.webkit) {
@@ -652,34 +684,7 @@ function fadingSidebar() {
 					var opts = $wall.data('infinitescroll').options;
 					var $elems = $( newElements ).css({ opacity: 0 });
 
-					// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
-					// – thanks to the excellent http://inspirewell.tumblr.com/
-					$elems.each(function() {
-						if($(this).hasClass("audio")){
-							var audioID = $(this).attr("id");
-							var $audioPost = $(this);
-							$audioPost.find(".player span").css({ visibility: 'hidden' });
-
-							var script = document.createElement('script');
-							script.type = 'text/javascript';
-							script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
-
-							$("body").append(script);
-
-							$.ajax({
-								url: "/api/read/json?id=" + audioID,
-								dataType: "jsonp",
-								timeout: 5000,
-								success: function(data){
-									$audioPost.find(".player span").css({ visibility: 'visible' });
-									embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
-									$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed +'\x3c/div\x3e\')</script>');
-								}
-							});
-						}
-					});
-
-					$elems.fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
+					$elems.fixTumblrAudio().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
 
 					$elems.imagesLoaded( function(){
 						$wall.masonry( 'appended', $elems, true, function(){
