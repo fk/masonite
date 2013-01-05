@@ -778,14 +778,6 @@
                             <noscript>
                                 Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
                             <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-                            <script type="text/javascript">
-                            var disqus_shortname = '{text:Disqus Shortname}';
-                            (function () {
-                              var s = document.createElement('script'); s.async = true;
-                              s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
-                              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-                            }());
-                            </script>
                         </div>
                       {/block:PermalinkPagination}
                   {/block:IfDisqusShortname}
@@ -896,6 +888,8 @@
         googlePrettify  : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
         totalPages      : {totalPages}
     }
+
+    var disqus_shortname = masonite.disqusShortname;
 
     masonite.whites = masonite.whites.slice( 1 );
     masonite.accents = masonite.accents.slice( 1 );
