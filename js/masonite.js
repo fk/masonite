@@ -569,8 +569,6 @@ function fadingSidebar() {
     
     $('.title').widowFix();
 
-		// break down according to body.class (=site section)
-		// see http://somedirection.com/2008/03/14/structuring-jquery-for-speed-and-efficiency/
 		// index pages
 		if ( $('body#index').length ) {
 
@@ -652,11 +650,11 @@ function fadingSidebar() {
 					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
 					msgText: "Loading page 2/" + masonite.totalPages
 				},
-				navSelector     : '#pagination li.next a',  // selector for the paged navigation
-				nextSelector    : '#pagination li.next a',  // selector for the NEXT link (to page 2)
-				itemSelector    : '#posts .post',           // selector for all items you'll retrieve
-				behavior : infinitescroll_behavior,
-				errorCallback   : function() {
+				navSelector: '#pagination li.next a',  // selector for the paged navigation
+				nextSelector: '#pagination li.next a', // selector for the NEXT link (to page 2)
+				itemSelector: '#posts .post',          // selector for all items you'll retrieve
+				behavior: infinitescroll_behavior,
+				errorCallback: function() {
 					// fade out the error message after 2 seconds
 					$('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');
 				}
