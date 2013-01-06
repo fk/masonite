@@ -93,12 +93,23 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 * originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/) by [P.J. Onori](http://somerandomdude.com/)
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
-* layout powered by David DeSandro’s [jQuery Masonry](http://masonry.desandro.com/) v2.1.05
+* [Modernizr](http://modernizr.com/) v2.6.2
+* layout powered by David DeSandro’s [jQuery Masonry](http://masonry.desandro.com/) v2.1.06
 * lightbox and slideshow powered by Jack Moore’s [ColorBox](http://jacklmoore.com/colorbox/) v1.3.20.1
 * infinite scrolling courtesy of the [Infinite Scroll jQuery plugin](http://www.infinite-scroll.com) v2.0b2.120519
 * [jQuery](http://jquery.com/) v1.8.2
 * built on HTML5 Boilerplate's CSS (normalize.css + H5BP goodies)
-* icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/)
+* icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
+  * [Typicons](http://typicons.com/)  
+    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+  * [Entypo](http://www.entypo.com/)  
+    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+  * [IcoMoon - Free](http://keyamoon.com/icomoon/)  
+    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+  * [Broccolidry](http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons)  
+    License: [Aribitrary](http://licence.visualidiot.com/) 
+  * [Iconic](http://somerandomdude.com/work/iconic/)  
+    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Contributing
 
