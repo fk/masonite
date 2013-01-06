@@ -99,7 +99,7 @@
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Styles" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/AUxmg5th8/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/Cqsmg6g49/masonite.css">
 
     <style type="text/css">
 
@@ -127,6 +127,19 @@
         ::selection {
             background: {color:Accents};
             color: {color:Background};
+        }
+
+        ::-webkit-input-placeholder {
+          color: {color:Mids};
+        }
+
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+          color: {color:Mids};
+        }
+
+        label span.placeholder {
+          color: {color:Mids};
         }
 
         a:link {
@@ -574,7 +587,7 @@
 
     <div id="search">
         <form id="search-form" action="/search" method="get">
-            <input id="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="Search" results="10" autosave="masonite.saved.data">
+            <input id="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}" results="10" autosave="masonite.saved.data">
         </form>
     </div>
 </div><!-- /#header -->
@@ -895,6 +908,11 @@
     masonite.accents = masonite.accents.slice( 1 );
     window._gaq = masonite.googleAnalytics;
 
+    placeHolderConfig = {
+      // either hide the placeholder on focus or on type
+      hideOnFocus : false
+    }
+
     Modernizr.load([
         {
             load: '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js',
@@ -909,12 +927,16 @@
             yep: ['http://static.tumblr.com/wccjej0/Nhlmen0z1/jquery.colorbox-min.js', 'http://static.tumblr.com/wccjej0/XVHmg5tg1/colorbox.css']
         },
         {
+            test: Modernizr.input.placeholder,
+            nope: 'http://static.tumblr.com/wccjej0/xjwmg6esj/placeholder_polyfill.jquery.min.combo.js'
+        },
+        {
             test: masonite.googlePrettify,
             yep: '//cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js'
         },
         {
             complete: function (url, res, key) {
-                Modernizr.load('http://static.tumblr.com/wccjej0/Arcmg5s4r/masonite.js');
+                Modernizr.load('http://static.tumblr.com/wccjej0/BZSmg6g3h/masonite.js');
              }
         },
         {
