@@ -894,14 +894,15 @@ textarea:-moz-placeholder
   font-style: normal
 
 // browsers not knowing placeholders
-label span.placeholder
+span.placeholder
   position: absolute
   font-family: sans-serif
   z-index: 1
   cursor: text
   font-size: 12px
+  padding: 2px 3px
 
-label span.placeholder-hide-except-screenreader
+span.placeholder-hide-except-screenreader
   clip: rect(1px 1px 1px 1px)
   clip: rect(1px, 1px, 1px, 1px)
   padding: 0 !important
@@ -910,10 +911,10 @@ label span.placeholder-hide-except-screenreader
   width: 1px !important
   overflow: hidden
 
-label span.placeholder-hide
+span.placeholder-hide
   display: none
 
-/* overwrite for the HTML5 Boilerplate way to hide labels */
+// overwrite for the HTML5 Boilerplate way to hide labels
 label.visuallyhidden-with-placeholder
   /*clip: auto !important;*/
   height: auto !important
