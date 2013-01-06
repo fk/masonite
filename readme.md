@@ -100,16 +100,11 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery](http://jquery.com/) v1.8.2
 * built on HTML5 Boilerplate's CSS (normalize.css + H5BP goodies)
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
-  * [Typicons](http://typicons.com/)  
-    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-  * [Entypo](http://www.entypo.com/)  
-    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-  * [IcoMoon - Free](http://keyamoon.com/icomoon/)  
-    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-  * [Broccolidry](http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons)  
-    License: [Aribitrary](http://licence.visualidiot.com/) 
-  * [Iconic](http://somerandomdude.com/work/iconic/)  
-    License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
+  * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+  * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+  * [IcoMoon - Free](http://keyamoon.com/icomoon/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+  * [Broccolidry](http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons) – License: [Aribitrary](http://licence.visualidiot.com/) 
+  * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Contributing
 
