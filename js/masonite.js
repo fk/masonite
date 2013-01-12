@@ -519,7 +519,7 @@ function fadingSidebar() {
 	// ready
 	$(function() {
 
-		if(masonite.fadeSidebar){
+		if(masonite.fadeSidebar && !Modernizr.touch){
 			fadingSidebar();
 		}
 

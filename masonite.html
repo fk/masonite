@@ -233,14 +233,14 @@
            ========================================================================== */
 
         .post.photo .media .fullsize,
-        .post.answer:hover .question,
+        .no-touch .post.answer:hover .question,
         .post.answer.active .question,
-        .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
+        .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
             background-color: {color:Accents};
         }
 
         body,
-        .post.photo .media .fullsize:hover {
+        .no-touch .post.photo .media .fullsize:hover {
             background-color: {color:Background};
         }
 
@@ -251,8 +251,8 @@
 
         #cboxLoadedContent,
         #cboxLoadingOverlay,
-        #index #pagination li a:hover,
-        #likes li:hover,
+        .no-touch #index #pagination li a:hover,
+        .no-touch #likes li:hover,
         .post.audio object,
         .post.audio embed,
         #infscr-loading,
@@ -265,10 +265,10 @@
            Border Colors
            ========================================================================== */
 
-       .post a:hover,
-       .post:hover a:hover,
-       .post:hover a.title:hover strong,
-       .post.active a.title:hover strong {
+       .no-touch .post a:hover,
+       .no-touch .post:hover a:hover,
+       .no-touch .post:hover a.title:hover strong,
+       .no-touch .post.active a.title:hover strong {
            border-color: {color:Background};
        }
 
@@ -276,27 +276,31 @@
            border-color: {color:Mids};
        }
 
-       blockquote,
-       hr,
-       .post a,
-       .post .footer,
-       .post.chat .line,
-       a.title strong {
-           border-color: {color:Brights};
-       }
-
        #dsq-comments .dsq-comment-header {
            border-color: {color:Copy};
        }
 
-       .post:hover a,
+       .post a,
+       .no-touch .post:hover a,
        .post.active a,
-       .post:hover a.title strong,
-       .post.active a.title strong {
+       .post a.title strong,
+       .no-touch .post:hover a.title strong,
+       .no-touch .post.active a.title strong {
            border-color: {color:Accents};
        }
 
-       .post.answer:hover .question:after {
+       blockquote,
+       hr,
+       .post a,
+       .no-touch .post a,
+       .post .footer,
+       .post.chat .line,
+       a.title strong,
+       .no-touch a.title strong {
+           border-color: {color:Brights};
+       }
+
+       .no-touch .post.answer:hover .question:after {
            border-top-color: {color:Accents};
        }
 
@@ -305,7 +309,7 @@
            border-right-color: {color:Background};
        }
 
-       .dog-ear-zoom-icon .post.photo .media .fullsize:hover:after {
+       .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover:after {
            border-bottom-color: {color:Accents};
            border-right-color: {color:Background};
         }
@@ -320,15 +324,8 @@
            Font Colors
            ========================================================================== */
 
-        .post .footer,
-        .post .footer a,
-        .post .notes a,
-        .post .notes {
-            color: {color:Lights};
-        }
-
-        #likes li:hover,
-        #index.custom-trigger-infinite-scrolling #pagination li a:hover,
+        .no-touch #likes li:hover,
+        .no-touch #index.custom-trigger-infinite-scrolling #pagination li a:hover,
         #infscr-loading,
         .title.question,
         .post.photo .media .fullsize {
@@ -346,37 +343,46 @@
             color: {color:Mids};
         }
 
-        #external li a:hover,
-        .post:hover a,
-        .post.active a,
-        .post:hover .title em:before,
-        .post.active .title em:before,
-        .post.photo .media .fullsize:hover,
+        .post .footer,
+        .post .footer a,
+        .post .notes a,
+        .post .notes {
+            color: {color:Lights};
+        }
+
+        .no-touch #external li a:hover,
+        .post a,
+        .no-touch .post:hover a,
+        .no-touch .post.active a,
+        .no-touch .post:hover .title em:before,
+        .no-touch .post.active .title em:before,
+        .no-touch .post.photo .media .fullsize:hover,
         #disqus_thread a {
             color: {color:Accents};
         }
 
         body,
-        #navigation li a:hover,
+        .no-touch #navigation li a:hover,
         #header h1 a,
         #disqus_thread {
             color: {color:Copy};
         }
 
         a,
+        .no-touch a,
         a:visited,
-        a:hover,
+        .no-touch a:hover,
         a:active,
-        .post:hover .footer a,
-        .post.active .footer a,
-        .post:hover .notes a,
-        .post.active .notes a,
-        .post:hover .footer .tags,
-        .post.active .footer .tags,
+        .no-touch .post:hover .footer a,
+        .no-touch .post.active .footer a,
+        .no-touch .post:hover .notes a,
+        .no-touch .post.active .notes a,
+        .no-touch .post:hover .footer .tags,
+        .no-touch .post.active .footer .tags,
         .post.chat .line.even,
-        #copyright a:hover,
+        .no-touch #copyright a:hover,
         #index.custom-trigger-infinite-scrolling #pagination li a,
-         .post:hover blockquote {
+        .no-touch .post:hover blockquote {
             color: {color:Darks};
         }
 
@@ -937,7 +943,7 @@
         },
         {
             complete: function (url, res, key) {
-                Modernizr.load('http://static.tumblr.com/wccjej0/BZSmg6g3h/masonite.js');
+                Modernizr.load('http://static.tumblr.com/wccjej0/sRRmghj22/masonite.js');
              }
         },
         {
