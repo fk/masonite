@@ -234,7 +234,6 @@
 
         .post.photo .media .fullsize,
         .no-touch .post.answer:hover .question,
-        .post.answer.active .question,
         .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
             background-color: {color:Accents};
         }
@@ -267,8 +266,7 @@
 
        .no-touch .post a:hover,
        .no-touch .post:hover a:hover,
-       .no-touch .post:hover a.title:hover strong,
-       .no-touch .post.active a.title:hover strong {
+       .no-touch .post:hover a.title:hover strong {
            border-color: {color:Background};
        }
 
@@ -282,10 +280,8 @@
 
        .post a,
        .no-touch .post:hover a,
-       .post.active a,
        .post a.title strong,
-       .no-touch .post:hover a.title strong,
-       .no-touch .post.active a.title strong {
+       .no-touch .post:hover a.title strong {
            border-color: {color:Accents};
        }
 
@@ -353,9 +349,7 @@
         .no-touch #external li a:hover,
         .post a,
         .no-touch .post:hover a,
-        .no-touch .post.active a,
         .no-touch .post:hover .title em:before,
-        .no-touch .post.active .title em:before,
         .no-touch .post.photo .media .fullsize:hover,
         #disqus_thread a {
             color: {color:Accents};
@@ -374,11 +368,8 @@
         .no-touch a:hover,
         a:active,
         .no-touch .post:hover .footer a,
-        .no-touch .post.active .footer a,
         .no-touch .post:hover .notes a,
-        .no-touch .post.active .notes a,
         .no-touch .post:hover .footer .tags,
-        .no-touch .post.active .footer .tags,
         .post.chat .line.even,
         .no-touch #copyright a:hover,
         #index.custom-trigger-infinite-scrolling #pagination li a,
@@ -943,7 +934,7 @@
         },
         {
             complete: function (url, res, key) {
-                Modernizr.load('http://static.tumblr.com/wccjej0/sRRmghj22/masonite.js');
+                Modernizr.load('http://static.tumblr.com/wccjej0/LYvmghlye/masonite.js');
              }
         },
         {

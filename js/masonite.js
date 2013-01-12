@@ -539,14 +539,12 @@ function fadingSidebar() {
 			{
 				mouseenter: function(event) {
 				 $(this)
-					.addClass('active')
 					.find('a.fullsize, .footer .reblog, .footer .like')
 						.stop()
 						.fadeIn({duration: 200, easing: 'easeInOutCubic'});
 				},
 				mouseleave: function(event) {
 					$(this)
-						.removeClass('active')
 						.find('a.fullsize, .footer .reblog, .footer .like')
 							.stop()
 							.fadeOut({duration: 200, easing: 'easeInOutCubic'});
