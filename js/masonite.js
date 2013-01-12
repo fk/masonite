@@ -519,6 +519,24 @@ function fadingSidebar() {
 	// ready
 	$(function() {
 
+    $('#avatar').imagesLoaded(function() {
+      
+      var $that = $(this),
+          width = $that.width(),
+          hidpi = $that.attr('data-hidpi-src'),
+          src = $that.attr('src');
+      
+      if ( hidpi != "") {
+        
+        $that.attr('src', hidpi).attr('width', width);
+        $that.one('error', function () {
+          this.src = src;
+        });
+      
+      }
+      
+    });
+
 		if(masonite.fadeSidebar && !Modernizr.touch){
 			fadingSidebar();
 		}
