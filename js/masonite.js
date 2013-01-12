@@ -425,7 +425,7 @@ $.fn.fixVimeo = function() {
 }
 
 $.fn.initColorbox = function() {
-	if(masonite.colorbox){
+	if ( masonite.colorbox ) {
 		this.find("a.fullsize").colorbox(masonite.colorboxOptions);
 	}
 
@@ -473,7 +473,7 @@ $.fn.fixTumblrAudio = function() {
 }
 
 function prettifyCode() {
-	if (masonite.googlePrettify){
+	if ( masonite.googlePrettify ) {
 		var a = false;
 
 		$("pre code").parent().each(function(){
@@ -581,7 +581,7 @@ function fadingSidebar() {
 
 			var $wall = $('#posts');
 
-			if ( masonite.likeLinks ){
+			if ( masonite.likeLinks ) {
 				$('body').append('<iframe id="like"></iframe>');
 				$('.footer').on(
 					{
