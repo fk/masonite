@@ -40,11 +40,11 @@ live at [hellodirty.com](http://hellodirty.com).
 #### Fonts
 
 * **Body, PostMeta, Quote, Title, Pre**
-* **Google Web Font** – If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used; additionaly, you may define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
+* **Google Web Font** – If defined, the supplied [Google Web Fonts](http://www.google.com/webfonts) font family (e. g. `Source Sans Pro`) will be used. Additionally, you can define the font styles to be loaded in _Google Web Font Styles_ (e. g. `400,700,400italic,700italic`)
 
 #### Images
 
-* **Avatar** – Upload an image to replace the Tumblr avatar with a logo.
+* **Avatar** – Upload an image to replace the Tumblr avatar with a custom logo. Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of the _Avatar_-image to display on HiDPI devices (such as iPad 3/4). Please make sure that this image is at least exactly twice as big as the original _Avatar_.
 
 #### Options
 
