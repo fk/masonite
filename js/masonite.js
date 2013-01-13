@@ -558,18 +558,19 @@ function fadingSidebar() {
 				}).smartresize(); // trigger resize to set container width
 			}
 
-			// http://masonry.desandro.com/docs/options.html
-			// http://masonry.desandro.com/docs/animating.html#modernizr
-			$wall.imagesLoaded(function() {
-				$wall.masonry({
-					isAnimated: !Modernizr.csstransitions,
-					itemSelector: '.post',
-					isFitWidth: masonite.centeredContent,
-					isResizable: !masonite.centeredContent,
-					columnWidth: $('.post').outerWidth(true)
+			if ( !$('body').hasClass('single-column') ) {
+				// http://masonry.desandro.com/docs/options.html
+				// http://masonry.desandro.com/docs/animating.html#modernizr
+				$wall.imagesLoaded(function() {
+					$wall.masonry({
+						isAnimated: !Modernizr.csstransitions,
+						itemSelector: '.post',
+						isFitWidth: masonite.centeredContent,
+						isResizable: !masonite.centeredContent,
+						columnWidth: $('.post').outerWidth(true)
+					});
 				});
-
-			});
+			}
 
 			if ( masonite.customTrigger ) {
 				var infinitescroll_behavior = 'twitter';
@@ -592,31 +593,30 @@ function fadingSidebar() {
 					// fade out the error message after 2 seconds
 					$('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');
 				}
-				},
-				// call masonry as a callback
-				function( newElements ) {
+				}, 
+				function ( newElements ) {
+					if ( !$('body').hasClass('single-column') ) {
+						prettifyCode();
 
-					prettifyCode();
+						// get opts by getting internal data of infinite scroll instance
+						var opts = $wall.data('infinitescroll').options;
+						var $elems = $( newElements ).css({ opacity: 0 });
 
-					// get opts by getting internal data of infinite scroll instance
-					var opts = $wall.data('infinitescroll').options;
-					var $elems = $( newElements ).css({ opacity: 0 });
+						$elems.fixTumblrAudio().initColorbox().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
 
-					$elems.fixTumblrAudio().initColorbox().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
-
-					$elems.imagesLoaded( function(){
-						$wall.masonry( 'appended', $elems, true, function(){
-							$elems.animate({ opacity: 1.0 }, 200, 'swing');
-							if(masonite.customTrigger){
-								$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
-							}
+						$elems.imagesLoaded( function(){
+							$wall.masonry( 'appended', $elems, true, function(){
+								$elems.animate({ opacity: 1.0 }, 200, 'swing');
+								if(masonite.customTrigger){
+									$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
+								}
+							});
 						});
-					});
 
-					setTimeout(function() {
-						$('#infscr-loading > div').html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
-					}, 400);
-
+						setTimeout(function() {
+							$('#infscr-loading > div').html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
+						}, 400);
+					}
 				}
 			);
 			}
