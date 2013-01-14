@@ -497,9 +497,6 @@ function fadingSidebar() {
 			'.post'
 		);
 
-		$("#likes li:first-child").addClass('first');
-		$("#likes li:last-child").addClass('last');
-
 		$('.title').widowFix();
 
 		// index pages
