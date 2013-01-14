@@ -479,24 +479,6 @@ function fadingSidebar() {
 		$('#posts .post').initColorbox().fixYouTube().fixVimeo().disqusCommentCount();
 		prettifyCode();
 
-		$('#posts').on(
-			{
-				mouseenter: function(event) {
-				 $(this)
-					.find('a.fullsize, .footer .reblog, .footer .like')
-						.stop()
-						.fadeIn({duration: 200, easing: 'easeInOutCubic'});
-				},
-				mouseleave: function(event) {
-					$(this)
-						.find('a.fullsize, .footer .reblog, .footer .like')
-							.stop()
-							.fadeOut({duration: 200, easing: 'easeInOutCubic'});
-				}
-			},
-			'.post'
-		);
-
 		$('.title').widowFix();
 
 		// index pages
