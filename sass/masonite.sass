@@ -335,7 +335,6 @@ input[type="search"]::-webkit-search-cancel-button
    ========================================================================== */
 
 .post
-  padding: 0
   margin: 0 $gutter $gutter 0
   position: relative
   &.photo img,
@@ -358,37 +357,8 @@ input[type="search"]::-webkit-search-cancel-button
     border: none
   .media .fullsize
     position: absolute
-    top: 10px
-    right: 10px
-    opacity: .8
     display: block
-    width: 28px
-    height: 28px
-    -webkit-transition: all 0.2s linear
-    +border-radius(2px)
-    border: 0
-    span
-      display: block
-      text-indent: 100%
-      white-space: nowrap
-      overflow: hidden
-    .js &
-      display: none
-    &:before
-      content: "\e006"
-      display: block
-      width: 28px
-      height: 28px
-      line-height: 20px
-      font-size: 18px
-      text-align: center
-    &:hover
-      opacity: 1
-      box-shadow: 0px 0px 48px #fff
-      .dog-ear-zoom-icon &
-        box-shadow: none
-        background-color: transparent
-  .media .fullsize
+    opacity: .8
     top: 50%
     left: 50%
     width: 48px
@@ -396,6 +366,20 @@ input[type="search"]::-webkit-search-cancel-button
     margin-top: -24px
     margin-left: -24px
     +border-radius(24px)
+    -webkit-transition: all 0.2s linear
+    span
+      display: block
+      text-indent: 100%
+      white-space: nowrap
+      overflow: hidden
+    .js &
+      display: none
+    &:hover
+      opacity: 1
+      box-shadow: 0px 0px 48px #fff
+      .dog-ear-zoom-icon &
+        box-shadow: none
+        background-color: transparent
     &:before
       content: "\e006"
       display: block
@@ -507,6 +491,14 @@ input[type="search"]::-webkit-search-cancel-button
     .date .reblogged-from a:before
       content: "" !important
       margin-right: 0 !important
+
+.js.no-touch .post
+  &.media:hover,
+  &:hover
+    li.reblog,
+    li.like,
+    .fullsize
+      display: block
 
 
 /* ==========================================================================
