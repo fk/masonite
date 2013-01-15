@@ -441,8 +441,10 @@ input[type="search"]::-webkit-search-cancel-button
       float: right
       margin-right: 0
       margin-left: 10px
+      -webkit-transition: visibility 0s linear 0.2s, opacity 0.2s linear
       .js.no-touch &
-        display: none
+        visibility: hidden
+        opacity: 0
       a.liked:before
         color: red
     .date span.reblogged-from
@@ -493,12 +495,14 @@ input[type="search"]::-webkit-search-cancel-button
       margin-right: 0 !important
 
 .js.no-touch .post
-  &.media:hover,
   &:hover
-    li.reblog,
-    li.like,
     .fullsize
       display: block
+    li.reblog,
+    li.like
+      visibility: visible
+      opacity: 1
+      -webkit-transition-delay: 0s
 
 
 /* ==========================================================================
