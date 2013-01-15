@@ -366,7 +366,8 @@ input[type="search"]::-webkit-search-cancel-button
     margin-top: -24px
     margin-left: -24px
     +border-radius(24px)
-    -webkit-transition: all 0.2s linear
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
     span
       display: block
       text-indent: 100%
@@ -409,7 +410,7 @@ input[type="search"]::-webkit-search-cancel-button
       background-color: transparent
   a,
   a.title strong
-    -webkit-transition: color 0.2s linear, border 0.2s linear
+    +transition(color 0.2s linear, border 0.2s linear)
   .header-left &
     margin-right: 0
     margin-left: $gutter
@@ -422,7 +423,9 @@ input[type="search"]::-webkit-search-cancel-button
     font-weight: bold
     line-height: 1.3
   blockquote
-    -webkit-transition: color 0.2s linear
+    +transition-property(color)
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
   .footer
     margin-top: 10px
     padding-top: 5px
@@ -608,7 +611,8 @@ input[type="search"]::-webkit-search-cancel-button
   font-weight: normal
   padding: 10px
   position: relative
-  -webkit-transition: all 0.2s linear
+  +transition-duration(0.2s)
+  +transition-timing-function(linear)
   +border-radius(2px)
   &:after
     content: " "
@@ -618,7 +622,8 @@ input[type="search"]::-webkit-search-cancel-button
     left: 10px
     bottom: -8px
     display: block
-    -webkit-transition: all 0.2s linear
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
     border-right-width: 8px
     border-top-width: 8px
     border-right-style: solid
@@ -768,7 +773,8 @@ ol.notes
       border-bottom-style: solid
       border-right-style: solid
       z-index: 0
-      -webkit-transition: 2s linear
+      +transition-duration(2s)
+      +transition-timing-function(linear)
     &:hover:after
       border-bottom-width: 28px
       border-right-width: 28px
