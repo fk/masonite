@@ -269,10 +269,10 @@ function fadingSidebar() {
 
 			if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
 				var $page = $('#container'),
-						$offset = $('#header'),
-						colW = $('.post').outerWidth(true),
-						postHOff = colW - $('.post').width(),
-						columns = null;
+					$offset = $('#header'),
+					colW = $('.post').outerWidth(true),
+					postHOff = colW - $('.post').width(),
+					columns = null;
 
 				$(window).smartresize(function(){
 					// check if columns has changed
