@@ -184,7 +184,7 @@ function fadingSidebar() {
 				opacity: 1
 			}, 250);
 	}).mouseleave(function() {
-		if($('#header input:focus').length == 0) {
+		if($('#header input:focus').length === 0) {
 			$sidebar
 				.stop()
 				.animate({
