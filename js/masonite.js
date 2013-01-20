@@ -1,4 +1,4 @@
-/*jshint browser:true, curly:true, white:false, eqeqeq:false, eqnull:false, strict:true, undef:true */
+/*jshint browser:true, curly:true, white:false, eqeqeq:false, strict:true, undef:true */
 /*global jQuery, masonite, Modernizr, prettyPrint */
 
 // remap jQuery to $
@@ -21,7 +21,7 @@
 				youtubeCode = parent.html(),
 				params = "";
 
-			parent.css("visibility","hidden");
+			parent.css("visibility", "hidden");
 
 			if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
 				// IE doesn't return params with html(), so…
@@ -57,7 +57,7 @@
 					youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
 				}
 				// Replace YouTube embed with new code
-				parent.html(youtubeCode).css("visibility","visible");
+				parent.html(youtubeCode).css("visibility", "visible");
 			});
 
 		});
@@ -120,7 +120,7 @@
 	};
 
 	$.fn.disqusCommentCount = function() {
-		if( masonite.disqusShortname ){
+		if ( masonite.disqusShortname ){
 			var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
 			$.getScript(scriptURL);
 		}
@@ -132,7 +132,7 @@
 		// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
 		// – thanks to the excellent http://inspirewell.tumblr.com/
 		this.each(function() {
-			if($(this).hasClass("audio")){
+			if ( $(this).hasClass("audio") ){
 				var audioID = $(this).attr("id"),
 					$audioPost = $(this);
 				
@@ -151,7 +151,7 @@
 					success: function(data){
 						$audioPost.find(".player span").css({ visibility: 'visible' });
 						var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
-						$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed +'\x3c/div\x3e\')</script>');
+						$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed + '\x3c/div\x3e\')</script>');
 					}
 				});
 			}
@@ -189,7 +189,7 @@
 					opacity: 1
 				}, 250);
 		}).mouseleave(function() {
-			if($('#header input:focus').length === 0) {
+			if ( $('#header input:focus').length === 0 ) {
 				$sidebar
 					.stop()
 					.animate({
@@ -220,7 +220,7 @@
       
     });
 
-		if( masonite.fadeSidebar && !Modernizr.touch ){
+		if ( masonite.fadeSidebar && !Modernizr.touch ){
 			fadingSidebar();
 		}
 
