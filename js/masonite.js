@@ -1,8 +1,8 @@
-/*jshint browser:true, curly:true, jquery:true, white:false, eqeqeq:false, eqnull:false, strict:true, undef:true */
-/*global masonite, Modernizr, prettyPrint */
+/*jshint browser:true, curly:true, white:false, eqeqeq:false, eqnull:false, strict:true, undef:true */
+/*global jQuery, masonite, Modernizr, prettyPrint */
 
 // remap jQuery to $
-(function($){
+(function( window, $, undefined ){
 
 	'use strict';
 
@@ -363,4 +363,4 @@
 
 	}); // ready
 
-})(window.jQuery);
+})( window, jQuery );
