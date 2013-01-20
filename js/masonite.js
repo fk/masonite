@@ -1,4 +1,4 @@
-/*jshint browser:true, curly:true, white:false, eqeqeq:false, strict:true, undef:true */
+/*jshint browser:true, curly:true, white:false, eqeqeq:true, eqnull:true, strict:true, trailing:true, undef:true */
 /*global jQuery, masonite, Modernizr, prettyPrint */
 
 // remap jQuery to $
@@ -19,40 +19,43 @@
 			// Identify and hide embed(s)
 			var parent = $(this).closest('object'),
 				youtubeCode = parent.html(),
-				params = "";
+				params = "",
+				oldOpts = /rel=0/g,
+				newOpts,
+				youtubeIDParam = $(this).attr("src"),
+				youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/,
+				youtubeID = youtubeIDParam.match(youtubeIDPattern),
+				youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
+				youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
 
 			parent.css("visibility", "hidden");
 
-			if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
+			if ( youtubeCode.toLowerCase().indexOf("<param") === -1 ) {
 				// IE doesn't return params with html(), so…
 				$("param", this).each(function () {
 					params += $(this).get(0).outerHTML;
 				});
 			}
+
 			// Set colours in control bar to match page background
-			var oldOpts = /rel=0/g,
-				newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
+			newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
 			youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-			if (params != "") {
+
+			if ( params !== "" ) {
 				params = params.replace(oldOpts, newOpts);
 				youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
 			}
-			// Extract YouTube ID and calculate ideal height
-			var youtubeIDParam = $(this).attr("src"),
-				youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/,
-				youtubeID = youtubeIDParam.match(youtubeIDPattern),
-				youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
-				youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
+
 			// Test for widescreen aspect ratio
 			$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
 				oldOpts = /height="?([0-9]*)"?/g;
-				if (data.entry.media$group.yt$aspectRatio != null) {
+				if ( data.entry.media$group.yt$aspectRatio != null ) {
 					newOpts = 'height="' + youtubeHeightWide + '"';
 				} else {
 					newOpts = 'height="' + youtubeHeight + '"';
 				}
 				youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-				if (params != "") {
+				if ( params !== "" ) {
 					params = params.replace(oldOpts, newOpts);
 					youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
 				}
@@ -82,7 +85,7 @@
 				w = $(this).attr("width"),
 				h = $(this).attr("height");
 
-			if ( src.indexOf("?") == -1 ) {
+			if ( src.indexOf("?") === -1 ) {
 				$(this).replaceWith(
 					"<iframe src='" + src + "?" + opts + "&color=" +
 					color + "' width='" + w + "' height='" + h +
@@ -120,7 +123,7 @@
 	};
 
 	$.fn.disqusCommentCount = function() {
-		if ( masonite.disqusShortname ){
+		if ( masonite.disqusShortname ) {
 			var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
 			$.getScript(scriptURL);
 		}
@@ -130,15 +133,14 @@
 
 	$.fn.fixTumblrAudio = function() {
 		// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
-		// – thanks to the excellent http://inspirewell.tumblr.com/
 		this.each(function() {
-			if ( $(this).hasClass("audio") ){
-				var audioID = $(this).attr("id"),
-					$audioPost = $(this);
+			if ( $(this).hasClass("audio") ) {
+				var $audioPost = $(this),
+					audioID = $audioPost.attr("id"),
+					script = document.createElement('script');
 				
 				$audioPost.find(".player span").css({ visibility: 'hidden' });
 
-				var script = document.createElement('script');
 				script.type = 'text/javascript';
 				script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
 
@@ -164,14 +166,14 @@
 		if ( masonite.googlePrettify ) {
 			var a = false;
 
-			$("pre code").parent().each(function(){
-				if (!$(this).hasClass("prettyprint")){
+			$("pre code").parent().each(function() {
+				if ( !$(this).hasClass("prettyprint") ){
 					$(this).addClass("prettyprint");
 						a = true;
 					}
 			});
 
-			if (a) {
+			if ( a ) {
 				prettyPrint();
 			}
 		}
@@ -179,8 +181,10 @@
 
 	function fadingSidebar() {
 		// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
-		var $sidebar = $('#header, #copyright');
-		$sidebar.css('opacity', 0.5);
+		var $sidebar = $('#header, #copyright'),
+			defaultOpacity = 0.5;
+
+		$sidebar.css('opacity', defaultOpacity);
 
 		$sidebar.mouseenter(function() {
 			$sidebar
@@ -193,7 +197,7 @@
 				$sidebar
 					.stop()
 					.animate({
-						opacity: 0.5
+						opacity: defaultOpacity
 					}, 250);
 			}
 		});
@@ -202,25 +206,25 @@
 	// ready
 	$(function() {
 
-    $('#avatar').imagesLoaded(function() {
-      
-      var $that = $(this),
-          width = $that.width(),
-          hidpi = $that.attr('data-hidpi-src'),
-          src = $that.attr('src');
-      
-      if ( hidpi !== "" ) {
-        
-        $that.attr('src', hidpi).attr('width', width);
-        $that.one('error', function () {
-          this.src = src;
-        });
-      
-      }
-      
-    });
+		$('#avatar').imagesLoaded(function() {
 
-		if ( masonite.fadeSidebar && !Modernizr.touch ){
+			var $that = $(this),
+				width = $that.width(),
+				hidpi = $that.attr('data-hidpi-src'),
+				src = $that.attr('src');
+
+			if ( hidpi !== "" ) {
+
+				$that.attr('src', hidpi).attr('width', width);
+				$that.one('error', function () {
+					this.src = src;
+				});
+
+			}
+
+		});
+
+		if ( masonite.fadeSidebar && !Modernizr.touch ) {
 			fadingSidebar();
 		}
 
@@ -241,7 +245,8 @@
 		// index pages
 		if ( $('body#index').length ) {
 
-			var $wall = $('#posts');
+			var $wall = $('#posts'),
+				infinitescroll_behavior;
 
 			if ( masonite.likeLinks ) {
 				$('body').append('<iframe id="like"></iframe>');
@@ -250,11 +255,11 @@
 						click: function(event) {
 							event.preventDefault();
 							var $post = $(this).closest('.post'),
-									id = $post.attr('id'),
-									oauth = $post.attr('rel').slice(-8),
-									liked = ( $(this).hasClass('liked') ),
-									command = liked ? 'unlike' : 'like',
-									iframeSource = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
+								id = $post.attr('id'),
+								oauth = $post.attr('rel').slice(-8),
+								liked = ( $(this).hasClass('liked') ),
+								command = liked ? 'unlike' : 'like',
+								iframeSource = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
 
 							$('#like').attr('src', iframeSource);
 							$(this).toggleClass('liked');
@@ -267,27 +272,33 @@
 
 			if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
 				var $page = $('#container'),
-					$offset = $('#header'),
-					colW = $('.post').outerWidth(true),
-					postHOff = colW - $('.post').width(),
+					offset = $('#header').outerWidth(false),
+					$sidebar = $('#header, #copyright'),
+					$post = $('.post:first'),
+					colW = $post.outerWidth(true),
+					postHOff = colW - $post.width(),
 					columns = null;
 
-				$(window).smartresize(function(){
+				$(window).smartresize(function() {
 					// check if columns has changed
-					var currentColumns = Math.floor( ( $('body').width() - $offset.outerWidth(false) - postHOff ) / colW );
+					var currentColumns = Math.floor( ( $('body').width() - offset - postHOff ) / colW );
+
 					if ( currentColumns !== columns && currentColumns > 0 ) {
 						// set new column count
 						columns = currentColumns;
 						// apply width to container manually, then trigger relayout
-						$page.width( columns * colW + $offset.outerWidth(false) );
+						$page.width( columns * colW + offset );
 						$wall.width( columns * colW );
-						if($wall.hasClass('masonry')){
+						if ( $wall.hasClass('masonry') ) {
 							$wall.masonry('reload');
 						}
 						if ( !$('body').hasClass('header-left') ) {
-							$('#header, #copyright').css( {'margin-left':columns * colW + postHOff, 'right':'auto'} );
+							$sidebar.css({
+								'margin-left': columns * colW + postHOff,
+								'right': 'auto'
+							});
 						} else {
-							$('#header, #copyright').css( 'margin-left', 0 );
+							$sidebar.css( 'margin-left', 0 );
 						}
 					}
 				}).smartresize(); // trigger resize to set container width
@@ -308,8 +319,6 @@
 			}
 
 			if ( masonite.infiniteScroll ) {
-
-				var infinitescroll_behavior;
 
 				if ( masonite.customTrigger ) {
 					infinitescroll_behavior = 'twitter';
@@ -341,10 +350,10 @@
 
 						$elems.fixTumblrAudio().initColorbox().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
 
-						$elems.imagesLoaded( function(){
-							$wall.masonry( 'appended', $elems, true, function(){
+						$elems.imagesLoaded(function() {
+							$wall.masonry( 'appended', $elems, true, function() {
 								$elems.animate({ opacity: 1.0 }, 200, 'swing');
-								if(masonite.customTrigger){
+								if ( masonite.customTrigger ) {
 									$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
 								}
 							});
