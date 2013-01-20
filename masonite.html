@@ -963,13 +963,11 @@
 </script>
 
 {block:Twitter}
-    <!-- twitter -->
     <script src="/tweets.js"></script>
-    <!-- /twitter -->
 {/block:Twitter}
 
 {block:IfClickyTracking}
-    <!-- clicky analytics, asynchronous: http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
+    <!-- http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
     <script>
         var f = Function(),
             clicky = { log: f, goal: f },
@@ -983,7 +981,6 @@
         })(document, 'script');
     </script>
     <noscript><img alt="" width="1" height="1" src="http://in.getclicky.com/{text:Clicky Tracking}ns.gif" /></noscript>
-    <!-- /clicky analytics -->
 {/block:IfClickyTracking}
 </body>
 </html>
