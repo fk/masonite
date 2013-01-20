@@ -1,205 +1,203 @@
-/*jshint browser:true, curly:true, jquery:true, white:false, eqeqeq:false, eqnull:false, undef:true */
+/*jshint browser:true, curly:true, jquery:true, white:false, eqeqeq:false, eqnull:false, strict:true, undef:true */
 /*global masonite, Modernizr, prettyPrint */
-
-$.fn.fixYouTube = function() {
-	/*
-		Widescreen YouTube Embeds by Matthew Buchanan & Hayden Hunter
-		http://matthewbuchanan.name/451892574
-		http://blog.haydenhunter.me
-
-		Released under a Creative Commons attribution license:
-		http://creativecommons.org/licenses/by/3.0/nz/
-	*/
-	this.find("embed[src^='http://www.youtube.com']").each(function() {
-		// Identify and hide embed(s)
-		var parent = $(this).closest('object'),
-			youtubeCode = parent.html(),
-			params = "";
-
-		parent.css("visibility","hidden");
-
-		if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
-			// IE doesn't return params with html(), so…
-			$("param", this).each(function () {
-				params += $(this).get(0).outerHTML;
-			});
-		}
-		// Set colours in control bar to match page background
-		var oldOpts = /rel=0/g,
-			newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
-		youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-		if (params != "") {
-			params = params.replace(oldOpts, newOpts);
-			youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
-		}
-		// Extract YouTube ID and calculate ideal height
-		var youtubeIDParam = $(this).attr("src"),
-			youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/,
-			youtubeID = youtubeIDParam.match(youtubeIDPattern),
-			youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
-			youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
-		// Test for widescreen aspect ratio
-		$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
-			oldOpts = /height="?([0-9]*)"?/g;
-			if (data.entry.media$group.yt$aspectRatio != null) {
-				newOpts = 'height="' + youtubeHeightWide + '"';
-			} else {
-				newOpts = 'height="' + youtubeHeight + '"';
-			}
-			youtubeCode = youtubeCode.replace(oldOpts, newOpts);
-			if (params != "") {
-				params = params.replace(oldOpts, newOpts);
-				youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
-			}
-			// Replace YouTube embed with new code
-			parent.html(youtubeCode).css("visibility","visible");
-		});
-
-	});
-
-	return this;
-};
-
-$.fn.fixVimeo = function() {
-	/*
-		Better Vimeo Embeds 2.1 by Matthew Buchanan
-		Modelled on the Vimeo Embedinator Script
-		http://mattbu.ch/tumblr/vimeo-embeds/
-
-		Released under a Creative Commons attribution license:
-		http://creativecommons.org/licenses/by/3.0/nz/
-	*/
-	var color = masonite.accents,
-		opts = "title=0&byline=0&portrait=0";
-
-	this.find("iframe[src^='http://player.vimeo.com']").each(function() {
-		var src = $(this).attr("src"),
-			w = $(this).attr("width"),
-			h = $(this).attr("height");
-
-		if ( src.indexOf("?") == -1 ) {
-			$(this).replaceWith(
-				"<iframe src='" + src + "?" + opts + "&color=" +
-				color + "' width='" + w + "' height='" + h +
-				"' frameborder='0'></iframe>"
-			);
-		}
-	});
-
-	this.find("object[data^='http://vimeo.com']").each(function() {
-		var $obj = $(this),
-			data = $obj.attr("data"),
-			temp = data.split("clip_id=")[1],
-			id = temp.split("&")[0],
-			server = temp.split("&")[1],
-			w = $obj.attr("width"),
-			h = $obj.attr("height");
-
-		$obj.replaceWith(
-			"<iframe src='http://player.vimeo.com/video/" +
-			id + "?" + server + "&" + opts + "&color=" + color +
-			"' width='" + w + "' height='" + h +
-			"' frameborder='0'></iframe>"
-		);
-	});
-
-	return this;
-};
-
-$.fn.initColorbox = function() {
-	if ( masonite.colorbox ) {
-		this.find("a.fullsize").colorbox(masonite.colorboxOptions);
-	}
-
-	return this;
-};
-
-$.fn.disqusCommentCount = function() {
-	if( masonite.disqusShortname ){
-		var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
-		$.getScript(scriptURL);
-	}
-
-	return this;
-};
-
-$.fn.fixTumblrAudio = function() {
-	// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
-	// – thanks to the excellent http://inspirewell.tumblr.com/
-	this.each(function() {
-		if($(this).hasClass("audio")){
-			var audioID = $(this).attr("id"),
-				$audioPost = $(this);
-			
-			$audioPost.find(".player span").css({ visibility: 'hidden' });
-
-			var script = document.createElement('script');
-			script.type = 'text/javascript';
-			script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
-
-			$("body").append(script);
-
-			$.ajax({
-				url: "/api/read/json?id=" + audioID,
-				dataType: "jsonp",
-				timeout: 5000,
-				success: function(data){
-					$audioPost.find(".player span").css({ visibility: 'visible' });
-					var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
-					$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed +'\x3c/div\x3e\')</script>');
-				}
-			});
-		}
-	});
-
-	return this;
-};
-
-function prettifyCode() {
-	if ( masonite.googlePrettify ) {
-		var a = false;
-
-		$("pre code").parent().each(function(){
-			if (!$(this).hasClass("prettyprint")){
-				$(this).addClass("prettyprint");
-					a = true;
-				}
-		});
-
-		if (a) {
-			prettyPrint();
-		}
-	}
-}
-
-function fadingSidebar() {
-	// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
-	var $sidebar = $('#header, #copyright');
-	$sidebar.css('opacity', 0.5);
-
-	$sidebar.mouseenter(function() {
-		$sidebar
-			.stop()
-			.animate({
-				opacity: 1
-			}, 250);
-	}).mouseleave(function() {
-		if($('#header input:focus').length === 0) {
-			$sidebar
-				.stop()
-				.animate({
-					opacity: 0.5
-				}, 250);
-		}
-	});
-}
-
-// masonite
 
 // remap jQuery to $
 (function($){
 
 	'use strict';
+
+	$.fn.fixYouTube = function() {
+		/*
+			Widescreen YouTube Embeds by Matthew Buchanan & Hayden Hunter
+			http://matthewbuchanan.name/451892574
+			http://blog.haydenhunter.me
+
+			Released under a Creative Commons attribution license:
+			http://creativecommons.org/licenses/by/3.0/nz/
+		*/
+		this.find("embed[src^='http://www.youtube.com']").each(function() {
+			// Identify and hide embed(s)
+			var parent = $(this).closest('object'),
+				youtubeCode = parent.html(),
+				params = "";
+
+			parent.css("visibility","hidden");
+
+			if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
+				// IE doesn't return params with html(), so…
+				$("param", this).each(function () {
+					params += $(this).get(0).outerHTML;
+				});
+			}
+			// Set colours in control bar to match page background
+			var oldOpts = /rel=0/g,
+				newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
+			youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+			if (params != "") {
+				params = params.replace(oldOpts, newOpts);
+				youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+			}
+			// Extract YouTube ID and calculate ideal height
+			var youtubeIDParam = $(this).attr("src"),
+				youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/,
+				youtubeID = youtubeIDParam.match(youtubeIDPattern),
+				youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
+				youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
+			// Test for widescreen aspect ratio
+			$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
+				oldOpts = /height="?([0-9]*)"?/g;
+				if (data.entry.media$group.yt$aspectRatio != null) {
+					newOpts = 'height="' + youtubeHeightWide + '"';
+				} else {
+					newOpts = 'height="' + youtubeHeight + '"';
+				}
+				youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+				if (params != "") {
+					params = params.replace(oldOpts, newOpts);
+					youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+				}
+				// Replace YouTube embed with new code
+				parent.html(youtubeCode).css("visibility","visible");
+			});
+
+		});
+
+		return this;
+	};
+
+	$.fn.fixVimeo = function() {
+		/*
+			Better Vimeo Embeds 2.1 by Matthew Buchanan
+			Modelled on the Vimeo Embedinator Script
+			http://mattbu.ch/tumblr/vimeo-embeds/
+
+			Released under a Creative Commons attribution license:
+			http://creativecommons.org/licenses/by/3.0/nz/
+		*/
+		var color = masonite.accents,
+			opts = "title=0&byline=0&portrait=0";
+
+		this.find("iframe[src^='http://player.vimeo.com']").each(function() {
+			var src = $(this).attr("src"),
+				w = $(this).attr("width"),
+				h = $(this).attr("height");
+
+			if ( src.indexOf("?") == -1 ) {
+				$(this).replaceWith(
+					"<iframe src='" + src + "?" + opts + "&color=" +
+					color + "' width='" + w + "' height='" + h +
+					"' frameborder='0'></iframe>"
+				);
+			}
+		});
+
+		this.find("object[data^='http://vimeo.com']").each(function() {
+			var $obj = $(this),
+				data = $obj.attr("data"),
+				temp = data.split("clip_id=")[1],
+				id = temp.split("&")[0],
+				server = temp.split("&")[1],
+				w = $obj.attr("width"),
+				h = $obj.attr("height");
+
+			$obj.replaceWith(
+				"<iframe src='http://player.vimeo.com/video/" +
+				id + "?" + server + "&" + opts + "&color=" + color +
+				"' width='" + w + "' height='" + h +
+				"' frameborder='0'></iframe>"
+			);
+		});
+
+		return this;
+	};
+
+	$.fn.initColorbox = function() {
+		if ( masonite.colorbox ) {
+			this.find("a.fullsize").colorbox(masonite.colorboxOptions);
+		}
+
+		return this;
+	};
+
+	$.fn.disqusCommentCount = function() {
+		if( masonite.disqusShortname ){
+			var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
+			$.getScript(scriptURL);
+		}
+
+		return this;
+	};
+
+	$.fn.fixTumblrAudio = function() {
+		// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
+		// – thanks to the excellent http://inspirewell.tumblr.com/
+		this.each(function() {
+			if($(this).hasClass("audio")){
+				var audioID = $(this).attr("id"),
+					$audioPost = $(this);
+				
+				$audioPost.find(".player span").css({ visibility: 'hidden' });
+
+				var script = document.createElement('script');
+				script.type = 'text/javascript';
+				script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
+
+				$("body").append(script);
+
+				$.ajax({
+					url: "/api/read/json?id=" + audioID,
+					dataType: "jsonp",
+					timeout: 5000,
+					success: function(data){
+						$audioPost.find(".player span").css({ visibility: 'visible' });
+						var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
+						$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed +'\x3c/div\x3e\')</script>');
+					}
+				});
+			}
+		});
+
+		return this;
+	};
+
+	function prettifyCode() {
+		if ( masonite.googlePrettify ) {
+			var a = false;
+
+			$("pre code").parent().each(function(){
+				if (!$(this).hasClass("prettyprint")){
+					$(this).addClass("prettyprint");
+						a = true;
+					}
+			});
+
+			if (a) {
+				prettyPrint();
+			}
+		}
+	}
+
+	function fadingSidebar() {
+		// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
+		var $sidebar = $('#header, #copyright');
+		$sidebar.css('opacity', 0.5);
+
+		$sidebar.mouseenter(function() {
+			$sidebar
+				.stop()
+				.animate({
+					opacity: 1
+				}, 250);
+		}).mouseleave(function() {
+			if($('#header input:focus').length === 0) {
+				$sidebar
+					.stop()
+					.animate({
+						opacity: 0.5
+					}, 250);
+			}
+		});
+	}
 
 	// ready
 	$(function() {
