@@ -1,5 +1,5 @@
-/*jshint browser:true, jquery:true, white:false, eqeqeq:true, eqnull:false */
-/*global masonite:true, Modernizr:true, prettyPrint:true */
+/*jshint browser:true, curly:true, jquery:true, white:false, eqeqeq:false, eqnull:false, undef:true */
+/*global masonite, Modernizr, prettyPrint */
 
 $.fn.fixYouTube = function() {
 	/*
