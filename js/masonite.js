@@ -211,7 +211,7 @@ function fadingSidebar() {
           hidpi = $that.attr('data-hidpi-src'),
           src = $that.attr('src');
       
-      if ( hidpi != "" ) {
+      if ( hidpi !== "" ) {
         
         $that.attr('src', hidpi).attr('width', width);
         $that.one('error', function () {
