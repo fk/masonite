@@ -262,10 +262,12 @@ $.fn.fixYouTube = function() {
 	*/
 	this.find("embed[src^='http://www.youtube.com']").each(function() {
 		// Identify and hide embed(s)
-		var parent = $(this).closest('object');
+		var parent = $(this).closest('object'),
+			youtubeCode = parent.html(),
+			params = "";
+
 		parent.css("visibility","hidden");
-		var youtubeCode = parent.html();
-		var params = "";
+
 		if (youtubeCode.toLowerCase().indexOf("<param") == -1) {
 			// IE doesn't return params with html(), so…
 			$("param", this).each(function () {
@@ -273,19 +275,19 @@ $.fn.fixYouTube = function() {
 			});
 		}
 		// Set colours in control bar to match page background
-		var oldOpts = /rel=0/g;
-		var newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
+		var oldOpts = /rel=0/g,
+			newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
 		youtubeCode = youtubeCode.replace(oldOpts, newOpts);
 		if (params != "") {
 			params = params.replace(oldOpts, newOpts);
 			youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
 		}
 		// Extract YouTube ID and calculate ideal height
-		var youtubeIDParam = $(this).attr("src");
-		var youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/;
-		var youtubeID = youtubeIDParam.match(youtubeIDPattern);
-		var youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3);
-		var youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
+		var youtubeIDParam = $(this).attr("src"),
+			youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/,
+			youtubeID = youtubeIDParam.match(youtubeIDPattern),
+			youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
+			youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
 		// Test for widescreen aspect ratio
 		$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
 			oldOpts = /height="?([0-9]*)"?/g;
@@ -306,7 +308,7 @@ $.fn.fixYouTube = function() {
 	});
 
 	return this;
-}
+};
 
 $.fn.fixVimeo = function() {
 	/*
@@ -317,38 +319,42 @@ $.fn.fixVimeo = function() {
 		Released under a Creative Commons attribution license:
 		http://creativecommons.org/licenses/by/3.0/nz/
 	*/
-	var color = masonite.accents;
-	var opts = "title=0&byline=0&portrait=0";
+	var color = masonite.accents,
+		opts = "title=0&byline=0&portrait=0";
+
 	this.find("iframe[src^='http://player.vimeo.com']").each(function() {
-		var src = $(this).attr("src");
-		var w = $(this).attr("width");
-		var h = $(this).attr("height");
-		if (src.indexOf("?") == -1) {
+		var src = $(this).attr("src"),
+			w = $(this).attr("width"),
+			h = $(this).attr("height");
+
+		if ( src.indexOf("?") == -1 ) {
 			$(this).replaceWith(
-				"<iframe src='"+src+"?"+opts+"&color="+
-				color+"' width='"+w+"' height='"+h+
+				"<iframe src='" + src + "?" + opts + "&color=" +
+				color + "' width='" + w + "' height='" + h +
 				"' frameborder='0'></iframe>"
 			);
 		}
 	});
+
 	this.find("object[data^='http://vimeo.com']").each(function() {
-		var $obj = $(this);
-		var data = $obj.attr("data");
-		var temp = data.split("clip_id=")[1];
-		var id = temp.split("&")[0];
-		var server = temp.split("&")[1];
-		var w = $obj.attr("width");
-		var h = $obj.attr("height");
+		var $obj = $(this),
+			data = $obj.attr("data"),
+			temp = data.split("clip_id=")[1],
+			id = temp.split("&")[0],
+			server = temp.split("&")[1],
+			w = $obj.attr("width"),
+			h = $obj.attr("height");
+
 		$obj.replaceWith(
-			"<iframe src='http://player.vimeo.com/video/"
-			+id+"?"+server+"&"+opts+"&color="+color+
-			"' width='"+w+"' height='"+h+
+			"<iframe src='http://player.vimeo.com/video/" +
+			id + "?" + server + "&" + opts + "&color=" + color +
+			"' width='" + w + "' height='" + h +
 			"' frameborder='0'></iframe>"
 		);
 	});
 
 	return this;
-}
+};
 
 $.fn.initColorbox = function() {
 	if ( masonite.colorbox ) {
@@ -356,24 +362,25 @@ $.fn.initColorbox = function() {
 	}
 
 	return this;
-}
+};
 
 $.fn.disqusCommentCount = function() {
-	if(masonite.disqusShortname){
+	if( masonite.disqusShortname ){
 		var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
-		$.getScript(scriptURL)
+		$.getScript(scriptURL);
 	}
 
 	return this;
-}
+};
 
 $.fn.fixTumblrAudio = function() {
 	// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
 	// – thanks to the excellent http://inspirewell.tumblr.com/
 	this.each(function() {
 		if($(this).hasClass("audio")){
-			var audioID = $(this).attr("id");
-			var $audioPost = $(this);
+			var audioID = $(this).attr("id"),
+				$audioPost = $(this);
+			
 			$audioPost.find(".player span").css({ visibility: 'hidden' });
 
 			var script = document.createElement('script');
@@ -388,7 +395,7 @@ $.fn.fixTumblrAudio = function() {
 				timeout: 5000,
 				success: function(data){
 					$audioPost.find(".player span").css({ visibility: 'visible' });
-					embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
+					var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
 					$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed +'\x3c/div\x3e\')</script>');
 				}
 			});
@@ -396,7 +403,7 @@ $.fn.fixTumblrAudio = function() {
 	});
 
 	return this;
-}
+};
 
 function prettifyCode() {
 	if ( masonite.googlePrettify ) {
@@ -417,7 +424,7 @@ function prettifyCode() {
 
 function fadingSidebar() {
 	// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
-	$sidebar = $('#header, #copyright');
+	var $sidebar = $('#header, #copyright');
 	$sidebar.css('opacity', 0.5);
 
 	$sidebar.mouseenter(function() {
@@ -452,7 +459,7 @@ function fadingSidebar() {
           hidpi = $that.attr('data-hidpi-src'),
           src = $that.attr('src');
       
-      if ( hidpi != "") {
+      if ( hidpi != "" ) {
         
         $that.attr('src', hidpi).attr('width', width);
         $that.one('error', function () {
@@ -463,7 +470,7 @@ function fadingSidebar() {
       
     });
 
-		if(masonite.fadeSidebar && !Modernizr.touch){
+		if( masonite.fadeSidebar && !Modernizr.touch ){
 			fadingSidebar();
 		}
 
@@ -500,7 +507,6 @@ function fadingSidebar() {
 									iframeSource = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
 
 							$('#like').attr('src', iframeSource);
-							console.log(iframeSource);
 							$(this).toggleClass('liked');
 						}
 					},
@@ -551,35 +557,38 @@ function fadingSidebar() {
 				});
 			}
 
-			if ( masonite.customTrigger ) {
-				var infinitescroll_behavior = 'twitter';
-				$('#pagination li.next a').text('Load more posts');
-			}
 
 			if ( masonite.infiniteScroll ) {
-				// infinite scroll
-				$wall.infinitescroll({
-				loading: {
-					finishedMsg: "No more pages to load",
-					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-					msgText: "Loading page 2/" + masonite.totalPages
-				},
-				navSelector: '#pagination li.next a',  // selector for the paged navigation
-				nextSelector: '#pagination li.next a', // selector for the NEXT link (to page 2)
-				itemSelector: '#posts .post',          // selector for all items you'll retrieve
-				behavior: infinitescroll_behavior,
-				errorCallback: function() {
-					// fade out the error message after 2 seconds
-					$('#infscr-loading').animate({opacity: .8},2000).fadeOut('normal');
+
+				var infinitescroll_behavior;
+
+				if ( masonite.customTrigger ) {
+					infinitescroll_behavior = 'twitter';
+					$('#pagination li.next a').text('Load more posts');
 				}
-				}, 
+
+				$wall.infinitescroll({
+					loading: {
+						finishedMsg: "No more pages to load",
+						img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
+						msgText: "Loading page 2/" + masonite.totalPages
+					},
+					navSelector: '#pagination li.next a',  // selector for the paged navigation
+					nextSelector: '#pagination li.next a', // selector for the NEXT link (to page 2)
+					itemSelector: '#posts .post',          // selector for all items you'll retrieve
+					behavior: infinitescroll_behavior,
+					errorCallback: function() {
+						// fade out the error message after 2 seconds
+						$('#infscr-loading').animate({opacity: 0.8},2000).fadeOut('normal');
+					}
+				},
 				function ( newElements ) {
 					if ( !$('body').hasClass('single-column') ) {
 						prettifyCode();
 
 						// get opts by getting internal data of infinite scroll instance
-						var opts = $wall.data('infinitescroll').options;
-						var $elems = $( newElements ).css({ opacity: 0 });
+						var opts = $wall.data('infinitescroll').options,
+							$elems = $( newElements ).css({ opacity: 0 });
 
 						$elems.fixTumblrAudio().initColorbox().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
 
