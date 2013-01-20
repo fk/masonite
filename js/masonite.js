@@ -307,7 +307,6 @@
 				});
 			}
 
-
 			if ( masonite.infiniteScroll ) {
 
 				var infinitescroll_behavior;
