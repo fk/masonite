@@ -199,6 +199,8 @@ function fadingSidebar() {
 // remap jQuery to $
 (function($){
 
+	'use strict';
+
 	// ready
 	$(function() {
 
