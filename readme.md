@@ -18,6 +18,7 @@ live at [hellodirty.com](http://hellodirty.com).
 * one- or two-column navigation, left or right of the main content and on top or bottom of the viewport
 * fully customizable colors thanks to using `@font-face` for all theme icons
 * Vimeo-videos incorporating the "Accents"-color and pretty YouTube-videos
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) makes videos always fit it the available width, even when nested in blockquotes or similar
 * customizable fonts
   * via Tumblr's own custom fonts functionality
   * or by specifying a web font family (and style(s)) from the [Google Web Fonts API](http://www.google.com/webfonts)
