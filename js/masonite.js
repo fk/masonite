@@ -237,7 +237,7 @@
 			maxHeight: "90%"
 		};
 
-		$('#posts .post').initColorbox().fixYouTube().fixVimeo().disqusCommentCount();
+		$('.post').initColorbox().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo();
 		prettifyCode();
 
 		$('.title').widowFix();
@@ -348,7 +348,7 @@
 						var opts = $wall.data('infinitescroll').options,
 							$elems = $( newElements ).css({ opacity: 0 });
 
-						$elems.fixTumblrAudio().initColorbox().fixYouTube().fixVimeo().disqusCommentCount().find('.title').widowFix();
+						$elems.initColorbox().fixTumblrAudio().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo().end().find('.title').widowFix();
 
 						$elems.imagesLoaded(function() {
 							$wall.masonry( 'appended', $elems, true, function() {
