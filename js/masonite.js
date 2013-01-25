@@ -1,4 +1,4 @@
-/*jshint browser:true, curly:true, white:false, eqeqeq:true, eqnull:true, strict:true, trailing:true, undef:true */
+/*jshint browser:true, curly:true, white:false, eqeqeq:true, eqnull:true, strict:true, trailing:true, undef:true, regexdash:false */
 /*global jQuery, masonite, Modernizr, prettyPrint */
 
 // remap jQuery to $
