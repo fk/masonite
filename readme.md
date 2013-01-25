@@ -81,7 +81,7 @@ masonite comes with two analytics options built in, Google Analytics and realtim
 
 To setup Google Analytics [sign up for an account](http://www.google.com/analytics/) first; once you have your site information added, Google will provide you with both a Google Analytics ID and embed code. Just grab the ID (e. g. `UA-000000-1`) and paste it into _Customize > Appearance > Google Analytics_.
 
-###### Clicky
+##### Clicky
 
 Alternately (or in addition), you can use Clicky to see in realtime what people are doing on your site. [Sign up for a Clicky account](http://getclicky.com/) and paste your site ID into _Customize > Appearance > Clicky Tracking_.
 
@@ -104,6 +104,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * layout powered by David DeSandro’s [jQuery Masonry](http://masonry.desandro.com/) v2.1.06
 * lightbox and slideshow powered by Jack Moore’s [ColorBox](http://jacklmoore.com/colorbox/) v1.3.20.1
 * infinite scrolling courtesy of the [Infinite Scroll jQuery plugin](http://www.infinite-scroll.com) v2.0b2.120519
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0
 * [jQuery](http://jquery.com/) v1.8.2
 * built on HTML5 Boilerplate's CSS (normalize.css + H5BP goodies)
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
