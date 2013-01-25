@@ -77,7 +77,11 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 
 masonite comes with two analytics options built in, Google Analytics and realtime user tracking with Clicky.
 
+##### Google Analytics
+
 To setup Google Analytics [sign up for an account](http://www.google.com/analytics/) first; once you have your site information added, Google will provide you with both a Google Analytics ID and embed code. Just grab the ID (e. g. `UA-000000-1`) and paste it into _Customize > Appearance > Google Analytics_.
+
+###### Clicky
 
 Alternately (or in addition), you can use Clicky to see in realtime what people are doing on your site. [Sign up for a Clicky account](http://getclicky.com/) and paste your site ID into _Customize > Appearance > Clicky Tracking_.
 
