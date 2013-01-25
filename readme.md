@@ -18,7 +18,7 @@ live at [hellodirty.com](http://hellodirty.com).
 * one- or two-column navigation, left or right of the main content and on top or bottom of the viewport
 * fully customizable colors thanks to using `@font-face` for all theme icons
 * Vimeo-videos incorporating the "Accents"-color and pretty YouTube-videos
-* [FitVids.js](https://github.com/davatron5000/FitVids.js) makes videos always fit it the available width, even when nested in blockquotes or similar
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) to make videos always fit in the available width, even when nested in blockquotes or similar
 * customizable fonts
   * via Tumblr's own custom fonts functionality
   * or by specifying a web font family (and style(s)) from the [Google Web Fonts API](http://www.google.com/webfonts)
@@ -40,12 +40,14 @@ live at [hellodirty.com](http://hellodirty.com).
 
 #### Fonts
 
-* **Body, PostMeta, Quote, Title, Pre**
-* **Google Web Font** – Load one or multiple font families from [Google Web Fonts](http://www.google.com/webfonts). Fonts are loaded using the [Google WebFont Loader](https://developers.google.com/webfonts/docs/webfont_loader). The option accepts an array as defined [here](https://developers.google.com/webfonts/docs/webfont_loader#GoogleModule), e. g. `'Fruktur','Open Sans:400,700,400italic,700italic'` would load the "[Fruktur](http://www.google.com/webfonts/specimen/Fruktur)" font family and the normal (400), italic (400italic), bold (700) and bold italic (700italic) versions of "[Open Sans](http://www.google.com/webfonts/specimen/Open+Sans)". To make use of them you can write your own CSS-styles or put the name of the font into one of the five "Google Web Font …" option-fields – e. g. to use "Fruktur" as font for all quotes, put `Fruktur` into the "Google Web Font Quote"-field.
+* **Body, PostMeta, Quote, Title, Pre** – Override the theme default font by choosing from Tumblr's "Customize" font-stacks.
+* **Google Web Font** – Load one or multiple font families from [Google Web Fonts](http://www.google.com/webfonts) using the [Google WebFont Loader](https://developers.google.com/webfonts/docs/webfont_loader).  
+The option accepts an array as defined [here](https://developers.google.com/webfonts/docs/webfont_loader#GoogleModule), e. g. `'Fruktur','Open Sans:400,700,400italic,700italic'` would load the "[Fruktur](http://www.google.com/webfonts/specimen/Fruktur)" font family and the normal (400), italic (400italic), bold (700) and bold italic (700italic) versions of "[Open Sans](http://www.google.com/webfonts/specimen/Open+Sans)". To make use of the loaded fonts you can write your own CSS-styles or put the name of the font into one of the five "Google Web Font …" option-fields – e. g. to use "Fruktur" as font for all quotes, put `Fruktur` into the "Google Web Font Quote"-field.
 
 #### Images
 
-* **Avatar** – Upload an image to replace the Tumblr avatar with a custom logo. Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of the _Avatar_-image to display on HiDPI devices (such as iPad 3/4). Please make sure that this image is at least exactly twice as big as the original _Avatar_.
+* **Avatar** – Upload an image to replace the Tumblr avatar with a custom logo.  
+Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of the _Avatar_-image to display on HiDPI devices (such as iPad 3/4). Please make sure that this image is at least exactly twice as big as the original _Avatar_ image.
 
 #### Options
 
