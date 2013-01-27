@@ -341,28 +341,38 @@
 					}
 				},
 				function ( newElements ) {
-					if ( !$('body').hasClass('single-column') ) {
-						prettifyCode();
+					// get opts by getting internal data of infinite scroll instance
+					var opts = $wall.data('infinitescroll').options,
+						$elems = $( newElements ).css({ opacity: 0 });
 
-						// get opts by getting internal data of infinite scroll instance
-						var opts = $wall.data('infinitescroll').options,
-							$elems = $( newElements ).css({ opacity: 0 });
+					$elems.initColorbox().fixTumblrAudio().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo().end().find('.title').widowFix();
+					prettifyCode();
 
-						$elems.initColorbox().fixTumblrAudio().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo().end().find('.title').widowFix();
+					$elems.imagesLoaded(function() {
 
-						$elems.imagesLoaded(function() {
+						if ( !$('body').hasClass('single-column') ) {
 							$wall.masonry( 'appended', $elems, true, function() {
 								$elems.animate({ opacity: 1.0 }, 200, 'swing');
-								if ( masonite.customTrigger ) {
-									$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
-								}
 							});
-						});
+						
+						} else {
+							$elems.animate({ opacity: 1.0 }, 200, 'swing');
+						}
 
-						setTimeout(function() {
-							$('#infscr-loading > div').html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
-						}, 400);
-					}
+						if ( masonite.customTrigger ) {
+							$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
+						}
+
+					});
+
+					setTimeout(function() {
+						var $loader = $('#infscr-loading > div');
+						if ( (opts.state.currPage + 1) <= masonite.totalPages ) {
+							$loader.html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
+						} else {
+							$loader.html("No more pages to load");
+						}
+					}, 400);
 				}
 			);
 			}
