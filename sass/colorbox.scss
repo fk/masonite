@@ -1,0 +1,133 @@
+/* compass modules
+   http://compass-style.org/reference/compass/
+*/
+@import "compass/css3";
+
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box;}
+
+/* ColorBox user style
+   The following rules are ordered and tabbed in a way that represents
+   the order/nesting of the generated HTML, so that the structure easier
+   to understand.
+   ========================================================================== */
+
+#cboxOverlay {
+    background: #000;
+    -moz-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+    -o-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.9);
+}
+#colorbox {}
+    #cboxContent {
+      margin-top: 32px;
+    }
+        #cboxError {
+          padding: 50px;
+        }
+        #cboxLoadedContent {
+          @include border-radius(3px);
+        }
+        #cboxLoadingGraphic {
+          background: url('http://static.tumblr.com/wccjej0/CzMlckwya/activity_indicator.gif') center center no-repeat;
+        }
+        #cboxTitle {
+          position: absolute;
+          top: -22px;
+          left: 0;
+        }
+        #cboxCurrent {
+          position: absolute;
+          top: -22px;
+          right: 205px;
+          text-indent: -9999px;
+        }
+        #cboxSlideshow,
+        #cboxPrevious,
+        #cboxNext,
+        #cboxClose {
+          text-indent: -9999px;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          top: -24px;
+          right: 1px;
+          overflow: hidden
+        }
+        
+        
+        #cboxSlideshow:before,
+        #cboxPrevious:before,
+        #cboxNext:before,
+        #cboxClose:before {
+          font-family: 'masonite';
+          font-style: normal;
+          speak: none;
+          -webkit-font-smoothing: antialiased;
+          color: #999;
+          font-size: 20px;
+          line-height: 24px;
+          width: 24px;
+          height: 24px;
+          text-align: center;
+          text-indent: 0;
+          display: block;
+        }
+
+
+        #cboxSlideshow:before {
+          content: "\e064";
+          font-size: 12px;
+        }
+        
+        #cboxPrevious{
+          right: 48px;
+          &:before {
+            content: "\e047";
+          }
+        }
+        
+        #cboxNext {
+          right: 24px;
+          &:before {
+            content: "\e04a";
+          }
+        }
+        
+        #cboxClose {
+          right: 0;
+          &:before {
+            content: "\e067";
+            font-size: 16px;
+            text-align: right;
+          }
+        }
+
+        .cboxSlideshow_on #cboxSlideshow:before {
+          color: #fff;
+        }
+
+        .cboxSlideshow_on #cboxPrevious,
+        .cboxSlideshow_off #cboxPrevious {
+          right: 72px;
+        }
+        .cboxSlideshow_on #cboxSlideshow {
+          right: 48px;
+        }
+        .cboxSlideshow_off #cboxSlideshow {
+          right: 48px;
+        }

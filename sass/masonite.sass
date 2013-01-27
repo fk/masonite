@@ -2,25 +2,27 @@
 // http://compass-style.org/reference/compass/
 @import compass/css3
 
-// html5boilerplate styles, top part
+// normalize.css
+// http://necolas.github.com/normalize.css/
+@import partials/normalize
+
+// HTML5 Boilerplate styles, top part
+// https://github.com/h5bp/html5-boilerplate
 @import partials/h5bp-top
 
 // the webfont containing all icons
-@import partials/masonite-font
+@import partials/font
+
 
 /* ==========================================================================
-   Primary styles.
+   masonite - a Tumblr theme
    Author: flo@6230.org
    ========================================================================== */
 
-input[type="search"]
-  -webkit-appearance: searchfield
-
-input[type="search"]::-webkit-search-decoration
-  webkit-appearance: searchfield-decoration
-
-input[type="search"]::-webkit-search-cancel-button
-  -webkit-appearance: searchfield-cancel-button
+$gutter: 40px
+$sidebar: 120px
+$small-type: 11px
+$very-small-type: 10px
 
 ::-webkit-scrollbar-thumb:vertical
   height: 1 0px
@@ -29,12 +31,8 @@ input[type="search"]::-webkit-search-cancel-button
   width: 5px
   height: 5px
 
-
 .hide-copyright #copyright span
   display: none
-
-#description
-  padding: 0 0 15px
 
 hr
   margin: 20px 0
@@ -48,70 +46,8 @@ body
 iframe
   +border-radius(2px)
 
-/* ==========================================================================
-   Infinite Scroll Loader
-   ========================================================================== */
-
-#infscr-loading
-  z-index: 1000
-  position: fixed
-  font-size: 11px
-  line-height: 16px
-  height: 16px
-  left: 40px
-  bottom: 40px
-  opacity: 0.8
-  padding: 6px 10px 6px 8px
-  +border-radius(4px)
-  .header-left &
-    left: 200px
-  .centered-content &
-    left: auto
-  div
-    float: right
-  img
-    margin-right: 6px
-
-
-/* ==========================================================================
-   Internet Explorer Fixes
-   ========================================================================== */
-
-.lt-ie7
-  #index
-    .post
-      width: 400px
-      &.photo img,
-      &.audio .album_art img
-        width: expression(this.offsetWidth> 400?400:'auto')
-    &.width-500
-      width: 500px
-      .post
-        &.photo img,
-        &.audio .album_art img
-          width: expression(this.offsetWidth> 500?500:'auto')
-  #likes li img
-    width: 120px
-  #sidebar
-    margin-left: -10px
-.lt-ie8
-  #header
-    margin-bottom: 40px
-  // Bicubic resizing for non-native sized IMG:
-  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
-  img
-    -ms-interpolation-mode: bicubic
-
 a
   text-decoration: none
-
-blockquote
-  margin: 10px 0 10px 20px
-  border-left-width: 1px
-  border-left-style: solid
-
-input.query
-  width: 40px
 
 h1,
 h2,
@@ -124,6 +60,8 @@ h6
     margin-top: 0
 
 blockquote
+  border-left-width: 1px
+  border-left-style: solid
   margin: 15px 0 0
   padding: 0 0 0 15px
   blockquote
@@ -161,9 +99,9 @@ h2
   margin-bottom: 19px
 
 h2.searchresultcount
-  margin: 40px 0 0 40px
+  margin: $gutter 0 0 $gutter
   .header-left &
-    margin: 40px 0 0 200px
+    margin: $gutter 0 0 ($sidebar + $gutter * 2)
 
 h3
   font-size: 18px
@@ -186,33 +124,54 @@ h6
   margin: 14px 0
 
 #container
-  margin: 0 0 40px
+  margin: 0 0 $gutter
   .single-column &
-    width: 640px
+    width: 600px
   .width-500.single-column &
-    width: 740px
+    width: 700px
 
 .centered-content
-  &.header-left
+  #header,
+  #copyright
+    right: auto
+    margin-left: 480px
+  &#single
     #header,
     #copyright
-      left: auto !important
-      right: auto !important
+      margin-left: 580px
+  &.header-left,
+  &#single.header-left
+    #header,
+    #copyright
+      left: auto
+      right: auto
+      margin-left: auto
   #container
-    margin: 0 auto 40px
-    width: auto
-    padding-right: 40px
+    margin: 0 auto $gutter
+    width: 600px
+    padding-right: $gutter
+  &.width-500,
+  &#single.width-500
+    #header,
+    #copyright
+      margin-left: 580px
+    &.header-left
+      #header,
+      #copyright
+        margin-left: auto
+    #container
+      width: 700px
   &.header-left #infscr-loading
     left: auto
-    margin-left: 40px
+    margin-left: $gutter
   #posts
     margin: 0 auto
 
 #footer
-  font-size: 11px
-  margin: 0 200px 0 40px
+  font-size: $small-type
+  margin: 0 ($sidebar + $gutter * 2) 0 $gutter
   .header-left &
-    margin: 0 40px 0 200px
+    margin: 0 $gutter 0 ($sidebar + $gutter * 2)
 
 #content
   #single &
@@ -223,31 +182,30 @@ h6
 
 #posts
   margin: 0
-  padding: 40px 160px 40px 40px
+  padding: $gutter ($sidebar + $gutter) $gutter $gutter
   .header-left &
-    padding: 40px 40px 40px 160px
+    padding: $gutter $gutter $gutter ($sidebar + $gutter)
   #single &
-    padding: 40px 160px 40px 40px
+    padding: $gutter ($sidebar + $gutter) $gutter $gutter
   #single.header-left &
-    padding: 40px 40px 40px 160px
+    padding: $gutter $gutter $gutter ($sidebar + $gutter)
 
 #header
-  background: transparent
   position: fixed
   right: 0
   bottom: 100px
-  width: 120px
-  padding: 0 40px 0 0
+  width: $sidebar
+  padding: 0 $gutter 0 0
   z-index: 800
   line-height: 1.5
-  font-size: 11px
+  font-size: $small-type
   .header-top &
     bottom: auto
-    top: 40px
+    top: $gutter
   .header-left &
     right: auto
     left: 0
-    padding: 0 0 0 40px
+    padding: 0 0 0 $gutter
   h1
     font-size: 12px
     line-height: 1.3
@@ -257,20 +215,34 @@ h6
       text-decoration: none
       font-weight: bold
 
+
+/* ==========================================================================
+   Search
+   ========================================================================== */
+
+input[type="search"]
+  -webkit-appearance: searchfield
+
+input[type="search"]::-webkit-search-decoration
+  webkit-appearance: searchfield-decoration
+
+input[type="search"]::-webkit-search-cancel-button
+  -webkit-appearance: searchfield-cancel-button
+
 #search
   margin-top: 2em
   input
     width: 118px
     border-width: 1px
 
-.link a em span
-  display: none
 
-#single a em span
-  top: 8px
+/* ==========================================================================
+   Icons
+   ========================================================================== */
 
 .post.photo .media .fullsize:before,
-.post .reblog:before,
+.post .footer .reblog a:before,
+.post .footer .like a:before,
 .post .quote:before,
 .post .link.title a em:before,
 .post .footer .date a:before,
@@ -279,37 +251,83 @@ h6
 .post .footer .comments a:before,
 .post .footer .tags:before,
 #external a:before
-  font-family: 'hellodirty'
+  font-family: 'masonite'
   font-style: normal
   speak: none
   margin-right: 4px
+  -webkit-font-smoothing: antialiased
 
 #external
   .github a:before
-    content: "\e02b"
-  .soundcloud a:before
-    content: "\e02e"
-  .twitter a:before
     content: "\e028"
+  .soundcloud a:before
+    content: "\e01b"
+  .twitter a:before
+    content: "\e015"
   .facebook a:before
-    content: "\e025"
+    content: "\e00b"
   .dribbble a:before
-    content: "\e030"
+    content: "\e00e"
   .vimeo a:before
-    content: "\e029"
+    content: "\e019"
+  .flickr a:before
+    content: "\e02e"
+  .pinterest a:before
+    content: "\e057"
+  .forrst a:before
+    content: "\e011"
+  .google-plus a:before
+    content: "\e018"
+  .lastfm a:before
+    content: "\e01f"
+  .stumbledupon a:before
+    content: "\e025"
+  .youtube a:before
+    content: "\e02f"
+  .picasa a:before
+    content: "\e02a"
+  .linkedin a:before
+    content: "\e059"
+  .xing a:before
+    content: "\e021"
+  .behance a:before
+    content: "\e061"
+  .delicious a:before
+    content: "\e026"
+  .evernote a:before
+    content: "\e062"
+  .skype a:before
+    content: "\e05f"
+  .yahoo a:before
+    content: "\e027"
+  .rdio a:before
+    content: "\e063"
+  .deviantart a:before
+    content: "\e001"
+  .instagram a:before
+    content: "\e004"
+  .blogger a:before
+    content: "\e005"
+  .flattr a:before
+    content: "\e00a"
 
-#index .post .quote:before
-  content: "\e018"
+.post .quote:before
+  content: "\e03b"
   position: relative
   font-size: 16px
-  margin-right: 1em
+  margin-right: 10px
   top: -0.8em
 
-#index .post .quote.long:before
-  top: -0.4em
-
-#single .post .quote:before
-  content: "\e018"
+.link.title a
+  border: none
+  em
+    position: relative
+    padding: 0 4px
+    &:before
+      content: "\e012"
+      font-size: 16px
+    span
+      display: none
 
 
 /* ==========================================================================
@@ -317,9 +335,8 @@ h6
    ========================================================================== */
 
 .post
-  padding: 0
-  margin-right: 40px
-  margin-bottom: 40px
+  margin: 0 $gutter $gutter 0
+  position: relative
   &.photo img,
   &.audio .album_art img
     +border-radius(2px)
@@ -331,35 +348,26 @@ h6
     embed
       +border-radius(2px)
     .meta
-      font-size: 10px
+      font-size: $very-small-type
       font-style: italic
       top: 5px
       left: 250px
       position: absolute
   .media a
     border: none
-  .footer .notes
-    float: right
-    margin-right: 0
-    margin-left: 10px
-    .hide-post-footer-border &
-      float: left
-      margin-left: 0
-      margin-right: 10px
-  .link.title a
-    border: none
-  .reblog,
   .media .fullsize
     position: absolute
-    top: 10px
-    right: 10px
-    opacity: .8
     display: block
-    width: 28px
-    height: 28px
-    -webkit-transition: all 0.2s linear
-    +border-radius(2px)
-    border: 0
+    opacity: .8
+    top: 50%
+    left: 50%
+    width: 48px
+    height: 48px
+    margin-top: -24px
+    margin-left: -24px
+    +border-radius(24px)
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
     span
       display: block
       text-indent: 100%
@@ -367,52 +375,26 @@ h6
       overflow: hidden
     .js &
       display: none
-    &:before
-      content: "\e01b"
-      display: block
-      width: 28px
-      height: 28px
-      line-height: 20px
-      font-size: 18px
-      text-align: center
     &:hover
       opacity: 1
       box-shadow: 0px 0px 48px #fff
       .dog-ear-zoom-icon &
         box-shadow: none
         background-color: transparent
-  .reblog
     &:before
-      font-size: 22px
-      line-height: 28px
-      margin-top: 1px
-  &.photo
-    .dog-ear-zoom-icon &
-      .reblog
-        right: auto
-        left: 10px
-  .media .fullsize
-    top: 50%
-    left: 50%
-    width: 64px
-    height: 64px
-    margin-top: -32px
-    margin-left: -32px
-    +border-radius(32px)
-    &:before
-      content: "\e023"
+      content: "\e006"
       display: block
-      width: 64px
-      height: 64px
-      line-height: 64px
-      font-size: 38px
+      width: 48px
+      height: 48px
+      line-height: 48px
+      font-size: 28px
       text-align: center
       .dog-ear-zoom-icon &
         position: relative
         width: 28px
         height: 28px
-        line-height: 20px
-        font-size: 18px
+        line-height: 16px
+        font-size: 16px
         text-align: right
         z-index: 10
     .dog-ear-zoom-icon &
@@ -426,11 +408,12 @@ h6
       +border-radius(2px)
       opacity: 1
       background-color: transparent
-  a
-    -webkit-transition: color 0.2s linear, border 0.2s linear
+  a,
+  a.title strong
+    +transition(color 0.2s linear, border 0.2s linear)
   .header-left &
     margin-right: 0
-    margin-left: 40px
+    margin-left: $gutter
   .copy strong a
     font-weight: normal
   .media
@@ -440,13 +423,15 @@ h6
     font-weight: bold
     line-height: 1.3
   blockquote
-    -webkit-transition: color 0.2s linear
+    +transition-property(color)
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
   .footer
     margin-top: 10px
     padding-top: 5px
     padding-bottom: 5px
     display: block
-    font-size: 10px
+    font-size: $very-small-type
     .date a,
     .comments a,
     .notes a
@@ -454,6 +439,17 @@ h6
     .date a
       padding-left: 0
       float: left
+    li.reblog,
+    li.like
+      float: right
+      margin-right: 0
+      margin-left: 10px
+      -webkit-transition: visibility 0s linear 0.2s, opacity 0.2s linear
+      .js.no-touch &
+        visibility: hidden
+        opacity: 0
+      a.liked:before
+        color: red
     .date span.reblogged-from
       float: left
       display: block
@@ -470,7 +466,6 @@ h6
     .tags
       display: block
       clear: both
-      font-size: 10px
       margin: 0
       dd
         float: left
@@ -483,94 +478,96 @@ h6
       margin-right: 10px
       float: left
     .date.reblogged a:before
-      content: "\e01b"
+      content: "\e046"
+    .reblog a:before
+      content: "\e046"
+    .like a:before,
     .notes a:before
-      content: "\e009"
+      content: "\e03f"
     .comments a:before
-      content: "\e011"
+      content: "\e002"
     .tags:before
-      content: "\e020"
+      content: "\e044"
       margin-right: 0
       float: left
       display: block
     .date a:before
-      content: "\e00d"
+      content: "\e03d"
     .date .reblogged-from a:before
       content: "" !important
       margin-right: 0 !important
+
+.js.no-touch .post
+  &:hover
+    .fullsize
+      display: block
+    li.reblog,
+    li.like
+      visibility: visible
+      opacity: 1
+      -webkit-transition-delay: 0s
 
 
 /* ==========================================================================
    Index Pages
    ========================================================================== */
 
-#index.width-500
-  .post
-    width: 500px
-    font-size: 14px
-    &.video object
+#index
+  &.width-500
+    .post
       width: 500px
-      height: 375px
+      &.video object
+        width: 500px
+        height: 375px
+      &.photo img,
+      &.audio .album_art img
+        min-width: 500px
+        max-width: 500px
+      .copy img
+        max-width: 500px
+  &.width-400 .post
+    font-size: 12px
+  .post
+    z-index: 0
+    float: left
+    width: 400px
+    overflow-x: hidden
+    .copy blockquote
+      img
+        min-width: 384px
+        max-width: 384px
+      blockquote img
+        min-width: 368px
+        max-width: 368px
+      blockquote img
+        min-width: 352px
+        max-width: 352px
+    img
+      max-width: none
+    &.video object
+      width: 400px
+      height: 300px
+      +border-radius(2px)
     &.photo img,
     &.audio .album_art img
-      min-width: 500px
-      max-width: 500px
+      min-width: 400px
+      max-width: 400px
+    .quote
+      line-height: 1.5
+      &.short
+        font-size: 24px
+      &.medium,
+      &.long
+        font-size: 18px
     .copy img
-      max-width: 500px
-
-#index .post
-  z-index: 0
-  float: left
-  width: 400px
-  overflow-x: hidden
-  font-size: 12px
-  .copy blockquote
-    img
-      min-width: 384px
-      max-width: 384px
-    blockquote img
-      min-width: 368px
-      max-width: 368px
-    blockquote img
-      min-width: 352px
-      max-width: 352px
-  img
-    max-width: none
-  &.video object
-    width: 400px
-    height: 300px
-    +border-radius(2px)
-  &.photo img,
-  &.audio .album_art img
-    min-width: 400px
-    max-width: 400px
-  &.chat
-    .line.last
-      margin-bottom: 15px
-      padding-bottom: 0
-  .quote
-    line-height: 1.5
-    &.short
-      font-size: 24px
-    &.medium,
-    &.long
-      font-size: 16px
-  .copy img
-    max-width: 400px
-  a.more
-    display: block
-    font-size: 11px
-    font-style: italic
-    text-decoration: none
-    background: left center no-repeat
-
+      max-width: 400px
 
 /* ==========================================================================
    Likes
    ========================================================================== */
 
 #likes_container
-  margin-top: 20px
+  margin-top: $gutter
   h3 a
     text-decoration: none
 
@@ -593,7 +590,7 @@ h6
     img
       max-width: 120px
     p
-      font-size: 11px
+      font-size: $small-type
   blockquote
     padding-left: 4px
     p
@@ -603,17 +600,38 @@ h6
 #index.custom-trigger-infinite-scrolling #pagination li a
   display: block
   padding: 10px
-  +border-radius(6px)
+  +border-radius(4px)
 
-.link a em
+
+/* ==========================================================================
+   Questions
+   ========================================================================== */
+
+.title.question
+  font-weight: normal
+  padding: 10px
   position: relative
-  padding: 0 4px
+  +transition-duration(0.2s)
+  +transition-timing-function(linear)
+  +border-radius(2px)
+  &:after
+    content: " "
+    width: 0
+    height: 0
+    position: absolute
+    left: 10px
+    bottom: -8px
+    display: block
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
+    border-right-width: 8px
+    border-top-width: 8px
+    border-right-style: solid
+    border-top-style: solid
 
-#attribution
-  font-style: italic
-
-.asker_container
-  font-size: 12px
+.asker
+  #index.width-400 &
+    font-size: 12px
   img
     margin: 0 10px
 
@@ -629,7 +647,7 @@ h6
 
 #twitterwrapper
   overflow: hidden
-  margin: 40px 40px 20px 0
+  margin: $gutter $gutter $gutter 0
   .hide-twitter &
     display: none
 
@@ -639,7 +657,7 @@ h6
    ========================================================================== */
 
 #following
-  margin-top: 20px
+  margin-top: $gutter
   h3
     text-decoration: none
   a
@@ -667,48 +685,35 @@ h6
       margin-top: 35px
       margin-bottom: 20px
       border: 0
-  ol.notes
-    font-size: 12px
-    list-style: none
-    padding: 0
-    li
-      margin-bottom: 10px
-      line-height: 16px
-      a
-        border: none
-        img.avatar
-          background: transparent
-          margin-right: 4px
-          vertical-align: middle
-      &.note.more_notes_link_container
-        margin-bottom: 0
-        text-align: left !important
+
+
+/* ==========================================================================
+   Notes
+   ========================================================================== */
 
 .notecontainer
-  padding-top: 40px
+  padding-top: $gutter
+
+ol.notes
+  font-size: 12px
+  list-style: none
+  padding: 0
+  li
+    margin-bottom: 10px
+    line-height: 16px
+    a
+      border: none
+      img.avatar
+        background: transparent
+        margin-right: 4px
+        vertical-align: middle
+    &.note.more_notes_link_container
+      margin-bottom: 0
+      text-align: left !important
 
 .audio-wrapper
   position: relative
   margin-top: 10px
-
-.title.question
-  padding: 10px
-  position: relative
-  -webkit-transition: all 0.2s linear
-  +border-radius(2px)
-  &:after
-    content: " "
-    width: 0
-    height: 0
-    position: absolute
-    left: 10px
-    bottom: -8px
-    display: block
-    -webkit-transition: all 0.2s linear
-    border-right-width: 8px
-    border-top-width: 8px
-    border-right-style: solid
-    border-top-style: solid
 
 #avatar
   margin-bottom: 0
@@ -720,12 +725,12 @@ h6
 #pagination
   list-style: none
   line-height: 1
-  margin: 0 40px 0 40px
+  margin: 0 $gutter
   padding: 0
   .header-left &
-    margin: 0 40px 0 200px
+    margin: 0 $gutter 0 ($sidebar + $gutter * 2)
   #single.header-left &
-    margin: 0 0 0 200px
+    margin: 0 0 0 ($sidebar + $gutter * 2)
   li
     float: left
     margin-right: 10px
@@ -734,17 +739,17 @@ h6
 
 #copyright
   position: fixed
-  bottom: 40px
+  bottom: $gutter
   line-height: 1.2
   right: 0
-  width: 120px
-  padding: 0 40px 0 0
+  width: $sidebar
+  padding: 0 $gutter 0 0
   z-index: 800
-  font-size: 11px
+  font-size: $small-type
   .header-left &
     right: auto
     left: 0
-    padding: 0 0 0 40px
+    padding: 0 0 0 $gutter
 
 .hide-title
   #title
@@ -768,15 +773,12 @@ h6
       border-bottom-style: solid
       border-right-style: solid
       z-index: 0
-      -webkit-transition: 2s linear
+      +transition-duration(2s)
+      +transition-timing-function(linear)
     &:hover:after
       border-bottom-width: 28px
       border-right-width: 28px
 
-.link a em:before
-  content: "\e01c"
-  border-radius: 8px
-  font-size: 16px
 
 /* ==========================================================================
    Header Elements
@@ -807,9 +809,13 @@ h6
     width: 50px
     padding-right: 10px
 
+#description
+  padding: 0 0 15px
+
 .post a,
 .post .footer,
-.post.chat .line
+.post.chat .line,
+a.title strong
   border-bottom-width: 1px
   border-bottom-style: solid
 
@@ -817,12 +823,110 @@ h6
   border-top-width: 8px
   border-top-style: solid
 
+#like
+  height: 0
+  width: 0
+  display: none
 
-// colorbox styles
-@import partials/colorbox
+
+/* ==========================================================================
+   Infinite Scroll Loader
+   ========================================================================== */
+
+#infscr-loading
+  z-index: 1000
+  position: fixed
+  font-size: $small-type
+  line-height: 16px
+  height: 16px
+  left: $gutter
+  bottom: $gutter
+  opacity: 0.9
+  padding: 6px 10px 6px 8px
+  +border-radius(4px)
+  .header-left &
+    left: ($sidebar + $gutter * 2)
+  .centered-content &
+    left: auto
+  div
+    float: right
+  img
+    margin-right: 6px
+
+
+/* ==========================================================================
+   Internet Explorer Fixes
+   ========================================================================== */
+
+.lt-ie7
+  #index
+    .post
+      width: 400px
+      &.photo img,
+      &.audio .album_art img
+        width: expression(this.offsetWidth> 400?400:'auto')
+    &.width-500
+      width: 500px
+      .post
+        &.photo img,
+        &.audio .album_art img
+          width: expression(this.offsetWidth> 500?500:'auto')
+  #likes li img
+    width: 120px
+.lt-ie8
+  #header
+    margin-bottom: $gutter
+  // Bicubic resizing for non-native sized IMG:
+  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+  img
+    -ms-interpolation-mode: bicubic
+
+
+/* ==========================================================================
+   Placeholder
+   ========================================================================== */
+
+// webkit
+::-webkit-input-placeholder
+  font-style: normal
+
+// mozilla  
+input:-moz-placeholder,
+textarea:-moz-placeholder
+  font-style: normal
+
+// browsers not knowing placeholders
+span.placeholder
+  position: absolute
+  font-family: sans-serif
+  z-index: 1
+  cursor: text
+  font-size: 12px
+  padding: 2px 3px
+
+span.placeholder-hide-except-screenreader
+  clip: rect(1px 1px 1px 1px)
+  clip: rect(1px, 1px, 1px, 1px)
+  padding: 0 !important
+  border: 0 !important
+  height: 1px !important
+  width: 1px !important
+  overflow: hidden
+
+span.placeholder-hide
+  display: none
+
+// overwrite for the HTML5 Boilerplate way to hide labels
+label.visuallyhidden-with-placeholder
+  /*clip: auto !important;*/
+  height: auto !important
+  overflow: visible !important
+  position: absolute !important
+  left: -999em
+
 
 // masonry styles
 @import partials/masonry
 
-// html5boilerplate styles, bottom part
+// HTML5 Boilerplate styles, bottom part
 @import partials/h5bp-bottom
