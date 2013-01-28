@@ -228,14 +228,30 @@
 			fadingSidebar();
 		}
 
-		masonite.colorboxOptions = {
-			slideshow: true,
-			slideshowAuto: false,
-			speed: 200,
-			photo: true,
-			maxWidth: "90%",
-			maxHeight: "90%"
-		};
+		if ( masonite.colorbox ) {
+
+			masonite.colorboxOptions = {
+				slideshow: true,
+				slideshowAuto: false,
+				speed: 200,
+				photo: true,
+				fixed: true,
+				maxWidth: "90%",
+				maxHeight: "90%"
+			};
+
+			$(document).bind('cbox_open', function(){
+				$('body').css({
+					overflow: 'hidden'
+				});
+			}).bind('cbox_cleanup', function(){
+				$('body').css({
+					overflow: 'auto'
+				});
+			});
+
+		}
+
 
 		$('.post').initColorbox().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo();
 		prettifyCode();
