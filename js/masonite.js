@@ -240,18 +240,17 @@
 				maxHeight: "90%"
 			};
 
-			$(document).bind('cbox_open', function(){
+			$(document).on('cbox_open', function(){
 				$('body').css({
 					overflow: 'hidden'
 				});
-			}).bind('cbox_cleanup', function(){
+			}).on('cbox_cleanup', function(){
 				$('body').css({
 					overflow: 'auto'
 				});
 			});
 
 		}
-
 
 		$('.post').initColorbox().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo();
 		prettifyCode();
