@@ -4,7 +4,7 @@
 masonry + infinite-scroll = masonite.  
 Clever, huh?
 
-[Up for grabs](http://www.tumblr.com/theme/34822) in Tumblr Theme Garden,  
+[Up for grabs](http://www.tumblr.com/theme/34822) in Tumblr's Theme Garden,  
 live at [hellodirty.com](http://hellodirty.com).
 
 ## Features and Options
