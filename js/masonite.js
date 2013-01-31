@@ -252,7 +252,17 @@
 
 		}
 
-		$('.post').initColorbox().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo();
+		$('.post')
+			.initColorbox()
+			.disqusCommentCount()
+			.fixTumblrAudio()
+			.find('.audio_player')
+				.addClass('fluid-width-video-wrapper')
+				.end()
+			.fixYouTube()
+			.fitVids()
+			.fixVimeo();
+
 		prettifyCode();
 
 		$('.title').widowFix();
@@ -360,7 +370,19 @@
 					var opts = $wall.data('infinitescroll').options,
 						$elems = $( newElements ).css({ opacity: 0 });
 
-					$elems.initColorbox().fixTumblrAudio().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo().end().find('.title').widowFix();
+					$elems
+						.initColorbox()
+						.fixTumblrAudio()
+						.disqusCommentCount()
+						.find('.audio_player')
+							.addClass('fluid-width-video-wrapper')
+							.end()
+						.fixYouTube()
+						.fitVids()
+						.fixVimeo()
+						.find('.title')
+							.widowFix();
+
 					prettifyCode();
 
 					$elems.imagesLoaded(function() {
