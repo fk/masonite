@@ -371,14 +371,11 @@
 
 					$elems
 						.initColorbox()
-						.fixTumblrAudio()
 						.disqusCommentCount()
-						.find('embed[src*="assets.tumblr.com\/swf\/audio_player"]')
-							.addClass('fit-vids-ignore')
-							.end()
 						.fixYouTube()
 						.fitVids()
 						.fixVimeo()
+						.fixTumblrAudio()
 						.find('.title')
 							.widowFix();
 
