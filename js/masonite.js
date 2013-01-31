@@ -252,7 +252,16 @@
 
 		}
 
-		$('.post').initColorbox().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo();
+		$('.post')
+			.initColorbox()
+			.disqusCommentCount()
+			.find('embed[src*="assets.tumblr.com\/swf\/audio_player"]')
+				.addClass('fit-vids-ignore')
+				.end()
+			.fixYouTube()
+			.fitVids()
+			.fixVimeo();
+
 		prettifyCode();
 
 		$('.title').widowFix();
@@ -360,7 +369,16 @@
 					var opts = $wall.data('infinitescroll').options,
 						$elems = $( newElements ).css({ opacity: 0 });
 
-					$elems.initColorbox().fixTumblrAudio().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo().end().find('.title').widowFix();
+					$elems
+						.initColorbox()
+						.disqusCommentCount()
+						.fixYouTube()
+						.fitVids()
+						.fixVimeo()
+						.fixTumblrAudio()
+						.find('.title')
+							.widowFix();
+
 					prettifyCode();
 
 					$elems.imagesLoaded(function() {
