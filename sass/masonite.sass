@@ -182,13 +182,14 @@ h6
 
 #posts
   margin: 0
-  padding: $gutter ($sidebar + $gutter) $gutter $gutter
-  .header-left &
-    padding: $gutter $gutter $gutter ($sidebar + $gutter)
+  padding: $gutter ($sidebar + $gutter) 0 $gutter
   .single &
-    padding: $gutter ($sidebar + $gutter) $gutter $gutter
+    padding-right: $sidebar + $gutter
+    padding-left: $gutter
+  .header-left &,
   .single.header-left &
-    padding: $gutter $gutter $gutter ($sidebar + $gutter)
+    padding-right: $gutter
+    padding-left: $sidebar + $gutter
 
 #header
   position: fixed
