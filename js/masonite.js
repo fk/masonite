@@ -275,7 +275,7 @@
 		$('.title').widowFix();
 
 		// index pages
-		if ( $('body#index').length ) {
+		if ( $('body').hasClass('index') ) {
 
 			var $wall = $('#posts'),
 				infinitescroll_behavior;
@@ -419,7 +419,7 @@
 			);
 			}
 
-		} // body#index
+		} // body.index
 
 	}); // ready
 
