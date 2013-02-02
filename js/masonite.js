@@ -228,6 +228,14 @@
 			fadingSidebar();
 		}
 
+		$('#likes').masonry({
+			isAnimated: !Modernizr.csstransitions,
+			itemSelector: 'li',
+			isFitWidth: masonite.centeredContent,
+			isResizable: !masonite.centeredContent,
+			columnWidth: $('li').width()
+		});
+
 		if ( masonite.colorbox ) {
 
 			masonite.colorboxOptions = {
@@ -324,6 +332,7 @@
 						} else {
 							$sidebar.css( 'margin-left', 0 );
 						}
+						$('#likes').masonry('reload');
 					}
 				}).smartresize(); // trigger resize to set container width
 			}
