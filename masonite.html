@@ -106,7 +106,7 @@
     <meta name="text:Google Web Font Pre" content="" />
 
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/BCDmhko8x/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/JZ3mhkr55/masonite.css">
 
     <style type="text/css">
 
@@ -242,7 +242,7 @@
         .post.photo .media .fullsize,
         .no-touch .post.answer:hover .question,
         .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover,
-        .no-touch #index.custom-trigger-infinite-scrolling #pagination li a:hover {
+        .no-touch .index.custom-trigger-infinite-scrolling #pagination li a:hover {
             background-color: {color:Accents};
         }
 
@@ -252,7 +252,7 @@
         }
 
         .post img,
-        #index.custom-trigger-infinite-scrolling #pagination li a {
+        .index.custom-trigger-infinite-scrolling #pagination li a {
             background: {color:Brights};
         }
 
@@ -325,7 +325,7 @@
            Font Colors
            ========================================================================== */
 
-        .no-touch #index.custom-trigger-infinite-scrolling #pagination li a:hover,
+        .no-touch .index.custom-trigger-infinite-scrolling #pagination li a:hover,
         #infscr-loading,
         .title.question,
         .post.photo .media .fullsize {
@@ -333,7 +333,7 @@
         }
 
         blockquote,
-        .notecontainer,
+        .container,
         #cboxTitle,
         #copyright a,
         #external li a,
@@ -375,7 +375,7 @@
         .no-touch .post:hover .footer .tags,
         .no-touch .post:hover .notes a,
         .post.chat .line.even,
-        #index.custom-trigger-infinite-scrolling #pagination li a {
+        .index.custom-trigger-infinite-scrolling #pagination li a {
             color: {color:Darks};
         }
 
@@ -487,12 +487,12 @@
     <script src="http://static.tumblr.com/wccjej0/rxnmg6ef3/modernizr-2.6.2.min.js"></script>
 </head>
 
-<body id="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage}" class="{block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar}">
+<body class="{block:PermalinkPage}single{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar}">
     <!--[if lt IE 7]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-<div id="container" class="clearfix {block:PermalinkPage}single{/block:PermalinkPage} {block:IndexPage}index{/block:IndexPage} container">
+<div id="container" class="clearfix">
 
     <div id="header">
         <a href="/">
@@ -791,12 +791,12 @@
                     </div>
 
                     {block:PostNotes}
-                        <div class="notecontainer">{PostNotes}</div>
+                        <div class="container">{PostNotes}</div>
                     {/block:PostNotes}
 
                     {block:IfDisqusShortname}
                         {block:PermalinkPagination}
-                            <div class="notecontainer">
+                            <div class="container">
                                 <script>
                                     var disqus_url = "{Permalink}";
                                     var disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}";
@@ -850,11 +850,11 @@
 
     </div>
 
-    <div id="footer" class="container clearfix">
+    <div id="footer" class="clearfix">
 
         {block:IfShowLikes}
             {block:Likes}
-                <div id="likes_container" class="clearfix">
+                <div class="container clearfix">
                     <h3><a href="http://www.tumblr.com/liked/by/{Name}">{lang:Likes}</a></h3>
                     {Likes limit="10" summarize="70" width="120"}
                 </div>
@@ -863,19 +863,17 @@
 
         {block:IfShowPeopleIFollow}
             {block:Following}
-                <div id="following" class="clearfix">
+                <div id="following" class="container clearfix">
                     <h3>{lang:Following}</h3>
-                    <div class="content" id="following-avatars">
-                        {block:Followed}
-                            <a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}" /></a>
-                        {/block:Followed}
-                    </div>
+                    {block:Followed}
+                        <a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}"></a>
+                    {/block:Followed}
                 </div>
             {/block:Following}
         {/block:IfShowPeopleIFollow}
 
         {block:Twitter}
-            <div id="twitterwrapper">
+            <div id="twitter" class="container">
                 <h3><a href="http://twitter.com/{TwitterUsername}">Latest Tweets</a></h3>
                 <div id="tweetcontainer"></div>
                 <script type="text/javascript">
@@ -973,7 +971,7 @@
         },
         {
             complete: function (url, res, key) {
-                Modernizr.load(['http://static.tumblr.com/wccjej0/j8Fmhgu16/plugins.js', 'http://static.tumblr.com/wccjej0/q9Mmhkp7m/masonite.js']);
+                Modernizr.load(['http://static.tumblr.com/wccjej0/j8Fmhgu16/plugins.js', 'http://static.tumblr.com/wccjej0/sfQmhkrbw/masonite.js']);
              }
         },
         {
