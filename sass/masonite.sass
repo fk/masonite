@@ -31,9 +31,6 @@ $very-small-type: 10px
   width: 5px
   height: 5px
 
-.hide-copyright #copyright span
-  display: none
-
 hr
   margin: 20px 0
 
@@ -212,10 +209,31 @@ h6
     font-size: 12px
     line-height: 1.3
     margin: 0
-    padding: 1em 0
+    padding: 0 0 1em
     a
       text-decoration: none
       font-weight: bold
+
+#header a:hover,
+#copyright a:hover
+  text-decoration: line-through
+
+#copyright
+  position: fixed
+  bottom: $gutter
+  line-height: 1.2
+  right: 0
+  width: $sidebar
+  padding: 0 $gutter 0 0
+  z-index: 800
+  font-size: $small-type
+  .header-left &
+    right: auto
+    left: 0
+    padding: 0 0 0 $gutter
+  .hide-copyright &
+    span
+      display: none
 
 
 /* ==========================================================================
@@ -435,7 +453,9 @@ input[type="search"]::-webkit-search-cancel-button
     padding-top: 5px
     padding-bottom: 5px
     display: block
-    font-size: $very-small-type
+    font-size: 12px
+    .index &
+      font-size: $very-small-type
     .date a,
     .comments a,
     .notes a
@@ -474,7 +494,8 @@ input[type="search"]::-webkit-search-cancel-button
       dd
         float: left
         margin-left: 8px
-    ul
+    ul,
+    ol
       list-style: none
       margin: 0
       padding: 0
@@ -578,6 +599,7 @@ input[type="search"]::-webkit-search-cancel-button
 /* ==========================================================================
    Likes
    ========================================================================== */
+
 #likes
   margin: 0
   padding: 0
@@ -713,13 +735,6 @@ ol.notes
   position: relative
   margin-top: 10px
 
-#avatar
-  margin-bottom: 0
-  .hide-avatar &
-    display: none
-  .hide-title &
-    margin-bottom: 1em
-
 #pagination
   list-style: none
   line-height: 1
@@ -734,24 +749,6 @@ ol.notes
     margin-right: 10px
     a
       text-decoration: none
-
-#copyright
-  position: fixed
-  bottom: $gutter
-  line-height: 1.2
-  right: 0
-  width: $sidebar
-  padding: 0 $gutter 0 0
-  z-index: 800
-  font-size: $small-type
-  .header-left &
-    right: auto
-    left: 0
-    padding: 0 0 0 $gutter
-
-.hide-title
-  #title
-    display: none
 
 .hide-post-footer-border.index .post .footer
   border: 0
@@ -782,13 +779,26 @@ ol.notes
    Header Elements
    ========================================================================== */
 
+#avatar
+  margin-bottom: 0
+  .hide-avatar &
+    display: none
+  .hide-title &
+    margin-bottom: 1em
+
+.hide-title
+  #title
+    display: none
+
+#description
+  padding: 0 0 15px
+
 #navigation,
 #external
   list-style: none
   margin: 0
   padding: 0
   li
-    background: none
     padding: 0
     margin: 0
 
@@ -800,15 +810,10 @@ ol.notes
     display: block
 
 #navigation li
-  a
-    text-decoration: none
   .two-column-navigation &
     float: left
     width: 50px
     padding-right: 10px
-
-#description
-  padding: 0 0 15px
 
 .post a,
 .post .footer,
@@ -864,8 +869,8 @@ a.title strong
       &.audio .album_art img
         width: expression(this.offsetWidth> 400?400:'auto')
     &.width-500
-      width: 500px
       .post
+        width: 500px
         &.photo img,
         &.audio .album_art img
           width: expression(this.offsetWidth> 500?500:'auto')
