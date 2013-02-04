@@ -120,73 +120,10 @@ h6
   padding-top: 6px
   margin: 14px 0
 
-#container
-  margin: 0 0 $gutter
-  .single-column &
-    width: 600px
-  .width-500.single-column &
-    width: 700px
 
-.centered-content
-  #header,
-  #copyright
-    right: auto
-    margin-left: 480px
-  #container
-    margin: 0 auto $gutter
-    width: 600px
-    padding-right: $gutter
-  #posts
-    margin: 0 auto
-  &.permalink
-    #header,
-    #copyright
-      margin-left: 580px
-  &.header-left,
-  &.permalink.header-left
-    #header,
-    #copyright
-      left: auto
-      right: auto
-      margin-left: auto
-  &.width-500,
-  &.permalink.width-500
-    #header,
-    #copyright
-      margin-left: 580px
-    &.header-left
-      #header,
-      #copyright
-        margin-left: auto
-    #container
-      width: 700px
-  &.header-left #infscr-loading
-    left: auto
-    margin-left: $gutter
+// layout
+@import partials/layout
 
-#footer
-  font-size: $small-type
-  margin: 0 ($sidebar + $gutter * 2) 0 $gutter
-  .header-left &
-    margin: 0 $gutter 0 ($sidebar + $gutter * 2)
-
-#content
-  .permalink &
-    margin-right: 180px
-    max-width: 760px
-  .permalink.header-left &
-    margin-right: 0
-
-#posts
-  margin: 0
-  padding: $gutter ($sidebar + $gutter) 0 $gutter
-  .permalink &
-    padding-right: $sidebar + $gutter
-    padding-left: $gutter
-  .header-left &,
-  .permalink.header-left &
-    padding-right: $gutter
-    padding-left: $sidebar + $gutter
 
 #header
   position: fixed
