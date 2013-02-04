@@ -242,3 +242,30 @@
       visibility: visible
       opacity: 1
       -webkit-transition-delay: 0s
+
+
+/* ==========================================================================
+   Questions
+   ========================================================================== */
+
+.title.question
+  font-weight: normal
+  padding: 10px
+  position: relative
+  +transition-duration(0.2s)
+  +transition-timing-function(linear)
+  +border-radius(2px)
+  &:after
+    content: " "
+    width: 0
+    height: 0
+    position: absolute
+    left: 10px
+    bottom: -8px
+    display: block
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
+    border-right-width: 8px
+    border-top-width: 8px
+    border-right-style: solid
+    border-top-style: solid
