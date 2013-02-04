@@ -138,19 +138,19 @@ h6
     padding-right: $gutter
   #posts
     margin: 0 auto
-  &.single
+  &.permalink
     #header,
     #copyright
       margin-left: 580px
   &.header-left,
-  &.single.header-left
+  &.permalink.header-left
     #header,
     #copyright
       left: auto
       right: auto
       margin-left: auto
   &.width-500,
-  &.single.width-500
+  &.permalink.width-500
     #header,
     #copyright
       margin-left: 580px
@@ -171,20 +171,20 @@ h6
     margin: 0 $gutter 0 ($sidebar + $gutter * 2)
 
 #content
-  .single &
+  .permalink &
     margin-right: 180px
     max-width: 760px
-  .single.header-left &
+  .permalink.header-left &
     margin-right: 0
 
 #posts
   margin: 0
   padding: $gutter ($sidebar + $gutter) 0 $gutter
-  .single &
+  .permalink &
     padding-right: $sidebar + $gutter
     padding-left: $gutter
   .header-left &,
-  .single.header-left &
+  .permalink.header-left &
     padding-right: $gutter
     padding-left: $sidebar + $gutter
 
@@ -497,7 +497,7 @@ input[type="search"]::-webkit-search-cancel-button
   .header-left &
     margin-right: 0
     margin-left: $gutter
-  .single &
+  .permalink &
     width: 500px
     .copy
       margin-top: 20px
@@ -743,7 +743,7 @@ ol.notes
       +border-radius(4px)
   .header-left &
     margin: 0 $gutter 0 ($sidebar + $gutter * 2)
-  .single.header-left &
+  .permalink.header-left &
     margin: 0 0 0 ($sidebar + $gutter * 2)
 
 .hide-post-footer-border.index .post .footer
