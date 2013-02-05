@@ -106,6 +106,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b2.120519
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0
 * [jQuery](http://jquery.com/) v1.9.0
+* [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * built on HTML5 Boilerplate's CSS (normalize.css + H5BP goodies)
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
