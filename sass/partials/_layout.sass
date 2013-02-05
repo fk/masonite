@@ -1,24 +1,43 @@
 #container
   margin: 0 0 $gutter
-  padding-left: $gutter
-  .header-left
-    padding-left: 0
-    padding-right: $gutter
+  padding: 0 $gutter
+  position: relative
   .single-column &
-    width: 600px
+    width: 560px
   .width-500.single-column &
-    width: 700px
+    width: 660px
+
+#header
+  position: fixed
+  right: 40px
+  bottom: 100px
+  width: $sidebar
+  z-index: 800
+  .header-top &
+    bottom: auto
+    top: $gutter
+  .header-left &
+    right: auto
 
 .centered-content
+  #container
+    margin: 0 auto $gutter
+    width: 560px
   #header,
   #copyright
     right: auto
     margin-left: 440px
-  #container
-    margin: 0 auto $gutter
-    width: 600px
   #posts
     margin: 0 auto
+  &.width-500,
+  &.permalink
+    #container
+      width: 660px
+    #header,
+    #copyright
+      margin-left: 540px
+    &.header-left
+      margin-left: auto
   &.header-left,
   &.permalink.header-left
     #header,
@@ -26,17 +45,6 @@
       left: auto
       right: auto
       margin-left: auto
-  &.width-500,
-  &.permalink
-    #container
-      width: 700px
-    #header,
-    #copyright
-      margin-left: 540px
-    &.header-left
-      #header,
-      #copyright
-        margin-left: auto
   &.header-left #infscr-loading
     left: auto
     margin-left: $gutter
@@ -53,11 +61,11 @@
 
 #posts
   margin: 0
-  padding: $gutter ($sidebar + $gutter) 0 0
+  padding: $gutter $sidebar 0 0
   .header-left &,
   .permalink.header-left &
     padding-right: 0
-    padding-left: $sidebar + $gutter
+    padding-left: $sidebar
 
 #footer
   font-size: $small-type

@@ -308,6 +308,7 @@
 					$sidebar = $('#header, #copyright'),
 					$post = $('.post:first'),
 					colW = $post.outerWidth(true),
+					postHOff = colW - $post.width(),
 					columns = null;
 
 				$(window).smartresize(function() {
