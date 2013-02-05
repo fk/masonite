@@ -313,7 +313,7 @@
 
 				$(window).smartresize(function() {
 					// check if columns has changed
-					var currentColumns = Math.floor( ( $('body').width() - offset - postHOff ) / colW );
+					var currentColumns = Math.floor( ( $('body').width() - offset ) / colW );
 
 					if ( currentColumns !== columns && currentColumns > 0 ) {
 						// set new column count
@@ -326,7 +326,7 @@
 						}
 						if ( !$('body').hasClass('header-left') ) {
 							$sidebar.css({
-								'margin-left': columns * colW + postHOff,
+								'margin-left': columns * colW,
 								'right': 'auto'
 							});
 						} else {

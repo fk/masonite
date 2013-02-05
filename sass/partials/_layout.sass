@@ -1,0 +1,74 @@
+#container
+  margin: 0 0 $gutter
+  padding: 0 $gutter
+  position: relative
+  .single-column &
+    width: 560px
+  .width-500.single-column &
+    width: 660px
+
+#header
+  position: fixed
+  right: 40px
+  bottom: 100px
+  width: $sidebar
+  z-index: 800
+  .header-top &
+    bottom: auto
+    top: $gutter
+  .header-left &
+    right: auto
+
+.centered-content
+  #container
+    margin: 0 auto $gutter
+    width: 560px
+  #header,
+  #copyright
+    right: auto
+    margin-left: 440px
+  #posts
+    margin: 0 auto
+  &.width-500,
+  &.permalink
+    #container
+      width: 660px
+    #header,
+    #copyright
+      margin-left: 540px
+    &.header-left
+      margin-left: auto
+  &.header-left,
+  &.permalink.header-left
+    #header,
+    #copyright
+      left: auto
+      right: auto
+      margin-left: auto
+  &.header-left #infscr-loading
+    left: auto
+    margin-left: $gutter
+
+#content
+  .permalink &
+    margin-right: 180px
+    max-width: 760px
+  .permalink.centered-content &
+    margin-right: 0
+    max-width: none
+  .permalink.header-left &
+    margin-right: 0
+
+#posts
+  margin: 0
+  padding: $gutter $sidebar 0 0
+  .header-left &,
+  .permalink.header-left &
+    padding-right: 0
+    padding-left: $sidebar
+
+#footer
+  font-size: $small-type
+  margin: 0 ($sidebar + $gutter * 2) 0 $gutter
+  .header-left &
+    margin: 0 $gutter 0 ($sidebar + $gutter * 2)
