@@ -313,7 +313,7 @@
 
 				$(window).smartresize(function() {
 					// check if columns has changed
-					var currentColumns = Math.floor( ( $('body').width() - offset ) / colW );
+					var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
 
 					if ( currentColumns !== columns && currentColumns > 0 ) {
 						// set new column count
