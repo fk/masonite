@@ -105,7 +105,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * lightbox and slideshow powered by Jack Moore’s [ColorBox](http://jacklmoore.com/colorbox/) v1.3.20.1
 * infinite scrolling courtesy of the [Infinite Scroll jQuery plugin](http://www.infinite-scroll.com) v2.0b2.120519
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0
-* [jQuery](http://jquery.com/) v1.8.2
+* [jQuery](http://jquery.com/) v1.9.0
 * built on HTML5 Boilerplate's CSS (normalize.css + H5BP goodies)
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
