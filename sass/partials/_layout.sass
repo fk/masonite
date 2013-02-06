@@ -72,3 +72,18 @@
   margin: 0 ($sidebar + $gutter * 2) 0 $gutter
   .header-left &
     margin: 0 $gutter 0 ($sidebar + $gutter * 2)
+
+#copyright
+  position: fixed
+  bottom: $gutter
+  right: 0
+  width: $sidebar
+  z-index: 800
+  padding: 0 $gutter 0 0
+  .header-left &
+    right: auto
+    left: 0
+    padding: 0 0 0 $gutter
+  .hide-copyright &
+    span
+      display: none
