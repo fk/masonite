@@ -143,6 +143,9 @@ h6
   font-size: $small-type
   line-height: 1.2
 
+#footer
+  font-size: $small-type
+
 
 /* ==========================================================================
    Search
@@ -308,8 +311,11 @@ input[type="search"]::-webkit-search-cancel-button
   a
     display: block
     float: left
-    width: 30px
-    height: 30px
+    width: 20px
+    height: 20px
+    img
+      width: 100%
+      height: 100%
 
 
 /* ==========================================================================
@@ -365,8 +371,6 @@ ol.notes
 #pagination
   list-style: none
   line-height: 1
-  margin: 0 $gutter
-  padding: 0
   li
     float: left
     margin-right: 10px
@@ -377,10 +381,6 @@ ol.notes
       display: block
       padding: 10px
       +border-radius(4px)
-  .header-left &
-    margin: 0 $gutter 0 ($sidebar + $gutter * 2)
-  .permalink.header-left &
-    margin: 0 0 0 ($sidebar + $gutter * 2)
 
 .hide-post-footer-border.index .post .footer
   border: 0

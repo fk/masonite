@@ -67,11 +67,18 @@
     padding-right: 0
     padding-left: $sidebar
 
-#footer
-  font-size: $small-type
-  margin: 0 ($sidebar + $gutter) 0 $gutter
+#pagination
+  margin: 0 ($sidebar + $gutter) 0 0
+  padding: 0
   .header-left &
     margin: 0 $gutter 0 ($sidebar + $gutter)
+  .permalink.header-left &
+    margin: 0 0 0 ($sidebar + $gutter)
+
+#footer
+  margin: 0 ($sidebar + $gutter) 0 0
+  .header-left &
+    margin: 0 0 0 ($sidebar + $gutter)
 
 .searchresultcount
   margin: $gutter 0 0 0
