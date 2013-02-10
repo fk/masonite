@@ -302,44 +302,10 @@
 
 			}
 
-			if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
-				var $page = $('#container'),
-					offset = $('#header').outerWidth(false),
-					$sidebar = $('#header, #copyright'),
-					$post = $('.post:first'),
-					colW = $post.outerWidth(true),
-					postHOff = colW - $post.width(),
-					columns = null;
-
-				$(window).smartresize(function() {
-					// check if columns has changed
-					var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
-
-					if ( currentColumns !== columns && currentColumns > 0 ) {
-						// set new column count
-						columns = currentColumns;
-						// apply width to container manually, then trigger relayout
-						$page.width( columns * colW + offset );
-						$wall.width( columns * colW );
-						if ( $wall.hasClass('masonry') ) {
-							$wall.masonry('reload');
-						}
-						if ( !$('body').hasClass('header-left') ) {
-							$sidebar.css({
-								'margin-left': columns * colW,
-								'right': 'auto'
-							});
-						} else {
-							$sidebar.css( 'margin-left', 0 );
-						}
-						$('#likes').masonry('reload');
-					}
-				}).smartresize(); // trigger resize to set container width
-			}
-
 			if ( !$('body').hasClass('single-column') ) {
 				// http://masonry.desandro.com/docs/options.html
 				// http://masonry.desandro.com/docs/animating.html#modernizr
+
 				$wall.imagesLoaded(function() {
 					$wall.masonry({
 						isAnimated: !Modernizr.csstransitions,
@@ -348,6 +314,77 @@
 						isResizable: !masonite.centeredContent,
 						columnWidth: $('.post').outerWidth(true)
 					});
+
+					if ( masonite.centeredContent ) {
+						var $page = $('#container'),
+							offset = $('#header').outerWidth(false),
+							$sidebar = $('#header, #copyright'),
+							$post = $('.post:first'),
+							colW = $post.outerWidth(true),
+							postHOff = colW - $post.width(),
+							columns = null,
+							moreColumns = false;
+
+						$(window).smartresize(function() {
+							// check if columns has changed
+							var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
+
+							if ( currentColumns !== columns && currentColumns > 0 ) {
+								// set new column count
+								if ( currentColumns > columns ) {
+									moreColumns = true;
+								} else {
+									moreColumns = false;
+								}
+								columns = currentColumns;
+								// apply width to container manually, then trigger relayout
+								var $queue;
+								if ( !$('body').hasClass('header-left') ) {
+
+									if ( moreColumns ) {
+										$queue = $('#header, #copyright, #posts, #container');
+										$page.animate({
+											'width': columns * colW + offset
+										}, 100);
+										// $wall.width( $wall.width() ).animate({
+										//	'width': columns * colW
+										// }, 100);
+										$sidebar.animate({
+											'margin-left': columns * colW
+										}, 100);
+
+										$queue.promise().done(function(){
+											$wall.masonry('reload');
+										});
+
+									} else {
+										$page.width( columns * colW + offset );
+										// $wall.width( columns * colW );
+										$wall.masonry('reload');
+										$sidebar.css({
+											'margin-left': columns * colW
+										});
+									}
+								} else {
+									$queue = $('#posts, #container');
+
+									$page.animate({
+										'width': columns * colW + offset
+									});
+									// $wall.css(' width', $wall.width() ).animate({
+									//	'width': columns * colW
+									// }, 100);
+
+									$queue.promise().done(function(){
+										$wall.masonry('reload');
+									});
+
+								}
+
+								$('#likes').masonry('reload');
+							}
+						}).smartresize(); // trigger resize to set container width
+					}
 				});
 			}
 
