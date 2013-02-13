@@ -56,6 +56,7 @@
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Show Avatar" content="1" />
     <meta name="if:Show Copyright" content="0" />
+    <meta name="if:Show Description" content="1" />
     <meta name="if:Show Likes" content="0" />
     <meta name="if:Show People I Follow" content="0" />
     <meta name="if:Show Post Footer Border" content="1" />
@@ -505,9 +506,11 @@
         <div id="title">
             <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
         </div>
-        <div id="description">
-            {Description}
-        </div>
+        {block:IfShowDescription}
+            <div id="description">
+                {Description}
+            </div>
+        {/block:IfShowDescription}
         <ul id="navigation" class="clearfix">
             {block:HasPages}
                 {block:Pages}
