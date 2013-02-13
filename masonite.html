@@ -975,6 +975,9 @@
         {
             complete: function (url, res, key) {
                 Modernizr.load([
+                    {block:Twitter}
+                    '/tweets.js',
+                    {/block:Twitter}
                     'http://static.tumblr.com/wccjej0/zJzmhmouu/plugins.js',
                     'http://static.tumblr.com/wccjej0/B3Lmi0ws2/masonite.js'
                 ]);
@@ -986,10 +989,6 @@
         }
     ]);
 </script>
-
-{block:Twitter}
-    <script src="/tweets.js"></script>
-{/block:Twitter}
 
 {block:IfClickyTracking}
     <!-- http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
