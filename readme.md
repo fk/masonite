@@ -56,6 +56,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
   * **Header Left, Header Top**  
     activate these to override the header default (right- and bottom-aligned) position
   * Show Avatar
+  * Show Description
   * Show Title
   * Fading Sidebar
   * Two Column Navigation
