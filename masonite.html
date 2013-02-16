@@ -811,21 +811,7 @@
                     {block:IfDisqusShortname}
                         {block:PermalinkPagination}
                             <div class="container">
-                                <script>
-                                    var disqus_url = "{Permalink}";
-                                    var disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}";
-                                </script>
                                 <div id="disqus_thread"></div>
-                                <script>
-                                  /**
-                                    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
-                                    */
-                                  (function() {
-                                   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                                   dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
-                                   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                                  })();
-                                </script>
                                 <noscript>
                                     Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a>
                                 </noscript>
@@ -950,6 +936,16 @@
 
     var disqus_shortname = masonite.disqusShortname;
 
+    {block:IfDisqusShortname}
+        {block:PermalinkPagination}
+            var disqus_url = "{Permalink}";
+            var disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}";
+            /**
+            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
+            */
+          {/block:PermalinkPagination}
+    {/block:IfDisqusShortname}
+
     masonite.whites = masonite.whites.slice( 1 );
     masonite.accents = masonite.accents.slice( 1 );
     window._gaq = masonite.googleAnalytics;
@@ -993,6 +989,11 @@
                     {block:Twitter}
                     '/tweets.js',
                     {/block:Twitter}
+                    {block:IfDisqusShortname}
+                        {block:PermalinkPagination}
+                            '//{text:Disqus Shortname}.disqus.com/embed.js',
+                          {/block:PermalinkPagination}
+                    {/block:IfDisqusShortname}
                     'http://static.tumblr.com/wccjej0/zJzmhmouu/plugins.js',
                     'http://static.tumblr.com/wccjej0/B3Lmi0ws2/masonite.js'
                 ]);
