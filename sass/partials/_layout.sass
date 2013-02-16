@@ -81,27 +81,27 @@ body
 
 #posts
   margin: 0
-  padding: 0 $sidebar 0 0
+  padding-right: $sidebar
   .header-left &,
   .permalink.header-left &
     padding-right: 0
     padding-left: $sidebar
 
 #pagination
-  margin: 0 ($sidebar + $gutter) 0 0
   padding: 0
-  .header-left &
-    margin: 0 $gutter 0 ($sidebar + $gutter)
+  margin-right: $sidebar + $gutter
+  .header-left &,
   .permalink.header-left &
-    margin: 0 0 0 ($sidebar + $gutter)
+    margin-right: 0
+    margin-left: $sidebar + $gutter
 
 #footer
-  margin: 0 ($sidebar + $gutter) 0 0
+  margin-right: $sidebar + $gutter
   .header-left &
-    margin: 0 0 0 ($sidebar + $gutter)
+    margin-right: 0
+    margin-left: $sidebar + $gutter
 
 .searchresultcount
   margin-bottom: $gutter
   .header-left &
-    margin-left: ($sidebar + $gutter)
-
+    margin-left: $sidebar + $gutter
