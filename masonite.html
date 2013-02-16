@@ -58,6 +58,8 @@
     <meta name="if:Show Archive" content="1" />
     <meta name="if:Show RSS" content="1" />
     <meta name="if:Show Search" content="1" />
+    <meta name="if:Show Random" content="1" />
+    <meta name="if:Show Mobile" content="1" />
     <meta name="if:Show Copyright" content="0" />
     <meta name="if:Show Description" content="1" />
     <meta name="if:Show Likes" content="0" />
@@ -529,8 +531,12 @@
             {block:IfShowArchive}
                 <li class="archive"><a href="/archive">{lang:Archive}</a></li>
             {/block:IfShowArchive}
-            <li class="random"><a href="/random">{lang:Random}</a></li>
-            <li class="mobile"><a href="/mobile">{lang:Mobile}</a></li>
+            {block:IfShowRandom}
+                <li class="random"><a href="/random">{lang:Random}</a></li>
+            {/block:IfShowRandom}
+            {block:IfShowMobile}
+                <li class="mobile"><a href="/mobile">{lang:Mobile}</a></li>
+            {/block:IfShowMobile}
             {block:IfShowRSS}
                 <li class="rss"><a href="{RSS}">{lang:RSS}</a></li>
             {/block:IfShowRSS}
