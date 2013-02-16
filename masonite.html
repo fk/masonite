@@ -715,16 +715,11 @@
                         <ul class="clearfix">
                         {block:Date}
                             <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
-                                {block:IndexPage}
-                                    <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
-                                        {TimeAgo}
-                                    </a>
-                                {/block:IndexPage}
+                                <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
+                                    {TimeAgo}
+                                </a>
                                 {block:PermalinkPage}
-                                    <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
-                                        {TimeAgo}
-                                    </a>
-                                {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
+                                    {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
                                 {/block:PermalinkPage}
                             </li>
                         {/block:Date}
@@ -744,18 +739,18 @@
                         {/block:IfEnableReblogLinksonIndexPages}
                         {block:NoteCount}
                             <li class="notes">
-                                <a href="{Permalink}">{NoteCount}</a>
+                                <a href="{Permalink}#notes" title="{lang:View notes for this post}">{NoteCount}</a>
                             </li>
                         {/block:NoteCount}
                         {block:IfDisqusShortname}
                             {block:PermalinkPagination}
                                 <li class="comments">
-                                    <a href="{Permalink}#disqus_thread">Comments</a>
+                                    <a href="{Permalink}#disqus_thread" title="{lang:View comments for this post}">{lang:View comments}</a>
                                 </li>
                             {/block:PermalinkPagination}
                             {block:IndexPage}
                                 <li class="comments">
-                                    <a href="{Permalink}#disqus_thread">Comments</a>
+                                    <a href="{Permalink}#disqus_thread" title="{lang:View comments for this post}">{lang:View comments}</a>
                                 </li>
                             {/block:IndexPage}
                         {/block:IfDisqusShortname}
@@ -769,7 +764,7 @@
                                             <span>{lang:Tagged}</span>
                                         </dt>
                                         {block:Tags}
-                                            <dd><a href="{TagURL}">{Tag}</a></dd>
+                                            <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">{Tag}</a></dd>
                                         {/block:Tags}
                                     </dl>
                                 {/block:HasTags}
@@ -793,7 +788,7 @@
                     </div>
 
                     {block:PostNotes}
-                        <div class="container">{PostNotes}</div>
+                        <div id="notes" class="container">{PostNotes}</div>
                     {/block:PostNotes}
 
                     {block:IfDisqusShortname}
