@@ -103,7 +103,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 * [Modernizr](http://modernizr.com/) v2.6.2
 * [jQuery](http://jquery.com/) v1.9.1
-* [jQuery Masonry](http://masonry.desandro.com/) v2.1.07 by [@desandro](https://twitter.com/desandro)
+* [jQuery Masonry](http://masonry.desandro.com/) v2.1.08 by [@desandro](https://twitter.com/desandro)
 * [ColorBox](http://jacklmoore.com/colorbox/) v1.3.32 by [@jacklmoore](https://twitter.com/jacklmoore)
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b2.120519
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0
