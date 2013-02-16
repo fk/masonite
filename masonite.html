@@ -55,6 +55,9 @@
 
     <meta name="if:Show Album Art on Audio Posts" content="1" />
     <meta name="if:Show Avatar" content="1" />
+    <meta name="if:Show Archive" content="1" />
+    <meta name="if:Show RSS" content="1" />
+    <meta name="if:Show Search" content="1" />
     <meta name="if:Show Copyright" content="0" />
     <meta name="if:Show Description" content="1" />
     <meta name="if:Show Likes" content="0" />
@@ -523,10 +526,14 @@
             {block:AskEnabled}
                 <li class="ask"><a href="/ask">{AskLabel}</a></li>
             {/block:AskEnabled}
-            <li class="archive"><a href="/archive">{lang:Archive}</a></li>
+            {block:IfShowArchive}
+                <li class="archive"><a href="/archive">{lang:Archive}</a></li>
+            {/block:IfShowArchive}
             <li class="random"><a href="/random">{lang:Random}</a></li>
             <li class="mobile"><a href="/mobile">{lang:Mobile}</a></li>
-            <li class="rss last"><a href="{RSS}">{lang:RSS}</a></li>
+            {block:IfShowRSS}
+                <li class="rss"><a href="{RSS}">{lang:RSS}</a></li>
+            {/block:IfShowRSS}
         </ul>
 
         <ul id="external" class="clearfix">
@@ -610,12 +617,14 @@
             {/block:IfFlattr}
           </ul>
 
-        <div id="search">
-            <form id="search-form" action="/search" method="get">
-                <label for="searchfield" class="visuallyhidden">{lang:Search}</label>
-                <input id="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}" results="10" autosave="masonite.saved.data">
-            </form>
-        </div>
+        {block:IfShowSearch}
+            <div id="search">
+                <form id="search-form" action="/search" method="get">
+                    <label for="searchfield" class="visuallyhidden">{lang:Search}</label>
+                    <input id="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}" results="10" autosave="masonite.saved.data">
+                </form>
+            </div>
+        {/block:IfShowSearch}
     </div>
 
     <div id="content" class="clearfix">
