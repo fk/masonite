@@ -880,7 +880,9 @@
                 <div id="following" class="container clearfix">
                     <h3>{lang:Following}</h3>
                     {block:Followed}
-                        <a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}"></a>
+                        <a href="{FollowedURL}" title="{FollowedName}" >
+                            <img src="{FollowedPortraitURL-30}" alt="{FollowedName}">
+                        </a>
                     {/block:Followed}
                 </div>
             {/block:Following}
