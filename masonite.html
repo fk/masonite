@@ -716,12 +716,12 @@
                         {block:Date}
                             <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
                                 {block:IndexPage}
-                                    <a href="{Permalink}">
+                                    <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
                                         {TimeAgo}
                                     </a>
                                 {/block:IndexPage}
                                 {block:PermalinkPage}
-                                    <a href="{Permalink}">
+                                    <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
                                         {TimeAgo}
                                     </a>
                                 {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
