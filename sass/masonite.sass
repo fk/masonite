@@ -480,6 +480,7 @@ ol.notes
    Internet Explorer Fixes
    ========================================================================== */
 
+// <= ie6
 .lt-ie7
   .index
     .post
@@ -495,16 +496,18 @@ ol.notes
           width: expression(this.offsetWidth> 500?500:'auto')
   #likes li img
     width: 120px
+
+// <= ie7
 .lt-ie8
   #header
     margin-bottom: $gutter
-  // Bicubic resizing for non-native sized IMG:
+  // bicubic scaling for non-native sized images
   // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
   img
     -ms-interpolation-mode: bicubic
 
 
-// placeholder
+// placeholder styles
 @import partials/placeholder
 
 // masonry styles
