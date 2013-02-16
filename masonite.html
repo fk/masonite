@@ -512,9 +512,11 @@
             <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
         </div>
         {block:IfShowDescription}
-            <div id="description">
-                {Description}
-            </div>
+            {block:Description}
+                <div id="description">
+                    {Description}
+                </div>
+            {/block:Description}
         {/block:IfShowDescription}
         <ul id="navigation" class="clearfix">
             {block:HasPages}
