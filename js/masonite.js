@@ -435,7 +435,9 @@
 
 						if ( !$('body').hasClass('single-column') ) {
 							$wall.masonry( 'appended', $elems, true, function() {
-								$elems.animate({ opacity: 1.0 }, 200, 'swing');
+								$elems.animate({
+									opacity: 1.0
+								}, 200, 'swing');
 							});
 						
 						} else {
@@ -443,7 +445,10 @@
 						}
 
 						if ( masonite.customTrigger ) {
-							$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
+							$('#pagination li.next a').fadeIn({
+								duration: 200,
+								easing: 'easeInOutCubic'
+							});
 						}
 
 					});
