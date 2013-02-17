@@ -340,45 +340,42 @@
 								columns = currentColumns;
 								// apply width to container manually, then trigger relayout
 								var $queue;
-								if ( !$('body').hasClass('header-left') ) {
+								
+								if ( moreColumns ) {
 
-									if ( moreColumns ) {
+									if ( !$('body').hasClass('header-left') ) {
 										$queue = $('#header, #copyright, #posts, #container');
-										$page.animate({
-											'width': columns * colW + offset
-										}, 100);
-										// $wall.width( $wall.width() ).animate({
-										//	'width': columns * colW
-										// }, 100);
-										$sidebar.animate({
-											'margin-left': columns * colW
-										}, 100);
-
-										$queue.promise().done(function(){
-											$wall.masonry('reload');
-										});
-
 									} else {
-										$page.width( columns * colW + offset );
-										// $wall.width( columns * colW );
-										$wall.masonry('reload');
-										$sidebar.css({
-											'margin-left': columns * colW
-										});
+										$queue = $('#posts, #container');
 									}
-								} else {
-									$queue = $('#posts, #container');
 
 									$page.animate({
 										'width': columns * colW + offset
-									});
-									// $wall.css(' width', $wall.width() ).animate({
+									}, 100);
+									// $wall.width( $wall.width() ).animate({
 									//	'width': columns * colW
 									// }, 100);
+
+									if ( !$('body').hasClass('header-left') ) {
+										$sidebar.animate({
+											'margin-left': columns * colW
+										}, 100);
+									}
 
 									$queue.promise().done(function(){
 										$wall.masonry('reload');
 									});
+
+								} else {
+
+									$page.width( columns * colW + offset );
+									// $wall.width( columns * colW );
+									$wall.masonry('reload');
+									if ( !$('body').hasClass('header-left') ) {
+										$sidebar.css({
+											'margin-left': columns * colW
+										});
+									}
 
 								}
 
@@ -403,7 +400,7 @@
 						msgText: "Loading page 2/" + masonite.totalPages
 					},
 					navSelector: '#pagination', // selector for the paged navigation
-					nextSelector: '#pagination li.next a', // selector for the NEXT link (to page 2)
+					nextSelector: '#pagination .next a', // selector for the NEXT link (to page 2)
 					itemSelector: '#posts .post', // selector for all items you'll retrieve
 					bufferPx: 200,
 					behavior: infinitescroll_behavior,
