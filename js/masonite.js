@@ -239,6 +239,7 @@
 		if ( masonite.colorbox ) {
 
 			masonite.colorboxOptions = {
+				opacity: 0.92,
 				slideshow: true,
 				slideshowAuto: false,
 				speed: 200,
