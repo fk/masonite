@@ -1,4 +1,4 @@
-# masonite
+# masonite v0.2.1
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -60,7 +60,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Enable Infinite Scrolling
 * Enable Like Links on Index Pages
 * Enable Reblog Links on Index Pages
-* One Column Content
+* **One Column Content** – opt out of the default jQuery Masonry layout for index pages
 * Show Album Art on Audio Posts
 * Show Post Footer Border
 * Show Tags
