@@ -401,13 +401,16 @@
 						img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
 						msgText: "Loading page 2/" + masonite.totalPages
 					},
-					navSelector: '#pagination li.next a',  // selector for the paged navigation
+					navSelector: '#pagination', // selector for the paged navigation
 					nextSelector: '#pagination li.next a', // selector for the NEXT link (to page 2)
-					itemSelector: '#posts .post',          // selector for all items you'll retrieve
+					itemSelector: '#posts .post', // selector for all items you'll retrieve
+					bufferPx: 200,
 					behavior: infinitescroll_behavior,
 					errorCallback: function() {
 						// fade out the error message after 2 seconds
-						$('#infscr-loading').animate({opacity: 0.8},2000).fadeOut('normal');
+						$('#infscr-loading').animate({
+							opacity: 0.8
+						}, 2000).fadeOut('normal');
 					}
 				},
 				function ( newElements ) {
