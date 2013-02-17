@@ -7,7 +7,7 @@ Clever, huh?
 [Up for grabs](http://www.tumblr.com/theme/34822) in Tumblr's Theme Garden,  
 live at [hellodirty.com](http://hellodirty.com).
 
-## Features and Options
+## Features
 
 * [jQuery Masonry](http://masonry.desandro.com/)-powered index page layout
   * [infinite scrolling](http://www.infinite-scroll.com) – automatic or user-triggered ("Twitter-style")
@@ -32,24 +32,24 @@ live at [hellodirty.com](http://hellodirty.com).
   * [Google Analytics](http://www.google.com/analytics/) and [Clicky](http://getclicky.com/) integration
   * [Google Code Prettify](http://code.google.com/p/google-code-prettify/) syntax highlighting
 
-### Customization Options
+## Customization Options
 
-#### Colors
+### Colors
 
 * Background, Brights, Lights, Mids, Darks, Copy, Accents
 
-#### Fonts
+### Fonts
 
 * **Body, PostMeta, Quote, Title, Pre** – Override the theme default font by choosing from Tumblr's "Customize" font-stacks.
 * **Google Web Font** – Load one or multiple font families from [Google Web Fonts](http://www.google.com/webfonts) using the [Google WebFont Loader](https://developers.google.com/webfonts/docs/webfont_loader).  
 The option accepts an array as defined [here](https://developers.google.com/webfonts/docs/webfont_loader#GoogleModule), e. g. `'Fruktur','Open Sans:400,700,400italic,700italic'` would load the "[Fruktur](http://www.google.com/webfonts/specimen/Fruktur)" font family and the normal (`400`), italic (`400italic`), bold (`700`) and bold italic (`700italic`) versions of "[Open Sans](http://www.google.com/webfonts/specimen/Open+Sans)". To make use of the loaded fonts you can write your own CSS-styles or put the name of the font into one of the five "Google Web Font …" option-fields – e. g. to use "Fruktur" as font for all quotes, put `Fruktur` into the "Google Web Font Quote"-field.
 
-#### Images
+### Images
 
 * **Avatar** – Upload an image to replace the Tumblr avatar with a custom logo.  
 Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of the _Avatar_-image to display on HiDPI devices (such as iPad 3/4). Please make sure that this image is at least exactly twice as big as the original _Avatar_ image.
 
-#### Post Options
+### Post Options
 
 * **500px Posts** – activate to switch post width from the default 400 to 500px
 * Centered Content
@@ -66,7 +66,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Show Tags
 * Show Tags on Index Page
 
-#### Header Options
+### Header Options
 
 * **Header Left, Header Top** – activate these to override the default (right- and bottom-aligned) header position
 * **Show Avatar** – shows/hides the default Tumblr avatar (or the uploaded one)
@@ -80,7 +80,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Fading Sidebar
 * Two Column Navigation
 
-#### Somewhat working, somewhat orphaned
+### Somewhat working, somewhat orphaned
 
 These will work, but aren't really up-to-date:
 
@@ -89,23 +89,23 @@ These will work, but aren't really up-to-date:
 * Show People I Follow
 * Show Twitter
 
-#### Analytics & User Tracking
+### Analytics & User Tracking
 
 masonite comes with two analytics options built in, Google Analytics and realtime user tracking with Clicky.
 
-##### Google Analytics
+#### Google Analytics
 
 To setup Google Analytics [sign up for an account](http://www.google.com/analytics/) first; once you have your site information added, Google will provide you with both a Google Analytics ID and embed code. Just grab the ID (e. g. `UA-000000-1`) and paste it into _Customize > Appearance > Google Analytics_.
 
-##### Clicky
+#### Clicky
 
 Alternately (or in addition), you can use Clicky to see in realtime what people are doing on your site. [Sign up for a Clicky account](http://getclicky.com/) and paste your site ID into _Customize > Appearance > Clicky Tracking_.
 
-#### Disqus Comments
+### Disqus Comments
 
 To setup comments with your blog, you'll need to [register a Disqus account for your site](http://disqus.com/admin/register/).  After you're done, grab the Disqus Site Shortname you selected and paste it into _Customize > Appearance > Disqus Shortname_.
 
-#### Social Links
+### Social Links
 
 Add URLs to display the following social site icons below your site description.  
 _Please make sure you add the full URL, including “http://”._
