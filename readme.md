@@ -52,19 +52,17 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 #### Options
 
 * **Post Width** – defaults to 400px, can be switched to 500px
-* **Header Options**
-  * Header Left, Header Top  
-    activate these to override the header default (right- and bottom-aligned) position
-  * Show Avatar
-  * Show Description
-  * Show Title
-  * Show Archive
-  * Show Random
-  * Show RSS
-  * Show Mobile
-  * Show Search
-  * Fading Sidebar
-  * Two Column Navigation
+* **Header Left, Header Top** – activate these to override the default (right- and bottom-aligned) header position
+* **Show Avatar** – shows/hides the default Tumblr avatar (or the uploaded one)
+* **Show Description** – shows/hides the blog description
+* **Show Title** – shows/hides the blog title
+* **Show Archive** – shows/hides "Archive" link
+* **Show Random** – shows/hides "Random" link
+* **Show RSS** – shows/hides "RSS" link
+* **Show Mobile** – shows/hides the "Mobile" link
+* **Show Search** – shows/hides the search input
+* Fading Sidebar
+* Two Column Navigation
 * One Column Content
 * Centered Content
 * Show Album Art on Audio Posts
