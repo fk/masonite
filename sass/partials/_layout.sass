@@ -1,0 +1,106 @@
+html,
+body
+  height: 100%
+
+body
+  min-height: 100%
+  padding: 0
+
+#container
+  margin: 0
+  padding: 0 $gutter
+  min-height: 100%
+  position: relative
+  .single-column &
+    width: 400 + $sidebar + $gutter
+  .width-500.single-column &
+    width: 500 + $sidebar + $gutter
+
+#header
+  position: fixed
+  right: 40px
+  bottom: 100px
+  width: $sidebar
+  z-index: 800
+  .header-top &
+    bottom: auto
+    top: $gutter
+  .header-left &
+    right: auto
+
+#copyright
+  position: fixed
+  bottom: $gutter
+  right: 40px
+  width: $sidebar
+  z-index: 800
+  .header-left &
+    right: auto
+  .hide-copyright &
+    span
+      display: none
+
+.centered-content
+  #container
+    margin: 0 auto
+    width: 400 + $sidebar + $gutter
+  #header,
+  #copyright
+    right: auto
+    margin-left: 400 + $gutter
+  &.width-500,
+  &.permalink
+    #container
+      width: 500 + $sidebar + $gutter
+    #header,
+    #copyright
+      margin-left: 500 + $gutter
+    &.header-left
+      margin-left: auto
+  &.header-left,
+  &.permalink.header-left
+    #header,
+    #copyright
+      left: auto
+      right: auto
+      margin-left: auto
+  &.header-left #infscr-loading
+    left: auto
+    margin-left: $gutter
+
+#content
+  padding: $gutter 0
+  .permalink &
+    margin-right: 180px
+    max-width: 760px
+  .permalink.centered-content &
+    margin-right: 0
+    max-width: none
+  .permalink.header-left &
+    margin-right: 0
+
+#posts
+  margin: 0
+  padding-right: $sidebar
+  .header-left &
+    padding-right: 0
+    padding-left: $sidebar
+
+#pagination
+  padding: 0
+  margin: 0
+
+.searchresultcount,
+#footer
+  margin-bottom: $gutter
+
+=header-margins
+  margin-right: $sidebar + $gutter
+  .header-left &
+    margin-right: 0
+    margin-left: $sidebar + $gutter
+
+#footer,
+#pagination,
+.searchresultcount
+  +header-margins

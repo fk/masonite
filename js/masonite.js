@@ -228,22 +228,54 @@
 			fadingSidebar();
 		}
 
-		masonite.colorboxOptions = {
-			slideshow: true,
-			slideshowAuto: false,
-			speed: 200,
-			photo: true,
-			maxWidth: "90%",
-			maxHeight: "90%"
-		};
+		$('#likes').masonry({
+			isAnimated: !Modernizr.csstransitions,
+			itemSelector: 'li',
+			isResizable: true,
+			columnWidth: $('li').width()
+		});
 
-		$('.post').initColorbox().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo();
+		if ( masonite.colorbox ) {
+
+			masonite.colorboxOptions = {
+				opacity: 0.92,
+				slideshow: true,
+				slideshowAuto: false,
+				speed: 200,
+				photo: true,
+				fixed: true,
+				maxWidth: "90%",
+				maxHeight: "90%"
+			};
+
+			$(document).on('cbox_open', function(){
+				$('body').css({
+					overflow: 'hidden'
+				});
+			}).on('cbox_cleanup', function(){
+				$('body').css({
+					overflow: 'auto'
+				});
+			});
+
+		}
+
+		$('.post')
+			.initColorbox()
+			.disqusCommentCount()
+			.find('embed[src*="assets.tumblr.com\/swf\/audio_player"]')
+				.addClass('fit-vids-ignore')
+				.end()
+			.fixYouTube()
+			.fitVids()
+			.fixVimeo();
+
 		prettifyCode();
 
 		$('.title').widowFix();
 
 		// index pages
-		if ( $('body#index').length ) {
+		if ( $('body').hasClass('index') ) {
 
 			var $wall = $('#posts'),
 				infinitescroll_behavior;
@@ -270,43 +302,10 @@
 
 			}
 
-			if ( masonite.centeredContent && !$('body').hasClass('single-column') ) {
-				var $page = $('#container'),
-					offset = $('#header').outerWidth(false),
-					$sidebar = $('#header, #copyright'),
-					$post = $('.post:first'),
-					colW = $post.outerWidth(true),
-					postHOff = colW - $post.width(),
-					columns = null;
-
-				$(window).smartresize(function() {
-					// check if columns has changed
-					var currentColumns = Math.floor( ( $('body').width() - offset - postHOff ) / colW );
-
-					if ( currentColumns !== columns && currentColumns > 0 ) {
-						// set new column count
-						columns = currentColumns;
-						// apply width to container manually, then trigger relayout
-						$page.width( columns * colW + offset );
-						$wall.width( columns * colW );
-						if ( $wall.hasClass('masonry') ) {
-							$wall.masonry('reload');
-						}
-						if ( !$('body').hasClass('header-left') ) {
-							$sidebar.css({
-								'margin-left': columns * colW + postHOff,
-								'right': 'auto'
-							});
-						} else {
-							$sidebar.css( 'margin-left', 0 );
-						}
-					}
-				}).smartresize(); // trigger resize to set container width
-			}
-
 			if ( !$('body').hasClass('single-column') ) {
 				// http://masonry.desandro.com/docs/options.html
 				// http://masonry.desandro.com/docs/animating.html#modernizr
+
 				$wall.imagesLoaded(function() {
 					$wall.masonry({
 						isAnimated: !Modernizr.csstransitions,
@@ -315,6 +314,73 @@
 						isResizable: !masonite.centeredContent,
 						columnWidth: $('.post').outerWidth(true)
 					});
+
+					if ( masonite.centeredContent ) {
+						var $page = $('#container'),
+							offset = $('#header').outerWidth(false),
+							$sidebar = $('#header, #copyright'),
+							$post = $('.post:first'),
+							colW = $post.outerWidth(true),
+							postHOff = colW - $post.width(),
+							columns = null,
+							moreColumns = false;
+
+						$(window).smartresize(function() {
+							// check if columns has changed
+							var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
+
+							if ( currentColumns !== columns && currentColumns > 0 ) {
+								// set new column count
+								if ( currentColumns > columns ) {
+									moreColumns = true;
+								} else {
+									moreColumns = false;
+								}
+								columns = currentColumns;
+								// apply width to container manually, then trigger relayout
+								var $queue;
+								
+								if ( moreColumns ) {
+
+									if ( !$('body').hasClass('header-left') ) {
+										$queue = $('#header, #copyright, #posts, #container');
+									} else {
+										$queue = $('#posts, #container');
+									}
+
+									$page.animate({
+										'width': columns * colW + offset
+									}, 100);
+									// $wall.width( $wall.width() ).animate({
+									//	'width': columns * colW
+									// }, 100);
+
+									if ( !$('body').hasClass('header-left') ) {
+										$sidebar.animate({
+											'margin-left': columns * colW
+										}, 100);
+									}
+
+									$queue.promise().done(function(){
+										$wall.masonry('reload');
+										$('#likes').masonry('reload');
+									});
+
+								} else {
+
+									$page.width( columns * colW + offset );
+									// $wall.width( columns * colW );
+									$wall.masonry('reload');
+									$('#likes').masonry('reload');
+									if ( !$('body').hasClass('header-left') ) {
+										$sidebar.css({
+											'margin-left': columns * colW
+										});
+									}
+								}
+							}
+						}).smartresize(); // trigger resize to set container width
+					}
 				});
 			}
 
@@ -331,13 +397,16 @@
 						img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
 						msgText: "Loading page 2/" + masonite.totalPages
 					},
-					navSelector: '#pagination li.next a',  // selector for the paged navigation
-					nextSelector: '#pagination li.next a', // selector for the NEXT link (to page 2)
-					itemSelector: '#posts .post',          // selector for all items you'll retrieve
+					navSelector: '#pagination', // selector for the paged navigation
+					nextSelector: '#pagination .next a', // selector for the NEXT link (to page 2)
+					itemSelector: '#posts .post', // selector for all items you'll retrieve
+					bufferPx: 200,
 					behavior: infinitescroll_behavior,
 					errorCallback: function() {
 						// fade out the error message after 2 seconds
-						$('#infscr-loading').animate({opacity: 0.8},2000).fadeOut('normal');
+						$('#infscr-loading').animate({
+							opacity: 0.8
+						}, 2000).fadeOut('normal');
 					}
 				},
 				function ( newElements ) {
@@ -345,14 +414,25 @@
 					var opts = $wall.data('infinitescroll').options,
 						$elems = $( newElements ).css({ opacity: 0 });
 
-					$elems.initColorbox().fixTumblrAudio().disqusCommentCount().filter('.video').fixYouTube().fitVids().fixVimeo().end().find('.title').widowFix();
+					$elems
+						.initColorbox()
+						.disqusCommentCount()
+						.fixYouTube()
+						.fitVids()
+						.fixVimeo()
+						.fixTumblrAudio()
+						.find('.title')
+							.widowFix();
+
 					prettifyCode();
 
 					$elems.imagesLoaded(function() {
 
 						if ( !$('body').hasClass('single-column') ) {
 							$wall.masonry( 'appended', $elems, true, function() {
-								$elems.animate({ opacity: 1.0 }, 200, 'swing');
+								$elems.animate({
+									opacity: 1.0
+								}, 200, 'swing');
 							});
 						
 						} else {
@@ -360,7 +440,10 @@
 						}
 
 						if ( masonite.customTrigger ) {
-							$('#pagination li.next a').fadeIn({ duration: 200, easing: 'easeInOutCubic' });
+							$('#pagination li.next a').fadeIn({
+								duration: 200,
+								easing: 'easeInOutCubic'
+							});
 						}
 
 					});
@@ -377,7 +460,7 @@
 			);
 			}
 
-		} // body#index
+		} // body.index
 
 	}); // ready
 
