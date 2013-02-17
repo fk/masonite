@@ -231,8 +231,6 @@
 		$('#likes').masonry({
 			isAnimated: !Modernizr.csstransitions,
 			itemSelector: 'li',
-			isFitWidth: masonite.centeredContent,
-			isResizable: !masonite.centeredContent,
 			columnWidth: $('li').width()
 		});
 
