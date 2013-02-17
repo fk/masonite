@@ -49,13 +49,29 @@ The option accepts an array as defined [here](https://developers.google.com/webf
 * **Avatar** – Upload an image to replace the Tumblr avatar with a custom logo.  
 Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of the _Avatar_-image to display on HiDPI devices (such as iPad 3/4). Please make sure that this image is at least exactly twice as big as the original _Avatar_ image.
 
-#### Options
+#### Post Options
 
-* **Post Width** – defaults to 400px, can be switched to 500px
+* **500px Posts** – activate to switch post width from the default 400 to 500px
+* Centered Content
+* Custom trigger Infinite Scroll
+* Dog Ear Zoom Icon
+* Enable Colorbox
+* Enable Google Prettify
+* Enable Infinite Scrolling
+* Enable Like Links on Index Pages
+* Enable Reblog Links on Index Pages
+* One Column Content
+* Show Album Art on Audio Posts
+* Show Post Footer Border
+* Show Tags
+* Show Tags on Index Page
+
+#### Header Options
+
 * **Header Left, Header Top** – activate these to override the default (right- and bottom-aligned) header position
 * **Show Avatar** – shows/hides the default Tumblr avatar (or the uploaded one)
-* **Show Description** – shows/hides the blog description
 * **Show Title** – shows/hides the blog title
+* **Show Description** – shows/hides the blog description
 * **Show Archive** – shows/hides "Archive" link
 * **Show Random** – shows/hides "Random" link
 * **Show RSS** – shows/hides "RSS" link
@@ -63,18 +79,14 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * **Show Search** – shows/hides the search input
 * Fading Sidebar
 * Two Column Navigation
-* One Column Content
-* Centered Content
-* Show Album Art on Audio Posts
+
+#### Somewhat working, somewhat orphaned
+
+These will work, but aren't really up-to-date:
+
 * Show Copyright
 * Show Likes
 * Show People I Follow
-* Show Post Footer Border
-* Show Tags
-* Show Tags on Index Page
-* Custom trigger Infinite Scroll
-* Dog Ear Zoom Icon
-* Enable Google Prettify
 * Show Twitter
 
 #### Analytics & User Tracking
