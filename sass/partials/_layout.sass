@@ -88,18 +88,17 @@ body
 
 #pagination
   padding: 0
-  margin-right: $sidebar + $gutter
-  .header-left &
-    margin-right: 0
-    margin-left: $sidebar + $gutter
-
-#footer
-  margin-right: $sidebar + $gutter
-  .header-left &
-    margin-right: 0
-    margin-left: $sidebar + $gutter
 
 .searchresultcount
   margin-bottom: $gutter
+
+=header-margins
+  margin-right: $sidebar + $gutter
   .header-left &
+    margin-right: 0
     margin-left: $sidebar + $gutter
+
+#footer,
+#pagination,
+.searchresultcount
+  +header-margins
