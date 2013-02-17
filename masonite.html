@@ -938,11 +938,9 @@
 
     {block:IfDisqusShortname}
         {block:PermalinkPagination}
-            var disqus_url = "{Permalink}";
-            var disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}";
-            /**
-            * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread]
-            */
+            var disqus_url = "{Permalink}",
+                disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}",
+                disqus_identifier = "{PostID}";
           {/block:PermalinkPagination}
     {/block:IfDisqusShortname}
 
