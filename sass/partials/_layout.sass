@@ -8,13 +8,13 @@ body
 
 #container
   margin: 0
-  padding: 0 $gutter 0
+  padding: 0 $gutter
   min-height: 100%
   position: relative
   .single-column &
-    width: 560px
+    width: 400 + $sidebar + $gutter
   .width-500.single-column &
-    width: 660px
+    width: 500 + $sidebar + $gutter
 
 #header
   position: fixed
@@ -43,18 +43,18 @@ body
 .centered-content
   #container
     margin: 0 auto
-    width: 560px
+    width: 400 + $sidebar + $gutter
   #header,
   #copyright
     right: auto
-    margin-left: 440px
+    margin-left: 400 + $gutter
   &.width-500,
   &.permalink
     #container
-      width: 660px
+      width: 500 + $sidebar + $gutter
     #header,
     #copyright
-      margin-left: 540px
+      margin-left: 500 + $gutter
     &.header-left
       margin-left: auto
   &.header-left,
