@@ -231,6 +231,7 @@
 		$('#likes').masonry({
 			isAnimated: !Modernizr.csstransitions,
 			itemSelector: 'li',
+			isResizable: true,
 			columnWidth: $('li').width()
 		});
 
@@ -362,6 +363,7 @@
 
 									$queue.promise().done(function(){
 										$wall.masonry('reload');
+										$('#likes').masonry('reload');
 									});
 
 								} else {
@@ -369,15 +371,13 @@
 									$page.width( columns * colW + offset );
 									// $wall.width( columns * colW );
 									$wall.masonry('reload');
+									$('#likes').masonry('reload');
 									if ( !$('body').hasClass('header-left') ) {
 										$sidebar.css({
 											'margin-left': columns * colW
 										});
 									}
-
 								}
-
-								$('#likes').masonry('reload');
 							}
 						}).smartresize(); // trigger resize to set container width
 					}
