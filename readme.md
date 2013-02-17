@@ -53,11 +53,16 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 
 * **Post Width** – defaults to 400px, can be switched to 500px
 * **Header Options**
-  * **Header Left, Header Top**  
+  * Header Left, Header Top  
     activate these to override the header default (right- and bottom-aligned) position
   * Show Avatar
   * Show Description
   * Show Title
+  * Show Archive
+  * Show Random
+  * Show RSS
+  * Show Mobile
+  * Show Search
   * Fading Sidebar
   * Two Column Navigation
 * One Column Content
