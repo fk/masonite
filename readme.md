@@ -121,7 +121,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery Masonry](http://masonry.desandro.com/) v2.1.08 by [@desandro](https://twitter.com/desandro)
 * [ColorBox](http://jacklmoore.com/colorbox/) v1.4.1 by [@jacklmoore](https://twitter.com/jacklmoore)
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b2.120519
-* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS ([normalize.css](http://necolas.github.com/normalize.css/) v1.1.0 + H5BP goodies)
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
