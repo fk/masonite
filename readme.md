@@ -183,6 +183,6 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 ## Contributing
 
 Contributions are welcome!  
-We use [git-flow](https://github.com/nvie/gitflow) and its branching model: the **master** branch always contains stable, production-ready code while the **develop** branch contains the latest development code.
+This project uses [git-flow](https://github.com/nvie/gitflow) and [its branching model](http://nvie.com/posts/a-successful-git-branching-model/): the **master** branch always contains stable, production-ready code (also matching the version available via/submitted to Tumblr's Theme Garden) while the **develop** branch contains the latest development code.
 
-When editing CSS, please use SASS and Compass if possible.
+When contributing CSS, please use [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/).
