@@ -171,7 +171,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Various “Reblog”-link fixes – no display on individual post pages anymore, repositioning to the post footer
 * Improved handling of videos, e. g. when in blockquotes, thanks to FitVids.js
 * An improved “Google Web Fonts” option now allows the definition of multiple font-families to be loaded as well as defining which Google Web Font family to use for Body, Meta, Quote, Title and Quote right out of the “Customize”-interface.
-* Added a new option to add a custom logo image (in place of the default Tumblr avatar image) – with additional support for a high resolution version for “HiDPI”-devices (such as the iPad 3/4) (again, details here or here)
+* Added a new option to add a custom logo image (in place of the default Tumblr avatar image) – with additional support for a high resolution version for “HiDPI”-devices (such as the iPad 3/4)
 * Various Disqus-specific fixes – fixes Disqus comment count for 41+ posts (before, the Disqus comment count would break when using infinite-scroll to load more than 41 posts).
 * Improved “centered layout”-mode.
 * Various iPad/touch-device specifix improvements.
