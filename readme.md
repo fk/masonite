@@ -1,4 +1,4 @@
-# masonite v0.2.1
+# masonite v0.2.2
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -132,6 +132,11 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.2.2
+
+* Fixed "Google+" social link option.
+* Improved #following markup.
 
 ### 0.2.1
 
