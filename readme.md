@@ -1,4 +1,4 @@
-# masonite v0.2.1
+# masonite v0.2.2
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -121,7 +121,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery Masonry](http://masonry.desandro.com/) v2.1.08 by [@desandro](https://twitter.com/desandro)
 * [ColorBox](http://jacklmoore.com/colorbox/) v1.4.1 by [@jacklmoore](https://twitter.com/jacklmoore)
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b2.120519
-* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS ([normalize.css](http://necolas.github.com/normalize.css/) v1.1.0 + H5BP goodies)
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
@@ -131,9 +131,63 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Broccolidry](http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons) – License: [Aribitrary](http://licence.visualidiot.com/) 
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
+## Changelog
+
+### 0.2.2
+
+* Fixed "Google+" social link option.
+* Improved #following markup.
+
+### 0.2.1
+
+* Added minified version of masonite.js.
+
+### 0.2
+
+* Added a bunch of layout options:
+  * Show Description
+  * Show Archive
+  * Show Random
+  * Show RSS
+  * Show Mobile
+  * Show Search
+* Improved the “One Column Content” behavior – much smoother transition from the initial one column layout to the jQuery-masonry-powered multicolumn layout – on initial page load as well as when changing the window size.
+* Fixed FitVids.js behavior.
+* Updated “Likes”-layout: Basic fixes to “hover”-styles; now uses jQuery Masonry for layout.
+* Updated to jQuery v1.9.1.
+* Updated to jQuery Masonry v2.1.08.
+* Updated to jQuery ColorBox v1.4.1.
+* Updated jQuery Infinite Scroll to latest version.
+* Updated to normalize.css v1.1.0.
+* Updated HTML5 Boilerplate’s CSS to latest version.
+* Disqus and Tumblr’s “tweets.js” now loaded via modernizr.load.
+* Improved markup (added title- and alt-attributes to “following”-links and -images, title-attribute to avatar-, notes-, tag- and Disqus-links, title- and rel=bookmark-attributes to .post permalinks).
+* "Notes"-links now directly jump to the #notes-container on the corresponding permalink-page.
+* Improved localization.
+* Smoother Infinite Scroll behavior.
+* Huge improvements behind the scenes – started splitting CSS into partials, lots of cleanup in CSS and JS.
+* Updated documentation.
+
+### 0.1
+
+* Added the option to show “Like”-links on index-pages – although I’m not a fan of this because of various reasons, most of the professionally sold Tumblr Theme Garden themes seem to offer this functionality – so here we go.
+* Added a whole bunch of new social link options: _Rdio, Yahoo, Skype, Evernote, Delicious, Behance, XING, LinkedIn, Picasa, YouTube, StumbledUpon, Last.fm, Google+, Forrst, Pinterest, Flickr, deviantART, Instagram, Blogger, Flattr_
+* Added an option to enable/disable the lightbox/slideshow – ColorBox (the script powering the lightbox/slideshow) now only gets loaded if you want masonite to use its functionality.
+* Various “Reblog”-link fixes – no display on individual post pages anymore, repositioning to the post footer
+* Improved handling of videos, e. g. when in blockquotes, thanks to FitVids.js
+* An improved “Google Web Fonts” option now allows the definition of multiple font-families to be loaded as well as defining which Google Web Font family to use for Body, Meta, Quote, Title and Quote right out of the “Customize”-interface.
+* Added a new option to add a custom logo image (in place of the default Tumblr avatar image) – with additional support for a high resolution version for “HiDPI”-devices (such as the iPad 3/4)
+* Various Disqus-specific fixes – fixes Disqus comment count for 41+ posts (before, the Disqus comment count would break when using infinite-scroll to load more than 41 posts).
+* Improved “centered layout”-mode.
+* Various iPad/touch-device specifix improvements.
+* Improved theme overview/documentation.
+* Tag pages now have a headline.
+* Updated jQuery Masonry and modernizr.
+* Improved search-input semantics and presentation in non-WebKit browsers.
+
 ## Contributing
 
 Contributions are welcome!  
-We use [git-flow](https://github.com/nvie/gitflow) and its branching model: the **master** branch always contains stable, production-ready code while the **develop** branch contains the latest development code.
+This project uses [git-flow](https://github.com/nvie/gitflow) and [its branching model](http://nvie.com/posts/a-successful-git-branching-model/): the **master** branch always contains stable, production-ready code (also matching the version available via/submitted to Tumblr's Theme Garden) while the **develop** branch contains the latest development code.
 
-When editing CSS, please use SASS and Compass if possible.
+When contributing CSS, please use [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/).
