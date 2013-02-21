@@ -152,7 +152,7 @@
 					timeout: 5000,
 					success: function(data){
 						$audioPost.find(".player span").css({ visibility: 'visible' });
-						var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player_black.swf");
+						var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player" + masonite.audioPlayerColor + ".swf");
 						$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed + '\x3c/div\x3e\')</script>');
 					}
 				});
