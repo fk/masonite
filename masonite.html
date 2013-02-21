@@ -69,6 +69,7 @@
     <meta name="if:Show Tags on Index Page" content="1" />
     <meta name="if:Show Title" content="1" />
     <meta name="if:Show Twitter" content="0" />
+    <meta name="if:Use White Audio Player" content="1" />
 
     <meta name="image:Avatar" content="" />
     <meta name="image:Avatar HiDPI" content="" />
@@ -263,8 +264,6 @@
 
         #cboxLoadedContent,
         #cboxLoadingOverlay,
-        .post.audio object,
-        .post.audio embed,
         #infscr-loading,
         .title.question {
             background: {color:Copy};
@@ -682,7 +681,7 @@
                             {/block:AlbumArt}
                         {/block:IfShowAlbumArtOnAudioPosts}
                         <div class="audio-wrapper">
-                            <div class="player">{AudioPlayerBlack}</div>
+                            <div class="player">{block:IfUseWhiteAudioPlayer}{AudioPlayerWhite}{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}{AudioPlayerBlack}{/block:IfNotUseWhiteAudioPlayer}</div>
                             <div class="meta">{PlayCountWithLabel}{block:ExternalAudio} &bull; <a href="{ExternalAudioURL}">download</a>{/block:ExternalAudio}</div>
                         </div>
                         {block:Caption}
@@ -935,7 +934,8 @@
         fadeSidebar     : {block:IfFadingSidebar}true{/block:IfFadingSidebar}{block:IfNotFadingSidebar}false{/block:IfNotFadingSidebar},
         googleAnalytics : {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
         googlePrettify  : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
-        totalPages      : {totalPages}
+        totalPages      : {totalPages},
+        audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer}
     }
 
     var disqus_shortname = masonite.disqusShortname;
@@ -997,7 +997,7 @@
                     {/block:PermalinkPagination}
                     {/block:IfDisqusShortname}
                     'http://static.tumblr.com/wccjej0/uQCmibwd7/plugins.js',
-                    'http://static.tumblr.com/wccjej0/1eemidr2h/masonite.min.js'
+                    'http://static.tumblr.com/wccjej0/sm7mil4dt/masonite.js'
                 ]);
              }
         },
