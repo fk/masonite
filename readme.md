@@ -1,4 +1,4 @@
-# masonite v0.2.2
+# masonite v0.2.3
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -65,6 +65,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Show Post Footer Border
 * Show Tags
 * Show Tags on Index Page
+* Use White Audio Player
 
 ### Header Options
 
@@ -132,6 +133,10 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.2.3
+
+* Added "Use White Audio Player" option.
 
 ### 0.2.2
 
