@@ -65,7 +65,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Show Post Footer Border
 * Show Tags
 * Show Tags on Index Page
-* Use White Audio Player
+* **Use White Audio Player** – use Tumblr's white audio player instead of the (default) black one
 
 ### Header Options
 
