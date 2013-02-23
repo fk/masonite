@@ -56,7 +56,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Custom trigger Infinite Scroll
 * Dog Ear Zoom Icon
 * Enable Colorbox
-* Enable Google Prettify
+* **Enable Google Prettify** – enables syntax highlighting via [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 * Enable Infinite Scrolling
 * Enable Like Links on Index Pages
 * Enable Reblog Links on Index Pages
