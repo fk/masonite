@@ -53,7 +53,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 
 * **500px Posts** – activate to switch post width from the default 400 to 500px
 * Centered Content
-* Custom trigger Infinite Scroll
+* **Custom trigger Infinite Scroll** – enables user-triggered, "Twitter"-style infinite scrolling via a "Load more posts"-button
 * Dog Ear Zoom Icon
 * Enable Colorbox
 * **Enable Google Prettify** – enables syntax highlighting via [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
