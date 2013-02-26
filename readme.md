@@ -63,7 +63,7 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 * Enable Reblog Links on Index Pages
 * **One Column Content** – opt out of the default jQuery Masonry layout for index pages
 * Show Album Art on Audio Posts
-* Show Post Footer Border
+* **Show Post Footer Border** – for better distinction between posts
 * Show Tags
 * Show Tags on Index Page
 * **Use White Audio Player** – use Tumblr's white audio player instead of the (default) black one
