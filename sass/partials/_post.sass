@@ -40,13 +40,11 @@
               min-width: 352px
               max-width: 352px
     &.video object
-      width: 400px
-      height: 300px
+      width: 100%
       +border-radius(2px)
     &.photo img,
     &.audio .album_art img
-      min-width: 400px
-      max-width: 400px
+      width: 100%
     .quote
       line-height: 1.5
       &.short
@@ -55,20 +53,11 @@
       &.long
         font-size: 18px
     .copy img
-      max-width: 400px
+      max-width: 100%
   .index.width-400 &
     font-size: 12px
   .index.width-500 &
     width: 500px
-    &.video object
-      width: 500px
-      height: 375px
-    &.photo img,
-    &.audio .album_art img
-      min-width: 500px
-      max-width: 500px
-    .copy img
-      max-width: 500px
   &.chat .line
     margin: 0 0 10px 0
     padding-bottom: 10px
