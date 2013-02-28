@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Infinite Scroll Loader
+   ========================================================================== */
+
+#infscr-loading
+  z-index: 1000
+  position: fixed
+  font-size: $small-type
+  line-height: 16px
+  height: 16px
+  left: $gutter
+  bottom: $gutter
+  opacity: 0.9
+  padding: 6px 10px 6px 8px
+  +border-radius(4px)
+  .header-left &
+    left: ($sidebar + $gutter * 2)
+  .centered-content &
+    left: auto
+  div
+    float: right
+  img
+    margin-right: 6px

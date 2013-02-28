@@ -10,15 +10,12 @@
 // https://github.com/h5bp/html5-boilerplate
 @import partials/h5bp-top
 
-// the webfont containing all icons
-@import partials/font
-
-
 /* ==========================================================================
    masonite - a Tumblr theme
    Author: flo@6230.org
    ========================================================================== */
 
+// variables
 $gutter: 40px
 $sidebar: 120px
 $small-type: 11px
@@ -26,12 +23,28 @@ $very-small-type: 10px
 $base-font-size: 14px
 $base-line-height: 20px
 
-::-webkit-scrollbar-thumb:vertical
-  height: 1 0px
+// partials
+@import partials/webkit-scrollbar
+@import partials/typography
+@import partials/layout
+@import partials/font
+@import partials/icons
+@import partials/post
+@import partials/modules
+@import partials/sidebar
+@import partials/infinite-scroll
+@import partials/ie
+@import partials/placeholder
+@import partials/masonry
 
-::-webkit-scrollbar
-  width: 5px
-  height: 5px
+a
+  text-decoration: none
+
+#title a:hover,
+#description a:hover,
+#navigation a:hover,
+#copyright a:hover
+  text-decoration: line-through
 
 hr
   margin: 20px 0
@@ -39,375 +52,11 @@ hr
 iframe
   +border-radius(2px)
 
-a
-  text-decoration: none
-
-
-// typography
-@import partials/layout
-
-
-// layout
-@import partials/layout
-
-
-#header a:hover,
-#copyright a:hover
-  text-decoration: line-through
-
-#external a:hover
-  text-decoration: none
-
-
-/* ==========================================================================
-   Search
-   ========================================================================== */
-
-input[type="search"]
-  -webkit-appearance: searchfield
-
-input[type="search"]::-webkit-search-decoration
-  webkit-appearance: searchfield-decoration
-
-input[type="search"]::-webkit-search-cancel-button
-  -webkit-appearance: searchfield-cancel-button
-
-#search
-  margin-top: 2em
-  input
-    width: 118px
-    border-width: 1px
-
-
-/* ==========================================================================
-   Icons
-   ========================================================================== */
-
-.post.photo .media .fullsize:before,
-.post .footer .reblog a:before,
-.post .footer .like a:before,
-.post .quote:before,
-.post .link.title a em:before,
-.post .footer .date a:before,
-.post .footer .date.reblogged a:before,
-.post .footer .notes a:before,
-.post .footer .comments a:before,
-.post .footer .tags:before,
-#external a:before
-  font-family: 'masonite'
-  font-style: normal
-  speak: none
-  margin-right: 4px
-  -webkit-font-smoothing: antialiased
-
-#external
-  .github a:before
-    content: "\e028"
-  .soundcloud a:before
-    content: "\e01b"
-  .twitter a:before
-    content: "\e015"
-  .facebook a:before
-    content: "\e00b"
-  .dribbble a:before
-    content: "\e00e"
-  .vimeo a:before
-    content: "\e019"
-  .flickr a:before
-    content: "\e02e"
-  .pinterest a:before
-    content: "\e057"
-  .forrst a:before
-    content: "\e011"
-  .googleplus a:before
-    content: "\e018"
-  .lastfm a:before
-    content: "\e01f"
-  .stumbledupon a:before
-    content: "\e025"
-  .youtube a:before
-    content: "\e02f"
-  .picasa a:before
-    content: "\e02a"
-  .linkedin a:before
-    content: "\e059"
-  .xing a:before
-    content: "\e021"
-  .behance a:before
-    content: "\e061"
-  .delicious a:before
-    content: "\e026"
-  .evernote a:before
-    content: "\e062"
-  .skype a:before
-    content: "\e05f"
-  .yahoo a:before
-    content: "\e027"
-  .rdio a:before
-    content: "\e063"
-  .deviantart a:before
-    content: "\e001"
-  .instagram a:before
-    content: "\e004"
-  .blogger a:before
-    content: "\e005"
-  .flattr a:before
-    content: "\e00a"
-
-.post .quote:before
-  content: "\e03b"
-  position: relative
-  font-size: 16px
-  margin-right: 10px
-  top: -0.8em
-
-.link.title a
-  border: none
-  em
-    position: relative
-    padding: 0 4px
-    &:before
-      content: "\e012"
-      font-size: 16px
-    span
-      display: none
-
-
-// .post
-@import partials/post
-
-
-/* ==========================================================================
-   Likes, Following and Twitter
-   ========================================================================== */
-
-.container
-  margin-top: $gutter
-
-
-/* ==========================================================================
-   Likes
-   ========================================================================== */
-
-#likes
-  margin: 0
-  padding: 0
-  list-style: none
-  li
-    width: 120px
-    float: left
-    margin: 0 10px 10px 0
-    overflow: hidden !important
-    &.like_text_post,
-    &.like_quote_post
-      font-size: 12px
-    &:last-child,
-    &.last
-      margin-right: 0
-    img
-      max-width: 120px
-    p
-      font-size: $small-type
-  blockquote
-    padding-left: 4px
-    p
-      font-size: 12px !important
-      line-height: 20px !important
-
-
-/* ==========================================================================
-   Following
-   ========================================================================== */
-
-#following
-  ul
-    margin: 0
-    padding: 0
-  li
-    display: block
-    float: left
-    width: 20px
-    height: 20px
-    img
-      width: 100%
-      height: 100%
-
-
-/* ==========================================================================
-   Twitter
-   ========================================================================== */
-
-#tweetcontainer
-  font-size: 12px
-
-#twitter
-  overflow: hidden
-  margin: $gutter $gutter $gutter 0
-  .hide-twitter &
-    display: none
-
-.asker
-  .index.width-400 &
-    font-size: 12px
-  img
-    margin: 0 10px
-
-
-/* ==========================================================================
-   Notes
-   ========================================================================== */
-
-ol.notes
-  font-size: 12px
-  list-style: none
-  padding: 0
-  li
-    margin-bottom: 10px
-    line-height: 16px
-    a
-      border: none
-      img.avatar
-        background: transparent
-        margin-right: 4px
-        vertical-align: middle
-    &.note.more_notes_link_container
-      margin-bottom: 0
-      text-align: left !important
-
-.audio-wrapper
-  position: relative
-  margin-top: 10px
-
-
-/* ==========================================================================
-   Pagination
-   ========================================================================== */
-
-#pagination
-  list-style: none
-  line-height: 1
-  li
-    float: left
-    margin-right: 10px
-    a
-      text-decoration: none
-  .index.custom-trigger-infinite-scrolling &
-    li a
-      display: block
-      padding: 10px
-      +border-radius(4px)
-
-
-/* ==========================================================================
-   Header Elements
-   ========================================================================== */
-
-#avatar
-  margin-bottom: 0
-  .hide-avatar &
-    display: none
-  .hide-title &
-    margin-bottom: 1em
-
-#title
-  margin-top: 1em
-  .hide-title &
-    display: none
-  .hide-avatar &
-    margin-top: 0
-
-#description
-  padding: 0 0 15px
-
-#navigation,
-#external
-  list-style: none
-  margin: 0
-  padding: 0
-  li
-    padding: 0
-    margin: 0
-
-#external li
-  float: left
-  font-size: 16px
-  margin-right: 6px
-  a
-    display: block
-
-#navigation li
-  .two-column-navigation &
-    float: left
-    width: 50px
-    padding-right: 10px
-
 #like
   height: 0
   width: 0
   display: none
 
-
-/* ==========================================================================
-   Infinite Scroll Loader
-   ========================================================================== */
-
-#infscr-loading
-  z-index: 1000
-  position: fixed
-  font-size: $small-type
-  line-height: 16px
-  height: 16px
-  left: $gutter
-  bottom: $gutter
-  opacity: 0.9
-  padding: 6px 10px 6px 8px
-  +border-radius(4px)
-  .header-left &
-    left: ($sidebar + $gutter * 2)
-  .centered-content &
-    left: auto
-  div
-    float: right
-  img
-    margin-right: 6px
-
-
-/* ==========================================================================
-   Internet Explorer Fixes
-   ========================================================================== */
-
-// <= ie6
-.lt-ie7
-  .index
-    .post
-      width: 400px
-      &.photo img,
-      &.audio .album_art img
-        width: expression(this.offsetWidth> 400?400:'auto')
-    &.width-500
-      .post
-        width: 500px
-        &.photo img,
-        &.audio .album_art img
-          width: expression(this.offsetWidth> 500?500:'auto')
-  #likes li img
-    width: 120px
-
-// <= ie7
-.lt-ie8
-  #header
-    margin-bottom: $gutter
-  // bicubic scaling for non-native sized images
-  // code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
-  img
-    -ms-interpolation-mode: bicubic
-
-
-// placeholder styles
-@import partials/placeholder
-
-// masonry styles
-@import partials/masonry
 
 // HTML5 Boilerplate styles, bottom part
 @import partials/h5bp-bottom

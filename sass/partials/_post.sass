@@ -287,3 +287,25 @@ a.title strong
     &:hover:after
       border-bottom-width: 28px
       border-right-width: 28px
+
+.audio-wrapper
+  position: relative
+  margin-top: 10px
+
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+#pagination
+  list-style: none
+  line-height: 1
+  li
+    float: left
+    margin-right: 10px
+    a
+      text-decoration: none
+  .index.custom-trigger-infinite-scrolling &
+    li a
+      display: block
+      padding: 10px
+      +border-radius(4px)
