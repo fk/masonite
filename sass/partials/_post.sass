@@ -5,6 +5,22 @@
 .post
   margin: 0 $gutter $gutter 0
   position: relative
+  .header-left &
+    margin-right: 0
+    margin-left: $gutter
+  .permalink &
+    width: 500px
+    .copy
+      margin-top: 20px
+    .title
+      font-size: 24px
+    .quote
+      font-size: 36px
+      line-height: 40px
+    .footer
+      margin-top: 35px
+      margin-bottom: 20px
+      border: 0
   a,
   a.title strong
     +transition(color 0.2s linear, border 0.2s linear)
@@ -18,33 +34,20 @@
   ol,
   ul
     padding: 0 0 0 20px
+  .title
+    font-size: 18px
+    font-weight: bold
+    line-height: 1.3
+  .media
+    position: relative
+    a
+      border: none
   // on index pages
   .index &
     z-index: 0
     float: left
     width: 400px
     overflow-x: hidden
-    img
-      max-width: none
-    .copy
-      blockquote
-        img
-          min-width: 384px
-          max-width: 384px
-        blockquote
-          img
-            min-width: 368px
-            max-width: 368px
-          blockquote
-            img
-              min-width: 352px
-              max-width: 352px
-    &.video object
-      width: 100%
-      +border-radius(2px)
-    &.photo img,
-    &.audio .album_art img
-      width: 100%
     .quote
       line-height: 1.5
       &.short
@@ -52,15 +55,24 @@
       &.medium,
       &.long
         font-size: 18px
-    .copy img
-      max-width: 100%
-  .index.width-400 &
-    font-size: 12px
-  .index.width-500 &
-    width: 500px
+  .copy img
+    max-width: 100%
+  // post specific
+  // chats
   &.chat .line
     margin: 0 0 10px 0
     padding-bottom: 10px
+  // video
+  &.video object
+    width: 100%
+    height: auto
+    +border-radius(2px)
+  // photo
+  &.photo .media img,
+  &.audio .album_art img
+    width: 100%
+    height: auto
+  // audio
   &.audio
     object,
     embed
@@ -71,10 +83,14 @@
       top: 5px
       left: 250px
       position: absolute
-  .media
-    position: relative
-    a
-      border: none
+  // font sizes
+  .index.width-400 &
+    font-size: 12px
+  // 500px posts
+  .index.width-500 &
+    width: 500px
+
+  // links to hires media
   .fullsize
     position: absolute
     display: block
@@ -128,26 +144,8 @@
       +border-radius(2px)
       opacity: 1
       background-color: transparent
-  .header-left &
-    margin-right: 0
-    margin-left: $gutter
-  .permalink &
-    width: 500px
-    .copy
-      margin-top: 20px
-    .title
-      font-size: 24px
-    .quote
-      font-size: 36px
-      line-height: 40px
-    .footer
-      margin-top: 35px
-      margin-bottom: 20px
-      border: 0
-  .title
-    font-size: 18px
-    font-weight: bold
-    line-height: 1.3
+
+  // footer
   .footer
     margin-top: 10px
     padding-top: 5px
@@ -156,6 +154,9 @@
     font-size: 12px
     .index &
       font-size: $very-small-type
+    .hide-post-footer-border.index &
+      border: 0
+      padding-bottom: 0
     .date a,
     .comments a,
     .notes a
@@ -265,3 +266,23 @@ a.title strong
 .post.answer:hover .question:after
   border-top-width: 8px
   border-top-style: solid
+
+.dog-ear-zoom-icon
+  .post.photo .media .fullsize
+    &:after
+      content: ' '
+      width: 0
+      height: 0
+      position: absolute
+      right: 0
+      top: 0
+      border-bottom-width: 28px
+      border-right-width: 28px
+      border-bottom-style: solid
+      border-right-style: solid
+      z-index: 0
+      +transition-duration(2s)
+      +transition-timing-function(linear)
+    &:hover:after
+      border-bottom-width: 28px
+      border-right-width: 28px
