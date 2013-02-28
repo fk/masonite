@@ -699,7 +699,9 @@
                     {/block:Quote}
 
                     {block:Text}
-                        {block:Title}<h3 class="title">{Title}</h3>{/block:Title}
+                        {block:Title}
+                            <h3 class="title">{Title}</h3>
+                        {/block:Title}
                         <div class="copy">{Body}</div>
                     {/block:Text}
 
@@ -710,7 +712,9 @@
                     {block:Answer}
 
                     {block:Chat}
-                        {block:Title}<h3 class="title">{Title}</h3>{/block:Title}
+                        {block:Title}
+                            <h3 class="title">{Title}</h3>
+                        {/block:Title}
                         <div class="chat">
                             <div class="lines">
                                 {block:Lines}
@@ -722,9 +726,13 @@
 
                     {block:Link}
                         <h3 class="link title">
-                            <a class='title' href="{URL}" {Target}><strong>{Name}</strong> <em><span>&rarr;</span></em></a>
+                            <a class='title' href="{URL}" {Target}>
+                                <strong>{Name}</strong> <em><span>&rarr;</span></em>
+                            </a>
                         </h3>
-                        {block:Description}<div class="copy">{Description}</div>{/block:Description}
+                        {block:Description}
+                            <div class="copy">{Description}</div>
+                        {/block:Description}
                     {/block:Link}
 
                     <div class="footer clearfix">
