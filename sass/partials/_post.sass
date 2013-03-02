@@ -17,10 +17,6 @@
     .quote
       font-size: 36px
       line-height: 40px
-    .footer
-      margin-top: 35px
-      margin-bottom: 20px
-      border: 0
   a,
   a.title strong
     +transition(color 0.2s linear, border 0.2s linear)
@@ -146,8 +142,9 @@
       +border-radius(2px)
       opacity: 1
       background-color: transparent
-
-  // footer
+  /* ========================================================================
+     .post .footer
+     ======================================================================== */
   .footer
     font-size: 12px
     margin-top: 10px
@@ -155,6 +152,10 @@
     padding-bottom: 5px
     .index &
       font-size: $very-small-type
+    .permalink &
+      margin-top: 35px
+      margin-bottom: 20px
+      border: 0
     .hide-post-footer-border.index &
       border: 0
       padding-bottom: 0
