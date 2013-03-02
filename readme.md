@@ -135,6 +135,11 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
+### Not yet released
+
+* Minor improvements to the audio player meta layout.
+* Improvements to the scaling of images and video embeds.
+
 ### 0.2.3
 
 * Added "Use White Audio Player" option.
