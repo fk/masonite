@@ -386,22 +386,27 @@
 
 			if ( masonite.infiniteScroll ) {
 
+				masonite.infiniteScrollLoadingOptions = {
+					finishedMsg: "No more pages to load",
+					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
+					msgText: "Loading 2/" + masonite.totalPages
+				};
+
 				if ( masonite.customTrigger ) {
 					infinitescroll_behavior = 'twitter';
 					$('#pagination li.next a').text('Load more posts');
+				} else {
+					masonite.infiniteScrollLoadingOptions.selector = '#copyright';
 				}
 
 				$wall.infinitescroll({
-					loading: {
-						finishedMsg: "No more pages to load",
-						img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-						msgText: "Loading page 2/" + masonite.totalPages
-					},
+					loading: masonite.infiniteScrollLoadingOptions,
 					navSelector: '#pagination', // selector for the paged navigation
 					nextSelector: '#pagination .next a', // selector for the NEXT link (to page 2)
 					itemSelector: '#posts .post', // selector for all items you'll retrieve
 					bufferPx: 200,
 					behavior: infinitescroll_behavior,
+					maxPage: masonite.totalPages,
 					errorCallback: function() {
 						// fade out the error message after 2 seconds
 						$('#infscr-loading').animate({
@@ -451,7 +456,7 @@
 					setTimeout(function() {
 						var $loader = $('#infscr-loading > div');
 						if ( (opts.state.currPage + 1) <= masonite.totalPages ) {
-							$loader.html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
+							$loader.html("Loading " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
 						} else {
 							$loader.html("No more pages to load");
 						}

@@ -4,20 +4,28 @@
 
 #infscr-loading
   z-index: 1000
-  position: fixed
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
   font-size: $small-type
   line-height: 16px
   height: 16px
-  left: $gutter
-  bottom: $gutter
   opacity: 0.9
-  padding: 6px 10px 6px 8px
+  padding: 4px
   +border-radius(4px)
-  .header-left &
+  .custom-trigger-infinite-scrolling &
+    padding: 6px 10px 6px 8px
+    position: fixed
+    left: $gutter
+    bottom: $gutter
+    right: auto
+  .custom-trigger-infinite-scrolling.header-left &
     left: ($sidebar + $gutter * 2)
-  .centered-content &
+  .custom-trigger-infinite-scrolling.centered-content &
     left: auto
-  div
-    float: right
+  div,
+  img
+    float: left
   img
     margin-right: 6px
