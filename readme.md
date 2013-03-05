@@ -140,6 +140,8 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Minor improvements to the audio player meta layout.
 * Improvements to the scaling of images and video embeds.
 * "photoset"-posts finally get the right CSS-class/their own "dedicated" markup.
+* infinite-scroll's loading screen is now attached to #copyright (when not in "custom trigger" mode).
+* Lots of cleanup.
 
 ### 0.2.3
 
