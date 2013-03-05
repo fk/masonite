@@ -14,15 +14,15 @@
   opacity: 0.9
   padding: 4px
   +border-radius(4px)
-  .centered-content.header-left &
-    left: auto
-    margin-left: $gutter
   .custom-trigger-infinite-scrolling &
     padding: 6px 10px 6px 8px
     position: fixed
     left: $gutter
     bottom: $gutter
     right: auto
+  .custom-trigger-infinite-scrolling.centered-content.header-left &
+    left: auto
+    margin-left: $gutter
   .custom-trigger-infinite-scrolling.header-left &
     left: ($sidebar + $gutter * 2)
   .custom-trigger-infinite-scrolling.centered-content &
