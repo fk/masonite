@@ -64,12 +64,9 @@ body
       left: auto
       right: auto
       margin-left: auto
-  &.header-left #infscr-loading
-    left: auto
-    margin-left: $gutter
 
 #content
-  padding: $gutter 0
+  padding: $gutter 0 0
   .permalink &
     margin-right: 180px
     max-width: 760px
@@ -104,3 +101,6 @@ body
 #pagination,
 .searchresultcount
   +header-margins
+
+.container
+  margin-top: $gutter

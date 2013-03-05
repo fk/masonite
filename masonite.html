@@ -112,23 +112,21 @@
     <meta name="text:Google Web Font Title" content="" />
     <meta name="text:Google Web Font Pre" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/Wiamijhcb/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/xaGmj5v7l/masonite.css">
 
     <style type="text/css">
 
-        ::-webkit-scrollbar-thumb:vertical {
-            background-color: {color:Mids};
-        }
-
-        ::-webkit-scrollbar {
-            background: {color:Background};
-        }
-
-        ::-webkit-scrollbar-track-piece {
+        ::-webkit-scrollbar,
+        ::-webkit-scrollbar-track {
             background-color: {color:Background};
         }
 
-        ::-webkit-scrollbar-thumb:vertical:active {
+        ::-webkit-scrollbar-thumb {
+            background-color: {color:Mids};
+        }
+
+        ::-webkit-scrollbar-thumb:hover,
+        ::-webkit-scrollbar-thumb:active {
             background-color: {color:Accents};
         }
 
@@ -648,7 +646,7 @@
 
         <div id="posts" class="clearfix">
             {block:Posts}
-                <div id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}"{block:IfEnableLikeLinksonIndexPages} rel="{ReblogURL}"{/block:IfEnableLikeLinksonIndexPages}>
+                <div id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}"{block:IfEnableLikeLinksonIndexPages} rel="{ReblogURL}"{/block:IfEnableLikeLinksonIndexPages}>
                     {block:Photo}
                         <div class="media">
                             {LinkOpenTag}
@@ -662,6 +660,25 @@
                             <div class="copy">{Caption}</div>
                         {/block:Caption}
                     {/block:Photo}
+
+                    {block:Photoset}
+                        <div class="media">
+                            {block:PermalinkPage}
+                                {Photoset-500}
+                            {/block:PermalinkPage}
+                            {block:IndexPage}
+                                {block:IfNot500pxPosts}
+                                    {Photoset-400}
+                                {/block:IfNot500pxPosts}
+                                {block:If500pxPosts}
+                                    {Photoset-500}
+                                {/block:If500pxPosts}
+                            {/block:IndexPage}
+                        </div>
+                        {block:Caption}
+                            <div class="copy">{Caption}</div>
+                        {/block:Caption}
+                    {/block:Photoset}
 
                     {block:Video}
                         <div class="media">
@@ -699,7 +716,9 @@
                     {/block:Quote}
 
                     {block:Text}
-                        {block:Title}<h3 class="title">{Title}</h3>{/block:Title}
+                        {block:Title}
+                            <h3 class="title">{Title}</h3>
+                        {/block:Title}
                         <div class="copy">{Body}</div>
                     {/block:Text}
 
@@ -710,7 +729,9 @@
                     {block:Answer}
 
                     {block:Chat}
-                        {block:Title}<h3 class="title">{Title}</h3>{/block:Title}
+                        {block:Title}
+                            <h3 class="title">{Title}</h3>
+                        {/block:Title}
                         <div class="chat">
                             <div class="lines">
                                 {block:Lines}
@@ -722,9 +743,13 @@
 
                     {block:Link}
                         <h3 class="link title">
-                            <a class='title' href="{URL}" {Target}><strong>{Name}</strong> <em><span>&rarr;</span></em></a>
+                            <a class='title' href="{URL}" {Target}>
+                                <strong>{Name}</strong> <em><span>&rarr;</span></em>
+                            </a>
                         </h3>
-                        {block:Description}<div class="copy">{Description}</div>{/block:Description}
+                        {block:Description}
+                            <div class="copy">{Description}</div>
+                        {/block:Description}
                     {/block:Link}
 
                     <div class="footer clearfix">
@@ -997,7 +1022,7 @@
                     {/block:PermalinkPagination}
                     {/block:IfDisqusShortname}
                     'http://static.tumblr.com/wccjej0/uQCmibwd7/plugins.js',
-                    'http://static.tumblr.com/wccjej0/QSsmil5cp/masonite.min.js'
+                    'http://static.tumblr.com/wccjej0/E43mj5vqz/masonite.min.js'
                 ]);
              }
         },
