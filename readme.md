@@ -143,6 +143,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * infinite-scroll's loading screen is now attached to #copyright when not in "custom trigger" mode (should probably be revisited).
 * Add option to opt-out of "position:fixed" for #header and #copyright (using "position:absolute" instead).
 * Lots of cleanup.
+* Update Google WebFont Loader and Google Code Prettify to latest available versions.
 
 ### 0.2.3
 
