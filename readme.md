@@ -141,9 +141,10 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Improvements to the scaling of images and video embeds.
 * "photoset"-posts finally get the right CSS-class/their own "dedicated" markup.
 * infinite-scroll's loading screen is now attached to #copyright when not in "custom trigger" mode (should probably be revisited).
-* Add option to opt-out of "position:fixed" for #header and #copyright (using "position:absolute" instead).
+* Added an option to opt-out of "position:fixed" for #header and #copyright (using "position:absolute" instead).
 * Lots of cleanup.
-* Update Google WebFont Loader and Google Code Prettify to latest available versions.
+* Updated Google WebFont Loader and Google Code Prettify to latest available versions.
+* Added Grunt, for now just to minify masonite.js.
 
 ### 0.2.3
 
