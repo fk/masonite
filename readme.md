@@ -145,6 +145,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Lots of cleanup.
 * Updated Google WebFont Loader and Google Code Prettify to latest available versions.
 * Added Grunt, for now just to minify masonite.js.
+* Soundcloud players now inherit the "masonite.accent"-color.
 
 ### 0.2.3
 
