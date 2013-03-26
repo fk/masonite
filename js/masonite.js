@@ -68,6 +68,28 @@
 		return this;
 	};
 
+	$.fn.fixSoundcloud = function() {
+		this.find("iframe[src^='https://w.soundcloud.com/']").each(function() {
+			var $obj = $(this),
+				src = $obj.attr("src"),
+				attributes = $obj.prop("attributes"),
+				$newIframe = $('<iframe></iframe>').insertAfter( $obj ).hide();
+
+			$obj.remove();
+			$newIframe.show();
+
+			$.each(attributes, function() {
+				if ( this.name === "src" ) {
+					$newIframe.attr(this.name, this.value + "&color=" + masonite.accents);
+				} else {
+					$newIframe.attr(this.name, this.value);
+				}
+			});
+		});
+
+		return this;
+	};
+
 	$.fn.fixVimeo = function() {
 		/*
 			Better Vimeo Embeds 2.1 by Matthew Buchanan
@@ -77,8 +99,7 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		var color = masonite.accents,
-			opts = "title=0&byline=0&portrait=0";
+		var opts = "title=0&byline=0&portrait=0";
 
 		this.find("iframe[src^='http://player.vimeo.com']").each(function() {
 			var src = $(this).attr("src"),
@@ -88,7 +109,7 @@
 			if ( src.indexOf("?") === -1 ) {
 				$(this).replaceWith(
 					"<iframe src='" + src + "?" + opts + "&color=" +
-					color + "' width='" + w + "' height='" + h +
+					masonite.accents + "' width='" + w + "' height='" + h +
 					"' frameborder='0'></iframe>"
 				);
 			}
@@ -105,7 +126,7 @@
 
 			$obj.replaceWith(
 				"<iframe src='http://player.vimeo.com/video/" +
-				id + "?" + server + "&" + opts + "&color=" + color +
+				id + "?" + server + "&" + opts + "&color=" + masonite.accents +
 				"' width='" + w + "' height='" + h +
 				"' frameborder='0'></iframe>"
 			);
@@ -268,7 +289,8 @@
 				.end()
 			.fixYouTube()
 			.fitVids()
-			.fixVimeo();
+			.fixVimeo()
+			.fixSoundcloud();
 
 		prettifyCode();
 
@@ -425,6 +447,7 @@
 						.fixYouTube()
 						.fitVids()
 						.fixVimeo()
+						.fixSoundcloud()
 						.fixTumblrAudio()
 						.find('.title')
 							.widowFix();
