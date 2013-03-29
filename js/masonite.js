@@ -328,7 +328,7 @@
 				// http://masonry.desandro.com/docs/options.html
 				// http://masonry.desandro.com/docs/animating.html#modernizr
 
-				$wall.imagesLoaded(function() {
+
 					$wall.masonry({
 						isAnimated: !Modernizr.csstransitions,
 						itemSelector: '.post',
@@ -403,7 +403,7 @@
 							}
 						}).smartresize(); // trigger resize to set container width
 					}
-				});
+
 			}
 
 			if ( masonite.infiniteScroll ) {
@@ -454,15 +454,13 @@
 
 					prettifyCode();
 
-					$elems.imagesLoaded(function() {
-
 						if ( !$('body').hasClass('single-column') ) {
 							$wall.masonry( 'appended', $elems, true, function() {
 								$elems.animate({
 									opacity: 1.0
 								}, 200, 'swing');
 							});
-						
+
 						} else {
 							$elems.animate({ opacity: 1.0 }, 200, 'swing');
 						}
@@ -473,8 +471,6 @@
 								easing: 'easeInOutCubic'
 							});
 						}
-
-					});
 
 					setTimeout(function() {
 						var $loader = $('#infscr-loading > div');

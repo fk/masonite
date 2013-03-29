@@ -651,7 +651,7 @@
                     {block:Photo}
                         <div class="media">
                             {LinkOpenTag}
-                                <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{PhotoURL-400}{/block:IfNot500pxPosts} {block:If500pxPosts}{PhotoURL-500}{/block:If500pxPosts}{/block:IndexPage}" alt="{PhotoAlt}" />
+                                <img src="{block:PermalinkPage}{PhotoURL-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{PhotoURL-400}{/block:IfNot500pxPosts}{block:If500pxPosts}{PhotoURL-500}{/block:If500pxPosts}{/block:IndexPage}" width="{block:PermalinkPage}{PhotoWidth-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{PhotoWidth-400}{/block:IfNot500pxPosts}{block:If500pxPosts}{PhotoWidth-500}{/block:If500pxPosts}{/block:IndexPage}" height="{block:PermalinkPage}{PhotoHeight-500}{/block:PermalinkPage}{block:IndexPage}{block:IfNot500pxPosts}{PhotoHeight-400}{/block:IfNot500pxPosts}{block:If500pxPosts}{PhotoHeight-500}{/block:If500pxPosts}{/block:IndexPage}" alt="{PhotoAlt}" />
                             {LinkCloseTag}
                             {block:IfEnableColorbox}
                                 <a href='{PhotoURL-HighRes}' class='fullsize colorbox' rel="fullsize"><span>{lang:Click for high-res photo}</span></a>
@@ -725,7 +725,7 @@
 
                     {block:Answer}
                         <h3 class="title question">{Question}</h3>
-                        <div class="asker"><img src="{AskerPortraitURL-16}"> {Asker}</div>
+                        <div class="asker"><img src="{AskerPortraitURL-16}" width="16" height="16"> {Asker}</div>
                         <div class="copy">{Answer}</div>
                     {block:Answer}
 
@@ -1023,7 +1023,7 @@
                     {/block:PermalinkPagination}
                     {/block:IfDisqusShortname}
                     'http://static.tumblr.com/wccjej0/uQCmibwd7/plugins.js',
-                    'http://static.tumblr.com/wccjej0/qGbmk8t55/masonite.min.js'
+                    'http://static.tumblr.com/wccjej0/XaQmkec8d/masonite.js'
                 ]);
              }
         },
