@@ -330,7 +330,8 @@
 
 
 					$wall.masonry({
-						isAnimated: !Modernizr.csstransitions,
+						//isAnimated: !Modernizr.csstransitions,
+						isAnimated: false,
 						itemSelector: '.post',
 						isFitWidth: masonite.centeredContent,
 						isResizable: !masonite.centeredContent,
