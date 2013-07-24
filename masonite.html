@@ -237,7 +237,7 @@
         {block:IfFlattr}
             margin-top: 2em;
         {/block:IfFlattr}
-        
+
         }
 
         /* ==========================================================================
@@ -396,7 +396,6 @@
            Fonts
            ========================================================================== */
 
-        
         body,
         textarea {
             font-family: 
@@ -446,6 +445,7 @@
         /* ==========================================================================
            Pretty Print
            ========================================================================== */
+
         pre, code, kbd {
           font-family: Monaco, Menlo, 'Courier New', monospace;
           font-size: 12px;
@@ -640,7 +640,7 @@
             {/block:NoSearchResults}
             <h2 class="searchresultcount">{lang:SearchResultCount results for SearchQuery 2}</h2>
         {/block:SearchPage}
-        
+
         {block:TagPage}
             <h2 class="searchresultcount">{lang:Posts tagged Tag}</h2>
         {/block:TagPage}
@@ -985,10 +985,10 @@
 
     Modernizr.load([
         {
-            load: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+            load: '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
             complete: function () {
                 if ( !window.jQuery ) {
-                    Modernizr.load('http://static.tumblr.com/wccjej0/e2zmi0vft/jquery-1.9.1.min.js');
+                    Modernizr.load('http://static.tumblr.com/wccjej0/T80mqf0ch/jquery-1.10.2.min.js');
                 }
             }
         },
