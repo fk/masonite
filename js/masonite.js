@@ -328,6 +328,7 @@
 				// http://masonry.desandro.com/docs/options.html
 				// http://masonry.desandro.com/docs/animating.html#modernizr
 
+				$wall.imagesLoaded(function() {
 
 					$wall.masonry({
 						//isAnimated: !Modernizr.csstransitions,
@@ -362,7 +363,7 @@
 								columns = currentColumns;
 								// apply width to container manually, then trigger relayout
 								var $queue;
-								
+
 								if ( moreColumns ) {
 
 									if ( !$('body').hasClass('header-left') ) {
@@ -404,7 +405,7 @@
 							}
 						}).smartresize(); // trigger resize to set container width
 					}
-
+				});
 			}
 
 			if ( masonite.infiniteScroll ) {
@@ -455,6 +456,8 @@
 
 					prettifyCode();
 
+					$elems.imagesLoaded(function() {
+
 						if ( !$('body').hasClass('single-column') ) {
 							$wall.masonry( 'appended', $elems, true, function() {
 								$elems.animate({
@@ -472,6 +475,8 @@
 								easing: 'easeInOutCubic'
 							});
 						}
+
+					});
 
 					setTimeout(function() {
 						var $loader = $('#infscr-loading > div');
