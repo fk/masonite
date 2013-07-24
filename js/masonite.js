@@ -331,11 +331,9 @@
 				$wall.imagesLoaded(function() {
 
 					$wall.masonry({
-						//isAnimated: !Modernizr.csstransitions,
-						isAnimated: false,
 						itemSelector: '.post',
 						isFitWidth: masonite.centeredContent,
-						isResizable: !masonite.centeredContent,
+						isResizeBound: !masonite.centeredContent,
 						columnWidth: $('.post').outerWidth(true)
 					});
 
@@ -349,7 +347,7 @@
 							columns = null,
 							moreColumns = false;
 
-						$(window).smartresize(function() {
+						$(window).on("debouncedresize", function( event ) {
 							// check if columns has changed
 							var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
 
@@ -386,16 +384,16 @@
 									}
 
 									$queue.promise().done(function(){
-										$wall.masonry('reload');
-										$('#likes').masonry('reload');
+										$wall.masonry('layout');
+										$('#likes').masonry('layout');
 									});
 
 								} else {
 
 									$page.width( columns * colW + offset );
 									// $wall.width( columns * colW );
-									$wall.masonry('reload');
-									$('#likes').masonry('reload');
+									$wall.masonry('layout');
+									$('#likes').masonry('layout');
 									if ( !$('body').hasClass('header-left') ) {
 										$sidebar.css({
 											'margin-left': columns * colW
@@ -403,7 +401,9 @@
 									}
 								}
 							}
-						}).smartresize(); // trigger resize to set container width
+						});
+						// trigger resize to set container width
+						$(window).trigger( "debouncedresize" );
 					}
 				});
 			}
