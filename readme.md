@@ -121,7 +121,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [Modernizr](http://modernizr.com/) v2.6.2
 * [jQuery](http://jquery.com/) v1.10.2
 * [jQuery Masonry](http://masonry.desandro.com/) v2.1.08 by [@desandro](https://twitter.com/desandro)
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.4.3 by [@jacklmoore](https://twitter.com/jacklmoore)
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.4.27 by [@jacklmoore](https://twitter.com/jacklmoore)
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b2.120519
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
