@@ -229,7 +229,7 @@
 
 		$('#avatar').imagesLoaded(function() {
 
-			var $that = $(this),
+			var $that = $('#avatar'),
 				width = $that.width(),
 				hidpi = $that.attr('data-hidpi-src'),
 				src = $that.attr('src');
