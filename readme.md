@@ -9,7 +9,7 @@ live at [hellodirty.com](http://hellodirty.com).
 
 ## Features
 
-* [jQuery Masonry](http://masonry.desandro.com/)-powered index page layout
+* [Masonry](http://masonry.desandro.com/)-powered index page layout
   * [infinite scrolling](http://www.infinite-scroll.com) – automatic or user-triggered ("Twitter-style")
   * opt-out to a one-column layout
   * optional centered layout mode
@@ -120,7 +120,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 * [Modernizr](http://modernizr.com/) v2.6.2
 * [jQuery](http://jquery.com/) v1.10.2
-* [jQuery Masonry](http://masonry.desandro.com/) v2.1.08 by [@desandro](https://twitter.com/desandro)
+* [Masonry](http://masonry.desandro.com/) v3.1.0 by [@desandro](https://twitter.com/desandro)
 * [ColorBox](http://jacklmoore.com/colorbox/) v1.4.27 by [@jacklmoore](https://twitter.com/jacklmoore)
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b.120520
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
