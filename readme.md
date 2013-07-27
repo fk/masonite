@@ -150,6 +150,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Updated to normalize.css v1.1.2.
 * Updated to ColorBox v1.4.27.
 * Updated to Masonry v3.1.0 – this means [no support for IE<8](http://masonry.desandro.com/faq.html#browser-support) and [no animation for Masonry elements in IE8 and IE9](http://masonry.desandro.com/appendix.html#upgrading-from-v2) (since jQuery animation has been removed).
+* Updated to Google Web Font Loader v1.4.8.
 
 ### 0.2.3
 
