@@ -928,25 +928,6 @@
 
 </div>
 
-{block:IfGoogleWebFont}
-<script>
-  WebFontConfig = {
-    google: {
-      families: [{text:Google Web Font}]
-    }
-  };
-  (function() {
-    var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1.4.8/webfont.js';
-    wf.type = 'text/javascript';
-    wf.async = 'true';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(wf, s);
-  })();
-</script>
-{/block:IfGoogleWebFont}
-
 <script>
     masonite = {
         whites          : "{color:Background}",
@@ -965,6 +946,14 @@
     }
 
     var disqus_shortname = masonite.disqusShortname;
+
+    {block:IfGoogleWebFont}
+      WebFontConfig = {
+        google: {
+          families: [{text:Google Web Font}]
+        }
+      };
+    {/block:IfGoogleWebFont}
 
     {block:IfDisqusShortname}
         {block:PermalinkPagination}
@@ -999,6 +988,12 @@
                 'http://static.tumblr.com/wccjej0/Dr1mqgg1b/colorbox.css'
             ]
         },
+        {block:IfGoogleWebFont}
+        {
+            test: Modernizr.fontface,
+            yep: '//ajax.googleapis.com/ajax/libs/webfont/1.4.8/webfont.js'
+        },
+        {/block:IfGoogleWebFont}
         {
             test: masonite.infiniteScroll,
             yep: 'http://static.tumblr.com/wccjej0/XB7mqgki7/jquery.infinitescroll.js'
