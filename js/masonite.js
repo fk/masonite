@@ -464,7 +464,6 @@
 									opacity: 1.0
 								}, 200, 'swing');
 							});
-
 						} else {
 							$elems.animate({ opacity: 1.0 }, 200, 'swing');
 						}
