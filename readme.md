@@ -127,7 +127,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.7 by [@ginader](https://twitter.com/ginader)
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Web Font Loader](https://github.com/typekit/webfontloader) v1.4.8
-* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS ([normalize.css](http://necolas.github.com/normalize.css/) v1.1.2 + H5BP goodies)
+* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v2.1.2
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
