@@ -428,7 +428,7 @@
 					navSelector: '#pagination', // selector for the paged navigation
 					nextSelector: '#pagination .next a', // selector for the NEXT link (to page 2)
 					itemSelector: '#posts .post', // selector for all items you'll retrieve
-					bufferPx: 200,
+					bufferPx: 600,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
 					errorCallback: function() {
@@ -459,11 +459,10 @@
 					$elems.imagesLoaded(function() {
 
 						if ( !$('body').hasClass('single-column') ) {
-							$wall.masonry( 'appended', $elems, true, function() {
-								$elems.animate({
-									opacity: 1.0
-								}, 200, 'swing');
-							});
+							$wall.masonry( 'appended', newElements );
+							$elems.animate({
+								opacity: 1.0
+							}, 200, 'swing');
 						} else {
 							$elems.animate({ opacity: 1.0 }, 200, 'swing');
 						}
