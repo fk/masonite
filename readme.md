@@ -21,7 +21,7 @@ live at [hellodirty.com](http://hellodirty.com).
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) to make videos always fit in the available width, even when nested in blockquotes or similar
 * customizable fonts
   * via Tumblr's own custom fonts functionality
-  * or by specifying a web font family (and style(s)) from the [Google Web Fonts API](http://www.google.com/webfonts)
+  * or by specifying a web font family (and style(s)) from [Google Fonts](http://www.google.com/fonts)
 * optional
   * links to "Reblog" and "Like" and tag display on index pages
   * lightbox-view of high resolution images, including a (user-invoked) slideshow
@@ -42,7 +42,7 @@ live at [hellodirty.com](http://hellodirty.com).
 ### Fonts
 
 * **Body, PostMeta, Quote, Title, Pre** – Override the theme default font by choosing from Tumblr's "Customize" font-stacks.
-* **Google Web Font** – Load one or multiple font families from [Google Web Fonts](http://www.google.com/webfonts) using the [Web Font Loader](https://github.com/typekit/webfontloader).  
+* **Google Web Font** – Load one or multiple font families from [Google Fonts](http://www.google.com/fonts) using the [Web Font Loader](https://github.com/typekit/webfontloader).  
 The option accepts an array as defined [here](https://developers.google.com/webfonts/docs/webfont_loader#GoogleModule), e. g. `'Fruktur','Open Sans:400,700,400italic,700italic'` would load the "[Fruktur](http://www.google.com/webfonts/specimen/Fruktur)" font family and the normal (`400`), italic (`400italic`), bold (`700`) and bold italic (`700italic`) versions of "[Open Sans](http://www.google.com/webfonts/specimen/Open+Sans)". To make use of the loaded fonts you can write your own CSS-styles or put the name of the font into one of the five "Google Web Font …" option-fields – e. g. to use "Fruktur" as font for all quotes, put `Fruktur` into the "Google Web Font Quote"-field.
 
 ### Images
