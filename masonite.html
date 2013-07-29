@@ -954,14 +954,27 @@
         audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer}
     }
 
-    var disqus_shortname = masonite.disqusShortname;
+    var disqus_shortname = masonite.disqusShortname,
+        masonryPosts,
+        masonryLikes;
 
     {block:IfGoogleWebFont}
-      WebFontConfig = {
-        google: {
-          families: [{text:Google Web Font}]
+        function triggerMasonry() {
+            // don't proceed if masonry has not been initialized
+            if ( !masonryPosts ) {
+                return;
+            } else {
+                masonryPosts.layout();
+            }
         }
-      };
+
+        WebFontConfig = {
+            google: {
+                families: [{text:Google Web Font}]
+            },
+            active: triggerMasonry,
+            inactive: triggerMasonry
+        };
     {/block:IfGoogleWebFont}
 
     {block:IfDisqusShortname}
@@ -977,7 +990,6 @@
     window._gaq = masonite.googleAnalytics;
 
     placeHolderConfig = {
-      // either hide the placeholder on focus or on type
       hideOnFocus : false
     }
 
@@ -990,13 +1002,6 @@
                 }
             }
         },
-        {
-            test: masonite.colorbox,
-            yep: [
-                'http://static.tumblr.com/wccjej0/Oiqmqgfrz/jquery.colorbox-min.js',
-                'http://static.tumblr.com/wccjej0/Dr1mqgg1b/colorbox.css'
-            ]
-        },
         {block:IfGoogleWebFont}
         {
             test: Modernizr.fontface,
@@ -1004,12 +1009,19 @@
         },
         {/block:IfGoogleWebFont}
         {
-            test: masonite.infiniteScroll,
-            yep: 'http://static.tumblr.com/wccjej0/XB7mqgki7/jquery.infinitescroll.js'
-        },
-        {
             test: Modernizr.input.placeholder,
             nope: 'http://static.tumblr.com/wccjej0/l3mmqkpz2/placeholder_polyfill.jquery.min.combo.js'
+        },
+        {
+            test: masonite.colorbox,
+            yep: [
+                'http://static.tumblr.com/wccjej0/Oiqmqgfrz/jquery.colorbox-min.js',
+                'http://static.tumblr.com/wccjej0/Dr1mqgg1b/colorbox.css'
+            ]
+        },
+        {
+            test: masonite.infiniteScroll,
+            yep: 'http://static.tumblr.com/wccjej0/XB7mqgki7/jquery.infinitescroll.js'
         },
         {
             test: masonite.googlePrettify,
@@ -1027,7 +1039,7 @@
                     {/block:PermalinkPagination}
                     {/block:IfDisqusShortname}
                     'http://static.tumblr.com/wccjej0/QLFmqgmp4/plugins.js',
-                    'http://static.tumblr.com/wccjej0/Arzmqpmws/masonite.min.js'
+                    'http://static.tumblr.com/wccjej0/bn3mqpyu9/masonite.js'
                 ]);
              }
         },
