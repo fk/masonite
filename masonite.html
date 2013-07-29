@@ -108,6 +108,7 @@
 
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Body" content="" />
+    <meta name="text:Google Web Font Post Title" content="" />
     <meta name="text:Google Web Font Meta" content="" />
     <meta name="text:Google Web Font Quote" content="" />
     <meta name="text:Google Web Font Title" content="" />
@@ -429,6 +430,14 @@
             '{text:Google Web Font Meta}', 
             {/block:IfGoogleWebFontMeta}
             {font:Meta};
+        }
+
+        .post .title {
+            font-family: 
+            {block:IfGoogleWebFontPostTitle}
+            '{text:Google Web Font Post Title}', 
+            {/block:IfGoogleWebFontPostTitle}
+            {font:Title};
         }
 
         pre,
