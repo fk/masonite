@@ -68,6 +68,28 @@
 		return this;
 	};
 
+	$.fn.fixSoundcloud = function() {
+		this.find("iframe[src^='https://w.soundcloud.com/']").each(function() {
+			var $obj = $(this),
+				src = $obj.attr("src"),
+				attributes = $obj.prop("attributes"),
+				$newIframe = $('<iframe></iframe>').insertAfter( $obj ).hide();
+
+			$obj.remove();
+			$newIframe.show();
+
+			$.each(attributes, function() {
+				if ( this.name === "src" ) {
+					$newIframe.attr(this.name, this.value + "&color=" + masonite.accents);
+				} else {
+					$newIframe.attr(this.name, this.value);
+				}
+			});
+		});
+
+		return this;
+	};
+
 	$.fn.fixVimeo = function() {
 		/*
 			Better Vimeo Embeds 2.1 by Matthew Buchanan
@@ -77,8 +99,7 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		var color = masonite.accents,
-			opts = "title=0&byline=0&portrait=0";
+		var opts = "title=0&byline=0&portrait=0";
 
 		this.find("iframe[src^='http://player.vimeo.com']").each(function() {
 			var src = $(this).attr("src"),
@@ -88,7 +109,7 @@
 			if ( src.indexOf("?") === -1 ) {
 				$(this).replaceWith(
 					"<iframe src='" + src + "?" + opts + "&color=" +
-					color + "' width='" + w + "' height='" + h +
+					masonite.accents + "' width='" + w + "' height='" + h +
 					"' frameborder='0'></iframe>"
 				);
 			}
@@ -105,7 +126,7 @@
 
 			$obj.replaceWith(
 				"<iframe src='http://player.vimeo.com/video/" +
-				id + "?" + server + "&" + opts + "&color=" + color +
+				id + "?" + server + "&" + opts + "&color=" + masonite.accents +
 				"' width='" + w + "' height='" + h +
 				"' frameborder='0'></iframe>"
 			);
@@ -208,7 +229,7 @@
 
 		$('#avatar').imagesLoaded(function() {
 
-			var $that = $(this),
+			var $that = $('#avatar'),
 				width = $that.width(),
 				hidpi = $that.attr('data-hidpi-src'),
 				src = $that.attr('src');
@@ -268,7 +289,8 @@
 				.end()
 			.fixYouTube()
 			.fitVids()
-			.fixVimeo();
+			.fixVimeo()
+			.fixSoundcloud();
 
 		prettifyCode();
 
@@ -307,11 +329,11 @@
 				// http://masonry.desandro.com/docs/animating.html#modernizr
 
 				$wall.imagesLoaded(function() {
+
 					$wall.masonry({
-						isAnimated: !Modernizr.csstransitions,
 						itemSelector: '.post',
 						isFitWidth: masonite.centeredContent,
-						isResizable: !masonite.centeredContent,
+						isResizeBound: !masonite.centeredContent,
 						columnWidth: $('.post').outerWidth(true)
 					});
 
@@ -325,7 +347,7 @@
 							columns = null,
 							moreColumns = false;
 
-						$(window).smartresize(function() {
+						$(window).on("debouncedresize", function( event ) {
 							// check if columns has changed
 							var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
 
@@ -339,7 +361,7 @@
 								columns = currentColumns;
 								// apply width to container manually, then trigger relayout
 								var $queue;
-								
+
 								if ( moreColumns ) {
 
 									if ( !$('body').hasClass('header-left') ) {
@@ -362,16 +384,16 @@
 									}
 
 									$queue.promise().done(function(){
-										$wall.masonry('reload');
-										$('#likes').masonry('reload');
+										$wall.masonry('layout');
+										$('#likes').masonry('layout');
 									});
 
 								} else {
 
 									$page.width( columns * colW + offset );
 									// $wall.width( columns * colW );
-									$wall.masonry('reload');
-									$('#likes').masonry('reload');
+									$wall.masonry('layout');
+									$('#likes').masonry('layout');
 									if ( !$('body').hasClass('header-left') ) {
 										$sidebar.css({
 											'margin-left': columns * colW
@@ -379,29 +401,36 @@
 									}
 								}
 							}
-						}).smartresize(); // trigger resize to set container width
+						});
+						// trigger resize to set container width
+						$(window).trigger( "debouncedresize" );
 					}
 				});
 			}
 
 			if ( masonite.infiniteScroll ) {
 
+				masonite.infiniteScrollLoadingOptions = {
+					finishedMsg: "No more pages to load",
+					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
+					msgText: "Loading 2/" + masonite.totalPages
+				};
+
 				if ( masonite.customTrigger ) {
 					infinitescroll_behavior = 'twitter';
 					$('#pagination li.next a').text('Load more posts');
+				} else {
+					masonite.infiniteScrollLoadingOptions.selector = '#copyright';
 				}
 
 				$wall.infinitescroll({
-					loading: {
-						finishedMsg: "No more pages to load",
-						img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-						msgText: "Loading page 2/" + masonite.totalPages
-					},
+					loading: masonite.infiniteScrollLoadingOptions,
 					navSelector: '#pagination', // selector for the paged navigation
 					nextSelector: '#pagination .next a', // selector for the NEXT link (to page 2)
 					itemSelector: '#posts .post', // selector for all items you'll retrieve
-					bufferPx: 200,
+					bufferPx: 600,
 					behavior: infinitescroll_behavior,
+					maxPage: masonite.totalPages,
 					errorCallback: function() {
 						// fade out the error message after 2 seconds
 						$('#infscr-loading').animate({
@@ -420,6 +449,7 @@
 						.fixYouTube()
 						.fitVids()
 						.fixVimeo()
+						.fixSoundcloud()
 						.fixTumblrAudio()
 						.find('.title')
 							.widowFix();
@@ -429,12 +459,10 @@
 					$elems.imagesLoaded(function() {
 
 						if ( !$('body').hasClass('single-column') ) {
-							$wall.masonry( 'appended', $elems, true, function() {
-								$elems.animate({
-									opacity: 1.0
-								}, 200, 'swing');
-							});
-						
+							$wall.masonry( 'appended', newElements );
+							$elems.animate({
+								opacity: 1.0
+							}, 200, 'swing');
 						} else {
 							$elems.animate({ opacity: 1.0 }, 200, 'swing');
 						}
@@ -451,7 +479,7 @@
 					setTimeout(function() {
 						var $loader = $('#infscr-loading > div');
 						if ( (opts.state.currPage + 1) <= masonite.totalPages ) {
-							$loader.html("Loading page " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
+							$loader.html("Loading " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
 						} else {
 							$loader.html("No more pages to load");
 						}

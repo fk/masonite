@@ -1,4 +1,4 @@
-# masonite v0.2.3
+# masonite v0.2.4
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -9,7 +9,7 @@ live at [hellodirty.com](http://hellodirty.com).
 
 ## Features
 
-* [jQuery Masonry](http://masonry.desandro.com/)-powered index page layout
+* [Masonry](http://masonry.desandro.com/)-powered index page layout
   * [infinite scrolling](http://www.infinite-scroll.com) – automatic or user-triggered ("Twitter-style")
   * opt-out to a one-column layout
   * optional centered layout mode
@@ -21,16 +21,17 @@ live at [hellodirty.com](http://hellodirty.com).
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) to make videos always fit in the available width, even when nested in blockquotes or similar
 * customizable fonts
   * via Tumblr's own custom fonts functionality
-  * or by specifying a web font family (and style(s)) from the [Google Web Fonts API](http://www.google.com/webfonts)
+  * or by specifying a web font family (and style(s)) from [Google Fonts](http://www.google.com/fonts)
 * optional
   * links to "Reblog" and "Like" and tag display on index pages
   * lightbox-view of high resolution images, including a (user-invoked) slideshow
   * hide Tumblr avatar and/or title
-  * show latest Likes and/or Tweets
-  * show "People I follow"
   * [Disqus](http://disqus.com/) 2012 integration
   * [Google Analytics](http://www.google.com/analytics/) and [Clicky](http://getclicky.com/) integration
   * [Google Code Prettify](http://code.google.com/p/google-code-prettify/) syntax highlighting
+* somewhat working, somewhat orphaned
+  * show latest Likes and/or Tweets
+  * show "People I follow"
 
 ## Customization Options
 
@@ -41,7 +42,7 @@ live at [hellodirty.com](http://hellodirty.com).
 ### Fonts
 
 * **Body, PostMeta, Quote, Title, Pre** – Override the theme default font by choosing from Tumblr's "Customize" font-stacks.
-* **Google Web Font** – Load one or multiple font families from [Google Web Fonts](http://www.google.com/webfonts) using the [Google WebFont Loader](https://developers.google.com/webfonts/docs/webfont_loader).  
+* **Google Web Font** – Load one or multiple font families from [Google Fonts](http://www.google.com/fonts) using the [Web Font Loader](https://github.com/typekit/webfontloader).  
 The option accepts an array as defined [here](https://developers.google.com/webfonts/docs/webfont_loader#GoogleModule), e. g. `'Fruktur','Open Sans:400,700,400italic,700italic'` would load the "[Fruktur](http://www.google.com/webfonts/specimen/Fruktur)" font family and the normal (`400`), italic (`400italic`), bold (`700`) and bold italic (`700italic`) versions of "[Open Sans](http://www.google.com/webfonts/specimen/Open+Sans)". To make use of the loaded fonts you can write your own CSS-styles or put the name of the font into one of the five "Google Web Font …" option-fields – e. g. to use "Fruktur" as font for all quotes, put `Fruktur` into the "Google Web Font Quote"-field.
 
 ### Images
@@ -53,19 +54,19 @@ Additionally, you can use _Avatar HiDPI_ to provide a high-resolution version of
 
 * **500px Posts** – activate to switch post width from the default 400 to 500px
 * Centered Content
-* Custom trigger Infinite Scroll
+* **Custom trigger Infinite Scroll** – enables user-triggered, "Twitter"-style infinite scrolling via a "Load more posts"-button
 * Dog Ear Zoom Icon
 * Enable Colorbox
-* Enable Google Prettify
+* **Enable Google Prettify** – enables syntax highlighting via [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 * Enable Infinite Scrolling
 * Enable Like Links on Index Pages
 * Enable Reblog Links on Index Pages
 * **One Column Content** – opt out of the default jQuery Masonry layout for index pages
 * Show Album Art on Audio Posts
-* Show Post Footer Border
+* **Show Post Footer Border** – for better distinction between posts
 * Show Tags
 * Show Tags on Index Page
-* Use White Audio Player
+* **Use White Audio Player** – use Tumblr's white audio player instead of the (default) black one
 
 ### Header Options
 
@@ -118,13 +119,15 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/), a Tumblr theme by [P.J. Onori](http://somerandomdude.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 * [Modernizr](http://modernizr.com/) v2.6.2
-* [jQuery](http://jquery.com/) v1.9.1
-* [jQuery Masonry](http://masonry.desandro.com/) v2.1.08 by [@desandro](https://twitter.com/desandro)
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.4.1 by [@jacklmoore](https://twitter.com/jacklmoore)
-* [Infinite Scroll](http://www.infinite-scroll.com) v2.0b2.120519
+* [jQuery](http://jquery.com/) v1.10.2
+* [Masonry](http://masonry.desandro.com/) v3.1.0 by [@desandro](https://twitter.com/desandro)
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.4.27 by [@jacklmoore](https://twitter.com/jacklmoore)
+* [Infinite Scroll](http://www.infinite-scroll.com) v2.0b.120520
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
+* [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.7 by [@ginader](https://twitter.com/ginader)
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
-* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS ([normalize.css](http://necolas.github.com/normalize.css/) v1.1.0 + H5BP goodies)
+* [Web Font Loader](https://github.com/typekit/webfontloader) v1.4.8
+* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v2.1.2
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
@@ -133,6 +136,23 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.2.4
+
+* Minor improvements to the audio player meta layout.
+* Improvements to the scaling of images and video embeds.
+* "photoset"-posts finally get the right CSS-class/their own "dedicated" markup.
+* infinite-scroll's loading screen is now attached to #copyright when not in "custom trigger" mode (should probably be revisited).
+* Added an option to opt-out of "position:fixed" for #header and #copyright (using "position:absolute" instead). Not perfect, but a start.
+* Soundcloud players now inherit the "masonite.accent"-color.
+* Updated to Masonry v3.1.0 – this means [no support for IE<8](http://masonry.desandro.com/faq.html#browser-support) and [no animation for Masonry elements in IE8 and IE9](http://masonry.desandro.com/appendix.html#upgrading-from-v2) (since jQuery animation has been removed).
+* Updated to jQuery v1.10.2.
+* Updated to normalize.css v1.1.2.
+* Updated to ColorBox v1.4.27.
+* Updated to Web Font Loader v1.4.8.
+* Updated to Google Code Prettify r298.
+* Added Grunt, for now just to minify masonite.js.
+* Lots of cleanup.
 
 ### 0.2.3
 

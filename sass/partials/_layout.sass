@@ -17,7 +17,7 @@ body
     width: 500 + $sidebar + $gutter
 
 #header
-  position: fixed
+  position: absolute
   right: 40px
   bottom: 100px
   width: $sidebar
@@ -29,7 +29,7 @@ body
     right: auto
 
 #copyright
-  position: fixed
+  position: absolute
   bottom: $gutter
   right: 40px
   width: $sidebar
@@ -39,6 +39,11 @@ body
   .hide-copyright &
     span
       display: none
+
+#header,
+#copyright
+  .header-position-fixed &
+    position: fixed
 
 .centered-content
   #container
@@ -64,12 +69,9 @@ body
       left: auto
       right: auto
       margin-left: auto
-  &.header-left #infscr-loading
-    left: auto
-    margin-left: $gutter
 
 #content
-  padding: $gutter 0
+  padding: $gutter 0 0
   .permalink &
     margin-right: 180px
     max-width: 760px
@@ -104,3 +106,6 @@ body
 #pagination,
 .searchresultcount
   +header-margins
+
+.container
+  margin-top: $gutter

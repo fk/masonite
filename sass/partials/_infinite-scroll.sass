@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Infinite Scroll Loader
+   ========================================================================== */
+
+#infscr-loading
+  z-index: 1000
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  font-size: $small-type
+  line-height: 16px
+  height: 16px
+  opacity: 0.9
+  padding: 4px
+  +border-radius(4px)
+  .custom-trigger-infinite-scrolling &
+    padding: 6px 10px 6px 8px
+    position: fixed
+    left: $gutter
+    bottom: $gutter
+    right: auto
+  .custom-trigger-infinite-scrolling.centered-content.header-left &
+    left: auto
+    margin-left: $gutter
+  .custom-trigger-infinite-scrolling.header-left &
+    left: ($sidebar + $gutter * 2)
+  .custom-trigger-infinite-scrolling.centered-content &
+    left: auto
+  div,
+  img
+    float: left
+  img
+    margin-right: 6px
