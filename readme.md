@@ -137,22 +137,22 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.2.4
 
 * Minor improvements to the audio player meta layout.
 * Improvements to the scaling of images and video embeds.
 * "photoset"-posts finally get the right CSS-class/their own "dedicated" markup.
 * infinite-scroll's loading screen is now attached to #copyright when not in "custom trigger" mode (should probably be revisited).
-* Added an option to opt-out of "position:fixed" for #header and #copyright (using "position:absolute" instead).
-* Lots of cleanup.
-* Updated Google WebFont Loader and Google Code Prettify to latest available versions.
-* Added Grunt, for now just to minify masonite.js.
+* Added an option to opt-out of "position:fixed" for #header and #copyright (using "position:absolute" instead). Not perfect, but a start.
 * Soundcloud players now inherit the "masonite.accent"-color.
+* Updated to Masonry v3.1.0 – this means [no support for IE<8](http://masonry.desandro.com/faq.html#browser-support) and [no animation for Masonry elements in IE8 and IE9](http://masonry.desandro.com/appendix.html#upgrading-from-v2) (since jQuery animation has been removed).
 * Updated to jQuery v1.10.2.
 * Updated to normalize.css v1.1.2.
 * Updated to ColorBox v1.4.27.
-* Updated to Masonry v3.1.0 – this means [no support for IE<8](http://masonry.desandro.com/faq.html#browser-support) and [no animation for Masonry elements in IE8 and IE9](http://masonry.desandro.com/appendix.html#upgrading-from-v2) (since jQuery animation has been removed).
-* Updated to Google Web Font Loader v1.4.8.
+* Updated to Web Font Loader v1.4.8.
+* Updated to Google Code Prettify r298.
+* Added Grunt, for now just to minify masonite.js.
+* Lots of cleanup.
 
 ### 0.2.3
 
