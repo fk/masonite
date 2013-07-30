@@ -137,6 +137,11 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
+### Not yet released
+
+* Added an appearance option "Google Web Fonts Post Title".
+* Relayout Masonry after webfonts have loaded.
+
 ### 0.2.4
 
 * Minor improvements to the audio player meta layout.
