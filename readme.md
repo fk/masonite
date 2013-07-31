@@ -126,6 +126,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.7 by [@ginader](https://twitter.com/ginader)
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
+* [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 * [Web Font Loader](https://github.com/typekit/webfontloader) v1.4.8
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v2.1.2
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
