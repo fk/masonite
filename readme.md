@@ -142,6 +142,15 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 * Added an appearance option "Google Web Fonts Post Title".
 * Relayout Masonry after webfonts have loaded.
+* Updated to FitVids v1.1.
+* Updated to imagesLoaded v3.1.4.
+* Updated to Masonry v3.1.4.
+* Updated to jQuery v1.11.0.
+* Updated to Colorbox v1.5.4.
+* Updated to Modernizr v2.7.1.
+* Updated to HTML5 Placeholder Polyfill v2.0.9.
+* Updated to normalize.css v3.0.0.
+* Updated to Web Font Loader v1.5.2.
 
 ### 0.2.4
 
