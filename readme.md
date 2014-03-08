@@ -1,4 +1,4 @@
-# masonite v0.2.4
+# masonite v0.2.5
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
