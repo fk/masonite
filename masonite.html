@@ -108,12 +108,13 @@
 
     <meta name="text:Google Web Font" content="" />
     <meta name="text:Google Web Font Body" content="" />
+    <meta name="text:Google Web Font Post Title" content="" />
     <meta name="text:Google Web Font Meta" content="" />
     <meta name="text:Google Web Font Quote" content="" />
     <meta name="text:Google Web Font Title" content="" />
     <meta name="text:Google Web Font Pre" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/4o2mqo4xr/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/GINn2395g/masonite.css">
 
     <style type="text/css">
 
@@ -431,6 +432,14 @@
             {font:Meta};
         }
 
+        .post .title {
+            font-family: 
+            {block:IfGoogleWebFontPostTitle}
+            '{text:Google Web Font Post Title}', 
+            {/block:IfGoogleWebFontPostTitle}
+            {font:Title};
+        }
+
         pre,
         code,
         tt {
@@ -487,7 +496,7 @@
 
         {CustomCSS}
     </style>
-    <script src="http://static.tumblr.com/wccjej0/rxnmg6ef3/modernizr-2.6.2.min.js"></script>
+    <script src="http://static.tumblr.com/wccjej0/zvbn238jp/modernizr-2.7.1.min.js"></script>
 </head>
 
 <body class="{block:PermalinkPage}permalink{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar} {block:IfEnableFixedPositioningofSidebar}header-position-fixed{/block:IfEnableFixedPositioningofSidebar}">
@@ -945,14 +954,33 @@
         audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer}
     }
 
-    var disqus_shortname = masonite.disqusShortname;
+    var disqus_shortname = masonite.disqusShortname,
+        masonryPosts,
+        masonryLikes;
 
     {block:IfGoogleWebFont}
-      WebFontConfig = {
-        google: {
-          families: [{text:Google Web Font}]
+        function triggerMasonry() {
+            // don't proceed if masonry has not been initialized
+            if ( !masonryPosts ) {
+                return;
+            } else {
+                masonryPosts.layout();
+            }
+
+            if ( !masonryLikes ) {
+                return;
+            } else {
+                masonryLikes.layout();
+            }
         }
-      };
+
+        WebFontConfig = {
+            google: {
+                families: [{text:Google Web Font}]
+            },
+            active: triggerMasonry,
+            inactive: triggerMasonry
+        };
     {/block:IfGoogleWebFont}
 
     {block:IfDisqusShortname}
@@ -968,39 +996,38 @@
     window._gaq = masonite.googleAnalytics;
 
     placeHolderConfig = {
-      // either hide the placeholder on focus or on type
       hideOnFocus : false
     }
 
     Modernizr.load([
         {
-            load: '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
+            load: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
             complete: function () {
                 if ( !window.jQuery ) {
-                    Modernizr.load('http://static.tumblr.com/wccjej0/T80mqf0ch/jquery-1.10.2.min.js');
+                    Modernizr.load('http://static.tumblr.com/wccjej0/L7Un2380u/jquery-1.11.0.min.js');
                 }
             }
-        },
-        {
-            test: masonite.colorbox,
-            yep: [
-                'http://static.tumblr.com/wccjej0/Oiqmqgfrz/jquery.colorbox-min.js',
-                'http://static.tumblr.com/wccjej0/Dr1mqgg1b/colorbox.css'
-            ]
         },
         {block:IfGoogleWebFont}
         {
             test: Modernizr.fontface,
-            yep: '//ajax.googleapis.com/ajax/libs/webfont/1.4.8/webfont.js'
+            yep: '//ajax.googleapis.com/ajax/libs/webfont/1.5.2/webfont.js'
         },
         {/block:IfGoogleWebFont}
         {
-            test: masonite.infiniteScroll,
-            yep: 'http://static.tumblr.com/wccjej0/XB7mqgki7/jquery.infinitescroll.js'
+            test: Modernizr.input.placeholder,
+            nope: 'http://static.tumblr.com/wccjej0/xWUn2388u/placeholder_polyfill.jquery.min.combo.js'
         },
         {
-            test: Modernizr.input.placeholder,
-            nope: 'http://static.tumblr.com/wccjej0/l3mmqkpz2/placeholder_polyfill.jquery.min.combo.js'
+            test: masonite.colorbox,
+            yep: [
+                'http://static.tumblr.com/wccjej0/XlHn2389k/jquery.colorbox-min.js',
+                'http://static.tumblr.com/wccjej0/XY4n238et/colorbox.css'
+            ]
+        },
+        {
+            test: masonite.infiniteScroll,
+            yep: 'http://static.tumblr.com/wccjej0/JWkn238uv/jquery.infinitescroll.js'
         },
         {
             test: masonite.googlePrettify,
@@ -1017,8 +1044,8 @@
                     '//{text:Disqus Shortname}.disqus.com/embed.js',
                     {/block:PermalinkPagination}
                     {/block:IfDisqusShortname}
-                    'http://static.tumblr.com/wccjej0/QLFmqgmp4/plugins.js',
-                    'http://static.tumblr.com/wccjej0/Arzmqpmws/masonite.min.js'
+                    'http://static.tumblr.com/wccjej0/FTGn238ih/plugins.js',
+                    'http://static.tumblr.com/wccjej0/bn3mqpyu9/masonite.js'
                 ]);
              }
         },

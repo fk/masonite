@@ -249,10 +249,9 @@
 			fadingSidebar();
 		}
 
-		$('#likes').masonry({
-			isAnimated: !Modernizr.csstransitions,
+		var masonryLikes = $('#likes').masonry({
 			itemSelector: 'li',
-			isResizable: true,
+			isResizeBound: true,
 			columnWidth: $('li').width()
 		});
 
@@ -330,7 +329,7 @@
 
 				$wall.imagesLoaded(function() {
 
-					$wall.masonry({
+					masonryPosts = $wall.masonry({
 						itemSelector: '.post',
 						isFitWidth: masonite.centeredContent,
 						isResizeBound: !masonite.centeredContent,
