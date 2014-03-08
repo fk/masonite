@@ -118,17 +118,18 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 * originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/), a Tumblr theme by [P.J. Onori](http://somerandomdude.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
-* [Modernizr](http://modernizr.com/) v2.6.2
-* [jQuery](http://jquery.com/) v1.10.2
-* [Masonry](http://masonry.desandro.com/) v3.1.0 by [@desandro](https://twitter.com/desandro)
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.4.27 by [@jacklmoore](https://twitter.com/jacklmoore)
+* [Modernizr](http://modernizr.com/) v2.7.1
+* [jQuery](http://jquery.com/) v1.11.0
+* [Masonry](http://masonry.desandro.com/) v3.1.4 by [@desandro](https://twitter.com/desandro)
+* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.4 by [@desandro](https://twitter.com/desandro)
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.4 by [@jacklmoore](https://twitter.com/jacklmoore)
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b.120520
-* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.0 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
-* [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.7 by [@ginader](https://twitter.com/ginader)
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
+* [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.9 by [@ginader](https://twitter.com/ginader)
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
-* [Web Font Loader](https://github.com/typekit/webfontloader) v1.4.8
-* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v2.1.2
+* [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.2
+* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.0
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
@@ -138,10 +139,10 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.2.5
 
 * Added an appearance option "Google Web Fonts Post Title".
-* Relayout Masonry after webfonts have loaded.
+* Relayout Masonry after web fonts have loaded.
 * Updated to FitVids v1.1.
 * Updated to imagesLoaded v3.1.4.
 * Updated to Masonry v3.1.4.
