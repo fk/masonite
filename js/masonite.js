@@ -159,7 +159,7 @@
 				var $audioPost = $(this),
 					audioID = $audioPost.attr("id"),
 					script = document.createElement('script');
-				
+
 				$audioPost.find(".player span").css({ visibility: 'hidden' });
 
 				script.type = 'text/javascript';
@@ -300,28 +300,6 @@
 
 			var $wall = $('#posts'),
 				infinitescroll_behavior;
-
-			if ( masonite.likeLinks ) {
-				$('body').append('<iframe id="like"></iframe>');
-				$('.footer').on(
-					{
-						click: function(event) {
-							event.preventDefault();
-							var $post = $(this).closest('.post'),
-								id = $post.attr('id'),
-								oauth = $post.attr('rel').slice(-8),
-								liked = ( $(this).hasClass('liked') ),
-								command = liked ? 'unlike' : 'like',
-								iframeSource = 'http://www.tumblr.com/' + command + '/' + oauth + '?id=' + id;
-
-							$('#like').attr('src', iframeSource);
-							$(this).toggleClass('liked');
-						}
-					},
-					'.like a'
-				);
-
-			}
 
 			if ( !$('body').hasClass('single-column') ) {
 				// http://masonry.desandro.com/docs/options.html
@@ -473,6 +451,11 @@
 							});
 						}
 
+						var $elemIDs = $elems.map(function () {
+							return this.id;
+						}).get();
+
+						Tumblr.LikeButton.get_status_by_post_ids($elemIDs);
 					});
 
 					setTimeout(function() {
