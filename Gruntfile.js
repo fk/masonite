@@ -1,3 +1,5 @@
+// http://gruntjs.com/getting-started#the-gruntfile
+
 module.exports = function(grunt) {
 
   // Project configuration.

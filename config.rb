@@ -1,3 +1,6 @@
+# compass configuration
+# http://compass-style.org/help/tutorials/configuration-reference/
+
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
@@ -16,4 +19,6 @@ output_style = :compressed #:expanded or :nested or :compact
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 line_comments = false
 
+# Our preffered syntax is Sass
+# http://sass-lang.com/documentation/file.INDENTED_SYNTAX.html
 preferred_syntax = :sass
