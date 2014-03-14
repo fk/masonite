@@ -146,6 +146,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Reference minified version of masonite.js.
 * Remove line-through for hovered links in the sidebar; instead, use the "Accent"-color for consistency.
 * Fix transition-duration of the "Dog Ear Zoom Icon".
+* Improved markup (better use of HTML5's sectioning elements) and source code.
 
 ### 0.2.5
 
