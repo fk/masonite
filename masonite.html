@@ -110,7 +110,7 @@
     <meta name="text:Google Web Font Title" content="" />
     <meta name="text:Google Web Font Pre" content="" />
 
-    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/GINn2395g/masonite.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/gbEn2elok/masonite.css">
 
     <style type="text/css">
 
@@ -351,12 +351,16 @@
         .no-touch .post:hover a,
         .no-touch .post:hover .title em:before,
         .no-touch .post.photo .media .fullsize:hover,
-        #disqus_thread a {
+        #disqus_thread a,
+        #title a:hover,
+        #description a:hover,
+        #navigation a:hover,
+        #copyright a:hover,
+        .like_button.liked + .custom-like-button:before {
             color: {color:Accents};
         }
 
         body,
-        .no-touch #navigation li a:hover,
         #header h1 a,
         #disqus_thread,
         .no-touch #likes li:hover {
@@ -368,15 +372,20 @@
         a:active,
         .no-touch a,
         .no-touch a:visited,
-        .no-touch #copyright a:hover,
         .no-touch .post a,
         .no-touch .post:hover blockquote,
         .no-touch .post:hover .footer a,
         .no-touch .post:hover .footer .tags,
         .no-touch .post:hover .notes a,
         .post.chat .line.even,
-        .index.custom-trigger-infinite-scrolling #pagination li a {
+        .index.custom-trigger-infinite-scrolling #pagination li a,
+        .custom-like-button:before,
+        .like_button + .custom-like-button:before {
             color: {color:Darks};
+        }
+
+        .reblog_button svg {
+            fill: {color:Darks};
         }
 
         .post .footer,
@@ -441,7 +450,7 @@
         tt {
             font-family: 
             {block:IfGoogleWebFontPre}
-            '{text:Google Web Font Pre}',
+            '{text:Google Web Font Pre}', 
             {/block:IfGoogleWebFontPre}
             {font:Pre};
         }
@@ -652,7 +661,7 @@
 
         <div id="posts" class="clearfix">
             {block:Posts}
-                <div id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}"{block:IfEnableLikeLinksonIndexPages} rel="{ReblogURL}"{/block:IfEnableLikeLinksonIndexPages}>
+                <div id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}">
                     {block:Photo}
                         <div class="media">
                             {LinkOpenTag}
@@ -773,14 +782,15 @@
                         {block:IfEnableLikeLinksonIndexPages}
                             {block:IndexPage}
                                 <li class="like">
-                                    <a href='#'><span>Like</span></a>
+                                    {LikeButton size="10"}
+                                    <div class="custom-like-button"></div>
                                 </li>
                             {/block:IndexPage}
                         {/block:IfEnableLikeLinksonIndexPages}
                         {block:IfEnableReblogLinksonIndexPages}
                             {block:IndexPage}
                                 <li class="reblog">
-                                    <a href='{ReblogURL}'><span>Reblog</span></a>
+                                    {ReblogButton size="10"}
                                 </li>
                             {/block:IndexPage}
                         {/block:IfEnableReblogLinksonIndexPages}
@@ -937,7 +947,6 @@
     masonite = {
         whites          : "{color:Background}",
         accents         : "{color:Accents}",
-        likeLinks       : {block:IfEnableLikeLinksonIndexPages}true{/block:IfEnableLikeLinksonIndexPages}{block:IfNotEnableLikeLinksonIndexPages}false{/block:IfNotEnableLikeLinksonIndexPages},
         centeredContent : {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
         colorbox        : {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
         infiniteScroll  : {block:IfEnableInfiniteScrolling}true{/block:IfEnableInfiniteScrolling}{block:IfNotEnableInfiniteScrolling}false{/block:IfNotEnableInfiniteScrolling},
@@ -1041,7 +1050,7 @@
                     {/block:PermalinkPagination}
                     {/block:IfDisqusShortname}
                     'http://static.tumblr.com/wccjej0/FTGn238ih/plugins.js',
-                    'http://static.tumblr.com/wccjej0/bn3mqpyu9/masonite.js'
+                    'http://static.tumblr.com/wccjej0/8Fnn2elp9/masonite.min.js'
                 ]);
              }
         },
