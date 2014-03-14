@@ -129,7 +129,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 * [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.2
-* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.0
+* built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.0
 * icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
