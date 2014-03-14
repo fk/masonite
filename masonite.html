@@ -5,10 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>
-            {Title}
-            {block:PostSummary}| {PostSummary}{/block:PostSummary}
-            {block:SearchPage}| Search Results for &lsquo;{SearchQuery}&rsquo;{/block:SearchPage}
-            {block:TagPage}| Posts Tagged &lsquo;{Tag}&rsquo;{/block:TagPage}
+            {Title} {block:PostSummary}| {PostSummary}{/block:PostSummary}{block:SearchPage}| Search Results for &lsquo;{SearchQuery}&rsquo;{/block:SearchPage}{block:TagPage}| Posts Tagged &lsquo;{Tag}&rsquo;{/block:TagPage}
         </title>
 
         {block:Description}
