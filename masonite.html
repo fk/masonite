@@ -505,6 +505,7 @@
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
         <div id="container" class="clearfix">
             <div id="header">
                 <a href="/" title="{lang:Home}">
@@ -515,16 +516,17 @@
                         <img id="avatar" src="{PortraitURL-64}" data-hidpi-src="{PortraitURL-128}" alt="Portrait" width="64" height="64">
                     {block:IfNotAvatarImage}
                 </a>
+
                 <div id="title">
                     <h1><a href="/" title="{lang:Home}">{Title}</a></h1>
                 </div>
+
                 {block:IfShowDescription}
                     {block:Description}
-                        <div id="description">
-                            {Description}
-                        </div>
+                        <div id="description">{Description}</div>
                     {/block:Description}
                 {/block:IfShowDescription}
+
                 <ul id="navigation" class="clearfix">
                     {block:HasPages}
                         {block:Pages}
@@ -645,8 +647,9 @@
             <div id="content" class="clearfix">
                 {block:SearchPage}
                     {block:NoSearchResults}
-                    <h2 class="searchresultcount">{lang:Sorry no results for SearchQuery 2}</h2>
+                        <h2 class="searchresultcount">{lang:Sorry no results for SearchQuery 2}</h2>
                     {/block:NoSearchResults}
+
                     <h2 class="searchresultcount">{lang:SearchResultCount results for SearchQuery 2}</h2>
                 {/block:SearchPage}
 
@@ -753,7 +756,7 @@
 
                             {block:Link}
                                 <h3 class="link title">
-                                    <a class='title' href="{URL}" {Target}>
+                                    <a class="title" href="{URL}" {Target}>
                                         <strong>{Name}</strong> <em><span>&rarr;</span></em>
                                     </a>
                                 </h3>
@@ -764,48 +767,52 @@
 
                             <footer class="footer clearfix">
                                 <ul class="clearfix">
-                                {block:Date}
-                                    <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
-                                        <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
-                                            {TimeAgo}
-                                        </a>
-                                        {block:PermalinkPage}
-                                            {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
-                                        {/block:PermalinkPage}
-                                    </li>
-                                {/block:Date}
-                                {block:IfEnableLikeLinksonIndexPages}
-                                    {block:IndexPage}
-                                        <li class="like">
-                                            {LikeButton size="10"}
-                                            <div class="custom-like-button"></div>
+                                    {block:Date}
+                                        <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
+                                            <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
+                                                {TimeAgo}
+                                            </a>
+                                            {block:PermalinkPage}
+                                                {block:RebloggedFrom} <span class="reblogged-from">reblogged from <a href="{ReblogParentURL}">{ReblogParentName}</a> {block:RebloggedFromReblog}(originally from <a href="{ReblogRootURL}">{ReblogRootName}</a>){/block:RebloggedFromReblog}</span>{/block:RebloggedFrom}
+                                            {/block:PermalinkPage}
                                         </li>
-                                    {/block:IndexPage}
-                                {/block:IfEnableLikeLinksonIndexPages}
-                                {block:IfEnableReblogLinksonIndexPages}
-                                    {block:IndexPage}
-                                        <li class="reblog">
-                                            {ReblogButton size="10"}
+                                    {/block:Date}
+
+                                    {block:IfEnableLikeLinksonIndexPages}
+                                        {block:IndexPage}
+                                            <li class="like">
+                                                {LikeButton size="11"}
+                                                <div class="custom-like-button"></div>
+                                            </li>
+                                        {/block:IndexPage}
+                                    {/block:IfEnableLikeLinksonIndexPages}
+
+                                    {block:IfEnableReblogLinksonIndexPages}
+                                        {block:IndexPage}
+                                            <li class="reblog">
+                                                {ReblogButton size="11"}
+                                            </li>
+                                        {/block:IndexPage}
+                                    {/block:IfEnableReblogLinksonIndexPages}
+
+                                    {block:NoteCount}
+                                        <li class="notes">
+                                            <a href="{Permalink}#notes" title="{lang:View notes for this post}">{NoteCount}</a>
                                         </li>
-                                    {/block:IndexPage}
-                                {/block:IfEnableReblogLinksonIndexPages}
-                                {block:NoteCount}
-                                    <li class="notes">
-                                        <a href="{Permalink}#notes" title="{lang:View notes for this post}">{NoteCount}</a>
-                                    </li>
-                                {/block:NoteCount}
-                                {block:IfDisqusShortname}
-                                    {block:PermalinkPagination}
-                                        <li class="comments">
-                                            <a href="{Permalink}#disqus_thread" title="{lang:View comments for this post}">{lang:View comments}</a>
-                                        </li>
-                                    {/block:PermalinkPagination}
-                                    {block:IndexPage}
-                                        <li class="comments">
-                                            <a href="{Permalink}#disqus_thread" title="{lang:View comments for this post}">{lang:View comments}</a>
-                                        </li>
-                                    {/block:IndexPage}
-                                {/block:IfDisqusShortname}
+                                    {/block:NoteCount}
+
+                                    {block:IfDisqusShortname}
+                                        {block:PermalinkPagination}
+                                            <li class="comments">
+                                                <a href="{Permalink}#disqus_thread" title="{lang:View comments for this post}">{lang:View comments}</a>
+                                            </li>
+                                        {/block:PermalinkPagination}
+                                        {block:IndexPage}
+                                            <li class="comments">
+                                                <a href="{Permalink}#disqus_thread" title="{lang:View comments for this post}">{lang:View comments}</a>
+                                            </li>
+                                        {/block:IndexPage}
+                                    {/block:IfDisqusShortname}
                                 </ul>
 
                                 {block:IndexPage}
