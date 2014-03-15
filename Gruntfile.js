@@ -11,7 +11,10 @@ module.exports = function(grunt) {
       build: ["build"],
       uncompressed: [
         build + 'js/<%= pkg.name %>.js',
-        build + 'js/infinitescroll.js'
+        build + 'js/infinitescroll.js',
+        build + 'css/colorbox.css',
+        build + 'css/masonite.css',
+        build + 'css/normalize.css'
       ]
     },
     copy: {
@@ -80,6 +83,15 @@ module.exports = function(grunt) {
     compass: {
       dist: {}
     },
+    cssmin: {
+      minify: {
+        expand: true,
+        cwd: 'build/css/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'build/css/',
+        ext: '.min.css'
+      }
+    },
     modernizr: {
       dist: {
         'devFile' : 'remote',
@@ -100,7 +112,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-modernizr');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('default', ['clean:build', 'modernizr', 'copy', 'concat', 'uglify', 'clean:uncompressed', 'compass']);
+  grunt.registerTask('default', [
+    'clean:build',
+    'modernizr',
+    'copy',
+    'concat',
+    'uglify',
+    'compass',
+    'cssmin',
+    'clean:uncompressed'
+  ]);
 
 };
