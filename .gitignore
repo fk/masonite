@@ -1,4 +1,7 @@
 .DS_Store
-.sass-cache
+.sass-cache/
 node_modules/
-css
+app/
+bower_components/
+css/
+build/

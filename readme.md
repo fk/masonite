@@ -141,12 +141,24 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ### Not yet released
 
-* Switch to Tumblr's own like- and reblog-buttons.
-* Update HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things related to Google Chrome Frame.
-* Reference minified version of masonite.js.
-* Remove line-through for hovered links in the sidebar; instead, use the "Accent"-color for consistency.
-* Fix transition-duration of the "Dog Ear Zoom Icon".
+* Switched to Tumblr's own like- and reblog-buttons.
+* Updated HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things related to Google Chrome Frame.
+* Updated to HTML5 Placeholder Polyfill v2.0.10.
+* Updated to Colorbox v1.5.5.
+* Referenced minified version of masonite.js - v0.2.5 referenced the uncompressed version.
+* Removed line-through for hovered links in the sidebar; instead, use the "Accent"-color for consistency.
+* Fixed transition-duration of the "Dog Ear Zoom Icon" - was 2s, should be 0.2s.
 * Improved markup (better use of HTML5's sectioning elements) and source code.
+* Removed all 3rd party scripts from the repository.
+* Established an automated build via Grunt and additional plugins, 3rd party scripts are managed with Twitter Bower; to get started:
+  * Install [Node.js](http://nodejs.org/) and [Bower](http://bower.io/).
+  * Fetch all development dependencies with `npm install && bower install`
+  * Hack away.
+  * Build a release with `grunt`.
+  * [Upload CSS and JavaScripts](http://www.tumblr.com/themes/upload_static_file) in `build` to Tumblr.
+  * Replace URLs in `masonite.html`.
+* Updated Modernizr to a perfectly lean build thanks to [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr).
+* Refined Sass partials: split `_modules.sass` to dedicated partials for following, likes, notes, pagination.
 
 ### 0.2.5
 
@@ -234,10 +246,3 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Tag pages now have a headline.
 * Updated jQuery Masonry and modernizr.
 * Improved search-input semantics and presentation in non-WebKit browsers.
-
-## Contributing
-
-Contributions are welcome!  
-This project uses [git-flow](https://github.com/nvie/gitflow) and [its branching model](http://nvie.com/posts/a-successful-git-branching-model/): the **master** branch always contains stable, production-ready code (also matching the version available via/submitted to Tumblr's Theme Garden) while the **develop** branch contains the latest development code.
-
-When contributing CSS, please use [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/).
