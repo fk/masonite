@@ -150,6 +150,7 @@
     margin-top: 10px
     padding-top: 5px
     padding-bottom: 5px
+    @extend %clearfix
     .index &
       font-size: $very-small-type
     .permalink &
@@ -210,6 +211,7 @@
       display: block
       clear: both
       margin: 0
+      @extend %clearfix
       dd
         float: left
         margin-left: 8px
@@ -218,6 +220,7 @@
       list-style: none
       margin: 0
       padding: 0
+      @extend %clearfix
     li
       margin-right: 10px
       float: left
@@ -318,21 +321,3 @@ a.title strong
 .audio-wrapper
   position: relative
   margin-top: 10px
-
-/* ==========================================================================
-   Pagination
-   ========================================================================== */
-
-#pagination
-  list-style: none
-  line-height: 1
-  li
-    float: left
-    margin-right: 10px
-    a
-      text-decoration: none
-  .index.custom-trigger-infinite-scrolling &
-    li a
-      display: block
-      padding: 10px
-      +border-radius(4px)

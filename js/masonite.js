@@ -379,6 +379,7 @@
 								}
 							}
 						});
+
 						// trigger resize to set container width
 						$(window).trigger( "debouncedresize" );
 					}
@@ -470,8 +471,8 @@
 			);
 			}
 
-		} // body.index
+		}
 
-	}); // ready
+	});
 
 })( window, jQuery );

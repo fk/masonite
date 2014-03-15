@@ -108,7 +108,8 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/gbEn2elok/masonite.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/NNUn2hos2/normalize.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/Rhfn2hosp/masonite.css">
 
         <style type="text/css">
 
@@ -499,14 +500,14 @@
 
             {CustomCSS}
         </style>
-        <script src="http://static.tumblr.com/wccjej0/zvbn238jp/modernizr-2.7.1.min.js"></script>
+        <script src="http://static.tumblr.com/wccjej0/88Sn2hotr/modernizr.min.js"></script>
     </head>
     <body class="{block:PermalinkPage}permalink{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar} {block:IfEnableFixedPositioningofSidebar}header-position-fixed{/block:IfEnableFixedPositioningofSidebar}">
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="container" class="clearfix">
+        <div id="container">
             <div id="header">
                 <a href="/" title="{lang:Home}">
                     {block:IfAvatarImage}
@@ -527,7 +528,7 @@
                     {/block:Description}
                 {/block:IfShowDescription}
 
-                <ul id="navigation" class="clearfix">
+                <ul id="navigation">
                     {block:HasPages}
                         {block:Pages}
                             <li class="page"><a href='{URL}'>{Label}</a></li>
@@ -553,7 +554,7 @@
                     {/block:IfShowRSS}
                 </ul>
 
-                <ul id="external" class="clearfix">
+                <ul id="external">
                     {block:IfDribbble}
                         <li class="dribbble"><a href="{text:Dribbble}"> <span class="visuallyhidden">Dribbble</span></a></li>
                     {/block:IfDribbble}
@@ -644,7 +645,7 @@
                 {/block:IfShowSearch}
             </div>
 
-            <div id="content" class="clearfix">
+            <div id="content">
                 {block:SearchPage}
                     {block:NoSearchResults}
                         <h2 class="searchresultcount">{lang:Sorry no results for SearchQuery 2}</h2>
@@ -657,7 +658,7 @@
                     <h2 class="searchresultcount">{lang:Posts tagged Tag}</h2>
                 {/block:TagPage}
 
-                <section id="posts" class="clearfix">
+                <section id="posts">
                     {block:Posts}
                         <article id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}">
                             {block:Photo}
@@ -765,8 +766,8 @@
                                 {/block:Description}
                             {/block:Link}
 
-                            <footer class="footer clearfix">
-                                <ul class="clearfix">
+                            <footer class="footer">
+                                <ul>
                                     {block:Date}
                                         <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
                                             <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
@@ -818,7 +819,7 @@
                                 {block:IndexPage}
                                     {block:IfShowTagsonIndexPage}
                                         {block:HasTags}
-                                            <dl class="tags clearfix">
+                                            <dl class="tags">
                                                 <dt class="header visuallyhidden">
                                                     <span>{lang:Tagged}</span>
                                                 </dt>
@@ -833,7 +834,7 @@
                                 {block:PermalinkPage}
                                     {block:IfShowTags}
                                         {block:HasTags}
-                                            <dl class="tags clearfix">
+                                            <dl class="tags">
                                                 <dt class="header visuallyhidden">
                                                     <span>{lang:Tagged}</span>
                                                 </dt>
@@ -866,7 +867,7 @@
                 </section>
 
                 {block:Pagination}
-                    <ul id="pagination" class="clearfix">
+                    <ul id="pagination">
                         {block:PreviousPage}
                             <li class="previous"><a href="{PreviousPage}">&larr; {lang:Previous page}</a></li>
                         {/block:PreviousPage}
@@ -892,8 +893,7 @@
                 {/block:PermalinkPagination}
             </div>
 
-            <div id="footer" class="clearfix">
-
+            <div id="footer">
                 {block:IfShowLikes}
                     {block:Likes}
                         <div class="container clearfix">
@@ -905,7 +905,7 @@
 
                 {block:IfShowPeopleIFollow}
                     {block:Following}
-                        <div id="following" class="container clearfix">
+                        <div id="following" class="container">
                             <h3>{lang:Following}</h3>
                             <ul>
                             {block:Followed}
@@ -935,8 +935,8 @@
                 {/block:Twitter}
             </div>
 
-            <div id="copyright" class="clearfix">
-                <a href="http://www.tumblr.com" id="powered_by">Tumblr</a> x <a href="http://hellodirty.com">masonite</a>.
+            <div id="copyright">
+                <a href="http://www.tumblr.com">Tumblr</a> x <a href="http://hellodirty.com">masonite</a>.
                 <span>
                     <br />
                     &copy; {CopyrightYears} {Title}
@@ -1003,38 +1003,41 @@
             window._gaq = masonite.googleAnalytics;
 
             placeHolderConfig = {
-              hideOnFocus : false
-            }
+              hideOnFocus: false
+            };
 
             Modernizr.load([
                 {
                     load: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
                     complete: function () {
                         if ( !window.jQuery ) {
-                            Modernizr.load('http://static.tumblr.com/wccjej0/L7Un2380u/jquery-1.11.0.min.js');
+                            Modernizr.load('http://static.tumblr.com/wccjej0/V3Jn2hovz/jquery.min.js');
                         }
                     }
                 },
                 {block:IfGoogleWebFont}
-                {
-                    test: Modernizr.fontface,
-                    yep: '//ajax.googleapis.com/ajax/libs/webfont/1.5.2/webfont.js'
-                },
+                    {
+                        test: Modernizr.fontface,
+                        yep: '//ajax.googleapis.com/ajax/libs/webfont/1.5.2/webfont.js'
+                    },
                 {/block:IfGoogleWebFont}
                 {
                     test: Modernizr.input.placeholder,
-                    nope: 'http://static.tumblr.com/wccjej0/xWUn2388u/placeholder_polyfill.jquery.min.combo.js'
+                    nope: [
+                        'http://static.tumblr.com/wccjej0/bXvn2hp0m/placeholder_polyfill.min.css',
+                        'http://static.tumblr.com/wccjej0/GeCn2hp1c/placeholder.min.js'
+                    ]
                 },
                 {
                     test: masonite.colorbox,
                     yep: [
-                        'http://static.tumblr.com/wccjej0/XlHn2389k/jquery.colorbox-min.js',
-                        'http://static.tumblr.com/wccjej0/XY4n238et/colorbox.css'
+                        'http://static.tumblr.com/wccjej0/Tq8n2hp35/colorbox.css',
+                        'http://static.tumblr.com/wccjej0/kNBn2hp2l/jquery.colorbox-min.js'
                     ]
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: 'http://static.tumblr.com/wccjej0/JWkn238uv/jquery.infinitescroll.js'
+                    yep: 'http://static.tumblr.com/wccjej0/mDMn2hp3p/infinitescroll.min.js'
                 },
                 {
                     test: masonite.googlePrettify,
@@ -1044,15 +1047,14 @@
                     complete: function (url, res, key) {
                         Modernizr.load([
                             {block:Twitter}
-                            '/tweets.js',
+                                '/tweets.js',
                             {/block:Twitter}
                             {block:IfDisqusShortname}
-                            {block:PermalinkPagination}
-                            '//{text:Disqus Shortname}.disqus.com/embed.js',
-                            {/block:PermalinkPagination}
+                                {block:PermalinkPagination}
+                                    '//{text:Disqus Shortname}.disqus.com/embed.js',
+                                {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            'http://static.tumblr.com/wccjej0/FTGn238ih/plugins.js',
-                            'http://static.tumblr.com/wccjej0/8Fnn2elp9/masonite.min.js'
+                            'http://static.tumblr.com/wccjej0/2XCn2hp75/masonite.min.js'
                         ]);
                      }
                 },

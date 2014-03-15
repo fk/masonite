@@ -11,6 +11,7 @@ body
   padding: 0 $gutter
   min-height: 100%
   position: relative
+  @extend %clearfix
   .single-column &
     width: 400 + $sidebar + $gutter
   .width-500.single-column &
@@ -34,6 +35,7 @@ body
   right: 40px
   width: $sidebar
   z-index: 800
+  @extend %clearfix
   .header-left &
     right: auto
   .hide-copyright &
@@ -72,6 +74,7 @@ body
 
 #content
   padding: $gutter 0 0
+  @extend %clearfix
   .permalink &
     margin-right: 180px
     max-width: 760px
@@ -84,6 +87,7 @@ body
 #posts
   margin: 0
   padding-right: $sidebar
+  @extend %clearfix
   .header-left &
     padding-right: 0
     padding-left: $sidebar
@@ -91,6 +95,10 @@ body
 #pagination
   padding: 0
   margin: 0
+  @extend %clearfix
+
+#footer
+  @extend %clearfix
 
 .searchresultcount,
 #footer
