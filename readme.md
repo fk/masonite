@@ -150,6 +150,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Fixed transition-duration of the "Dog Ear Zoom Icon" - was 2s, should be 0.2s.
 * Improved markup (better use of HTML5's sectioning elements) and source code.
 * Removed all 3rd party scripts from the repository.
+* Removed obsolete Masonry CSS styles.
 * Established an automated build via Grunt and additional plugins, 3rd party scripts are managed with Twitter Bower; to get started:
   * Install [Node.js](http://nodejs.org/) and [Bower](http://bower.io/).
   * Fetch all development dependencies with `npm install && bower install`
