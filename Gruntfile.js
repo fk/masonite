@@ -103,6 +103,15 @@ module.exports = function(grunt) {
           ]
         }
       }
+    },
+    jshint: {
+      options: {
+        reporter: require('jshint-stylish')
+      },
+      masonite: [
+        'Gruntfile.js',
+        'js/masonite.js'
+      ]
     }
   });
 
@@ -113,12 +122,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-modernizr');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('default', [
     'clean:build',
     'modernizr',
     'copy',
     'concat',
+    'jshint:masonite',
     'uglify',
     'compass',
     'cssmin',

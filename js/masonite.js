@@ -1,10 +1,10 @@
-/*jshint browser:true, curly:true, white:false, eqeqeq:true, eqnull:true, strict:true, trailing:true, undef:true, regexdash:false */
-/*global jQuery, masonite, Modernizr, prettyPrint */
+/*jshint browser:true, curly:true, eqeqeq:true, forin:true, immed:true, indent:4, strict:true, trailing:true, undef:true, unused:true */
+/*global Modernizr, jQuery, prettyPrint, Tumblr, masonite */
 
 // remap jQuery to $
-(function( window, $, undefined ){
+(function( window, $, undefined ) {
 
-	'use strict';
+	"use strict";
 
 	$.fn.fixYouTube = function() {
 		/*
@@ -17,7 +17,7 @@
 		*/
 		this.find("embed[src^='http://www.youtube.com']").each(function() {
 			// Identify and hide embed(s)
-			var parent = $(this).closest('object'),
+			var parent = $(this).closest("object"),
 				youtubeCode = parent.html(),
 				params = "",
 				oldOpts = /rel=0/g,
@@ -28,39 +28,39 @@
 				youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
 				youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
 
-			parent.css("visibility", "hidden");
+			parent.css( "visibility", "hidden" );
 
-			if ( youtubeCode.toLowerCase().indexOf("<param") === -1 ) {
+			if ( youtubeCode.toLowerCase().indexOf( "<param" ) === -1 ) {
 				// IE doesn't return params with html(), so…
-				$("param", this).each(function () {
-					params += $(this).get(0).outerHTML;
+				$( "param", this ).each(function () {
+					params += $( this ).get( 0 ).outerHTML;
 				});
 			}
 
 			// Set colours in control bar to match page background
 			newOpts = "rel=0&amp;color1=0x" + masonite.whites + "&amp;color2=0x" + masonite.whites;
-			youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+			youtubeCode = youtubeCode.replace( oldOpts, newOpts );
 
 			if ( params !== "" ) {
 				params = params.replace(oldOpts, newOpts);
-				youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+				youtubeCode = youtubeCode.replace( /<embed/i, params + "<embed" );
 			}
 
 			// Test for widescreen aspect ratio
-			$.getJSON("http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
+			$.getJSON( "http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
 				oldOpts = /height="?([0-9]*)"?/g;
-				if ( data.entry.media$group.yt$aspectRatio != null ) {
-					newOpts = 'height="' + youtubeHeightWide + '"';
+				if ( data.entry.media$group.yt$aspectRatio !== null ) {
+					newOpts = "height='" + youtubeHeightWide + "'";
 				} else {
-					newOpts = 'height="' + youtubeHeight + '"';
+					newOpts = "height='" + youtubeHeight + "'";
 				}
-				youtubeCode = youtubeCode.replace(oldOpts, newOpts);
+				youtubeCode = youtubeCode.replace( oldOpts, newOpts );
 				if ( params !== "" ) {
-					params = params.replace(oldOpts, newOpts);
-					youtubeCode = youtubeCode.replace(/<embed/i, params + "<embed");
+					params = params.replace( oldOpts, newOpts );
+					youtubeCode = youtubeCode.replace( /<embed/i, params + "<embed" );
 				}
 				// Replace YouTube embed with new code
-				parent.html(youtubeCode).css("visibility", "visible");
+				parent.html(youtubeCode).css( "visibility", "visible" );
 			});
 
 		});
@@ -69,20 +69,19 @@
 	};
 
 	$.fn.fixSoundcloud = function() {
-		this.find("iframe[src^='https://w.soundcloud.com/']").each(function() {
+		this.find( "iframe[src^='https://w.soundcloud.com/']" ).each(function() {
 			var $obj = $(this),
-				src = $obj.attr("src"),
-				attributes = $obj.prop("attributes"),
-				$newIframe = $('<iframe></iframe>').insertAfter( $obj ).hide();
+				attributes = $obj.prop( "attributes" ),
+				$newIframe = $( "<iframe></iframe>" ).insertAfter( $obj ).hide();
 
 			$obj.remove();
 			$newIframe.show();
 
 			$.each(attributes, function() {
 				if ( this.name === "src" ) {
-					$newIframe.attr(this.name, this.value + "&color=" + masonite.accents);
+					$newIframe.attr( this.name, this.value + "&color=" + masonite.accents );
 				} else {
-					$newIframe.attr(this.name, this.value);
+					$newIframe.attr( this.name, this.value );
 				}
 			});
 		});
@@ -145,7 +144,7 @@
 
 	$.fn.disqusCommentCount = function() {
 		if ( masonite.disqusShortname ) {
-			var scriptURL = 'http://disqus.com/forums/' + masonite.disqusShortname + '/count.js';
+			var scriptURL = "http://disqus.com/forums/" + masonite.disqusShortname + "/count.js";
 			$.getScript(scriptURL);
 		}
 
@@ -155,26 +154,26 @@
 	$.fn.fixTumblrAudio = function() {
 		// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
 		this.each(function() {
-			if ( $(this).hasClass("audio") ) {
-				var $audioPost = $(this),
-					audioID = $audioPost.attr("id"),
-					script = document.createElement('script');
+			if ( $(this).hasClass( "audio" ) ) {
+				var $audioPost = $( this ),
+					audioID = $audioPost.attr( "id" ),
+					script = document.createElement( "script" );
 
-				$audioPost.find(".player span").css({ visibility: 'hidden' });
+				$audioPost.find( ".player span" ).css({ visibility: "hidden" });
 
-				script.type = 'text/javascript';
+				script.type = "text/javascript";
 				script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
 
-				$("body").append(script);
+				$( "body" ).append( script );
 
 				$.ajax({
 					url: "/api/read/json?id=" + audioID,
 					dataType: "jsonp",
 					timeout: 5000,
-					success: function(data){
-						$audioPost.find(".player span").css({ visibility: 'visible' });
-						var embed = data.posts[0]['audio-player'].replace("audio_player.swf", "audio_player" + masonite.audioPlayerColor + ".swf");
-						$audioPost.find("span:first").append('<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed + '\x3c/div\x3e\')</script>');
+					success: function( data ) {
+						$audioPost.find( ".player span" ).css({ visibility: "visible" });
+						var embed = data.posts[0][ "audio-player" ].replace( "audio_player.swf", "audio_player" + masonite.audioPlayerColor + ".swf" );
+						$audioPost.find( "span:first" ).append( '<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed + '\x3c/div\x3e\')</script>' );
 					}
 				});
 			}
@@ -190,8 +189,8 @@
 			$("pre code").parent().each(function() {
 				if ( !$(this).hasClass("prettyprint") ){
 					$(this).addClass("prettyprint");
-						a = true;
-					}
+					a = true;
+				}
 			});
 
 			if ( a ) {
@@ -201,11 +200,10 @@
 	}
 
 	function fadingSidebar() {
-		// kudos to http://www.tumblr.com/theme/11862, wouldn't have tought about search
-		var $sidebar = $('#header, #copyright'),
+		var $sidebar = $( "#header, #copyright" ),
 			defaultOpacity = 0.5;
 
-		$sidebar.css('opacity', defaultOpacity);
+		$sidebar.css( "opacity", defaultOpacity );
 
 		$sidebar.mouseenter(function() {
 			$sidebar
@@ -214,7 +212,7 @@
 					opacity: 1
 				}, 250);
 		}).mouseleave(function() {
-			if ( $('#header input:focus').length === 0 ) {
+			if ( $( "#header input:focus" ).length === 0 ) {
 				$sidebar
 					.stop()
 					.animate({
@@ -227,36 +225,31 @@
 	// ready
 	$(function() {
 
-		$('#avatar').imagesLoaded(function() {
-
-			var $that = $('#avatar'),
+		$( "#avatar" ).imagesLoaded(function() {
+			var $that = $( "#avatar" ),
 				width = $that.width(),
-				hidpi = $that.attr('data-hidpi-src'),
-				src = $that.attr('src');
+				hidpi = $that.attr( "data-hidpi-src" ),
+				src = $that.attr( "src" );
 
 			if ( hidpi !== "" ) {
-
-				$that.attr('src', hidpi).attr('width', width);
-				$that.one('error', function () {
+				$that.attr( "src", hidpi ).attr( "width", width );
+				$that.one( "error", function() {
 					this.src = src;
 				});
-
 			}
-
 		});
 
 		if ( masonite.fadeSidebar && !Modernizr.touch ) {
 			fadingSidebar();
 		}
 
-		var masonryLikes = $('#likes').masonry({
-			itemSelector: 'li',
+		$( "#likes" ).masonry({
+			itemSelector: "li",
 			isResizeBound: true,
-			columnWidth: $('li').width()
+			columnWidth: $( "li" ).width()
 		});
 
 		if ( masonite.colorbox ) {
-
 			masonite.colorboxOptions = {
 				opacity: 0.92,
 				slideshow: true,
@@ -268,24 +261,24 @@
 				maxHeight: "90%"
 			};
 
-			$(document).on('cbox_open', function(){
-				$('body').css({
-					overflow: 'hidden'
+			$(document)
+				.on( "cbox_open", function(){
+					$( "body" ).css({
+						overflow: "hidden"
+					});
+				}).on( "cbox_cleanup", function(){
+					$( "body" ).css({
+						overflow: "auto"
+					});
 				});
-			}).on('cbox_cleanup', function(){
-				$('body').css({
-					overflow: 'auto'
-				});
-			});
-
 		}
 
-		$('.post')
+		$( ".post" )
 			.initColorbox()
 			.disqusCommentCount()
-			.find('embed[src*="assets.tumblr.com\/swf\/audio_player"]')
-				.addClass('fit-vids-ignore')
-				.end()
+			.find( "embed[src*='assets.tumblr.com\/swf\/audio_player']" )
+				.addClass( "fit-vids-ignore" )
+			.end()
 			.fixYouTube()
 			.fitVids()
 			.fixVimeo()
@@ -293,40 +286,37 @@
 
 		prettifyCode();
 
-		$('.title').widowFix();
+		$( ".title" ).widowFix();
 
 		// index pages
-		if ( $('body').hasClass('index') ) {
+		if ( $( "body" ).hasClass( "index" ) ) {
 
-			var $wall = $('#posts'),
+			var $wall = $( "#posts" ),
 				infinitescroll_behavior;
 
-			if ( !$('body').hasClass('single-column') ) {
-				// http://masonry.desandro.com/docs/options.html
-				// http://masonry.desandro.com/docs/animating.html#modernizr
-
+			if ( !$( "body" ).hasClass( "single-column" ) ) {
 				$wall.imagesLoaded(function() {
 
-					masonryPosts = $wall.masonry({
-						itemSelector: '.post',
+					$wall.masonry({
+						itemSelector: ".post",
 						isFitWidth: masonite.centeredContent,
 						isResizeBound: !masonite.centeredContent,
-						columnWidth: $('.post').outerWidth(true)
+						columnWidth: $( ".post" ).outerWidth( true )
 					});
 
 					if ( masonite.centeredContent ) {
-						var $page = $('#container'),
-							offset = $('#header').outerWidth(false),
-							$sidebar = $('#header, #copyright'),
-							$post = $('.post:first'),
-							colW = $post.outerWidth(true),
+						var $page = $( "#container" ),
+							offset = $( "#header" ).outerWidth( false ),
+							$sidebar = $( "#header, #copyright" ),
+							$post = $( ".post:first" ),
+							colW = $post.outerWidth( true ),
 							postHOff = colW - $post.width(),
 							columns = null,
 							moreColumns = false;
 
-						$(window).on("debouncedresize", function( event ) {
+						$( window ).on( "debouncedresize", function() {
 							// check if columns has changed
-							var currentColumns = Math.floor( ( $('body').width() - offset - (postHOff*2) ) / colW );
+							var currentColumns = Math.floor( ( $( "body" ).width() - offset - (postHOff*2) ) / colW );
 
 							if ( currentColumns !== columns && currentColumns > 0 ) {
 								// set new column count
@@ -341,39 +331,41 @@
 
 								if ( moreColumns ) {
 
-									if ( !$('body').hasClass('header-left') ) {
-										$queue = $('#header, #copyright, #posts, #container');
+									if ( !$( "body" ).hasClass( "header-left" ) ) {
+										$queue = $( "#header, #copyright, #posts, #container" );
 									} else {
-										$queue = $('#posts, #container');
+										$queue = $( "#posts, #container" );
 									}
 
 									$page.animate({
-										'width': columns * colW + offset
+										"width": columns * colW + offset
 									}, 100);
 									// $wall.width( $wall.width() ).animate({
 									//	'width': columns * colW
 									// }, 100);
 
-									if ( !$('body').hasClass('header-left') ) {
+									if ( !$( "body" ).hasClass( "header-left" ) ) {
 										$sidebar.animate({
-											'margin-left': columns * colW
+											"margin-left": columns * colW
 										}, 100);
 									}
 
 									$queue.promise().done(function(){
-										$wall.masonry('layout');
-										$('#likes').masonry('layout');
+										$wall.masonry( "layout" );
+										$( "#likes" ).masonry( "layout" );
 									});
 
 								} else {
 
 									$page.width( columns * colW + offset );
 									// $wall.width( columns * colW );
-									$wall.masonry('layout');
-									$('#likes').masonry('layout');
-									if ( !$('body').hasClass('header-left') ) {
+
+									$wall.masonry( "layout" );
+									$( "#likes" ).masonry( "layout" );
+
+									if ( !$( "body").hasClass( "header-left" ) ) {
 										$sidebar.css({
-											'margin-left': columns * colW
+											"margin-left": columns * colW
 										});
 									}
 								}
@@ -381,7 +373,7 @@
 						});
 
 						// trigger resize to set container width
-						$(window).trigger( "debouncedresize" );
+						$( window ).trigger( "debouncedresize" );
 					}
 				});
 			}
@@ -395,30 +387,29 @@
 				};
 
 				if ( masonite.customTrigger ) {
-					infinitescroll_behavior = 'twitter';
-					$('#pagination li.next a').text('Load more posts');
+					infinitescroll_behavior = "twitter";
+					$( "#pagination li.next a" ).text( "Load more posts" );
 				} else {
-					masonite.infiniteScrollLoadingOptions.selector = '#copyright';
+					masonite.infiniteScrollLoadingOptions.selector = "#copyright";
 				}
 
 				$wall.infinitescroll({
 					loading: masonite.infiniteScrollLoadingOptions,
-					navSelector: '#pagination', // selector for the paged navigation
-					nextSelector: '#pagination .next a', // selector for the NEXT link (to page 2)
-					itemSelector: '#posts .post', // selector for all items you'll retrieve
+					navSelector: "#pagination",
+					nextSelector: "#pagination .next a",
+					itemSelector: "#posts .post",
 					bufferPx: 600,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
 					errorCallback: function() {
-						// fade out the error message after 2 seconds
-						$('#infscr-loading').animate({
+						// fade out the error message
+						$( "#infscr-loading" ).animate({
 							opacity: 0.8
-						}, 2000).fadeOut('normal');
+						}, 2000).fadeOut( "normal" );
 					}
 				},
 				function ( newElements ) {
-					// get opts by getting internal data of infinite scroll instance
-					var opts = $wall.data('infinitescroll').options,
+					var opts = $wall.data( "infinitescroll" ).options,
 						$elems = $( newElements ).css({ opacity: 0 });
 
 					$elems
@@ -429,26 +420,26 @@
 						.fixVimeo()
 						.fixSoundcloud()
 						.fixTumblrAudio()
-						.find('.title')
+						.find( ".title" )
 							.widowFix();
 
 					prettifyCode();
 
 					$elems.imagesLoaded(function() {
 
-						if ( !$('body').hasClass('single-column') ) {
-							$wall.masonry( 'appended', newElements );
+						if ( !$( "body" ).hasClass( "single-column" ) ) {
+							$wall.masonry( "appended", newElements );
 							$elems.animate({
 								opacity: 1.0
-							}, 200, 'swing');
+							}, 200, "swing");
 						} else {
-							$elems.animate({ opacity: 1.0 }, 200, 'swing');
+							$elems.animate({ opacity: 1.0 }, 200, "swing");
 						}
 
 						if ( masonite.customTrigger ) {
-							$('#pagination li.next a').fadeIn({
+							$( "#pagination li.next a" ).fadeIn({
 								duration: 200,
-								easing: 'easeInOutCubic'
+								easing: "easeInOutCubic"
 							});
 						}
 
@@ -460,11 +451,11 @@
 					});
 
 					setTimeout(function() {
-						var $loader = $('#infscr-loading > div');
-						if ( (opts.state.currPage + 1) <= masonite.totalPages ) {
-							$loader.html("Loading " + (opts.state.currPage + 1) + "/" + masonite.totalPages);
+						var $loader = $( "#infscr-loading > div" );
+						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
+							$loader.html( "Loading " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages );
 						} else {
-							$loader.html("No more pages to load");
+							$loader.html( "No more pages to load" );
 						}
 					}, 400);
 				}
