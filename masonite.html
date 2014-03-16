@@ -869,10 +869,14 @@
                 {block:Pagination}
                     <ul id="pagination">
                         {block:PreviousPage}
-                            <li class="previous"><a href="{PreviousPage}">&larr; {lang:Previous page}</a></li>
+                            <li class="previous">
+                                <a href="{PreviousPage}">&larr; {lang:Previous page}</a>
+                            </li>
                         {/block:PreviousPage}
                         {block:NextPage}
-                            <li class="next"><a href="{NextPage}">{lang:Next page} &rarr;</a></li>
+                            <li class="next">
+                                <a href="{NextPage}">{lang:Next page} &rarr;</a>
+                            </li>
                         {/block:NextPage}
                     </ul>
                 {/block:Pagination}
