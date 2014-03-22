@@ -961,10 +961,12 @@
                 googleAnalytics : {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
                 googlePrettify  : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
                 totalPages      : {totalPages},
-                audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer}
+                audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer},
+                clicky          : {block:IfClickyTracking}{text:Clicky Tracking}{/block:IfClickyTracking}{block:IfNotClickyTracking}false{/block:IfNotClickyTracking}
             }
 
             var disqus_shortname = masonite.disqusShortname,
+                clicky_site_id = masonite.clicky,
                 masonryPosts,
                 masonryLikes;
 
@@ -986,7 +988,7 @@
 
                 WebFontConfig = {
                     google: {
-                        families: [{text:Google Web Font}]
+                        families: [{ text:Google Web Font }]
                     },
                     active: triggerMasonry,
                     inactive: triggerMasonry
@@ -1047,7 +1049,7 @@
                     yep: '//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js'
                 },
                 {
-                    complete: function (url, res, key) {
+                    complete: function ( url, res, key ) {
                         Modernizr.load([
                             {block:Twitter}
                                 '/tweets.js',
@@ -1064,25 +1066,18 @@
                 {
                     test: masonite.googleAnalytics,
                     yep: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+                },
+                {
+                    test: masonite.clicky,
+                    yep: '//static.getclicky.com/js'
                 }
             ]);
         </script>
 
         {block:IfClickyTracking}
-            <!-- http://mathiasbynens.be/notes/async-analytics-snippet#comment-14 -->
-            <script>
-                var f = Function(),
-                    clicky = { log: f, goal: f },
-                    clicky_site_id = {text:Clicky Tracking};
-                (function(d, t) {
-                    var c = d.createElement(t),
-                    s = d.getElementsByTagName(t)[0];
-                    c.async = 1;
-                    c.src = '//static.getclicky.com/js';
-                    s.parentNode.insertBefore(c, s);
-                })(document, 'script');
-            </script>
-            <noscript><img alt="" width="1" height="1" src="http://in.getclicky.com/{text:Clicky Tracking}ns.gif" /></noscript>
+            <noscript>
+                <img alt="Clicky" width="1" height="1" src="//in.getclicky.com/{text:Clicky Tracking}ns.gif" />
+            </noscript>
         {/block:IfClickyTracking}
     </body>
 </html>
