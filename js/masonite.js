@@ -1,7 +1,6 @@
 /*jshint browser:true, curly:true, eqeqeq:true, forin:true, immed:true, indent:4, strict:true, trailing:true, undef:true, unused:true */
 /*global Modernizr, jQuery, prettyPrint, Tumblr, masonite */
 
-// remap jQuery to $
 (function( window, $, undefined ) {
 
 	"use strict";
@@ -15,18 +14,18 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		this.find("embed[src^='http://www.youtube.com']").each(function() {
+		this.find( "embed[src^='http://www.youtube.com']" ).each(function() {
 			// Identify and hide embed(s)
-			var parent = $(this).closest("object"),
+			var parent = $( this ).closest( "object" ),
 				youtubeCode = parent.html(),
 				params = "",
 				oldOpts = /rel=0/g,
 				newOpts,
-				youtubeIDParam = $(this).attr("src"),
+				youtubeIDParam = $( this ).attr( "src" ),
 				youtubeIDPattern = /\/v\/([0-9A-Za-z-_]*)/,
-				youtubeID = youtubeIDParam.match(youtubeIDPattern),
-				youtubeHeight = Math.floor(parent.width() * 0.75 + 25 - 3),
-				youtubeHeightWide = Math.floor(parent.width() * 0.5625 + 25 - 3);
+				youtubeID = youtubeIDParam.match( youtubeIDPattern ),
+				youtubeHeight = Math.floor( parent.width() * 0.75 + 25 - 3 ),
+				youtubeHeightWide = Math.floor( parent.width() * 0.5625 + 25 - 3 );
 
 			parent.css( "visibility", "hidden" );
 
@@ -42,12 +41,12 @@
 			youtubeCode = youtubeCode.replace( oldOpts, newOpts );
 
 			if ( params !== "" ) {
-				params = params.replace(oldOpts, newOpts);
+				params = params.replace( oldOpts, newOpts );
 				youtubeCode = youtubeCode.replace( /<embed/i, params + "<embed" );
 			}
 
 			// Test for widescreen aspect ratio
-			$.getJSON( "http://gdata.youtube.com/feeds/api/videos/" + youtubeID[1] + "?v=2&alt=json-in-script&callback=?", function (data) {
+			$.getJSON( "http://gdata.youtube.com/feeds/api/videos/" + youtubeID[ 1 ] + "?v=2&alt=json-in-script&callback=?", function (data) {
 				oldOpts = /height="?([0-9]*)"?/g;
 				if ( data.entry.media$group.yt$aspectRatio !== null ) {
 					newOpts = "height='" + youtubeHeightWide + "'";
@@ -60,7 +59,7 @@
 					youtubeCode = youtubeCode.replace( /<embed/i, params + "<embed" );
 				}
 				// Replace YouTube embed with new code
-				parent.html(youtubeCode).css( "visibility", "visible" );
+				parent.html( youtubeCode ).css( "visibility", "visible" );
 			});
 
 		});
@@ -100,13 +99,13 @@
 		*/
 		var opts = "title=0&byline=0&portrait=0";
 
-		this.find("iframe[src^='http://player.vimeo.com']").each(function() {
-			var src = $(this).attr("src"),
-				w = $(this).attr("width"),
-				h = $(this).attr("height");
+		this.find( "iframe[src^='http://player.vimeo.com']" ).each(function() {
+			var src = $(this).attr( "src" ),
+				w = $(this).attr( "width" ),
+				h = $(this).attr( "height" );
 
-			if ( src.indexOf("?") === -1 ) {
-				$(this).replaceWith(
+			if ( src.indexOf( "?" ) === -1 ) {
+				$( this ).replaceWith(
 					"<iframe src='" + src + "?" + opts + "&color=" +
 					masonite.accents + "' width='" + w + "' height='" + h +
 					"' frameborder='0'></iframe>"
@@ -114,14 +113,14 @@
 			}
 		});
 
-		this.find("object[data^='http://vimeo.com']").each(function() {
-			var $obj = $(this),
-				data = $obj.attr("data"),
-				temp = data.split("clip_id=")[1],
-				id = temp.split("&")[0],
-				server = temp.split("&")[1],
-				w = $obj.attr("width"),
-				h = $obj.attr("height");
+		this.find( "object[data^='http://vimeo.com']" ).each(function() {
+			var $obj = $( this ),
+				data = $obj.attr( "data" ),
+				temp = data.split( "clip_id=" )[ 1 ],
+				id = temp.split( "&" )[ 0 ],
+				server = temp.split( "&" )[ 1 ],
+				w = $obj.attr( "width" ),
+				h = $obj.attr( "height" );
 
 			$obj.replaceWith(
 				"<iframe src='http://player.vimeo.com/video/" +
@@ -186,9 +185,9 @@
 		if ( masonite.googlePrettify ) {
 			var a = false;
 
-			$("pre code").parent().each(function() {
-				if ( !$(this).hasClass("prettyprint") ){
-					$(this).addClass("prettyprint");
+			$( "pre code" ).parent().each(function() {
+				if ( !$(this).hasClass( "prettyprint" ) ){
+					$(this).addClass( "prettyprint" );
 					a = true;
 				}
 			});
@@ -261,7 +260,7 @@
 				maxHeight: "90%"
 			};
 
-			$(document)
+			$( document )
 				.on( "cbox_open", function(){
 					$( "body" ).css({
 						overflow: "hidden"
@@ -316,7 +315,7 @@
 
 						$( window ).on( "debouncedresize", function() {
 							// check if columns has changed
-							var currentColumns = Math.floor( ( $( "body" ).width() - offset - (postHOff*2) ) / colW );
+							var currentColumns = Math.floor( ( $( "body" ).width() - offset - ( postHOff * 2 ) ) / colW );
 
 							if ( currentColumns !== columns && currentColumns > 0 ) {
 								// set new column count
