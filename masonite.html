@@ -869,7 +869,7 @@
                 </section>
 
                 {block:Pagination}
-                    <ul id="pagination">
+                    <ul id="pagination" class="pagination">
                         {block:PreviousPage}
                             <li class="previous">
                                 <a href="{PreviousPage}">&larr; {lang:Previous page}</a>
@@ -884,7 +884,7 @@
                 {/block:Pagination}
 
                 {block:PermalinkPagination}
-                    <ul id="pagination">
+                    <ul id="pagination" class="pagination">
                         {block:PreviousPost}
                             <li class="previous">
                                 <a href="{PreviousPost}">&larr; {lang:Previous post}</a>
@@ -911,7 +911,7 @@
 
                 {block:IfShowPeopleIFollow}
                     {block:Following}
-                        <div id="following" class="container">
+                        <div id="following" class="following container">
                             <h3>{lang:Following}</h3>
                             <ul>
                             {block:Followed}

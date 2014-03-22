@@ -1,41 +1,21 @@
-// posts
 .post
   margin: 0 $gutter $gutter 0
   position: relative
+
+  .js.no-touch &
+    &:hover
+      .fullsize
+        display: block
+      .reblog,
+      .like
+        visibility: visible
+        opacity: 1
+        -webkit-transition-delay: 0s
+
   .header-left &
     margin-right: 0
     margin-left: $gutter
-  .permalink &
-    width: 500px
-    .copy
-      margin-top: 20px
-    .title
-      font-size: 24px
-    .quote
-      font-size: 36px
-      line-height: 40px
-  a,
-  a.title strong
-    +transition(color 0.2s linear, border 0.2s linear)
-  blockquote
-    +transition-property(color)
-    +transition-duration(0.2s)
-    +transition-timing-function(linear)
-  img
-    +border-radius(2px)
-  menu,
-  ol,
-  ul
-    padding: 0 0 0 20px
-  .title
-    font-size: 18px
-    font-weight: bold
-    line-height: 1.3
-  .media
-    position: relative
-    a
-      border: none
-  // on index pages
+
   .index &
     z-index: 0
     float: left
@@ -48,24 +28,64 @@
       &.medium,
       &.long
         font-size: 18px
+
+  .permalink &
+    width: 500px
+    .copy
+      margin-top: 20px
+    .title
+      font-size: 24px
+    .quote
+      font-size: 36px
+      line-height: 40px
+
+  a,
+  a.title strong
+    +transition(color 0.2s linear, border 0.2s linear)
+    @extend %border-bottom
+  blockquote
+    +transition-property(color)
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
+  img
+    +border-radius(2px)
+  menu,
+  ol,
+  ul
+    padding: 0 0 0 20px
+
+  .title
+    font-size: 18px
+    font-weight: bold
+    line-height: 1.3
+
+  .media
+    position: relative
+    a
+      border: none
+
   .copy img
     max-width: 100%
     height: auto
-  // post specific
-  // chats
-  &.chat .line
-    margin: 0 0 10px 0
-    padding-bottom: 10px
+
+  // chat
+  &.chat
+    .line
+      margin: 0 0 10px 0
+      padding-bottom: 10px
+      @extend %border-bottom
+
   // video
-  &.video object
-    width: 100%
-    height: auto
-    +border-radius(2px)
+  &.video
+    object
+      @extend %full-width
+      +border-radius(2px)
+
   // photo
   &.photo .media img,
   &.audio .album_art img
-    width: 100%
-    height: auto
+    @extend %full-width
+
   // audio
   &.audio
     object,
@@ -78,25 +98,61 @@
       right: 0
       text-align: right
       position: absolute
+  
+  // answer
+  &.answer
+    &:hover .question:after
+      border-top-width: 8px
+      border-top-style: solid
+    .question
+      font-weight: normal
+      padding: 10px
+      position: relative
+      +transition-duration(0.2s)
+      +transition-timing-function(linear)
+      +border-radius(2px)
+      &:after
+        content: " "
+        width: 0
+        height: 0
+        position: absolute
+        left: 10px
+        bottom: -8px
+        display: block
+        border-right-width: 8px
+        border-top-width: 8px
+        border-right-style: solid
+        border-top-style: solid
+        +transition-duration(0.2s)
+        +transition-timing-function(linear)
+    .asker
+      .index.width-400 &
+        font-size: 12px
+      img
+        margin: 0 10px
+
   // font sizes
   .index.width-400 &
     font-size: 12px
+
   // 500px posts
   .index.width-500 &
     width: 500px
 
   // links to hires media
   .fullsize
+    $fullsize-width: 48px
+    $fullsize-height: $fullsize-width
     position: absolute
     display: block
     opacity: .8
     top: 50%
     left: 50%
-    width: 48px
-    height: 48px
-    margin-top: -24px
-    margin-left: -24px
-    +border-radius(24px)
+    width: $fullsize-width
+    height: $fullsize-height
+    margin-top: - ($fullsize-height / 2)
+    margin-left: - ($fullsize-width / 2)
+    +border-radius($fullsize-width / 2)
     +transition-duration(0.2s)
     +transition-timing-function(linear)
     span
@@ -115,9 +171,9 @@
     &:before
       content: "\e006"
       display: block
-      width: 48px
-      height: 48px
-      line-height: 48px
+      width: $fullsize-width
+      height: $fullsize-height
+      line-height: $fullsize-height
       font-size: 28px
       text-align: center
       .dog-ear-zoom-icon &
@@ -139,13 +195,14 @@
       +border-radius(2px)
       opacity: 1
       background-color: transparent
-  // .post .footer
+
   .footer
     font-size: 12px
     margin-top: 10px
     padding-top: 5px
     padding-bottom: 5px
     @extend %clearfix
+    @extend %border-bottom
     .index &
       font-size: $very-small-type
     .permalink &
@@ -162,8 +219,8 @@
     .date a
       padding-left: 0
       float: left
-    li.reblog,
-    li.like
+    .reblog,
+    .like
       float: right
       margin-right: 0
       margin-left: 10px
@@ -173,7 +230,7 @@
         opacity: 0
       a.liked:before
         color: red
-    li.like
+    .like
       position: relative
       display: inline-block
       width: 10px
@@ -185,8 +242,6 @@
       left: 0
       right: 0
       bottom: 0
-      width: 100%
-      height: 100%
       z-index: 10
     .like_button
       opacity: 0
@@ -233,9 +288,11 @@
       display: block
     .date a:before
       content: "\e03d"
+
     .date .reblogged-from a:before
       content: "" !important
       margin-right: 0 !important
+
     .custom-like-button
       position: absolute
       top: 0
@@ -248,50 +305,6 @@
       text-align: center
       font-size: 10px
       line-height: 21px
-
-.js.no-touch .post
-  &:hover
-    .fullsize
-      display: block
-    li.reblog,
-    li.like
-      visibility: visible
-      opacity: 1
-      -webkit-transition-delay: 0s
-
-// questions
-.title.question
-  font-weight: normal
-  padding: 10px
-  position: relative
-  +transition-duration(0.2s)
-  +transition-timing-function(linear)
-  +border-radius(2px)
-  &:after
-    content: " "
-    width: 0
-    height: 0
-    position: absolute
-    left: 10px
-    bottom: -8px
-    display: block
-    +transition-duration(0.2s)
-    +transition-timing-function(linear)
-    border-right-width: 8px
-    border-top-width: 8px
-    border-right-style: solid
-    border-top-style: solid
-
-.post a,
-.post .footer,
-.post.chat .line,
-a.title strong
-  border-bottom-width: 1px
-  border-bottom-style: solid
-
-.post.answer:hover .question:after
-  border-top-width: 8px
-  border-top-style: solid
 
 .dog-ear-zoom-icon
   .post.photo .media .fullsize

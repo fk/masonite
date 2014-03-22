@@ -1,3 +1,5 @@
+require "sass-globbing"
+
 css_dir = "build/css"
 
 output_style = :expanded

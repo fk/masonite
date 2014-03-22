@@ -1,3 +1,9 @@
+%header-margins
+  margin-right: $sidebar + $gutter
+  .header-left &
+    margin-right: 0
+    margin-left: $sidebar + $gutter
+
 html,
 body
   height: 100%
@@ -92,28 +98,12 @@ body
     padding-right: 0
     padding-left: $sidebar
 
-#pagination
-  padding: 0
-  margin: 0
-  @extend %clearfix
-
-#footer
-  @extend %clearfix
-
 .searchresultcount,
 #footer
   margin-bottom: $gutter
 
-=header-margins
-  margin-right: $sidebar + $gutter
-  .header-left &
-    margin-right: 0
-    margin-left: $sidebar + $gutter
-
-#footer,
-#pagination,
 .searchresultcount
-  +header-margins
+  @extend %header-margins
 
 .container
   margin-top: $gutter
