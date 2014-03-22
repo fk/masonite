@@ -26,10 +26,6 @@ module.exports = function(grunt) {
         src: bower + 'colorbox/jquery.colorbox-min.js',
         dest: build + 'js/jquery.colorbox-min.js'
       },
-      normalize: {
-        src: bower + 'normalize-css/normalize.css',
-        dest: build + 'css/normalize.css'
-      },
       placeholder: {
         src: bower + 'html5-placeholder-polyfill/dist/placeholder_polyfill.min.css',
         dest: build + 'css/placeholder_polyfill.min.css'
@@ -65,6 +61,13 @@ module.exports = function(grunt) {
           bower + 'infinite-scroll/behaviors/manual-trigger.js'
         ],
         dest: build + 'js/infinitescroll.js'
+      },
+      css: {
+        src: [
+          bower + 'normalize-css/normalize.css',
+          build + 'css/masonite.css'
+        ],
+        dest: build + 'css/masonite.css'        
       }
     },
     uglify: {
@@ -128,11 +131,11 @@ module.exports = function(grunt) {
     'clean:build',
     'modernizr',
     'copy',
+    'compass',
     'concat',
+    'cssmin',
     'jshint:masonite',
     'uglify',
-    'compass',
-    'cssmin',
     'clean:uncompressed'
   ]);
 
