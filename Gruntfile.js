@@ -32,10 +32,10 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      options: {
-        separator: ';'
-      },
       masonite: {
+        options: {
+          separator: ';'
+        },
         src: [
           bower + '6155769/log.js',
           bower + 'jquery-smartresize/jquery.debouncedresize.js',
