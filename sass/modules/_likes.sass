@@ -8,14 +8,14 @@
     overflow: hidden !important
     &.like_text_post,
     &.like_quote_post
-      font-size: 12px
+      @extend %t-small
     &:last-child,
     &.last
       margin-right: 0
     img
       max-width: 120px
     p
-      @extend %t-small
+      @extend %t-tiny
   blockquote
     padding-left: 4px
     p

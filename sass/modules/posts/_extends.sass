@@ -55,10 +55,10 @@
     background-color: transparent
 
 %footer
-  font-size: 12px
   margin-top: 10px
   padding-top: 5px
   padding-bottom: 5px
+  @extend %t-small
   @extend %clearfix
   @extend %border-bottom
 
@@ -199,7 +199,7 @@
       +transition-timing-function(linear)
   .asker
     .index.width-400 &
-      font-size: 12px
+      @extend %t-small
     img
       margin: 0 10px
 
@@ -208,7 +208,7 @@
   embed
     +border-radius(2px)
   .meta
-    @extend %t-small
+    @extend %t-tiny
     top: 5px
     left: 250px
     right: 0

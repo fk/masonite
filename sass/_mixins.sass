@@ -1,4 +1,7 @@
 @mixin typeSize($size)
+  @if $size == "xtiny"
+    @include adjust-font-size-to($xtiny-font-size)
+    @include adjust-leading-to($xtiny-font-leading)
   @if $size == "tiny"
     @include adjust-font-size-to($tiny-font-size)
     @include adjust-leading-to($tiny-font-leading)
