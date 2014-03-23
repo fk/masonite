@@ -151,15 +151,12 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Improved markup (better use of HTML5's sectioning elements) and source code.
 * Removed all 3rd party scripts from the repository.
 * Removed obsolete Masonry CSS styles.
-* Established an automated build via Grunt and additional plugins, 3rd party scripts are managed with Twitter Bower; to get started:
-  * Install [Node.js](http://nodejs.org/) and [Bower](http://bower.io/).
-  * Fetch all development dependencies with `npm install && bower install`
-  * Hack away.
-  * Build a release with `grunt`.
-  * [Upload CSS and JavaScripts](http://www.tumblr.com/themes/upload_static_file) in `build` to Tumblr.
-  * Replace URLs in `masonite.html`.
+* Established an automated build via Grunt and additional plugins.
+* 3rd party scripts are now managed with Twitter Bower.
+* Added Gemfile.
 * Updated Modernizr to a perfectly lean build thanks to [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr).
-* Refined Sass partials: split `_modules.sass` to dedicated partials for following, likes, notes, pagination.
+* Reorganized Sass structure.
+* Refined typography.
 
 ### 0.2.5
 
@@ -247,3 +244,16 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Tag pages now have a headline.
 * Updated jQuery Masonry and modernizr.
 * Improved search-input semantics and presentation in non-WebKit browsers.
+
+## Contributing
+
+This project uses [git-flow](https://github.com/nvie/gitflow) and [its branching model](http://nvie.com/posts/a-successful-git-branching-model/): the **master** branch always contains stable, production-ready code (also matching the version available via/submitted to Tumblr's Theme Garden) while the **develop** branch contains the latest development code.
+
+To get started:
+
+  * Install [Ruby](https://www.ruby-lang.org/), [Node.js](http://nodejs.org/) and [Bower](http://bower.io/).
+  * Fetch all development dependencies with `bundle install && npm install && bower install`
+  * Hack away.
+  * Build a release with `grunt`.
+  * [Upload CSS and JavaScripts](http://www.tumblr.com/themes/upload_static_file) in `build` to Tumblr.
+  * Replace URLs in `masonite.html`.

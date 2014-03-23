@@ -1,0 +1,227 @@
+%fullsize
+  $fullsize-width: 48px
+  $fullsize-height: $fullsize-width
+  position: absolute
+  display: block
+  opacity: .8
+  top: 50%
+  left: 50%
+  width: $fullsize-width
+  height: $fullsize-height
+  margin-top: - ($fullsize-height / 2)
+  margin-left: - ($fullsize-width / 2)
+  +border-radius($fullsize-width / 2)
+  +transition-duration(0.2s)
+  +transition-timing-function(linear)
+  span
+    display: block
+    text-indent: 100%
+    white-space: nowrap
+    overflow: hidden
+  .js &
+    display: none
+  &:hover
+    opacity: 1
+    box-shadow: 0px 0px 48px #fff
+    .dog-ear-zoom-icon &
+      box-shadow: none
+      background-color: transparent
+  &:before
+    content: "\e006"
+    display: block
+    width: $fullsize-width
+    height: $fullsize-height
+    line-height: $fullsize-height
+    font-size: 28px
+    text-align: center
+    .dog-ear-zoom-icon &
+      position: relative
+      width: 28px
+      height: 28px
+      line-height: 16px
+      font-size: 16px
+      text-align: right
+      z-index: 10
+  .dog-ear-zoom-icon &
+    top: 0
+    left: auto
+    right: 0
+    width: 28px
+    height: 28px
+    margin-top: 0
+    margin-left: 0
+    +border-radius(2px)
+    opacity: 1
+    background-color: transparent
+
+%footer
+  font-size: 12px
+  margin-top: 10px
+  padding-top: 5px
+  padding-bottom: 5px
+  @extend %clearfix
+  @extend %border-bottom
+
+  .index &
+    @extend %t-tiny
+
+  .permalink &
+    margin-top: 35px
+    margin-bottom: 20px
+    border: 0
+
+  .hide-post-footer-border.index &
+    border: 0
+    padding-bottom: 0
+
+  .date a,
+  .comments a,
+  .notes a
+    display: block
+
+  .date a
+    padding-left: 0
+    float: left
+
+  .reblog,
+  .like
+    float: right
+    margin-right: 0
+    margin-left: 10px
+    -webkit-transition: visibility 0s linear 0.2s, opacity 0.2s linear
+
+    .js.no-touch &
+      visibility: hidden
+      opacity: 0
+
+    a.liked:before
+      color: red
+
+  .like
+    position: relative
+    display: inline-block
+    width: 10px
+    height: 21px
+    cursor: pointer
+
+  .like_button
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 10
+    opacity: 0
+
+  .date span.reblogged-from
+    float: left
+    display: block
+    padding-left: 4px
+    a
+      padding-left: 0
+      display: inline
+      float: none
+      background: none !important
+  a
+    font-weight: normal
+    border: none
+  .tags
+    display: block
+    clear: both
+    margin: 0
+    @extend %clearfix
+    dd
+      float: left
+      margin-left: 8px
+  ul,
+  ol
+    list-style: none
+    margin: 0
+    padding: 0
+    @extend %clearfix
+  li
+    margin-right: 10px
+    float: left
+  .date.reblogged a:before
+    content: "\e046"
+  .custom-like-button:before,
+  .notes a:before
+    content: "\e03f"
+  .comments a:before
+    content: "\e002"
+  .tags:before
+    content: "\e044"
+    margin-right: 0
+    float: left
+    display: block
+  .date a:before
+    content: "\e03d"
+
+  .date .reblogged-from a:before
+    content: "" !important
+    margin-right: 0 !important
+
+  .custom-like-button
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 1
+    text-align: center
+    font-size: 10px
+    line-height: 21px
+
+%answer
+  &:hover .question:after
+    border-top-width: 8px
+    border-top-style: solid
+  .question
+    font-weight: normal
+    padding: 10px
+    position: relative
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
+    +border-radius(2px)
+    &:after
+      content: " "
+      width: 0
+      height: 0
+      position: absolute
+      left: 10px
+      bottom: -8px
+      display: block
+      border-right-width: 8px
+      border-top-width: 8px
+      border-right-style: solid
+      border-top-style: solid
+      +transition-duration(0.2s)
+      +transition-timing-function(linear)
+  .asker
+    .index.width-400 &
+      font-size: 12px
+    img
+      margin: 0 10px
+
+%audio
+  object,
+  embed
+    +border-radius(2px)
+  .meta
+    @extend %t-small
+    top: 5px
+    left: 250px
+    right: 0
+    text-align: right
+    position: absolute
+
+%video
+  object
+    @extend %full-width
+    +border-radius(2px)
+
+%chat
+  .line
+    margin: 0 0 10px 0
+    padding-bottom: 10px
+    @extend %border-bottom
