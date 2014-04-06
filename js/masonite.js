@@ -397,7 +397,7 @@
 					navSelector: "#pagination",
 					nextSelector: "#pagination .next a",
 					itemSelector: "#posts .post",
-					bufferPx: 600,
+					bufferPx: $(window).height() * 2,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
 					errorCallback: function() {
