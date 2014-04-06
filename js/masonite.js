@@ -427,10 +427,8 @@
 					$elems.imagesLoaded(function() {
 
 						if ( !$( "body" ).hasClass( "single-column" ) ) {
+							$elems.css({ opacity: 1 });
 							$wall.masonry( "appended", newElements );
-							$elems.animate({
-								opacity: 1.0
-							}, 200, "swing");
 						} else {
 							$elems.animate({ opacity: 1.0 }, 200, "swing");
 						}
