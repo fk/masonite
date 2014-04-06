@@ -1,4 +1,4 @@
-# masonite v0.2.5
+# masonite v0.2.6
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -139,7 +139,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.2.6
 
 * Switched to [Tumblr's own like- and reblog-buttons](http://www.tumblr.com/docs/en/custom_themes#like_and_reblog_buttons).
 * Updated HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things in `<head>` related to [Google Chrome Frame](https://www.google.com/chromeframe).
