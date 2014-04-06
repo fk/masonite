@@ -1,45 +1,8 @@
-// normalize.css
-// http://necolas.github.com/normalize.css/
-@import partials/normalize
-
-// HTML5 Boilerplate styles, top part
-// https://github.com/h5bp/html5-boilerplate
-@import partials/h5bp-top
-
-
-/* ==========================================================================
-   masonite - a Tumblr theme
-   Author: flo@6230.org
-   ========================================================================== */
-
-// compass modules
-// http://compass-style.org/reference/compass/
 @import compass/css3
+@import compass/typography
 
-
-// variables
-// http://compass-style.org/help/tutorials/configurable-variables/
-$gutter: 40px
-$sidebar: 120px
-$small-type: 11px
-$very-small-type: 10px
-$base-font-size: 14px
-$base-line-height: 20px
-
-
-// partials
-@import partials/basics
-@import partials/typography
-@import partials/layout
-@import partials/font
-@import partials/icons
-@import partials/post
-@import partials/modules
-@import partials/sidebar
-@import partials/infinite-scroll
-@import partials/placeholder
-@import partials/masonry
-
-
-// HTML5 Boilerplate styles, bottom part
-@import partials/h5bp-bottom
+@import variables
+@import mixins
+@import extends
+@import globals/*
+@import modules/**/*

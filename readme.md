@@ -1,4 +1,4 @@
-# masonite v0.2.5
+# masonite v0.2.6
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -120,24 +120,46 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 * [Modernizr](http://modernizr.com/) v2.7.1
 * [jQuery](http://jquery.com/) v1.11.0
-* [Masonry](http://masonry.desandro.com/) v3.1.4 by [@desandro](https://twitter.com/desandro)
-* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.4 by [@desandro](https://twitter.com/desandro)
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.4 by [@jacklmoore](https://twitter.com/jacklmoore)
+* [Masonry](http://masonry.desandro.com/) v3.1.4
+* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.4
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.4
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b.120520
-* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slighlty modified](https://github.com/fk/FitVids.js/commit/457b0f23369e3541690aa3cccbdd3705e1562c3d))
-* [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.9 by [@ginader](https://twitter.com/ginader)
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slightly modified](https://github.com/fk/FitVids.js/tree/fit-vids-ignore))
+* [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.9
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
 * [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.2
-* built on [HTML5 Boilerplate](http://html5boilerplate.com/)'s CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.0
-* icon-font generated with [IcoMoon](http://icomoon.io/) by [@Keyamoon](http://twitter.com/keyamoon/), containing icons from
+* built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.1
+* icon-font generated with [IcoMoon](http://icomoon.io/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [IcoMoon - Free](http://keyamoon.com/icomoon/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-  * [Broccolidry](http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons) – License: [Aribitrary](http://licence.visualidiot.com/) 
+  * [Broccolidry](http://dribbble.com/shots/587469-Free-16px-Broccolidryiconsaniconsetitisfullof-icons) – License: [Aribitrary](http://licence.visualidiot.com/)
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.2.6
+
+* Switched to [Tumblr's own like- and reblog-buttons](http://www.tumblr.com/docs/en/custom_themes#like_and_reblog_buttons).
+* Updated HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things in `<head>` related to [Google Chrome Frame](https://www.google.com/chromeframe).
+* Updated to HTML5 Placeholder Polyfill v2.0.10.
+* Updated to Colorbox v1.5.5.
+* Updated to Masonry v3.1.5.
+* Updated Modernizr to a perfectly lean build thanks to [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr).
+* Removed obsolete Masonry CSS styles.
+* Referenced minified version of masonite.js - masonite v0.2.5 referenced the uncompressed version.
+* Removed line-through for hovered links in the sidebar; instead, use the "Accent"-color.
+* Fixed transition-duration of the "Dog Ear Zoom Icon" - was 2s, should have been 0.2s.
+* Improved markup (better use of HTML5's sectioning elements) and source code.
+* Removed all 3rd party scripts from the repository.
+* Established an automated build via Grunt and additional plugins.
+* 3rd party scripts are now managed with [Twitter Bower](http://bower.io/).
+* Added Gemfile.
+* Reorganized Sass structure, introduced [sass-globbing](https://github.com/chriseppstein/sass-globbing).
+* Refined typography-related Sass.
+* Removed "Arial" from the default font stacks.
+* Load Clicky Tracking JS via Modernizr.load/yepnope.
 
 ### 0.2.5
 
@@ -228,7 +250,13 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Contributing
 
-Contributions are welcome!  
 This project uses [git-flow](https://github.com/nvie/gitflow) and [its branching model](http://nvie.com/posts/a-successful-git-branching-model/): the **master** branch always contains stable, production-ready code (also matching the version available via/submitted to Tumblr's Theme Garden) while the **develop** branch contains the latest development code.
 
-When contributing CSS, please use [Sass](http://sass-lang.com/) and [Compass](http://compass-style.org/).
+To get started:
+
+  * Install [Ruby](https://www.ruby-lang.org/), [Node.js](http://nodejs.org/) and [Bower](http://bower.io/).
+  * Fetch all development dependencies with `bundle install && npm install && bower install`
+  * Hack away.
+  * Build a release with `grunt`.
+  * [Upload CSS and JavaScripts](http://www.tumblr.com/themes/upload_static_file) in `build` to Tumblr.
+  * Replace URLs in `masonite.html`.

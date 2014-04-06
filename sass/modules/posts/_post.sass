@@ -1,0 +1,126 @@
+.post
+  margin: 0 $gutter $gutter 0
+  position: relative
+
+  .js.no-touch &
+    &:hover
+      .fullsize
+        display: block
+      .reblog,
+      .like
+        visibility: visible
+        opacity: 1
+        -webkit-transition-delay: 0s
+
+  .header-left &
+    margin-right: 0
+    margin-left: $gutter
+
+  .index &
+    z-index: 0
+    float: left
+    width: 400px
+    overflow-x: hidden
+
+  .index.width-400 &
+    @extend %t-small
+
+  .index.width-500 &
+    width: 500px
+
+  .permalink &
+    width: 500px
+    .copy
+      margin-top: 20px
+    .title
+      @extend %t-xlarge
+
+  .quote
+    &.short,
+    &.medium,
+    &.long
+      @extend %t-xlarge
+    .index &
+      &.short
+        @extend %t-xlarge
+      &.medium,
+      &.long
+        @extend %t-medium
+
+  a,
+  a.title strong
+    +transition(color 0.2s linear, border 0.2s linear)
+    @extend %border-bottom
+  blockquote
+    +transition-property(color)
+    +transition-duration(0.2s)
+    +transition-timing-function(linear)
+  img
+    +border-radius(2px)
+  menu,
+  ol,
+  ul
+    padding: 0 0 0 20px
+
+  .title
+    @extend %t-medium
+    @extend %t-strong
+
+  .media
+    position: relative
+    a
+      border: none
+
+  .copy img
+    max-width: 100%
+    height: auto
+
+  .fullsize
+    @extend %fullsize
+  
+  .footer
+    @extend %footer
+
+  &.chat
+    @extend %chat
+
+  &.video
+    @extend %video
+
+  &.photo
+    .media
+      img
+        @extend %full-width
+
+  &.audio
+    @extend %audio
+    .album_art
+      img
+        @extend %full-width
+  
+  &.answer
+    @extend %answer
+
+.dog-ear-zoom-icon
+  .post.photo .media .fullsize
+    &:after
+      content: ' '
+      width: 0
+      height: 0
+      position: absolute
+      right: 0
+      top: 0
+      border-bottom-width: 28px
+      border-right-width: 28px
+      border-bottom-style: solid
+      border-right-style: solid
+      z-index: 0
+      +transition-duration(0.2s)
+      +transition-timing-function(linear)
+    &:hover:after
+      border-bottom-width: 28px
+      border-right-width: 28px
+
+.audio-wrapper
+  position: relative
+  margin-top: 10px

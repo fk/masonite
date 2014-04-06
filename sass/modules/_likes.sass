@@ -1,0 +1,23 @@
+#likes
+  @extend %reset-ul
+  @extend %clearfix
+  li
+    width: 120px
+    float: left
+    margin: 0 10px 10px 0
+    overflow: hidden !important
+    &.like_text_post,
+    &.like_quote_post
+      @extend %t-small
+    &:last-child,
+    &.last
+      margin-right: 0
+    img
+      max-width: 120px
+    p
+      @extend %t-tiny
+  blockquote
+    padding-left: 4px
+    p
+      font-size: 12px !important
+      line-height: 20px !important

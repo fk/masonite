@@ -1,0 +1,45 @@
+@include establish-baseline
+
+#{headings(6)}
+  margin: 15px 0 20px 0
+  &:first-child
+    margin-top: 0
+
+h1
+  @extend %t-xlarge
+h2
+  @extend %t-large
+h3
+  @extend %t-medium
+h4,
+h5,
+h6
+  @extend %t-base
+
+blockquote
+  border-left-width: 1px
+  border-left-style: solid
+  margin: 15px 0 0
+  padding: 0 0 0 15px
+  blockquote
+    margin-top: 0
+  p
+    padding: 0
+    margin-bottom: 15px
+  ul,
+  ol
+    padding-left: 15px
+  &:first-child,
+  p:first-child
+    margin-top: 0
+  &:last-child,
+  p:last-child
+    margin-bottom: 0
+
+p,
+.copy
+  margin: 1em 0
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0

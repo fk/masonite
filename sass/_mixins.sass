@@ -1,0 +1,22 @@
+@mixin typeSize($size)
+  @if $size == "xtiny"
+    @include adjust-font-size-to($xtiny-font-size)
+    @include adjust-leading-to($xtiny-font-leading)
+  @if $size == "tiny"
+    @include adjust-font-size-to($tiny-font-size)
+    @include adjust-leading-to($tiny-font-leading)
+  @if $size == "small"
+    @include adjust-font-size-to($small-font-size)
+    @include adjust-leading-to($small-font-leading)
+  @if $size == "base"
+    @include adjust-font-size-to($base-font-size)
+    @include adjust-leading-to($base-font-leading)
+  @if $size == "medium"
+    @include adjust-font-size-to($medium-font-size)
+    @include adjust-leading-to($medium-font-leading)
+  @if $size == "large"
+    @include adjust-font-size-to($large-font-size)
+    @include adjust-leading-to($large-font-leading)
+  @if $size == "xlarge"
+    @include adjust-font-size-to($xlarge-font-size)
+    @include adjust-leading-to($xlarge-font-leading)

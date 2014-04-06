@@ -1,0 +1,15 @@
+.pagination
+  line-height: 1
+  @extend %reset-ul
+  @extend %clearfix
+  @extend %header-margins
+  li
+    float: left
+    margin-right: 10px
+    a
+      text-decoration: none
+  .index.custom-trigger-infinite-scrolling &
+    li a
+      display: block
+      padding: 10px
+      +border-radius(4px)
