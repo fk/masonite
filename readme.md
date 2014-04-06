@@ -154,9 +154,9 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Improved markup (better use of HTML5's sectioning elements) and source code.
 * Removed all 3rd party scripts from the repository.
 * Established an automated build via Grunt and additional plugins.
-* 3rd party scripts are now managed with Twitter Bower.
+* 3rd party scripts are now managed with [Twitter Bower](http://bower.io/).
 * Added Gemfile.
-* Reorganized Sass structure.
+* Reorganized Sass structure, introduced [sass-globbing](https://github.com/chriseppstein/sass-globbing).
 * Refined typography-related Sass.
 * Removed "Arial" from the default font stacks.
 * Load Clicky Tracking JS via Modernizr.load/yepnope.
