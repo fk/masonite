@@ -353,7 +353,8 @@
             #description a:hover,
             #navigation a:hover,
             #copyright a:hover,
-            .like_button.liked + .custom-like-button:before {
+            .like_button.liked + .custom-like-button:before,
+            .touch .like_button.liked + .custom-like-button:before {
                 color: {color:Accents};
             }
 
@@ -385,12 +386,18 @@
                 fill: {color:Darks};
             }
 
+            .touch .reblog_button svg {
+                fill: {color:Lights};
+            }
+
             .post .footer,
             .post .footer a,
             .post .footer a:visited,
             .post .notes,
             .post .notes a,
-            .post .notes a:visited {
+            .post .notes a:visited,
+            .touch .custom-like-button:before,
+            .touch .like_button + .custom-like-button:before {
                 color: {color:Lights};
             }
 
