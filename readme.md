@@ -141,22 +141,25 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ### Not yet released
 
-* Switched to Tumblr's own like- and reblog-buttons.
-* Updated HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things related to Google Chrome Frame.
+* Switched to [Tumblr's own like- and reblog-buttons](http://www.tumblr.com/docs/en/custom_themes#like_and_reblog_buttons).
+* Updated HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things in `<head>` related to [Google Chrome Frame](https://www.google.com/chromeframe).
 * Updated to HTML5 Placeholder Polyfill v2.0.10.
 * Updated to Colorbox v1.5.5.
-* Referenced minified version of masonite.js - v0.2.5 referenced the uncompressed version.
-* Removed line-through for hovered links in the sidebar; instead, use the "Accent"-color for consistency.
-* Fixed transition-duration of the "Dog Ear Zoom Icon" - was 2s, should be 0.2s.
+* Updated to Masonry v3.1.5.
+* Updated Modernizr to a perfectly lean build thanks to [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr).
+* Removed obsolete Masonry CSS styles.
+* Referenced minified version of masonite.js - masonite v0.2.5 referenced the uncompressed version.
+* Removed line-through for hovered links in the sidebar; instead, use the "Accent"-color.
+* Fixed transition-duration of the "Dog Ear Zoom Icon" - was 2s, should have been 0.2s.
 * Improved markup (better use of HTML5's sectioning elements) and source code.
 * Removed all 3rd party scripts from the repository.
-* Removed obsolete Masonry CSS styles.
 * Established an automated build via Grunt and additional plugins.
 * 3rd party scripts are now managed with Twitter Bower.
 * Added Gemfile.
-* Updated Modernizr to a perfectly lean build thanks to [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr).
 * Reorganized Sass structure.
-* Refined typography.
+* Refined typography-related Sass.
+* Removed "Arial" from the default font stacks.
+* Load Clicky Tracking JS via Modernizr.load/yepnope.
 
 ### 0.2.5
 
