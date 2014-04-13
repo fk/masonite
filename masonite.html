@@ -108,7 +108,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/baBn3mquu/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/rGCn3y8ar/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -959,9 +959,11 @@
 
         <script>
             masonite = {
-                whites          : "{color:Background}",
-                accents         : "{color:Accents}",
+                whites          : "{color:Background}".slice( 1 ),
+                accents         : "{color:Accents}".slice( 1 ),
                 centeredContent : {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
+                singleColumn    : {block:IfOneColumnContent}true{/block:IfOneColumnContent}{block:IfNotOneColumnContent}false{/block:IfNotOneColumnContent},
+                headerLeft      : {block:IfHeaderLeft}true{/block:IfHeaderLeft}{block:IfNotHeaderLeft}false{/block:IfNotHeaderLeft},
                 colorbox        : {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
                 infiniteScroll  : {block:IfEnableInfiniteScrolling}true{/block:IfEnableInfiniteScrolling}{block:IfNotEnableInfiniteScrolling}false{/block:IfNotEnableInfiniteScrolling},
                 customTrigger   : {block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}{block:IfNotCustomtriggerInfiniteScrolling}false{/block:IfNotCustomtriggerInfiniteScrolling},
@@ -1012,8 +1014,6 @@
                   {/block:PermalinkPagination}
             {/block:IfDisqusShortname}
 
-            masonite.whites = masonite.whites.slice( 1 );
-            masonite.accents = masonite.accents.slice( 1 );
             window._gaq = masonite.googleAnalytics;
 
             placeHolderConfig = {
@@ -1068,7 +1068,7 @@
                                     '//{text:Disqus Shortname}.disqus.com/embed.js',
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            'http://static.tumblr.com/wccjej0/IjXn3mqxw/masonite.min.js'
+                            'http://static.tumblr.com/wccjej0/Ojtn3y9ai/masonite.min.js'
                         ]);
                      }
                 },
