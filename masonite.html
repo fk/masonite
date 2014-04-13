@@ -962,6 +962,8 @@
                 whites          : "{color:Background}",
                 accents         : "{color:Accents}",
                 centeredContent : {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
+                singleColumn    : {block:IfOneColumnContent}true{/block:IfOneColumnContent}{block:IfNotOneColumnContent}false{/block:IfNotOneColumnContent},
+                headerLeft      : {block:IfHeaderLeft}true{/block:IfHeaderLeft}{block:IfNotHeaderLeft}false{/block:IfNotHeaderLeft},
                 colorbox        : {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
                 infiniteScroll  : {block:IfEnableInfiniteScrolling}true{/block:IfEnableInfiniteScrolling}{block:IfNotEnableInfiniteScrolling}false{/block:IfNotEnableInfiniteScrolling},
                 customTrigger   : {block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}{block:IfNotCustomtriggerInfiniteScrolling}false{/block:IfNotCustomtriggerInfiniteScrolling},
