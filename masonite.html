@@ -959,8 +959,8 @@
 
         <script>
             masonite = {
-                whites          : "{color:Background}",
-                accents         : "{color:Accents}",
+                whites          : "{color:Background}".slice( 1 ),
+                accents         : "{color:Accents}".slice( 1 ),
                 centeredContent : {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
                 singleColumn    : {block:IfOneColumnContent}true{/block:IfOneColumnContent}{block:IfNotOneColumnContent}false{/block:IfNotOneColumnContent},
                 headerLeft      : {block:IfHeaderLeft}true{/block:IfHeaderLeft}{block:IfNotHeaderLeft}false{/block:IfNotHeaderLeft},
@@ -1014,8 +1014,6 @@
                   {/block:PermalinkPagination}
             {/block:IfDisqusShortname}
 
-            masonite.whites = masonite.whites.slice( 1 );
-            masonite.accents = masonite.accents.slice( 1 );
             window._gaq = masonite.googleAnalytics;
 
             placeHolderConfig = {
