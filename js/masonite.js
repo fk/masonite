@@ -293,7 +293,7 @@
 			var $wall = $( "#posts" ),
 				infinitescroll_behavior;
 
-			if ( !masonite.oneColumn ) {
+			if ( !masonite.singleColumn ) {
 				$wall.imagesLoaded(function() {
 
 					$wall.masonry({
