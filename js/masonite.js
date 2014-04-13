@@ -300,7 +300,15 @@
 						itemSelector: ".post",
 						isFitWidth: masonite.centeredContent,
 						isResizeBound: !masonite.centeredContent,
-						columnWidth: $( ".post" ).outerWidth( true )
+						columnWidth: $( ".post" ).outerWidth( true ),
+						hiddenStyle: {
+							opacity: 0,
+							transform: 'translateY(40px)'
+						},
+						visibleStyle: {
+							opacity: 1,
+							transform: 'translateY(0)'
+						}
 					});
 
 					if ( masonite.centeredContent ) {
