@@ -325,15 +325,16 @@
 									moreColumns = false;
 								}
 								columns = currentColumns;
+
 								// apply width to container manually, then trigger relayout
 								var $queue;
 
 								if ( moreColumns ) {
 
-									if ( !masonite.headerLeft ) {
-										$queue = $( "#header, #copyright, #posts, #container" );
-									} else {
+									if ( masonite.headerLeft ) {
 										$queue = $( "#posts, #container" );
+									} else {
+										$queue = $( "#header, #copyright, #posts, #container" );
 									}
 
 									$page.animate({
@@ -426,11 +427,11 @@
 
 					$elems.imagesLoaded(function() {
 
-						if ( !masonite.singleColumn ) {
+						if ( masonite.singleColumn ) {
+							$elems.animate({ opacity: 1.0 }, 200, "swing");
+						} else {
 							$elems.css({ opacity: 1 });
 							$wall.masonry( "appended", newElements );
-						} else {
-							$elems.animate({ opacity: 1.0 }, 200, "swing");
 						}
 
 						if ( masonite.customTrigger ) {
