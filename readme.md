@@ -139,7 +139,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### not yet released
+### 0.2.7
 
 * Ditch zoom animation for appended masonry items, use a subtle "bottom to top" animation instead.
 * Minor cleanup – don't query the DOM if not necessary.
