@@ -293,14 +293,22 @@
 			var $wall = $( "#posts" ),
 				infinitescroll_behavior;
 
-			if ( !$( "body" ).hasClass( "single-column" ) ) {
+			if ( !masonite.singleColumn ) {
 				$wall.imagesLoaded(function() {
 
 					$wall.masonry({
 						itemSelector: ".post",
 						isFitWidth: masonite.centeredContent,
 						isResizeBound: !masonite.centeredContent,
-						columnWidth: $( ".post" ).outerWidth( true )
+						columnWidth: $( ".post" ).outerWidth( true ),
+						hiddenStyle: {
+							opacity: 0,
+							transform: 'translateY(40px)'
+						},
+						visibleStyle: {
+							opacity: 1,
+							transform: 'translateY(0)'
+						}
 					});
 
 					if ( masonite.centeredContent ) {
@@ -325,15 +333,16 @@
 									moreColumns = false;
 								}
 								columns = currentColumns;
+
 								// apply width to container manually, then trigger relayout
 								var $queue;
 
 								if ( moreColumns ) {
 
-									if ( !$( "body" ).hasClass( "header-left" ) ) {
-										$queue = $( "#header, #copyright, #posts, #container" );
-									} else {
+									if ( masonite.headerLeft ) {
 										$queue = $( "#posts, #container" );
+									} else {
+										$queue = $( "#header, #copyright, #posts, #container" );
 									}
 
 									$page.animate({
@@ -343,7 +352,7 @@
 									//	'width': columns * colW
 									// }, 100);
 
-									if ( !$( "body" ).hasClass( "header-left" ) ) {
+									if ( !masonite.headerLeft ) {
 										$sidebar.animate({
 											"margin-left": columns * colW
 										}, 100);
@@ -362,7 +371,7 @@
 									$wall.masonry( "layout" );
 									$( "#likes" ).masonry( "layout" );
 
-									if ( !$( "body").hasClass( "header-left" ) ) {
+									if ( !masonite.headerLeft ) {
 										$sidebar.css({
 											"margin-left": columns * colW
 										});
@@ -426,11 +435,11 @@
 
 					$elems.imagesLoaded(function() {
 
-						if ( !$( "body" ).hasClass( "single-column" ) ) {
+						if ( masonite.singleColumn ) {
+							$elems.animate({ opacity: 1.0 }, 200, "swing");
+						} else {
 							$elems.css({ opacity: 1 });
 							$wall.masonry( "appended", newElements );
-						} else {
-							$elems.animate({ opacity: 1.0 }, 200, "swing");
 						}
 
 						if ( masonite.customTrigger ) {
