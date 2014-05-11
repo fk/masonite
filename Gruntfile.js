@@ -42,8 +42,17 @@ module.exports = function(grunt) {
           bower + 'jQuery-widowFix/js/jquery.widowFix-1.3.2.js',
           bower + 'jquery.easing.1.3/index.js',
           bower + 'jquery.fitvids/jquery.fitvids.js',
-          bower + 'imagesloaded.pkgd/index.js',
-          bower + 'masonry.pkgd/index.js',
+          bower + 'jquery-bridget/jquery.bridget.js',
+          bower + 'get-style-property/get-style-property.js',
+          bower + 'get-size/get-size.js',
+          bower + 'matches-selector/matches-selector.js',
+          bower + 'eventEmitter/EventEmitter.js',
+          bower + 'eventie/eventie.js',
+          bower + 'doc-ready/doc-ready.js',
+          bower + 'outlayer/item.js',
+          bower + 'outlayer/outlayer.js',
+          bower + 'imagesloaded/imagesloaded.pkgd.js',
+          bower + 'masonry/dist/masonry.pkgd.js',
           'js/<%= pkg.name %>.js'
         ],
         dest: build + 'js/<%= pkg.name %>.js'
@@ -67,7 +76,7 @@ module.exports = function(grunt) {
           bower + 'normalize-css/normalize.css',
           build + 'css/masonite.css'
         ],
-        dest: build + 'css/masonite.css'        
+        dest: build + 'css/masonite.css'
       }
     },
     uglify: {

@@ -108,7 +108,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/rGCn3y8ar/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/laWn5bzql/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -506,7 +506,7 @@
 
             {CustomCSS}
         </style>
-        <script src="http://static.tumblr.com/wccjej0/qVkn3mr0h/modernizr.min.js"></script>
+        <script src="http://static.tumblr.com/wccjej0/KDYn5bznu/modernizr.min.js"></script>
     </head>
     <body class="{block:PermalinkPage}permalink{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar} {block:IfEnableFixedPositioningofSidebar}header-position-fixed{/block:IfEnableFixedPositioningofSidebar}">
         <!--[if lt IE 8]>
@@ -1022,36 +1022,36 @@
 
             Modernizr.load([
                 {
-                    load: '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+                    load: 'http://code.jquery.com/jquery-1.11.1.min.js',
                     complete: function () {
                         if ( !window.jQuery ) {
-                            Modernizr.load('http://static.tumblr.com/wccjej0/Qtcn3mqyn/jquery.min.js');
+                            Modernizr.load('http://static.tumblr.com/wccjej0/rTYn5bzmm/jquery.min.js');
                         }
                     }
                 },
                 {block:IfGoogleWebFont}
                     {
                         test: Modernizr.fontface,
-                        yep: '//ajax.googleapis.com/ajax/libs/webfont/1.5.2/webfont.js'
+                        yep: '//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js'
                     },
                 {/block:IfGoogleWebFont}
                 {
                     test: Modernizr.input.placeholder,
                     nope: [
-                        'http://static.tumblr.com/wccjej0/Lqnn3mqw9/placeholder_polyfill.min.css',
-                        'http://static.tumblr.com/wccjej0/FB9n3mr1f/placeholder.min.js'
+                        'http://static.tumblr.com/wccjej0/kjzn5bzr7/placeholder_polyfill.min.css',
+                        'http://static.tumblr.com/wccjej0/IJ5n5bzpg/placeholder.min.js'
                     ]
                 },
                 {
                     test: masonite.colorbox,
                     yep: [
-                        'http://static.tumblr.com/wccjej0/b3Dn3mqwx/colorbox.min.css',
-                        'http://static.tumblr.com/wccjej0/OSan3mqzz/jquery.colorbox-min.js'
+                        'http://static.tumblr.com/wccjej0/eC2n5bzq4/colorbox.min.css',
+                        'http://static.tumblr.com/wccjej0/fjnn5bzm4/jquery.colorbox-min.js'
                     ]
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: 'http://static.tumblr.com/wccjej0/ON5n3mqza/infinitescroll.min.js'
+                    yep: 'http://static.tumblr.com/wccjej0/cUvn5bzld/infinitescroll.min.js'
                 },
                 {
                     test: masonite.googlePrettify,
@@ -1068,7 +1068,7 @@
                                     '//{text:Disqus Shortname}.disqus.com/embed.js',
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            'http://static.tumblr.com/wccjej0/Ojtn3y9ai/masonite.min.js'
+                            'http://static.tumblr.com/wccjej0/Cqzn5e0ap/masonite.min.js'
                         ]);
                      }
                 },

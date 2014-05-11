@@ -118,17 +118,17 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 * originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/), a Tumblr theme by [P.J. Onori](http://somerandomdude.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
 * pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
-* [Modernizr](http://modernizr.com/) v2.7.1
-* [jQuery](http://jquery.com/) v1.11.0
-* [Masonry](http://masonry.desandro.com/) v3.1.4
-* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.4
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.4
+* [Modernizr](http://modernizr.com/) v2.8.1
+* [jQuery](http://jquery.com/) v1.11.1
+* [Masonry](http://masonry.desandro.com/) v3.1.5
+* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.5
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.9
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0b.120520
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slightly modified](https://github.com/fk/FitVids.js/tree/fit-vids-ignore))
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.9
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
-* [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.2
+* [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.3
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.1
 * icon-font generated with [IcoMoon](http://icomoon.io/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
@@ -139,12 +139,24 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
+### not yet released
+
+* Ditch zoom animation for appended masonry items, use a subtle "bottom to top" animation instead.
+* Minor cleanup – don't query the DOM if not necessary.
+* Updated to jQuery v1.11.1 (from jQuery's own CDN for now as Google APIs hasn't got it yet).
+* Updated to ColorBox v1.5.9.
+* Updated to Masonry v3.1.5.
+* Updated to Web Font Loader v1.5.3.
+* Updated to imagesLoaded v3.1.5 (v3.1.6 is out but not available via Bower yet).
+* Updated to Modernizr 2.8.1.
+* Switched from using masonry.pkgd and imagesLoaded.pkgd to build them via Grunt – this saves a few bytes since we only include eventie and EventEmitter (used by both) once.
+
 ### 0.2.6
 
 * Switched to [Tumblr's own like- and reblog-buttons](http://www.tumblr.com/docs/en/custom_themes#like_and_reblog_buttons).
 * Updated HTML5 Boilerplate to v4.3.0: This means no more CSS classes to determine if Internet Explorer is used, smaller changes to HTML5 Boilerplates default CSS-styles and the removal of all things in `<head>` related to [Google Chrome Frame](https://www.google.com/chromeframe).
 * Updated to HTML5 Placeholder Polyfill v2.0.10.
-* Updated to Colorbox v1.5.5.
+* Updated to ColorBox v1.5.5.
 * Updated to Masonry v3.1.5.
 * Updated Modernizr to a perfectly lean build thanks to [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr).
 * Removed obsolete Masonry CSS styles.
@@ -169,7 +181,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Updated to imagesLoaded v3.1.4.
 * Updated to Masonry v3.1.4.
 * Updated to jQuery v1.11.0.
-* Updated to Colorbox v1.5.4.
+* Updated to ColorBox v1.5.4.
 * Updated to Modernizr v2.7.1.
 * Updated to HTML5 Placeholder Polyfill v2.0.9.
 * Updated to normalize.css v3.0.0.
