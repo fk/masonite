@@ -1,4 +1,4 @@
-# masonite v0.2.7
+# masonite v0.2.8
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -138,6 +138,10 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.2.8
+
+Get jQuery from Google Hosted Libraries (instead of jQuery's CDN) now that it is available there.
 
 ### 0.2.7
 
