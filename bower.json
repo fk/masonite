@@ -1,6 +1,6 @@
 {
   "name": "masonite",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "private": true,
   "devDependencies": {
     "6155769": "https://gist.github.com/ArnoldZokas/6155769.git",
