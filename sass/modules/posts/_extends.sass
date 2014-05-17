@@ -140,21 +140,15 @@
   li
     margin-right: 10px
     float: left
-  .date.reblogged a:before,
   .custom-like-button:before,
   .notes a:before,
-  .comments a:before,
-  .date a:before
+  .comments a:before
     margin-right: 4px
-  .date.reblogged a:before
-    +icomoon("reblog")
   .custom-like-button:before,
   .notes a:before
     +icomoon("heart")
   .comments a:before
     +icomoon("bubble")
-  .date a:before
-    +icomoon("clock")
 
   .date .reblogged-from a:before
     content: "" !important
