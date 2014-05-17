@@ -1,3 +1,5 @@
+// typography
+// https://medium.com/typography/34fe2f1d2c02
 @mixin typeSize($size)
   @if $size == "xtiny"
     @include adjust-font-size-to($xtiny-font-size)
@@ -21,6 +23,8 @@
     @include adjust-font-size-to($xlarge-font-size)
     @include adjust-leading-to($xlarge-font-leading)
 
+// icon font
+// http://jshak.es/easy-icomoon-icons-with-sass/
 @mixin icomoon($icon, $position: "before", $replace: false)
   // If we're replacing the text, set font-size to 0
   @if $replace
@@ -28,7 +32,7 @@
   // Pseudo-element properties
   &:#{$position}
     @extend .icon-#{$icon}
-    font-family: 'icomoon'
+    font-family: "masonite"
     speak: none
     font-style: normal
     font-weight: normal
