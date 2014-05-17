@@ -36,6 +36,12 @@
       @extend %t-xlarge
 
   .quote
+    &:before
+      content: "\e03b"
+      position: relative
+      font-size: 16px
+      margin-right: 10px
+      top: -0.4em
     &.short,
     &.medium,
     &.long
@@ -46,6 +52,17 @@
       &.medium,
       &.long
         @extend %t-medium
+
+  .link.title a
+    border: none
+    em
+      position: relative
+      padding: 0 4px
+      &:before
+        +icomoon("link")
+        font-size: 16px
+      span
+        display: none
 
   a,
   a.title strong
