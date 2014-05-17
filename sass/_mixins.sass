@@ -20,3 +20,21 @@
   @if $size == "xlarge"
     @include adjust-font-size-to($xlarge-font-size)
     @include adjust-leading-to($xlarge-font-leading)
+
+@mixin icomoon($icon, $position: "before", $replace: false)
+  // If we're replacing the text, set font-size to 0
+  @if $replace
+    font-size: 0
+  // Pseudo-element properties
+  &:#{$position}
+    @extend .icon-#{$icon}
+    font-family: 'icomoon'
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+    @if $replace
+      font-size: 1rem
+    @content

@@ -108,7 +108,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/laWn5bzql/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/KKRn5pakt/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -397,7 +397,8 @@
             .post .notes a,
             .post .notes a:visited,
             .touch .custom-like-button:before,
-            .touch .like_button + .custom-like-button:before {
+            .touch .like_button + .custom-like-button:before,
+            #search:before {
                 color: {color:Lights};
             }
 
@@ -645,7 +646,7 @@
                     <div id="search">
                         <form action="/search" method="get">
                             <label for="searchfield" class="visuallyhidden">{lang:Search}</label>
-                            <input id="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}" results="10" autosave="masonite.saved.data">
+                            <input id="searchfield" class="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}">
                         </form>
                     </div>
                 {/block:IfShowSearch}

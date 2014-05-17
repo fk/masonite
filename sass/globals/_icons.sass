@@ -7,7 +7,8 @@
 .post .footer .notes a:before,
 .post .footer .comments a:before,
 .post .footer .tags:before,
-#external a:before
+#external a:before,
+#search:before
   font-family: 'masonite'
   font-style: normal
   speak: none
@@ -85,3 +86,12 @@
       font-size: 16px
     span
       display: none
+
+#search:before
+  content: "\e006"
+  position: absolute
+  font-size: 16px
+  margin-right: 10px
+  top: 0
+  left: 4px
+  z-index: 1
