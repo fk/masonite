@@ -37,7 +37,7 @@
 
   .quote
     &:before
-      content: "\e03b"
+      +icomoon("quote")
       position: relative
       font-size: 16px
       margin-right: 10px
@@ -121,22 +121,22 @@
 .dog-ear-zoom-icon
   .post.photo .media .fullsize
     &:after
-      content: ' '
+      content: " "
       width: 0
       height: 0
       position: absolute
       right: 0
       top: 0
-      border-bottom-width: 28px
-      border-right-width: 28px
+      border-bottom-width: $dog-ear-border-width
+      border-right-width: $dog-ear-border-width
       border-bottom-style: solid
       border-right-style: solid
       z-index: 0
       +transition-duration(0.2s)
       +transition-timing-function(linear)
     &:hover:after
-      border-bottom-width: 28px
-      border-right-width: 28px
+      border-bottom-width: $dog-ear-border-width
+      border-right-width: $dog-ear-border-width
 
 .audio-wrapper
   position: relative
