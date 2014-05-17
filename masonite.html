@@ -694,6 +694,36 @@
                             {/block:Link}
 
                             <footer class="footer">
+                                {block:IndexPage}
+                                    {block:IfShowTagsonIndexPage}
+                                        {block:HasTags}
+                                            <dl class="tags">
+                                                <dt class="header visuallyhidden">
+                                                    <span>{lang:Tagged}</span>
+                                                </dt>
+                                                {block:Tags}
+                                                    <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">#{Tag}</a></dd>
+                                                {/block:Tags}
+                                            </dl>
+                                        {/block:HasTags}
+                                    {/block:IfShowTagsonIndexPage}
+                                {/block:IndexPage}
+
+                                {block:PermalinkPage}
+                                    {block:IfShowTags}
+                                        {block:HasTags}
+                                            <dl class="tags">
+                                                <dt class="header visuallyhidden">
+                                                    <span>{lang:Tagged}</span>
+                                                </dt>
+                                                {block:Tags}
+                                                    <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">#{Tag}</a></dd>
+                                                {/block:Tags}
+                                            </dl>
+                                        {/block:HasTags}
+                                    {/block:IfShowTags}
+                                {/block:PermalinkPage}
+
                                 <ul>
                                     {block:Date}
                                         <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
@@ -742,36 +772,6 @@
                                         {/block:IndexPage}
                                     {/block:IfDisqusShortname}
                                 </ul>
-
-                                {block:IndexPage}
-                                    {block:IfShowTagsonIndexPage}
-                                        {block:HasTags}
-                                            <dl class="tags">
-                                                <dt class="header visuallyhidden">
-                                                    <span>{lang:Tagged}</span>
-                                                </dt>
-                                                {block:Tags}
-                                                    <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">{Tag}</a></dd>
-                                                {/block:Tags}
-                                            </dl>
-                                        {/block:HasTags}
-                                    {/block:IfShowTagsonIndexPage}
-                                {/block:IndexPage}
-
-                                {block:PermalinkPage}
-                                    {block:IfShowTags}
-                                        {block:HasTags}
-                                            <dl class="tags">
-                                                <dt class="header visuallyhidden">
-                                                    <span>{lang:Tagged}</span>
-                                                </dt>
-                                                {block:Tags}
-                                                    <dd><a href="{TagURL}">{Tag}</a></dd>
-                                                {/block:Tags}
-                                            </dl>
-                                        {/block:HasTags}
-                                    {/block:IfShowTags}
-                                {/block:PermalinkPage}
                             </footer>
 
                             {block:PostNotes}
