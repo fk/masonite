@@ -1,9 +1,8 @@
 #navigation
-  @extend %reset-ul
+  @extend %reset-list
   @extend %clearfix
   li
-    padding: 0
-    margin: 0
+    @extend %zero-margin-and-padding
     .two-column-navigation &
       float: left
       width: 50px
