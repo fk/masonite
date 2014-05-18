@@ -39,7 +39,7 @@
         <meta name="if:Header Top" content="0" />
         <meta name="if:One Column Content" content="0" />
         <meta name="if:Centered Content" content="0" />
-        <meta name="if:Two Column Navigation" content="1" />
+        <meta name="if:Two Column Navigation" content="0" />
         <meta name="if:Dog Ear Zoom Icon" content="0" />
         <meta name="if:Enable Infinite Scrolling" content="1" />
         <meta name="if:Enable Fixed Positioning of Sidebar" content="1" />
@@ -59,7 +59,7 @@
         <meta name="if:Show Description" content="1" />
         <meta name="if:Show Likes" content="0" />
         <meta name="if:Show People I Follow" content="0" />
-        <meta name="if:Show Post Footer Border" content="1" />
+        <meta name="if:Show Post Footer Border" content="0" />
         <meta name="if:Show Tags" content="1" />
         <meta name="if:Show Tags on Index Page" content="1" />
         <meta name="if:Show Title" content="1" />
@@ -89,7 +89,7 @@
         <meta name="text:LinkedIn" content="" />
         <meta name="text:Picasa" content="" />
         <meta name="text:YouTube" content="" />
-        <meta name="text:StumbledUpon" content="" />
+        <meta name="text:StumbleUpon" content="" />
         <meta name="text:LastFM" content="" />
         <meta name="text:GooglePlus" content="" />
         <meta name="text:Forrst" content="" />
@@ -108,7 +108,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/laWn5bzql/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/VBPn5qrnr/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -150,87 +150,6 @@
 
             a:link {
                 -webkit-tap-highlight-color: {color:Accents};
-            }
-
-            #external {
-                {block:IfTwitter}
-                    margin-top: 2em;
-                {/block:IfTwitter}
-                {block:IfSoundcloud}
-                    margin-top: 2em;
-                {/block:IfSoundcloud}
-                {block:IfFacebook}
-                    margin-top: 2em;
-                {/block:IfFacebook}
-                {block:IfGithub}
-                    margin-top: 2em;
-                {/block:IfGithub}
-                {block:IfVimeo}
-                    margin-top: 2em;
-                {/block:IfVimeo}
-                {block:IfDribbble}
-                    margin-top: 2em;
-                {/block:IfDribbble}
-                {block:IfRdio}
-                    margin-top: 2em;
-                {/block:IfRdio}
-                {block:IfYahoo}
-                    margin-top: 2em;
-                {/block:IfYahoo}
-                {block:IfSkype}
-                    margin-top: 2em;
-                {/block:IfSkype}
-                {block:IfEvernote}
-                    margin-top: 2em;
-                {/block:IfEvernote}
-                {block:IfDelicious}
-                    margin-top: 2em;
-                {/block:IfDelicious}
-                {block:IfBehance}
-                    margin-top: 2em;
-                {/block:IfBehance}
-                {block:IfXING}
-                    margin-top: 2em;
-                {/block:IfXING}
-                {block:IfLinkedIn}
-                    margin-top: 2em;
-                {/block:IfLinkedIn}
-                {block:IfPicasa}
-                    margin-top: 2em;
-                {/block:IfPicasa}
-                {block:IfYouTube}
-                    margin-top: 2em;
-                {/block:IfYouTube}
-                {block:IfStumbledUpon}
-                    margin-top: 2em;
-                {/block:IfStumbledUpon}
-                {block:IfLastFM}
-                    margin-top: 2em;
-                {/block:IfLastFM}
-                {block:IfGooglePlus}
-                    margin-top: 2em;
-                {/block:IfGooglePlus}
-                {block:IfForrst}
-                    margin-top: 2em;
-                {/block:IfForrst}
-                {block:IfPinterest}
-                    margin-top: 2em;
-                {/block:IfPinterest}
-                {block:IfFlickr}
-                    margin-top: 2em;
-                {/block:IfFlickr}
-                {block:IfDeviantArt}
-                    margin-top: 2em;
-                {/block:IfDeviantArt}
-                {block:IfInstagram}
-                    margin-top: 2em;
-                {/block:IfInstagram}
-                {block:IfBlogger}
-                    margin-top: 2em;
-                {/block:IfBlogger}
-                {block:IfFlattr}
-                    margin-top: 2em;
-                {/block:IfFlattr}
             }
 
 
@@ -397,7 +316,8 @@
             .post .notes a,
             .post .notes a:visited,
             .touch .custom-like-button:before,
-            .touch .like_button + .custom-like-button:before {
+            .touch .like_button + .custom-like-button:before,
+            #search:before {
                 color: {color:Lights};
             }
 
@@ -609,9 +529,9 @@
                     {block:IfYouTube}
                         <li class="youtube"><a href="{text:YouTube}"> <span class="visuallyhidden">YouTube</span></a></li>
                     {/block:IfYouTube}
-                    {block:IfStumbledUpon}
-                        <li class="stubledupon"><a href="{text:StumbledUpon}"> <span class="visuallyhidden">StumbledUpon</span></a></li>
-                    {/block:IfStumbledUpon}
+                    {block:IfStumbleUpon}
+                        <li class="stubleupon"><a href="{text:StumbleUpon}"> <span class="visuallyhidden">StumbleUpon</span></a></li>
+                    {/block:IfStumbleUpon}
                     {block:IfLastFM}
                         <li class="lastfm"><a href="{text:LastFM}"> <span class="visuallyhidden">Last.fm</span></a></li>
                     {/block:IfLastFM}
@@ -645,7 +565,7 @@
                     <div id="search">
                         <form action="/search" method="get">
                             <label for="searchfield" class="visuallyhidden">{lang:Search}</label>
-                            <input id="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}" results="10" autosave="masonite.saved.data">
+                            <input id="searchfield" class="searchfield" name="q" value="{SearchQuery}" type="search" placeholder="{lang:Search}">
                         </form>
                     </div>
                 {/block:IfShowSearch}
@@ -666,7 +586,7 @@
 
                 <section id="posts">
                     {block:Posts}
-                        <article id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link}">
+                        <article id="{PostID}" class="post {block:Photo}photo{/block:Photo}{block:Photoset}photoset{/block:Photoset}{block:Video}video{/block:Video}{block:Audio}audio{/block:Audio}{block:Quote}quote{/block:Quote}{block:Text}text{/block:Text}{block:Answer}answer{/block:Answer}{block:Chat}chat{/block:Chat}{block:Link}link{/block:Link} {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
 
                             {block:Photo}
                                 <div class="media">
@@ -774,9 +694,39 @@
                             {/block:Link}
 
                             <footer class="footer">
+                                {block:IndexPage}
+                                    {block:IfShowTagsonIndexPage}
+                                        {block:HasTags}
+                                            <dl class="tags">
+                                                <dt class="header visuallyhidden">
+                                                    <span>{lang:Tagged}</span>
+                                                </dt>
+                                                {block:Tags}
+                                                    <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">#{Tag}</a></dd>
+                                                {/block:Tags}
+                                            </dl>
+                                        {/block:HasTags}
+                                    {/block:IfShowTagsonIndexPage}
+                                {/block:IndexPage}
+
+                                {block:PermalinkPage}
+                                    {block:IfShowTags}
+                                        {block:HasTags}
+                                            <dl class="tags">
+                                                <dt class="header visuallyhidden">
+                                                    <span>{lang:Tagged}</span>
+                                                </dt>
+                                                {block:Tags}
+                                                    <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">#{Tag}</a></dd>
+                                                {/block:Tags}
+                                            </dl>
+                                        {/block:HasTags}
+                                    {/block:IfShowTags}
+                                {/block:PermalinkPage}
+
                                 <ul>
                                     {block:Date}
-                                        <li class="date {block:RebloggedFrom}reblogged{/block:RebloggedFrom}">
+                                        <li class="date">
                                             <a href="{Permalink}" title="{lang:Permalink for this post}" rel="bookmark">
                                                 {TimeAgo}
                                             </a>
@@ -822,36 +772,6 @@
                                         {/block:IndexPage}
                                     {/block:IfDisqusShortname}
                                 </ul>
-
-                                {block:IndexPage}
-                                    {block:IfShowTagsonIndexPage}
-                                        {block:HasTags}
-                                            <dl class="tags">
-                                                <dt class="header visuallyhidden">
-                                                    <span>{lang:Tagged}</span>
-                                                </dt>
-                                                {block:Tags}
-                                                    <dd><a href="{TagURL}" title="{lang:Tagged with} {Tag}" rel="tag">{Tag}</a></dd>
-                                                {/block:Tags}
-                                            </dl>
-                                        {/block:HasTags}
-                                    {/block:IfShowTagsonIndexPage}
-                                {/block:IndexPage}
-
-                                {block:PermalinkPage}
-                                    {block:IfShowTags}
-                                        {block:HasTags}
-                                            <dl class="tags">
-                                                <dt class="header visuallyhidden">
-                                                    <span>{lang:Tagged}</span>
-                                                </dt>
-                                                {block:Tags}
-                                                    <dd><a href="{TagURL}">{Tag}</a></dd>
-                                                {/block:Tags}
-                                            </dl>
-                                        {/block:HasTags}
-                                    {/block:IfShowTags}
-                                {/block:PermalinkPage}
                             </footer>
 
                             {block:PostNotes}
@@ -1045,7 +965,7 @@
                 {
                     test: masonite.colorbox,
                     yep: [
-                        'http://static.tumblr.com/wccjej0/eC2n5bzq4/colorbox.min.css',
+                        'http://static.tumblr.com/wccjej0/pKbn5qqv4/colorbox.min.css',
                         'http://static.tumblr.com/wccjej0/fjnn5bzm4/jquery.colorbox-min.js'
                     ]
                 },

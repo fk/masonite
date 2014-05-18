@@ -139,6 +139,18 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
+### Not yet released
+
+* Updated Icomoon icon-font source to new Icomoon version, narrow down icon count a bit.
+* Removed webkit-specific search form attributes, added a "google"-icon to the search input for all browsers.
+* Fixed "StumbleUpon" option name (said "StumbledUpon" before).
+* Adjusted post footer to loosely follow Tumblrs defaults:
+  * Moved post tags above post meta, prefixed tags with "#" and removed the icon.
+  * Removed icon for the post meta date – no distinction between own posts and reblogged ones anymore.
+* Removed #external "margin-top" CSS bloat, unified sidebar block margins.
+* Disabled "Two Column Navigation" and "Show Post Footer Border" per default.
+* Various optimizations under the hood.
+
 ### 0.2.8
 
 Get jQuery from Google Hosted Libraries (instead of jQuery's CDN) now that it is available there.

@@ -1,4 +1,6 @@
 @import "compass/css3";
+@import "mixins";
+@import "globals/icons";
 
 /*
     Colorbox Core Style:
@@ -69,7 +71,8 @@
           position: absolute;
           top: -24px;
           right: 1px;
-          overflow: hidden
+          overflow: hidden;
+          outline: none;
         }
         
         
@@ -77,10 +80,6 @@
         #cboxPrevious:before,
         #cboxNext:before,
         #cboxClose:before {
-          font-family: 'masonite';
-          font-style: normal;
-          speak: none;
-          -webkit-font-smoothing: antialiased;
           color: #999;
           font-size: 20px;
           line-height: 24px;
@@ -93,29 +92,27 @@
 
 
         #cboxSlideshow:before {
-          content: "\e064";
-          font-size: 12px;
+          @include icomoon("play");
         }
         
         #cboxPrevious{
           right: 48px;
           &:before {
-            content: "\e047";
+            @include icomoon("arrow-left");
           }
         }
         
         #cboxNext {
           right: 24px;
           &:before {
-            content: "\e04a";
+            @include icomoon("arrow-right");
           }
         }
         
         #cboxClose {
           right: 0;
           &:before {
-            content: "\e067";
-            font-size: 16px;
+            @include icomoon("cross");
             text-align: right;
           }
         }

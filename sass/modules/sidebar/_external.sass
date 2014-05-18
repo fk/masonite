@@ -1,11 +1,16 @@
+$icons: github soundcloud twitter facebook dribbble vimeo flickr pinterest forrst googleplus lastfm stumbleupon youtube linkedin xing behance delicious evernote   skype yahoo rdio deviantart instagram blogger flattr picasa
+
 #external
-  @extend %reset-ul
+  @extend %reset-list
   @extend %clearfix
+  margin-top: 2em
   li
-    padding: 0
-    margin: 0
+    @extend %zero-margin-and-padding
     float: left
     font-size: 16px
-    margin-right: 6px
+    margin-right: 8px
     a
       display: block
+  @each $icon in $icons
+    .#{$icon} a:before
+      +icomoon($icon)

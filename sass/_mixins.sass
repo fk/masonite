@@ -1,3 +1,5 @@
+// typography
+// https://medium.com/typography/34fe2f1d2c02
 @mixin typeSize($size)
   @if $size == "xtiny"
     @include adjust-font-size-to($xtiny-font-size)
@@ -20,3 +22,25 @@
   @if $size == "xlarge"
     @include adjust-font-size-to($xlarge-font-size)
     @include adjust-leading-to($xlarge-font-leading)
+
+// icon font
+// http://jshak.es/easy-icomoon-icons-with-sass/
+@mixin icomoon($icon, $replace: false)
+  // If we're replacing the text, set font-size to 0
+  @if $replace
+    font-size: 0
+  // Pseudo-element properties
+  font-family: "masonite"
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+  // Better Font Rendering
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  @extend .icon-#{$icon}
+  @if $replace
+    font-size: 1rem
+  @content
