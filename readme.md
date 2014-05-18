@@ -1,4 +1,4 @@
-# masonite v0.2.8
+# masonite v0.2.9
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -139,7 +139,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.2.9
 
 * Updated Icomoon icon-font source to new Icomoon version, narrow down icon count a bit.
 * Removed webkit-specific search form attributes, added a "google"-icon to the search input for all browsers.
