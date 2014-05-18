@@ -27,7 +27,7 @@
       box-shadow: none
       background-color: transparent
   &:before
-    content: "\e006"
+    +icomoon("zoom")
     display: block
     width: $fullsize-width
     height: $fullsize-height
@@ -112,7 +112,7 @@
     z-index: 10
     opacity: 0
 
-  .date span.reblogged-from
+  .date .reblogged-from
     float: left
     display: block
     padding-left: 4px
@@ -128,33 +128,27 @@
     display: block
     clear: both
     margin: 0
+    font-style: italic
     @extend %clearfix
     dd
       float: left
-      margin-left: 8px
+      margin: 0 8px 0 0
   ul,
   ol
-    list-style: none
-    margin: 0
-    padding: 0
+    @extend %reset-list
     @extend %clearfix
   li
     margin-right: 10px
     float: left
-  .date.reblogged a:before
-    content: "\e046"
+  .custom-like-button:before,
+  .notes a:before,
+  .comments a:before
+    margin-right: 4px
   .custom-like-button:before,
   .notes a:before
-    content: "\e03f"
+    +icomoon("heart")
   .comments a:before
-    content: "\e002"
-  .tags:before
-    content: "\e044"
-    margin-right: 0
-    float: left
-    display: block
-  .date a:before
-    content: "\e03d"
+    +icomoon("bubble")
 
   .date .reblogged-from a:before
     content: "" !important

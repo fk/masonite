@@ -1,4 +1,4 @@
-# masonite v0.2.8
+# masonite v0.2.9
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -138,6 +138,18 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.2.9
+
+* Updated Icomoon icon-font source to new Icomoon version, narrow down icon count a bit.
+* Removed webkit-specific search form attributes, added a "google"-icon to the search input for all browsers.
+* Fixed "StumbleUpon" option name (said "StumbledUpon" before).
+* Adjusted post footer to loosely follow Tumblrs defaults:
+  * Moved post tags above post meta, prefixed tags with "#" and removed the icon.
+  * Removed icon for the post meta date – no distinction between own posts and reblogged ones anymore.
+* Removed #external "margin-top" CSS bloat, unified sidebar block margins.
+* Disabled "Two Column Navigation" and "Show Post Footer Border" per default.
+* Various optimizations under the hood.
 
 ### 0.2.8
 
