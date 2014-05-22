@@ -139,6 +139,10 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
+### Not yet released
+
+* Localized Infinite Scroll UI.
+
 ### 0.2.9
 
 * Updated Icomoon icon-font source to new Icomoon version, narrow down icon count a bit.
