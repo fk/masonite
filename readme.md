@@ -1,4 +1,4 @@
-# masonite v0.2.9
+# masonite v0.2.10
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -139,7 +139,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.2.10
 
 * Localized Infinite Scroll UI.
 
