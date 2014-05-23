@@ -389,14 +389,14 @@
 			if ( masonite.infiniteScroll ) {
 
 				masonite.infiniteScrollLoadingOptions = {
-					finishedMsg: "No more pages to load",
+					finishedMsg: masonite.lang.noMorePosts,
 					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-					msgText: "Loading 2/" + masonite.totalPages
+					msgText: masonite.lang.loading + " 2/" + masonite.totalPages
 				};
 
 				if ( masonite.customTrigger ) {
 					infinitescroll_behavior = "twitter";
-					$( "#pagination li.next a" ).text( "Load more posts" );
+					$( "#pagination li.next a" ).text( masonite.lang.loadMorePosts );
 				} else {
 					masonite.infiniteScrollLoadingOptions.selector = "#copyright";
 				}
@@ -459,9 +459,9 @@
 					setTimeout(function() {
 						var $loader = $( "#infscr-loading > div" );
 						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
-							$loader.html( "Loading " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages );
+							$loader.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages );
 						} else {
-							$loader.html( "No more pages to load" );
+							$loader.html( masonite.lang.noMorePosts );
 						}
 					}, 400);
 				}

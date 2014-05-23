@@ -879,21 +879,26 @@
 
         <script>
             masonite = {
-                whites          : "{color:Background}".slice( 1 ),
-                accents         : "{color:Accents}".slice( 1 ),
-                centeredContent : {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
-                singleColumn    : {block:IfOneColumnContent}true{/block:IfOneColumnContent}{block:IfNotOneColumnContent}false{/block:IfNotOneColumnContent},
-                headerLeft      : {block:IfHeaderLeft}true{/block:IfHeaderLeft}{block:IfNotHeaderLeft}false{/block:IfNotHeaderLeft},
-                colorbox        : {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
-                infiniteScroll  : {block:IfEnableInfiniteScrolling}true{/block:IfEnableInfiniteScrolling}{block:IfNotEnableInfiniteScrolling}false{/block:IfNotEnableInfiniteScrolling},
-                customTrigger   : {block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}{block:IfNotCustomtriggerInfiniteScrolling}false{/block:IfNotCustomtriggerInfiniteScrolling},
-                disqusShortname : {block:IfDisqusShortname}"{text:Disqus Shortname}"{/block:IfDisqusShortname}{block:IfNotDisqusShortname}false{/block:IfNotDisqusShortname},
-                fadeSidebar     : {block:IfFadingSidebar}true{/block:IfFadingSidebar}{block:IfNotFadingSidebar}false{/block:IfNotFadingSidebar},
-                googleAnalytics : {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
-                googlePrettify  : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
-                totalPages      : {totalPages},
+                whites: "{color:Background}".slice( 1 ),
+                accents: "{color:Accents}".slice( 1 ),
+                centeredContent: {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
+                singleColumn: {block:IfOneColumnContent}true{/block:IfOneColumnContent}{block:IfNotOneColumnContent}false{/block:IfNotOneColumnContent},
+                headerLeft: {block:IfHeaderLeft}true{/block:IfHeaderLeft}{block:IfNotHeaderLeft}false{/block:IfNotHeaderLeft},
+                colorbox: {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
+                infiniteScroll: {block:IfEnableInfiniteScrolling}true{/block:IfEnableInfiniteScrolling}{block:IfNotEnableInfiniteScrolling}false{/block:IfNotEnableInfiniteScrolling},
+                customTrigger: {block:IfCustomtriggerInfiniteScrolling}true{/block:IfCustomtriggerInfiniteScrolling}{block:IfNotCustomtriggerInfiniteScrolling}false{/block:IfNotCustomtriggerInfiniteScrolling},
+                disqusShortname: {block:IfDisqusShortname}"{text:Disqus Shortname}"{/block:IfDisqusShortname}{block:IfNotDisqusShortname}false{/block:IfNotDisqusShortname},
+                fadeSidebar: {block:IfFadingSidebar}true{/block:IfFadingSidebar}{block:IfNotFadingSidebar}false{/block:IfNotFadingSidebar},
+                googleAnalytics: {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
+                googlePrettify : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
+                totalPages: {totalPages},
                 audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer},
-                clicky          : {block:IfClickyTracking}{text:Clicky Tracking}{/block:IfClickyTracking}{block:IfNotClickyTracking}false{/block:IfNotClickyTracking}
+                clicky: {block:IfClickyTracking}{text:Clicky Tracking}{/block:IfClickyTracking}{block:IfNotClickyTracking}false{/block:IfNotClickyTracking},
+                lang: {
+                    loadMorePosts: "{lang:Load more posts}",
+                    noMorePosts: "{lang:No more posts}",
+                    loading: "{lang:Loading}"
+                }
             }
 
             var disqus_shortname = masonite.disqusShortname,
@@ -971,7 +976,7 @@
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: 'http://static.tumblr.com/wccjej0/pntn5qtyq/infinitescroll.min.js'
+                    yep: 'http://static.tumblr.com/wccjej0/lCyn60s1t/infinitescroll.min.js'
                 },
                 {
                     test: masonite.googlePrettify,
@@ -988,7 +993,7 @@
                                     '//{text:Disqus Shortname}.disqus.com/embed.js',
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            'http://static.tumblr.com/wccjej0/otdn5qtyw/masonite.min.js'
+                            'http://static.tumblr.com/wccjej0/hRBn60s2v/masonite.min.js'
                         ]);
                      }
                 },
