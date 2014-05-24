@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    banner: '/*! <%= pkg.name %> v<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */',
     clean: {
       build: ["build"],
       uncompressed: [
@@ -81,7 +82,7 @@ module.exports = function(grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> v<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '<%= banner %>' + '\n'
       },
       build: {
         src: build + 'js/<%= pkg.name %>.js',
@@ -96,6 +97,9 @@ module.exports = function(grunt) {
       dist: {}
     },
     cssmin: {
+      options: {
+        banner: '<%= banner %>'
+      },
       minify: {
         expand: true,
         cwd: 'build/css/',

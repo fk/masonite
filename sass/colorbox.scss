@@ -74,8 +74,7 @@
           overflow: hidden;
           outline: none;
         }
-        
-        
+
         #cboxSlideshow:before,
         #cboxPrevious:before,
         #cboxNext:before,
@@ -90,25 +89,24 @@
           display: block;
         }
 
-
         #cboxSlideshow:before {
           @include icomoon("play");
         }
-        
+
         #cboxPrevious{
           right: 48px;
           &:before {
             @include icomoon("arrow-left");
           }
         }
-        
+
         #cboxNext {
           right: 24px;
           &:before {
             @include icomoon("arrow-right");
           }
         }
-        
+
         #cboxClose {
           right: 0;
           &:before {
