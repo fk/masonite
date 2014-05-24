@@ -144,7 +144,7 @@
 	$.fn.disqusCommentCount = function() {
 		if ( masonite.disqusShortname ) {
 			var scriptURL = "http://disqus.com/forums/" + masonite.disqusShortname + "/count.js";
-			$.getScript(scriptURL);
+			$.getScript( scriptURL );
 		}
 
 		return this;
@@ -453,7 +453,7 @@
 							return this.id;
 						}).get();
 
-						Tumblr.LikeButton.get_status_by_post_ids($elemIDs);
+						Tumblr.LikeButton.get_status_by_post_ids( $elemIDs );
 					});
 
 					setTimeout(function() {
