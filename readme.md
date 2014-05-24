@@ -1,4 +1,4 @@
-# masonite v0.2.10
+# masonite v0.2.11
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -141,12 +141,13 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.2.11
 
 * Removed [jQuery Easing](http://gsgd.co.uk/sandbox/jquery/easing/).
 * Updated to Infinite Scroll v2.0.1.
 * Updated to HTML5 placeholder polyfill v2.0.10.
 * Updated to Modernizr v2.8.2.
+* Removed the icon-font CSS being falsely included in the colorbox CSS.
 
 ### 0.2.10
 
