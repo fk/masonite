@@ -436,16 +436,15 @@
 					$elems.imagesLoaded(function() {
 
 						if ( masonite.singleColumn ) {
-							$elems.animate({ opacity: 1.0 }, 200, "swing");
+							$elems.animate( { opacity: 1.0 }, 200 );
 						} else {
-							$elems.css({ opacity: 1 });
+							$elems.css( { opacity: 1 } );
 							$wall.masonry( "appended", newElements );
 						}
 
 						if ( masonite.customTrigger ) {
 							$( "#pagination li.next a" ).fadeIn({
-								duration: 200,
-								easing: "easeInOutCubic"
+								duration: 200
 							});
 						}
 
