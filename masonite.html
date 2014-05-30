@@ -255,7 +255,12 @@
             #description,
             .no-touch #likes li,
             .dog-ear-zoom-icon .post.photo .media .fullsize,
-            #loading {
+            #loading,
+            .no-touch .post:hover .footer a,
+            .no-touch .post:hover .footer .tags,
+            .no-touch .post:hover .notes a,
+            .custom-like-button:before,
+            .like_button + .custom-like-button:before {
                 color: {color:Mids};
             }
 
@@ -290,18 +295,13 @@
             .no-touch a:visited,
             .no-touch .post a,
             .no-touch .post:hover blockquote,
-            .no-touch .post:hover .footer a,
-            .no-touch .post:hover .footer .tags,
-            .no-touch .post:hover .notes a,
             .post.chat .line.even,
-            .index.custom-trigger-infinite-scrolling #pagination li a,
-            .custom-like-button:before,
-            .like_button + .custom-like-button:before {
+            .index.custom-trigger-infinite-scrolling #pagination li a {
                 color: {color:Darks};
             }
 
             .reblog_button svg {
-                fill: {color:Darks};
+                fill: {color:Mids};
             }
 
             .touch .reblog_button svg {
