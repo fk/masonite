@@ -638,8 +638,25 @@
                                     {/block:AlbumArt}
                                 {/block:IfShowAlbumArtOnAudioPosts}
                                 <div class="audio-wrapper">
-                                    <div class="player">{block:IfUseWhiteAudioPlayer}{AudioPlayerWhite}{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}{AudioPlayerBlack}{/block:IfNotUseWhiteAudioPlayer}</div>
-                                    <div class="meta">{PlayCountWithLabel}{block:ExternalAudio} &bull; <a href="{ExternalAudioURL}">download</a>{/block:ExternalAudio}</div>
+                                    <div class="player">
+                                        {block:AudioEmbed}
+                                            {block:If500pxPosts}
+                                                {AudioEmbed-500}
+                                            {/block:If500pxPosts}
+                                            {block:IfNot500pxPosts}
+                                                {AudioEmbed-400}
+                                            {/block:IfNot500pxPosts}
+                                        {/block:AudioEmbed}
+                                        {block:IfUseWhiteAudioPlayer}
+                                            {AudioPlayerWhite}
+                                        {/block:IfUseWhiteAudioPlayer}
+                                        {block:IfNotUseWhiteAudioPlayer}
+                                            {AudioPlayerBlack}
+                                        {/block:IfNotUseWhiteAudioPlayer}
+                                    </div>
+                                    <div class="meta">
+                                        {PlayCountWithLabel}{block:ExternalAudio} &bull; <a href="{ExternalAudioURL}">download</a>{/block:ExternalAudio}
+                                    </div>
                                 </div>
                                 {block:Caption}
                                     <div class="copy">{Caption}</div>
