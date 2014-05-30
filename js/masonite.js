@@ -430,7 +430,6 @@
 					bufferPx: $(window).height() * 2,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
-					selector: "#posts",
 					errorCallback: function() {
 						// fade out the error message
 						$( "#loading" ).animate({
