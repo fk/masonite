@@ -390,15 +390,36 @@
 
 				masonite.infiniteScrollLoadingOptions = {
 					finishedMsg: masonite.lang.noMorePosts,
-					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-					msgText: masonite.lang.loading + " 2/" + masonite.totalPages
+					msg: $( "<div id='loading'></div>" ),
+					start: function( opts ) {
+						var instance = $( this ).data("infinitescroll");
+
+						$( opts.navSelector ).hide();
+						var $loader = opts.loading.msg.appendTo( opts.loading.selector );
+
+						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
+							$loader
+								.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages )
+								.spin( { lines: 29, length: 1, width: 2, radius: 6, top: 0, corners: 0 } );
+						} else {
+							$loader.html( masonite.lang.noMorePosts );
+						}
+
+						$loader.fadeIn();
+						instance.beginAjax( opts );
+					},
+					finished: function( opts ) {
+						if ( !opts.state.isBeyondMaxPage ) {
+							opts.loading.msg.fadeOut(opts.loading.speed, function() {
+								opts.loading.msg.spin( false );
+							});
+						}
+					}
 				};
 
 				if ( masonite.customTrigger ) {
 					infinitescroll_behavior = "twitter";
 					$( "#pagination li.next a" ).text( masonite.lang.loadMorePosts );
-				} else {
-					masonite.infiniteScrollLoadingOptions.selector = "#copyright";
 				}
 
 				$wall.infinitescroll({
@@ -409,16 +430,18 @@
 					bufferPx: $(window).height() * 2,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
+					selector: "#posts",
 					errorCallback: function() {
 						// fade out the error message
-						$( "#infscr-loading" ).animate({
+						$( "#loading" ).animate({
 							opacity: 0.8
 						}, 2000).fadeOut( "normal" );
 					}
 				},
 				function ( newElements ) {
-					var opts = $wall.data( "infinitescroll" ).options,
-						$elems = $( newElements ).css({ opacity: 0 });
+					var $elems = $( newElements ).css({ opacity: 0 });
+
+					$wall.infinitescroll( "pause" );
 
 					$elems
 						.initColorbox()
@@ -448,21 +471,14 @@
 							});
 						}
 
+						$wall.infinitescroll( "resume" );
+
 						var $elemIDs = $elems.map(function () {
 							return this.id;
 						}).get();
 
 						Tumblr.LikeButton.get_status_by_post_ids( $elemIDs );
 					});
-
-					setTimeout(function() {
-						var $loader = $( "#infscr-loading > div" );
-						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
-							$loader.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages );
-						} else {
-							$loader.html( masonite.lang.noMorePosts );
-						}
-					}, 400);
 				}
 			);
 			}
