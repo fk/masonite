@@ -1,10 +1,13 @@
 #loading
   position: absolute
   bottom: 0
-  left: $gutter
-  right: 0
+  left: 0
+  right: $gutter
   text-align: center
   height: $gutter*2
   margin-top: $gutter
   padding-top: $gutter/2
   @extend %t-base
+  .header-left &
+    left: $gutter
+    right: 0
