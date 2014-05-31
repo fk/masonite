@@ -150,37 +150,6 @@
 		return this;
 	};
 
-	$.fn.fixTumblrAudio = function() {
-		// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
-		this.each(function() {
-			if ( $(this).hasClass( "audio" ) ) {
-				var $audioPost = $( this ),
-					audioID = $audioPost.attr( "id" ),
-					script = document.createElement( "script" );
-
-				$audioPost.find( ".player span" ).css({ visibility: "hidden" });
-
-				script.type = "text/javascript";
-				script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
-
-				$( "body" ).append( script );
-
-				$.ajax({
-					url: "/api/read/json?id=" + audioID,
-					dataType: "jsonp",
-					timeout: 5000,
-					success: function( data ) {
-						$audioPost.find( ".player span" ).css({ visibility: "visible" });
-						var embed = data.posts[0][ "audio-player" ].replace( "audio_player.swf", "audio_player" + masonite.audioPlayerColor + ".swf" );
-						$audioPost.find( "span:first" ).append( '<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed + '\x3c/div\x3e\')</script>' );
-					}
-				});
-			}
-		});
-
-		return this;
-	};
-
 	function prettifyCode() {
 		if ( masonite.googlePrettify ) {
 			var a = false;
@@ -275,8 +244,6 @@
 		$( ".post" )
 			.initColorbox()
 			.disqusCommentCount()
-			.find( "embed[src*='assets.tumblr.com\/swf\/audio_player']" )
-				.addClass( "fit-vids-ignore" )
 			.end()
 			.fixYouTube()
 			.fitVids()
@@ -449,7 +416,6 @@
 						.fitVids()
 						.fixVimeo()
 						.fixSoundcloud()
-						.fixTumblrAudio()
 						.find( ".title" )
 							.widowFix();
 
