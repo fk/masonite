@@ -50,7 +50,7 @@
     height: 28px
     margin-top: 0
     margin-left: 0
-    +border-radius(2px)
+    +border-radius($border-radius)
     opacity: 1
     background-color: transparent
 
@@ -176,7 +176,7 @@
     position: relative
     +transition-duration(0.2s)
     +transition-timing-function(linear)
-    +border-radius(2px)
+    +border-radius($border-radius)
     &:after
       content: " "
       width: 0
@@ -200,7 +200,7 @@
 %audio
   object,
   embed
-    +border-radius(2px)
+    +border-radius($border-radius)
   .meta
     @extend %t-tiny
     text-align: right
@@ -208,7 +208,7 @@
 %video
   object
     @extend %full-width
-    +border-radius(2px)
+    +border-radius($border-radius)
 
 %chat
   .line
