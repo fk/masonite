@@ -377,7 +377,7 @@
 						instance.beginAjax( opts );
 					},
 					finished: function( opts ) {
-						if ( !opts.state.isBeyondMaxPage ) {
+						if ( opts && !opts.state.isBeyondMaxPage ) {
 							opts.loading.msg.fadeOut(opts.loading.speed, function() {
 								opts.loading.msg.spin( false );
 								$('#copyright').spin( false );
@@ -399,11 +399,17 @@
 					bufferPx: $(window).height(),
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
+					pathParse: function() {
+						return [ $( "#pagination .next a" ).attr( "href" ).substr( 0, $( "#pagination .next a" ).attr( "href" ).lastIndexOf( "/" ) + 1 ), "" ];
+					},
 					errorCallback: function() {
 						// fade out the error message
 						$( "#loading" ).animate({
 							opacity: 0.8
 						}, 2000).fadeOut( "normal" );
+					},
+					state: {
+						currPage: masonite.currentPage
 					}
 				},
 				function ( newElements ) {

@@ -922,6 +922,7 @@
                 googleAnalytics: {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
                 googlePrettify : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
                 totalPages: {totalPages},
+                currentPage: {CurrentPage},
                 audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer},
                 clicky: {block:IfClickyTracking}{text:Clicky Tracking}{/block:IfClickyTracking}{block:IfNotClickyTracking}false{/block:IfNotClickyTracking},
                 lang: {
