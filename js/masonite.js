@@ -396,11 +396,12 @@
 					navSelector: "#pagination",
 					nextSelector: "#pagination .next a",
 					itemSelector: "#posts .post",
-					bufferPx: $(window).height(),
+					bufferPx: $(window).height() * 2,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
 					pathParse: function() {
-						return [ $( "#pagination .next a" ).attr( "href" ).substr( 0, $( "#pagination .next a" ).attr( "href" ).lastIndexOf( "/" ) + 1 ), "" ];
+						var href = $( "#pagination .next a" ).attr( "href" );
+						return [ href.substr( 0, href.lastIndexOf( "/" ) + 1 ), "" ];
 					},
 					errorCallback: function() {
 						// fade out the error message
