@@ -142,6 +142,12 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
+### Not yet released
+
+* Replaced infinite-scroll loading image with spin.js ([#10](https://github.com/fk/masonite/issues/10)).
+* Added an option to set sidebar text alignment: Left, center or right ([#30](https://github.com/fk/masonite/issues/30)).
+* Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
+
 ### 0.2.11
 
 * Removed [jQuery Easing](http://gsgd.co.uk/sandbox/jquery/easing/).
