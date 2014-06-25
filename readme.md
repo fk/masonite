@@ -124,6 +124,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.5
 * [ColorBox](http://jacklmoore.com/colorbox/) v1.5.9
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0.1
+* [spin.js](http://fgnass.github.io/spin.js/) v2.0.1
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slightly modified](https://github.com/fk/FitVids.js/tree/fit-vids-ignore))
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.10
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
