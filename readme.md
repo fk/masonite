@@ -145,8 +145,14 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 ### Not yet released
 
 * Replaced infinite-scroll loading image with spin.js ([#10](https://github.com/fk/masonite/issues/10)).
+* Switched to Tumblr's "new" HTML5 audio player ([#20](https://github.com/fk/masonite/issues/20)).
+  * Localized audio download link text.
+* Improved infinite-scroll behavior ([#29](https://github.com/fk/masonite/issues/29)).
+  * Made infinite-scroll work on pages other the the blog root (e. g. "/page/10" or "/tagged/masonite/page/2").
 * Added an option to set sidebar text alignment: Left, center or right ([#30](https://github.com/fk/masonite/issues/30)).
 * Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
+* The .post .footer .date is now bold.
+* Changed .post .footer color from "Darks" to "Mids" for .no-touch and :hover.
 
 ### 0.2.11
 
