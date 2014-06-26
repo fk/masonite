@@ -97,8 +97,11 @@ body
 #posts
   margin: 0
   margin-right: $sidebar
-  padding-bottom: $gutter*4
   @extend %clearfix
+  .infinite-scrolling &
+    padding-bottom: $gutter*4
+  .index.custom-trigger-infinite-scrolling &
+    padding-bottom: 0
   .header-left &
     margin-right: 0
     margin-left: $sidebar
