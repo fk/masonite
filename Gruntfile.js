@@ -70,7 +70,7 @@ module.exports = function(grunt) {
       infinitescroll: {
         src: [
           bower + 'infinite-scroll/jquery.infinitescroll.js',
-          bower + 'infinite-scroll/behaviors/manual-trigger.js'
+          'js/manual-trigger.js'
         ],
         dest: build + 'js/infinitescroll.js'
       },
