@@ -190,7 +190,6 @@
 		});
 	}
 
-	// ready
 	$(function() {
 
 		$( "#avatar" ).imagesLoaded(function() {
