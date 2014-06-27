@@ -358,13 +358,13 @@
 					finishedMsg: masonite.lang.noMorePosts,
 					msg: $( "<div id='loading'></div>" ),
 					start: function( opts ) {
-						var instance = $( this ).data("infinitescroll");
+						var instance = $( this ).data( "infinitescroll" );
 
 						$( opts.navSelector ).hide();
 						var $loader = opts.loading.msg.appendTo( opts.loading.selector );
 
 						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
-							$('#copyright').spin( { lines: 13, length: 0, width: 2, radius: 2, top: "50%", left: "-10px", corners: 0 } );
+							$( "#copyright" ).spin( { lines: 13, length: 0, width: 2, radius: 2, top: "50%", left: "-10px", corners: 0 } );
 							$loader
 								.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages )
 								.spin( { lines: 29, length: 1, width: 2, radius: 6, top: 0, corners: 0 } );
@@ -379,7 +379,7 @@
 						if ( opts && !opts.state.isBeyondMaxPage ) {
 							opts.loading.msg.fadeOut(opts.loading.speed, function() {
 								opts.loading.msg.spin( false );
-								$('#copyright').spin( false );
+								$( "#copyright" ).spin( false );
 							});
 						}
 					}
