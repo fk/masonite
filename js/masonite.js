@@ -440,7 +440,7 @@
 						}
 
 						if ( masonite.customTrigger ) {
-							$( $wall.data( "infinitescroll" ).options.nextSelector ).css( "opacity", 1 );
+							$( $wall.data( "infinitescroll" ).options.navSelector ).css( "opacity", 1 );
 						}
 
 						$wall.infinitescroll( "resume" );
