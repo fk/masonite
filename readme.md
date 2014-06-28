@@ -121,9 +121,9 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [Modernizr](http://modernizr.com/) v2.8.2 (via [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr))
 * [jQuery](http://jquery.com/) v1.11.1
 * [Masonry](http://masonry.desandro.com/) v3.1.5
-* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.5
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.9
-* [Infinite Scroll](http://www.infinite-scroll.com) v2.0.1
+* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.8
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.10
+* [Infinite Scroll](http://www.infinite-scroll.com) v2.0.2
 * [spin.js](http://fgnass.github.io/spin.js/) v2.0.1
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slightly modified](https://github.com/fk/FitVids.js/tree/fit-vids-ignore))
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.10
@@ -153,6 +153,9 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
 * The .post .footer .date is now bold.
 * Changed .post .footer color from "Darks" to "Mids" for .no-touch and :hover.
+* Updated to ColorBox v1.5.10.
+* Updated to imagesLoaded v3.1.8.
+* Updated to Infinite Scroll v2.0.2.
 
 ### 0.2.11
 
