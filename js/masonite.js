@@ -440,9 +440,7 @@
 						}
 
 						if ( masonite.customTrigger ) {
-							$( "#pagination li.next a" ).fadeIn({
-								duration: 200
-							});
+							$( $wall.data( "infinitescroll" ).options.nextSelector ).css( "opacity", 1 );
 						}
 
 						$wall.infinitescroll( "resume" );
