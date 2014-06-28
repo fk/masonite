@@ -9,7 +9,7 @@
   margin-top: - ($fullsize-height / 2)
   margin-left: - ($fullsize-width / 2)
   +border-radius($fullsize-width / 2)
-  +transition-duration(0.2s)
+  +transition-duration($transition-duration)
   +transition-timing-function(linear)
   span
     display: block
@@ -87,7 +87,7 @@
     float: right
     margin-right: 0
     margin-left: 10px
-    -webkit-transition: visibility 0s linear 0.2s, opacity 0.2s linear
+    -webkit-transition: visibility 0s linear $transition-duration, opacity $transition-duration linear
 
     .js.no-touch &
       visibility: hidden
@@ -172,7 +172,7 @@
     font-weight: normal
     padding: 10px
     position: relative
-    +transition-duration(0.2s)
+    +transition-duration($transition-duration)
     +transition-timing-function(linear)
     +border-radius($border-radius)
     &:after
@@ -187,7 +187,7 @@
       border-top-width: 8px
       border-right-style: solid
       border-top-style: solid
-      +transition-duration(0.2s)
+      +transition-duration($transition-duration)
       +transition-timing-function(linear)
   .asker
     .index.width-400 &
