@@ -23,11 +23,12 @@
       display: block
       padding: 10px
       background: transparent
+      +transition(color $transition-duration linear)
       &:after
         display: block
         position: relative
         top: 10px
-        +transition(top $transition-duration ease-out, color $transition-duration linear)
+        +transition(top $transition-duration ease-out)
         +icomoon("arrow-down")
         @extend %t-xlarge
       &:hover:after
