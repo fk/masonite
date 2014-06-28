@@ -6,8 +6,19 @@
   li
     float: left
     margin-right: 10px
-    a
-      text-decoration: none
+  a
+    text-decoration: none
+    &:after,
+    &:before
+      vertical-align: middle
+  .next
+    float: right
+    margin-right: 0
+    margin-left: 10px
+    a:after
+      +icomoon("arrow-right")
+  .previous a:before
+    +icomoon("arrow-left")
   .index.infinite-scrolling &
     visibility: hidden
   .index.custom-trigger-infinite-scrolling &
