@@ -48,6 +48,14 @@
         <meta name="if:Enable Like Links on Index Pages" content="0" />
         <meta name="if:Enable Colorbox" content="0" />
 
+        <meta name="select:Sidebar Text Alignment" content="left" title="Left">
+        <meta name="select:Sidebar Text Alignment" content="center" title="Center">
+        <meta name="select:Sidebar Text Alignment" content="right" title="Right">
+
+        <meta name="select:Avatar Style" content="avatar-square" title="Square">
+        <meta name="select:Avatar Style" content="avatar-circle" title="Circle">
+        <meta name="select:Avatar Style" content="avatar-rounded" title="Rounded">
+
         <meta name="if:Show Album Art on Audio Posts" content="1" />
         <meta name="if:Show Avatar" content="1" />
         <meta name="if:Show Archive" content="1" />
@@ -108,7 +116,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/arBn63oog/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/ZwXn7uti0/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -159,8 +167,7 @@
 
             .post.photo .media .fullsize,
             .no-touch .post.answer:hover .question,
-            .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover,
-            .no-touch .index.custom-trigger-infinite-scrolling #pagination li a:hover {
+            .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
                 background-color: {color:Accents};
             }
 
@@ -169,14 +176,12 @@
                 background-color: {color:Background};
             }
 
-            .post img,
-            .index.custom-trigger-infinite-scrolling #pagination li a {
+            .post img {
                 background: {color:Brights};
             }
 
             #cboxLoadedContent,
             #cboxLoadingOverlay,
-            #infscr-loading,
             .title.question {
                 background: {color:Copy};
             }
@@ -241,8 +246,6 @@
                Font Colors
                ========================================================================== */
 
-            .no-touch .index.custom-trigger-infinite-scrolling #pagination li a:hover,
-            #infscr-loading,
             .title.question,
             .post.photo .media .fullsize {
                 color: {color:Background};
@@ -256,7 +259,14 @@
             #copyright,
             #description,
             .no-touch #likes li,
-            .dog-ear-zoom-icon .post.photo .media .fullsize {
+            .dog-ear-zoom-icon .post.photo .media .fullsize,
+            #loading,
+            .no-touch .post:hover .footer a,
+            .no-touch .post:hover .footer .tags,
+            .no-touch .post:hover .notes a,
+            .custom-like-button:before,
+            .like_button + .custom-like-button:before,
+            .audio .meta {
                 color: {color:Mids};
             }
 
@@ -273,7 +283,8 @@
             #navigation a:hover,
             #copyright a:hover,
             .like_button.liked + .custom-like-button:before,
-            .touch .like_button.liked + .custom-like-button:before {
+            .touch .like_button.liked + .custom-like-button:before,
+            .no-touch .index.custom-trigger-infinite-scrolling #pagination li a:hover {
                 color: {color:Accents};
             }
 
@@ -291,18 +302,14 @@
             .no-touch a:visited,
             .no-touch .post a,
             .no-touch .post:hover blockquote,
-            .no-touch .post:hover .footer a,
-            .no-touch .post:hover .footer .tags,
-            .no-touch .post:hover .notes a,
             .post.chat .line.even,
             .index.custom-trigger-infinite-scrolling #pagination li a,
-            .custom-like-button:before,
-            .like_button + .custom-like-button:before {
+            .no-touch .post .footer a:hover {
                 color: {color:Darks};
             }
 
             .reblog_button svg {
-                fill: {color:Darks};
+                fill: {color:Mids};
             }
 
             .touch .reblog_button svg {
@@ -428,7 +435,7 @@
         </style>
         <script src="http://static.tumblr.com/wccjej0/tvwn63ors/modernizr.min.js"></script>
     </head>
-    <body class="{block:PermalinkPage}permalink{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar} {block:IfEnableFixedPositioningofSidebar}header-position-fixed{/block:IfEnableFixedPositioningofSidebar}">
+    <body class="{block:PermalinkPage}permalink{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfEnableInfiniteScrolling}infinite-scrolling{/block:IfEnableInfiniteScrolling} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar} {block:IfEnableFixedPositioningofSidebar}header-position-fixed{/block:IfEnableFixedPositioningofSidebar} sidebar-align-{select:Sidebar Text Alignment} {select:Avatar Style}">
         <!--[if lt IE 8]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -639,8 +646,30 @@
                                     {/block:AlbumArt}
                                 {/block:IfShowAlbumArtOnAudioPosts}
                                 <div class="audio-wrapper">
-                                    <div class="player">{block:IfUseWhiteAudioPlayer}{AudioPlayerWhite}{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}{AudioPlayerBlack}{/block:IfNotUseWhiteAudioPlayer}</div>
-                                    <div class="meta">{PlayCountWithLabel}{block:ExternalAudio} &bull; <a href="{ExternalAudioURL}">download</a>{/block:ExternalAudio}</div>
+                                    <div class="player">
+                                        {block:AudioEmbed}
+                                            {block:IndexPage}
+                                                {block:If500pxPosts}
+                                                    {AudioEmbed-500}
+                                                {/block:If500pxPosts}
+                                                {block:IfNot500pxPosts}
+                                                    {AudioEmbed-400}
+                                                {/block:IfNot500pxPosts}
+                                            {/block:IndexPage}
+                                            {block:PermalinkPage}
+                                                {AudioEmbed-500}
+                                            {/block:PermalinkPage}
+                                        {/block:AudioEmbed}
+                                        {block:IfUseWhiteAudioPlayer}
+                                            {AudioPlayerWhite}
+                                        {/block:IfUseWhiteAudioPlayer}
+                                        {block:IfNotUseWhiteAudioPlayer}
+                                            {AudioPlayerBlack}
+                                        {/block:IfNotUseWhiteAudioPlayer}
+                                    </div>
+                                    <div class="meta">
+                                        {PlayCountWithLabel}{block:ExternalAudio} &bull; <a href="{ExternalAudioURL}">{lang:Download this track}</a>{/block:ExternalAudio}
+                                    </div>
                                 </div>
                                 {block:Caption}
                                     <div class="copy">{Caption}</div>
@@ -892,7 +921,7 @@
                 googleAnalytics: {block:IfGoogleAnalytics}[['_setAccount', '{text:Google Analytics}'],['_trackPageview'],['_trackPageLoadTime']]{/block:IfGoogleAnalytics}{block:IfNotGoogleAnalytics}false{/block:IfNotGoogleAnalytics},
                 googlePrettify : {block:IfEnableGooglePrettify}true{/block:IfEnableGooglePrettify}{block:IfNotEnableGooglePrettify}false{/block:IfNotEnableGooglePrettify},
                 totalPages: {totalPages},
-                audioPlayerColor: {block:IfUseWhiteAudioPlayer}''{/block:IfUseWhiteAudioPlayer}{block:IfNotUseWhiteAudioPlayer}'_black'{/block:IfNotUseWhiteAudioPlayer},
+                currentPage: {CurrentPage},
                 clicky: {block:IfClickyTracking}{text:Clicky Tracking}{/block:IfClickyTracking}{block:IfNotClickyTracking}false{/block:IfNotClickyTracking},
                 lang: {
                     loadMorePosts: "{lang:Load more posts}",
@@ -976,7 +1005,7 @@
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: 'http://static.tumblr.com/wccjej0/Enmn63opo/infinitescroll.min.js'
+                    yep: 'http://static.tumblr.com/wccjej0/ktqn7utjq/infinitescroll.min.js'
                 },
                 {
                     test: masonite.googlePrettify,
@@ -993,7 +1022,7 @@
                                     '//{text:Disqus Shortname}.disqus.com/embed.js',
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            'http://static.tumblr.com/wccjej0/HCAn63or7/masonite.min.js'
+                            'http://static.tumblr.com/wccjej0/d89n7utis/masonite.min.js'
                         ]);
                      }
                 },

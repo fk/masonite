@@ -54,6 +54,8 @@ module.exports = function(grunt) {
           bower + 'outlayer/outlayer.js',
           bower + 'imagesloaded/imagesloaded.pkgd.js',
           bower + 'masonry/dist/masonry.pkgd.js',
+          bower + 'spinjs/spin.js',
+          bower + 'spinjs/jquery.spin.js',
           'js/<%= pkg.name %>.js'
         ],
         dest: build + 'js/<%= pkg.name %>.js'
@@ -68,7 +70,7 @@ module.exports = function(grunt) {
       infinitescroll: {
         src: [
           bower + 'infinite-scroll/jquery.infinitescroll.js',
-          bower + 'infinite-scroll/behaviors/manual-trigger.js'
+          'js/manual-trigger.js'
         ],
         dest: build + 'js/infinitescroll.js'
       },

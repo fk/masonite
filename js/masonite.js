@@ -150,37 +150,6 @@
 		return this;
 	};
 
-	$.fn.fixTumblrAudio = function() {
-		// via http://stackoverflow.com/questions/4218377/tumblr-audio-player-not-loading-with-infinite-scroll
-		this.each(function() {
-			if ( $(this).hasClass( "audio" ) ) {
-				var $audioPost = $( this ),
-					audioID = $audioPost.attr( "id" ),
-					script = document.createElement( "script" );
-
-				$audioPost.find( ".player span" ).css({ visibility: "hidden" });
-
-				script.type = "text/javascript";
-				script.src = "http://assets.tumblr.com/javascript/tumblelog.js?16";
-
-				$( "body" ).append( script );
-
-				$.ajax({
-					url: "/api/read/json?id=" + audioID,
-					dataType: "jsonp",
-					timeout: 5000,
-					success: function( data ) {
-						$audioPost.find( ".player span" ).css({ visibility: "visible" });
-						var embed = data.posts[0][ "audio-player" ].replace( "audio_player.swf", "audio_player" + masonite.audioPlayerColor + ".swf" );
-						$audioPost.find( "span:first" ).append( '<script type="text/javascript">replaceIfFlash(9,"audio_player_' + audioID + '",\'\x3cdiv class=\x22audio_player\x22\x3e' + embed + '\x3c/div\x3e\')</script>' );
-					}
-				});
-			}
-		});
-
-		return this;
-	};
-
 	function prettifyCode() {
 		if ( masonite.googlePrettify ) {
 			var a = false;
@@ -221,7 +190,6 @@
 		});
 	}
 
-	// ready
 	$(function() {
 
 		$( "#avatar" ).imagesLoaded(function() {
@@ -275,8 +243,6 @@
 		$( ".post" )
 			.initColorbox()
 			.disqusCommentCount()
-			.find( "embed[src*='assets.tumblr.com\/swf\/audio_player']" )
-				.addClass( "fit-vids-ignore" )
 			.end()
 			.fixYouTube()
 			.fitVids()
@@ -390,15 +356,39 @@
 
 				masonite.infiniteScrollLoadingOptions = {
 					finishedMsg: masonite.lang.noMorePosts,
-					img: "http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif",
-					msgText: masonite.lang.loading + " 2/" + masonite.totalPages
+					msg: $( "<div id='loading'></div>" ),
+					start: function( opts ) {
+						var instance = $( this ).data( "infinitescroll" ),
+							$loader;
+
+						$( opts.navSelector ).hide();
+						$loader = opts.loading.msg.appendTo( opts.loading.selector );
+
+						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
+							$( "#copyright" ).spin( { lines: 13, length: 0, width: 2, radius: 2, top: "50%", left: "-10px", corners: 0 } );
+							$loader
+								.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages )
+								.spin( { lines: 29, length: 1, width: 2, radius: 6, top: 0, corners: 0 } );
+						} else {
+							$loader.html( masonite.lang.noMorePosts );
+						}
+
+						$loader.fadeIn();
+						instance.beginAjax( opts );
+					},
+					finished: function( opts ) {
+						if ( opts && !opts.state.isBeyondMaxPage ) {
+							opts.loading.msg.fadeOut(opts.loading.speed, function() {
+								opts.loading.msg.spin( false );
+								$( "#copyright" ).spin( false );
+							});
+						}
+					}
 				};
 
 				if ( masonite.customTrigger ) {
 					infinitescroll_behavior = "twitter";
 					$( "#pagination li.next a" ).text( masonite.lang.loadMorePosts );
-				} else {
-					masonite.infiniteScrollLoadingOptions.selector = "#copyright";
 				}
 
 				$wall.infinitescroll({
@@ -409,16 +399,24 @@
 					bufferPx: $(window).height() * 2,
 					behavior: infinitescroll_behavior,
 					maxPage: masonite.totalPages,
+					pathParse: function() {
+						var href = $( "#pagination .next a" ).attr( "href" );
+						return [ href.substr( 0, href.lastIndexOf( "/" ) + 1 ), "" ];
+					},
 					errorCallback: function() {
 						// fade out the error message
-						$( "#infscr-loading" ).animate({
+						$( "#loading" ).animate({
 							opacity: 0.8
 						}, 2000).fadeOut( "normal" );
+					},
+					state: {
+						currPage: masonite.currentPage
 					}
 				},
 				function ( newElements ) {
-					var opts = $wall.data( "infinitescroll" ).options,
-						$elems = $( newElements ).css({ opacity: 0 });
+					var $elems = $( newElements ).css({ opacity: 0 });
+
+					$wall.infinitescroll( "pause" );
 
 					$elems
 						.initColorbox()
@@ -427,7 +425,6 @@
 						.fitVids()
 						.fixVimeo()
 						.fixSoundcloud()
-						.fixTumblrAudio()
 						.find( ".title" )
 							.widowFix();
 
@@ -443,10 +440,10 @@
 						}
 
 						if ( masonite.customTrigger ) {
-							$( "#pagination li.next a" ).fadeIn({
-								duration: 200
-							});
+							$( $wall.data( "infinitescroll" ).options.navSelector ).css( "opacity", 1 );
 						}
+
+						$wall.infinitescroll( "resume" );
 
 						var $elemIDs = $elems.map(function () {
 							return this.id;
@@ -454,15 +451,6 @@
 
 						Tumblr.LikeButton.get_status_by_post_ids( $elemIDs );
 					});
-
-					setTimeout(function() {
-						var $loader = $( "#infscr-loading > div" );
-						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
-							$loader.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages );
-						} else {
-							$loader.html( masonite.lang.noMorePosts );
-						}
-					}, 400);
 				}
 			);
 			}

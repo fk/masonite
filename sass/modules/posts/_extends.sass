@@ -1,6 +1,4 @@
 %fullsize
-  $fullsize-width: 48px
-  $fullsize-height: $fullsize-width
   position: absolute
   display: block
   opacity: .8
@@ -11,7 +9,7 @@
   margin-top: - ($fullsize-height / 2)
   margin-left: - ($fullsize-width / 2)
   +border-radius($fullsize-width / 2)
-  +transition-duration(0.2s)
+  +transition-duration($transition-duration)
   +transition-timing-function(linear)
   span
     display: block
@@ -50,7 +48,7 @@
     height: 28px
     margin-top: 0
     margin-left: 0
-    +border-radius(2px)
+    +border-radius($border-radius)
     opacity: 1
     background-color: transparent
 
@@ -82,13 +80,14 @@
   .date a
     padding-left: 0
     float: left
+    font-weight: bold 
 
   .reblog,
   .like
     float: right
     margin-right: 0
     margin-left: 10px
-    -webkit-transition: visibility 0s linear 0.2s, opacity 0.2s linear
+    -webkit-transition: visibility 0s linear $transition-duration, opacity $transition-duration linear
 
     .js.no-touch &
       visibility: hidden
@@ -124,6 +123,7 @@
   a
     font-weight: normal
     border: none
+    +transition(color $transition-duration linear)
   .tags
     display: block
     clear: both
@@ -173,9 +173,9 @@
     font-weight: normal
     padding: 10px
     position: relative
-    +transition-duration(0.2s)
+    +transition-duration($transition-duration)
     +transition-timing-function(linear)
-    +border-radius(2px)
+    +border-radius($border-radius)
     &:after
       content: " "
       width: 0
@@ -188,7 +188,7 @@
       border-top-width: 8px
       border-right-style: solid
       border-top-style: solid
-      +transition-duration(0.2s)
+      +transition-duration($transition-duration)
       +transition-timing-function(linear)
   .asker
     .index.width-400 &
@@ -199,19 +199,15 @@
 %audio
   object,
   embed
-    +border-radius(2px)
+    +border-radius($border-radius)
   .meta
     @extend %t-tiny
-    top: 5px
-    left: 250px
-    right: 0
     text-align: right
-    position: absolute
 
 %video
   object
     @extend %full-width
-    +border-radius(2px)
+    +border-radius($border-radius)
 
 %chat
   .line

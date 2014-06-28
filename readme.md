@@ -124,6 +124,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.5
 * [ColorBox](http://jacklmoore.com/colorbox/) v1.5.9
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0.1
+* [spin.js](http://fgnass.github.io/spin.js/) v2.0.1
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slightly modified](https://github.com/fk/FitVids.js/tree/fit-vids-ignore))
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.10
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
@@ -140,6 +141,18 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### Not yet released
+
+* Replaced infinite-scroll loading image with spin.js ([#10](https://github.com/fk/masonite/issues/10)).
+* Switched to Tumblr's "new" HTML5 audio player ([#20](https://github.com/fk/masonite/issues/20)).
+  * Localized audio download link text.
+* Improved infinite-scroll behavior ([#29](https://github.com/fk/masonite/issues/29)).
+  * Made infinite-scroll work on pages other the the blog root (e. g. "/page/10" or "/tagged/masonite/page/2").
+* Added an option to set sidebar text alignment: Left, center or right ([#30](https://github.com/fk/masonite/issues/30)).
+* Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
+* The .post .footer .date is now bold.
+* Changed .post .footer color from "Darks" to "Mids" for .no-touch and :hover.
 
 ### 0.2.11
 

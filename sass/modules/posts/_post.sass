@@ -66,11 +66,11 @@
 
   a,
   a.title strong
-    +transition(color 0.2s linear, border 0.2s linear)
+    +transition(color $transition-duration linear, border $transition-duration linear)
     @extend %border-bottom
   blockquote
     +transition-property(color)
-    +transition-duration(0.2s)
+    +transition-duration($transition-duration)
     +transition-timing-function(linear)
   img
     +border-radius(2px)
@@ -132,7 +132,7 @@
       border-bottom-style: solid
       border-right-style: solid
       z-index: 0
-      +transition-duration(0.2s)
+      +transition-duration($transition-duration)
       +transition-timing-function(linear)
     &:hover:after
       border-bottom-width: $dog-ear-border-width
@@ -140,4 +140,3 @@
 
 .audio-wrapper
   position: relative
-  margin-top: 10px
