@@ -16,11 +16,14 @@
       float: none
       margin-right: 0
       text-align: center
-      a
+      display: none
+      &.next
         display: block
-        padding: 10px
-        background: transparent
-        &:after
-          display: block
-          +icomoon("arrow-down")
-          @extend %t-xlarge
+    a
+      display: block
+      padding: 10px
+      background: transparent
+      &:after
+        display: block
+        +icomoon("arrow-down")
+        @extend %t-xlarge
