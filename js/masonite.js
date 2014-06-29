@@ -192,15 +192,18 @@
 
 	$(function() {
 
-		$( "#avatar" ).imagesLoaded(function() {
-			var $that = $( "#avatar" ),
-				width = $that.width(),
-				hidpi = $that.attr( "data-hidpi-src" ),
-				src = $that.attr( "src" );
+		var $avatar = $( "#avatar" ),
+			$copyright = $( "#copyright" ),
+			$likes = $( "#likes" );
+
+		$avatar.imagesLoaded(function() {
+			var width = $avatar.width(),
+				hidpi = $avatar.attr( "data-hidpi-src" ),
+				src = $avatar.attr( "src" );
 
 			if ( hidpi !== "" ) {
-				$that.attr( "src", hidpi ).attr( "width", width );
-				$that.one( "error", function() {
+				$avatar.attr( "src", hidpi ).attr( "width", width );
+				$avatar.one( "error", function() {
 					this.src = src;
 				});
 			}
@@ -210,7 +213,7 @@
 			fadingSidebar();
 		}
 
-		$( "#likes" ).masonry({
+		$likes.masonry({
 			itemSelector: "li",
 			isResizeBound: true,
 			columnWidth: $( "li" ).width()
@@ -326,7 +329,7 @@
 
 									$queue.promise().done(function(){
 										$wall.masonry( "layout" );
-										$( "#likes" ).masonry( "layout" );
+										$likes.masonry( "layout" );
 									});
 
 								} else {
@@ -335,7 +338,7 @@
 									// $wall.width( columns * colW );
 
 									$wall.masonry( "layout" );
-									$( "#likes" ).masonry( "layout" );
+									$likes.masonry( "layout" );
 
 									if ( !masonite.headerLeft ) {
 										$sidebar.css({
@@ -354,6 +357,10 @@
 
 			if ( masonite.infiniteScroll ) {
 
+				if ( masonite.headerAlignment === "right" ) {
+					masonite.spinjs.small.left = $copyright.width() + 10 + "px";
+				}
+
 				masonite.infiniteScrollLoadingOptions = {
 					finishedMsg: masonite.lang.noMorePosts,
 					msg: $( "<div id='loading'></div>" ),
@@ -365,10 +372,10 @@
 						$loader = opts.loading.msg.appendTo( opts.loading.selector );
 
 						if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
-							$( "#copyright" ).spin( { lines: 13, length: 0, width: 2, radius: 2, top: "50%", left: "-10px", corners: 0 } );
+							$copyright.spin( masonite.spinjs.small );
 							$loader
 								.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages )
-								.spin( { lines: 29, length: 1, width: 2, radius: 6, top: 0, corners: 0 } );
+								.spin( masonite.spinjs.big );
 						} else {
 							$loader.html( masonite.lang.noMorePosts );
 						}
@@ -380,7 +387,7 @@
 						if ( opts && !opts.state.isBeyondMaxPage ) {
 							opts.loading.msg.fadeOut(opts.loading.speed, function() {
 								opts.loading.msg.spin( false );
-								$( "#copyright" ).spin( false );
+								$copyright.spin( false );
 							});
 						}
 					}

@@ -34,10 +34,10 @@
 				$( opts.navSelector ).css( "opacity", 0 );
 
 				if ( ( opts.state.currPage + 1 ) <= masonite.totalPages ) {
-					$( "#copyright" ).spin( { lines: 13, length: 0, width: 2, radius: 2, top: "50%", left: "-10px", corners: 0 } );
+					$copyright.spin( masonite.spinjs.small );
 					$loader
 						.html( masonite.lang.loading + " " + ( opts.state.currPage + 1 ) + "/" + masonite.totalPages )
-						.spin( { lines: 29, length: 1, width: 2, radius: 6, top: 0, corners: 0 } );
+						.spin( masonite.spinjs.big );
 				} else {
 					$loader.html( masonite.lang.noMorePosts );
 				}
@@ -50,7 +50,7 @@
 				if ( opts && !opts.state.isBeyondMaxPage ) {
 					opts.loading.msg.fadeOut(opts.loading.speed, function() {
 						opts.loading.msg.spin( false );
-						$( "#copyright" ).spin( false );
+						$copyright.spin( false );
 					});
 				}
 			}
