@@ -17,7 +17,8 @@
 
 		_setup_twitter: function infscr_setup_twitter () {
 			var opts = this.options,
-				instance = this;
+				instance = this,
+				$copyright = $( "#copyright" );
 
 			// Bind nextSelector link to retrieve
 			$(opts.nextSelector).click(function(e) {
