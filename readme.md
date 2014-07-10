@@ -153,6 +153,8 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
 * The .post .footer .date is now bold.
 * Changed .post .footer color from "Darks" to "Mids" for .no-touch and :hover.
+* Improved colors for the ColorBox loading indicator.
+* Replaced &larr;/&rarr; in #pagination links with icons.
 * Updated to ColorBox v1.5.10.
 * Updated to imagesLoaded v3.1.8.
 * Updated to Infinite Scroll v2.0.2.
