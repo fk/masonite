@@ -273,11 +273,11 @@
 			};
 
 			$( document )
-				.on( "cbox_open", function(){
+				.on( "cbox_open", function() {
 					$( "body" ).css({
 						overflow: "hidden"
 					});
-				}).on( "cbox_cleanup", function(){
+				}).on( "cbox_cleanup", function() {
 					$( "body" ).css({
 						overflow: "auto"
 					});
@@ -313,11 +313,11 @@
 						columnWidth: $( ".post" ).outerWidth( true ),
 						hiddenStyle: {
 							opacity: 0,
-							transform: 'translateY(40px)'
+							transform: "translateY(40px)"
 						},
 						visibleStyle: {
 							opacity: 1,
-							transform: 'translateY(0)'
+							transform: "translateY(0)"
 						}
 					});
 
@@ -493,7 +493,7 @@
 
 						$wall.infinitescroll( "resume" );
 
-						var $elemIDs = $elems.map(function () {
+						var $elemIDs = $elems.map(function() {
 							return this.id;
 						}).get();
 
