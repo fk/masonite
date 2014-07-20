@@ -892,9 +892,9 @@
                         <h3><a href="http://twitter.com/{TwitterUsername}">Latest Tweets</a></h3>
                         <div id="tweetcontainer"></div>
                         <script type="text/javascript">
-                            function recent_tweets(data) {
-                                for(i = 0; i < data.length; i++) {
-                                    document.getElementById("tweetcontainer").innerHTML = document.getElementById("tweetcontainer").innerHTML + '<a href="http://twitter.com/{TwitterUsername}/status/' + data[i].id + '"><div class="content">' + data[i].text + '</div></a>';
+                            function recent_tweets( data ) {
+                                for( i = 0; i < data.length; i++ ) {
+                                    document.getElementById( "tweetcontainer" ).innerHTML = document.getElementById( "tweetcontainer" ).innerHTML + '<a href="http://twitter.com/{TwitterUsername}/status/' + data[i].id + '"><div class="content">' + data[i].text + '</div></a>';
                                 }
                             }
                         </script>
@@ -987,63 +987,63 @@
 
             Modernizr.load([
                 {
-                    load: '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
-                    complete: function () {
+                    load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+                    complete: function() {
                         if ( !window.jQuery ) {
-                            Modernizr.load('http://static.tumblr.com/wccjej0/Nzyn63oqr/jquery.min.js');
+                            Modernizr.load( "http://static.tumblr.com/wccjej0/Nzyn63oqr/jquery.min.js" );
                         }
                     }
                 },
                 {block:IfGoogleWebFont}
                     {
                         test: Modernizr.fontface,
-                        yep: '//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js'
+                        yep: "//ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js"
                     },
                 {/block:IfGoogleWebFont}
                 {
                     test: Modernizr.input.placeholder,
                     nope: [
-                        'http://static.tumblr.com/wccjej0/Shqn63op2/placeholder_polyfill.min.css',
-                        'http://static.tumblr.com/wccjej0/XDRn63osb/placeholder.min.js'
+                        "http://static.tumblr.com/wccjej0/Shqn63op2/placeholder_polyfill.min.css",
+                        "http://static.tumblr.com/wccjej0/XDRn63osb/placeholder.min.js"
                     ]
                 },
                 {
                     test: masonite.colorbox,
                     yep: [
-                        'http://static.tumblr.com/wccjej0/hTen8iqi1/colorbox.min.css',
-                        'http://static.tumblr.com/wccjej0/uujn7uy49/jquery.colorbox-min.js'
+                        "http://static.tumblr.com/wccjej0/hTen8iqi1/colorbox.min.css",
+                        "http://static.tumblr.com/wccjej0/uujn7uy49/jquery.colorbox-min.js"
                     ]
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: 'http://static.tumblr.com/wccjej0/TqYn7y925/infinitescroll.min.js'
+                    yep: "http://static.tumblr.com/wccjej0/TqYn7y925/infinitescroll.min.js"
                 },
                 {
                     test: masonite.googlePrettify,
-                    yep: '//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js'
+                    yep: "//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"
                 },
                 {
                     complete: function ( url, res, key ) {
                         Modernizr.load([
                             {block:Twitter}
-                                '/tweets.js',
+                                "/tweets.js",
                             {/block:Twitter}
                             {block:IfDisqusShortname}
                                 {block:PermalinkPagination}
-                                    '//{text:Disqus Shortname}.disqus.com/embed.js',
+                                    "//{text:Disqus Shortname}.disqus.com/embed.js",
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            'http://static.tumblr.com/wccjej0/rRDn7y73v/masonite.min.js'
+                            "http://static.tumblr.com/wccjej0/cQIn8zpqh/masonite.js"
                         ]);
                      }
                 },
                 {
                     test: masonite.googleAnalytics,
-                    yep: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+                    yep: ( "https:" == location.protocol ? "//ssl" : "//www" ) + ".google-analytics.com/ga.js"
                 },
                 {
                     test: masonite.clicky,
-                    yep: '//static.getclicky.com/js'
+                    yep: "//static.getclicky.com/js"
                 }
             ]);
         </script>
