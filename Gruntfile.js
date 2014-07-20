@@ -39,6 +39,7 @@ module.exports = function(grunt) {
         },
         src: [
           bower + '6155769/log.js',
+          bower + 'query-string/query-string.js',
           bower + 'jquery-smartresize/jquery.debouncedresize.js',
           bower + 'jQuery-widowFix/js/jquery.widowFix-1.3.2.js',
           bower + 'jquery.easing.1.3/index.js',

@@ -15,6 +15,7 @@
     "imagesloaded": "~3.1.5",
     "masonry": "~3.1.5",
     "jquery.fitvids": "fk/FitVids.js#fit-vids-ignore",
-    "spinjs": "~2.0.1"
+    "spinjs": "~2.0.1",
+    "query-string": "~0.4.0"
   }
 }
