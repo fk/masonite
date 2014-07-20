@@ -1,5 +1,5 @@
 /*jshint browser:true, curly:true, eqeqeq:true, forin:true, immed:true, indent:4, strict:true, trailing:true, undef:true, unused:true */
-/*global Modernizr, jQuery, prettyPrint, Tumblr, masonite */
+/*global Modernizr, jQuery, prettyPrint, Tumblr, masonite, queryString */
 
 (function( window, $, undefined ) {
 
@@ -14,7 +14,7 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		this.find( "embed[src^='http://www.youtube.com']" ).each(function() {
+		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
 			// Identify and hide embed(s)
 			var parent = $( this ).closest( "object" ),
 				youtubeCode = parent.html(),
@@ -64,12 +64,40 @@
 
 		});
 
+		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
+			var src = $(this).attr( "src" ),
+				w = $(this).attr( "width" ),
+				h = $(this).attr( "height" ),
+				queryStringStart = src.indexOf( "?" ),
+				parsedQueryString,
+				location,
+				query;
+
+			if ( queryStringStart === -1 ) {
+				$( this ).replaceWith(
+					"<iframe src='" + src + "?" + "showinfo=0&rel=0&theme=" +
+					masonite.youtubePlayerTheme + "' width='" + w + "' height='" + h +
+					"' frameborder='0'></iframe>"
+				);
+			} else {
+				query = src.slice( queryStringStart + 1 );
+				location = src.slice( 0, queryStringStart );
+				parsedQueryString = queryString.parse( query );
+				parsedQueryString.color = masonite.accents;
+				$( this ).replaceWith(
+					"<iframe src='" + location + "?showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme + "&" +
+					queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h +
+					"' frameborder='0'></iframe>"
+				);
+			}
+		});
+
 		return this;
 	};
 
 	$.fn.fixSoundcloud = function() {
 		this.find( "iframe[src^='https://w.soundcloud.com/']" ).each(function() {
-			var $obj = $(this),
+			var $obj = $( this ),
 				attributes = $obj.prop( "attributes" ),
 				$newIframe = $( "<iframe></iframe>" ).insertAfter( $obj ).hide();
 
@@ -99,15 +127,28 @@
 		*/
 		var opts = "title=0&byline=0&portrait=0";
 
-		this.find( "iframe[src^='http://player.vimeo.com']" ).each(function() {
+		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
 			var src = $(this).attr( "src" ),
 				w = $(this).attr( "width" ),
-				h = $(this).attr( "height" );
+				h = $(this).attr( "height" ),
+				queryStringStart = src.indexOf( "?" ),
+				parsedQueryString,
+				location,
+				query;
 
-			if ( src.indexOf( "?" ) === -1 ) {
+			if ( queryStringStart === -1 ) {
 				$( this ).replaceWith(
 					"<iframe src='" + src + "?" + opts + "&color=" +
 					masonite.accents + "' width='" + w + "' height='" + h +
+					"' frameborder='0'></iframe>"
+				);
+			} else {
+				query = src.slice( queryStringStart + 1 );
+				location = src.slice( 0, queryStringStart );
+				parsedQueryString = queryString.parse( query );
+				parsedQueryString.color = masonite.accents;
+				$( this ).replaceWith(
+					"<iframe src='" + location + "?" + queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h +
 					"' frameborder='0'></iframe>"
 				);
 			}
@@ -123,7 +164,7 @@
 				h = $obj.attr( "height" );
 
 			$obj.replaceWith(
-				"<iframe src='http://player.vimeo.com/video/" +
+				"<iframe src='//player.vimeo.com/video/" +
 				id + "?" + server + "&" + opts + "&color=" + masonite.accents +
 				"' width='" + w + "' height='" + h +
 				"' frameborder='0'></iframe>"
