@@ -43,7 +43,7 @@ module.exports = function(grunt) {
           bower + 'jquery-smartresize/jquery.debouncedresize.js',
           bower + 'jQuery-widowFix/js/jquery.widowFix-1.3.2.js',
           bower + 'jquery.easing.1.3/index.js',
-          bower + 'jquery.fitvids/jquery.fitvids.js',
+          bower + 'fitvids/jquery.fitvids.js',
           bower + 'jquery-bridget/jquery.bridget.js',
           bower + 'get-style-property/get-style-property.js',
           bower + 'get-size/get-size.js',
