@@ -5,6 +5,85 @@
 
 	"use strict";
 
+	$.fn.fixSoundcloud = function() {
+		this.find( "iframe[src^='https://w.soundcloud.com/']" ).each(function() {
+			var $obj = $( this ),
+				attributes = $obj.prop( "attributes" ),
+				$newIframe = $( "<iframe></iframe>" ).insertAfter( $obj ).hide();
+
+			$obj.remove();
+			$newIframe.show();
+
+			$.each(attributes, function() {
+				if ( this.name === "src" ) {
+					$newIframe.attr( this.name, this.value + "&color=" + masonite.accents );
+				} else {
+					$newIframe.attr( this.name, this.value );
+				}
+			});
+		});
+
+		return this;
+	};
+
+	$.fn.fixVimeo = function() {
+		/*
+			Better Vimeo Embeds 2.1 by Matthew Buchanan
+			Modelled on the Vimeo Embedinator Script
+			http://mattbu.ch/tumblr/vimeo-embeds/
+
+			Released under a Creative Commons attribution license:
+			http://creativecommons.org/licenses/by/3.0/nz/
+		*/
+		var opts = "title=0&byline=0&portrait=0";
+
+		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
+			var src = $(this).attr( "src" ),
+				w = $(this).attr( "width" ),
+				h = $(this).attr( "height" ),
+				queryStringStart = src.indexOf( "?" ),
+				parsedQueryString,
+				location,
+				query;
+
+			if ( queryStringStart === -1 ) {
+				$( this ).replaceWith(
+					"<iframe src='" + src + "?" + opts + "&color=" +
+					masonite.accents + "' width='" + w + "' height='" + h +
+					"' frameborder='0'></iframe>"
+				);
+			} else {
+				query = src.slice( queryStringStart + 1 );
+				location = src.slice( 0, queryStringStart );
+				parsedQueryString = queryString.parse( query );
+				parsedQueryString.color = masonite.accents;
+				$( this ).replaceWith(
+					"<iframe src='" + location + "?" + queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h +
+					"' frameborder='0'></iframe>"
+				);
+			}
+		});
+
+		this.find( "object[data^='http://vimeo.com']" ).each(function() {
+			var $obj = $( this ),
+				data = $obj.attr( "data" ),
+				temp = data.split( "clip_id=" )[ 1 ],
+				id = temp.split( "&" )[ 0 ],
+				server = temp.split( "&" )[ 1 ],
+				w = $obj.attr( "width" ),
+				h = $obj.attr( "height" );
+
+			$obj.replaceWith(
+				"<iframe src='//player.vimeo.com/video/" +
+				id + "?" + server + "&" + opts + "&color=" + masonite.accents +
+				"' width='" + w + "' height='" + h +
+				"' frameborder='0'></iframe>"
+			);
+		});
+
+		return this;
+	};
+
 	$.fn.fixYouTube = function() {
 		/*
 			Widescreen YouTube Embeds by Matthew Buchanan & Hayden Hunter
@@ -90,85 +169,6 @@
 					"' frameborder='0'></iframe>"
 				);
 			}
-		});
-
-		return this;
-	};
-
-	$.fn.fixSoundcloud = function() {
-		this.find( "iframe[src^='https://w.soundcloud.com/']" ).each(function() {
-			var $obj = $( this ),
-				attributes = $obj.prop( "attributes" ),
-				$newIframe = $( "<iframe></iframe>" ).insertAfter( $obj ).hide();
-
-			$obj.remove();
-			$newIframe.show();
-
-			$.each(attributes, function() {
-				if ( this.name === "src" ) {
-					$newIframe.attr( this.name, this.value + "&color=" + masonite.accents );
-				} else {
-					$newIframe.attr( this.name, this.value );
-				}
-			});
-		});
-
-		return this;
-	};
-
-	$.fn.fixVimeo = function() {
-		/*
-			Better Vimeo Embeds 2.1 by Matthew Buchanan
-			Modelled on the Vimeo Embedinator Script
-			http://mattbu.ch/tumblr/vimeo-embeds/
-
-			Released under a Creative Commons attribution license:
-			http://creativecommons.org/licenses/by/3.0/nz/
-		*/
-		var opts = "title=0&byline=0&portrait=0";
-
-		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
-			var src = $(this).attr( "src" ),
-				w = $(this).attr( "width" ),
-				h = $(this).attr( "height" ),
-				queryStringStart = src.indexOf( "?" ),
-				parsedQueryString,
-				location,
-				query;
-
-			if ( queryStringStart === -1 ) {
-				$( this ).replaceWith(
-					"<iframe src='" + src + "?" + opts + "&color=" +
-					masonite.accents + "' width='" + w + "' height='" + h +
-					"' frameborder='0'></iframe>"
-				);
-			} else {
-				query = src.slice( queryStringStart + 1 );
-				location = src.slice( 0, queryStringStart );
-				parsedQueryString = queryString.parse( query );
-				parsedQueryString.color = masonite.accents;
-				$( this ).replaceWith(
-					"<iframe src='" + location + "?" + queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h +
-					"' frameborder='0'></iframe>"
-				);
-			}
-		});
-
-		this.find( "object[data^='http://vimeo.com']" ).each(function() {
-			var $obj = $( this ),
-				data = $obj.attr( "data" ),
-				temp = data.split( "clip_id=" )[ 1 ],
-				id = temp.split( "&" )[ 0 ],
-				server = temp.split( "&" )[ 1 ],
-				w = $obj.attr( "width" ),
-				h = $obj.attr( "height" );
-
-			$obj.replaceWith(
-				"<iframe src='//player.vimeo.com/video/" +
-				id + "?" + server + "&" + opts + "&color=" + masonite.accents +
-				"' width='" + w + "' height='" + h +
-				"' frameborder='0'></iframe>"
-			);
 		});
 
 		return this;
