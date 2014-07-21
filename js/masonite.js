@@ -13,7 +13,7 @@
 			$obj.remove();
 			$newIframe.show();
 
-			$.each(attributes, function() {
+			$.each( attributes, function() {
 				if ( this.name === "src" ) {
 					$newIframe.attr( this.name, this.value + "&color=" + masonite.accents );
 				} else {
