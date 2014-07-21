@@ -37,16 +37,17 @@
 		var opts = "title=0&byline=0&portrait=0";
 
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
-			var src = $(this).attr( "src" ),
-				w = $(this).attr( "width" ),
-				h = $(this).attr( "height" ),
+			var $this = $( this ),
+				src = $this.attr( "src" ),
+				w = $this.attr( "width" ),
+				h = $this.attr( "height" ),
 				queryStringStart = src.indexOf( "?" ),
 				parsedQueryString,
 				location,
 				query;
 
 			if ( queryStringStart === -1 ) {
-				$( this ).replaceWith(
+				$this.replaceWith(
 					"<iframe src='" + src + "?" + opts + "&color=" +
 					masonite.accents + "' width='" + w + "' height='" + h +
 					"' frameborder='0'></iframe>"
@@ -56,9 +57,9 @@
 				location = src.slice( 0, queryStringStart );
 				parsedQueryString = queryString.parse( query );
 				parsedQueryString.color = masonite.accents;
-				$( this ).replaceWith(
-					"<iframe src='" + location + "?" + queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h +
-					"' frameborder='0'></iframe>"
+				$this.replaceWith(
+					"<iframe src='" + location + "?" + queryString.stringify( parsedQueryString ) +
+					"' width='" + w + "' height='" + h + "' frameborder='0'></iframe>"
 				);
 			}
 		});
@@ -75,8 +76,7 @@
 			$obj.replaceWith(
 				"<iframe src='//player.vimeo.com/video/" +
 				id + "?" + server + "&" + opts + "&color=" + masonite.accents +
-				"' width='" + w + "' height='" + h +
-				"' frameborder='0'></iframe>"
+				"' width='" + w + "' height='" + h + "' frameborder='0'></iframe>"
 			);
 		});
 
