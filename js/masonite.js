@@ -2,7 +2,6 @@
 /*global Modernizr, jQuery, prettyPrint, Tumblr, masonite, queryString */
 
 (function( window, $, undefined ) {
-
 	"use strict";
 
 	$.fn.fixSoundcloud = function() {
@@ -232,7 +231,6 @@
 	}
 
 	$(function() {
-
 		var $avatar = $( "#avatar" ),
 			$copyright = $( "#copyright" ),
 			$likes = $( "#likes" );
@@ -502,9 +500,6 @@
 				}
 			);
 			}
-
 		}
-
 	});
-
 })( window, jQuery );
