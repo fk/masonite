@@ -36,10 +36,12 @@
 		*/
 		var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
 
+		// replace vimeo iframes
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
 			changeIframeSource( this, opts );
 		});
 
+		// replace vimeo embeds
 		this.find( "object[data^='http://vimeo.com']" ).each(function() {
 			var $obj = $( this ),
 				data = $obj.attr( "data" ),
@@ -70,6 +72,7 @@
 		*/
 		var opts = "showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme;
 		
+		// replace youtube embeds
 		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
 			// Identify and hide embed(s)
 			var parent = $( this ).closest( "object" ),
@@ -119,6 +122,7 @@
 			});
 		});
 
+		// replace youtube iframes
 		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
 			changeIframeSource( this, opts );
 		});
