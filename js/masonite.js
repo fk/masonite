@@ -34,7 +34,7 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		var opts = "title=0&byline=0&portrait=0";
+		var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
 
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
 			changeIframeSource( this, opts );
@@ -126,9 +126,9 @@
 		return this;
 	};
 
-	function changeIframeSource( iframe, opts ) {
+	function changeIframeSource( iframe, options ) {
 		var $this = $( iframe ),
-			opts = opts ? opts : "",
+			opts = options ? options : "",
 			iframeOpeningTag = "<iframe src='",
 			iframeClosingTag = "frameborder='0'></iframe>",
 			src = $this.attr( "src" ),
@@ -147,7 +147,7 @@
 			parsedQueryString.color = masonite.accents;
 			replaceWith = iframeOpeningTag + location + "?" + opts + "&" +  queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
 		} else {
-			replaceWith = iframeOpeningTag + src + "?" + opts + "&color=" + masonite.accents + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
+			replaceWith = iframeOpeningTag + src + "?" + opts + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
 		}
 		$this.replaceWith( replaceWith );
 	}
