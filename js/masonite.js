@@ -27,6 +27,8 @@
 
 	$.fn.fixVimeo = function() {
 		/*
+			Based on
+
 			Better Vimeo Embeds 2.1 by Matthew Buchanan
 			Modelled on the Vimeo Embedinator Script
 			http://mattbu.ch/tumblr/vimeo-embeds/
@@ -63,6 +65,8 @@
 
 	$.fn.fixYouTube = function() {
 		/*
+			Based on
+
 			Widescreen YouTube Embeds by Matthew Buchanan & Hayden Hunter
 			http://matthewbuchanan.name/451892574
 			http://blog.haydenhunter.me
@@ -71,6 +75,11 @@
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
 		var opts = "showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme;
+
+		// replace youtube iframes
+		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
+			changeIframeSource( this, opts );
+		});
 		
 		// replace youtube embeds
 		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
@@ -120,11 +129,6 @@
 				// Replace YouTube embed with new code
 				parent.html( youtubeCode ).css( "visibility", "visible" );
 			});
-		});
-
-		// replace youtube iframes
-		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
-			changeIframeSource( this, opts );
 		});
 
 		return this;
