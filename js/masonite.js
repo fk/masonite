@@ -37,31 +37,7 @@
 		var opts = "title=0&byline=0&portrait=0";
 
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
-			var $this = $( this ),
-				src = $this.attr( "src" ),
-				w = $this.attr( "width" ),
-				h = $this.attr( "height" ),
-				queryStringStart = src.indexOf( "?" ),
-				parsedQueryString,
-				location,
-				query;
-
-			if ( queryStringStart === -1 ) {
-				$this.replaceWith(
-					"<iframe src='" + src + "?" + opts + "&color=" +
-					masonite.accents + "' width='" + w + "' height='" + h +
-					"' frameborder='0'></iframe>"
-				);
-			} else {
-				query = src.slice( queryStringStart + 1 );
-				location = src.slice( 0, queryStringStart );
-				parsedQueryString = queryString.parse( query );
-				parsedQueryString.color = masonite.accents;
-				$this.replaceWith(
-					"<iframe src='" + location + "?" + queryString.stringify( parsedQueryString ) +
-					"' width='" + w + "' height='" + h + "' frameborder='0'></iframe>"
-				);
-			}
+			changeIframeSource( this, opts );
 		});
 
 		this.find( "object[data^='http://vimeo.com']" ).each(function() {
@@ -92,6 +68,8 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
+		var opts = "showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme;
+		
 		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
 			// Identify and hide embed(s)
 			var parent = $( this ).closest( "object" ),
@@ -139,39 +117,40 @@
 				// Replace YouTube embed with new code
 				parent.html( youtubeCode ).css( "visibility", "visible" );
 			});
-
 		});
 
 		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
-			var src = $(this).attr( "src" ),
-				w = $(this).attr( "width" ),
-				h = $(this).attr( "height" ),
-				queryStringStart = src.indexOf( "?" ),
-				parsedQueryString,
-				location,
-				query;
-
-			if ( queryStringStart === -1 ) {
-				$( this ).replaceWith(
-					"<iframe src='" + src + "?" + "showinfo=0&rel=0&theme=" +
-					masonite.youtubePlayerTheme + "' width='" + w + "' height='" + h +
-					"' frameborder='0'></iframe>"
-				);
-			} else {
-				query = src.slice( queryStringStart + 1 );
-				location = src.slice( 0, queryStringStart );
-				parsedQueryString = queryString.parse( query );
-				parsedQueryString.color = masonite.accents;
-				$( this ).replaceWith(
-					"<iframe src='" + location + "?showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme + "&" +
-					queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h +
-					"' frameborder='0'></iframe>"
-				);
-			}
+			changeIframeSource( this, opts );
 		});
 
 		return this;
 	};
+
+	function changeIframeSource( iframe, opts ) {
+		var $this = $( iframe ),
+			opts = opts ? opts : "",
+			iframeOpeningTag = "<iframe src='",
+			iframeClosingTag = "frameborder='0'></iframe>",
+			src = $this.attr( "src" ),
+			w = $this.attr( "width" ),
+			h = $this.attr( "height" ),
+			queryStringStart = src.indexOf( "?" ),
+			parsedQueryString,
+			location,
+			replaceWith,
+			query;
+
+		if ( queryStringStart ) {
+			query = src.slice( queryStringStart + 1 );
+			location = src.slice( 0, queryStringStart );
+			parsedQueryString = queryString.parse( query );
+			parsedQueryString.color = masonite.accents;
+			replaceWith = iframeOpeningTag + location + "?" + opts + "&" +  queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
+		} else {
+			replaceWith = iframeOpeningTag + src + "?" + opts + "&color=" + masonite.accents + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
+		}
+		$this.replaceWith( replaceWith );
+	}
 
 	$.fn.initColorbox = function() {
 		if ( masonite.colorbox ) {
