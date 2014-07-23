@@ -137,9 +137,9 @@
 	function changeIframeSource( iframe, options ) {
 		var $this = $( iframe ),
 			opts = options ? options : "",
-			iframeOpeningTag = "<iframe src='",
-			iframeClosingTag = "frameborder='0'></iframe>",
+            attributes = $this.prop( "attributes" ),
 			src = $this.attr( "src" ),
+            $newIframe = $( "<iframe></iframe>" ),
 			w = $this.attr( "width" ),
 			h = $this.attr( "height" ),
 			queryStringStart = src.indexOf( "?" ),
@@ -148,16 +148,23 @@
 			replaceWith,
 			query;
 
-		if ( queryStringStart ) {
-			query = src.slice( queryStringStart + 1 );
-			location = src.slice( 0, queryStringStart );
-			parsedQueryString = queryString.parse( query );
-			parsedQueryString.color = masonite.accents;
-			replaceWith = iframeOpeningTag + location + "?" + opts + "&" +  queryString.stringify( parsedQueryString ) + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
-		} else {
-			replaceWith = iframeOpeningTag + src + "?" + opts + "' width='" + w + "' height='" + h + "' " + iframeClosingTag;
-		}
-		$this.replaceWith( replaceWith );
+			$.each( attributes, function() {
+				if ( this.name === "src" ) {
+                    if ( queryStringStart ) {
+                        query = src.slice( queryStringStart + 1 );
+                        location = src.slice( 0, queryStringStart );
+                        parsedQueryString = queryString.parse( query );
+                        parsedQueryString.color = masonite.accents;
+                        replaceWith = location + "?" + opts + "&" +  queryString.stringify( parsedQueryString );
+                    } else {
+                        replaceWith = src + "?" + opts;
+                    }
+                    $newIframe.attr( this.name, replaceWith );
+				} else {
+					$newIframe.attr( this.name, this.value );
+				}
+			});
+        $this.replaceWith( $newIframe );
 	}
 
 	$.fn.initColorbox = function() {
@@ -274,8 +281,8 @@
 			.disqusCommentCount()
 			.end()
 			.fixYouTube()
-			.fitVids()
 			.fixVimeo()
+			.fitVids()
 			.fixSoundcloud();
 
 		prettifyCode();
@@ -455,8 +462,8 @@
 						.initColorbox()
 						.disqusCommentCount()
 						.fixYouTube()
-						.fitVids()
 						.fixVimeo()
+						.fitVids()
 						.fixSoundcloud()
 						.find( ".title" )
 							.widowFix();
