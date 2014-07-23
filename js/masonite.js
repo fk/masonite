@@ -36,14 +36,13 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
 
-		// replace vimeo iframes
+        var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
+
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
 			changeIframeSource( this, opts );
 		});
 
-		// replace vimeo embeds
 		this.find( "object[data^='http://vimeo.com']" ).each(function() {
 			var $obj = $( this ),
 				data = $obj.attr( "data" ),
@@ -74,14 +73,13 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		var opts = "showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme;
 
-		// replace youtube iframes
+        var opts = "showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme;
+
 		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
 			changeIframeSource( this, opts );
 		});
 		
-		// replace youtube embeds
 		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
 			// Identify and hide embed(s)
 			var parent = $( this ).closest( "object" ),
