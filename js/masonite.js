@@ -141,7 +141,7 @@
 			queryStringStart = src.indexOf( "?" ),
 			parsedQueryString,
 			location,
-			replaceWith,
+			newSrc,
 			query;
 
 			$.each( attributes, function() {
@@ -151,11 +151,11 @@
                         location = src.slice( 0, queryStringStart );
                         parsedQueryString = queryString.parse( query );
                         parsedQueryString.color = masonite.accents;
-                        replaceWith = location + "?" + opts + "&" +  queryString.stringify( parsedQueryString );
+                        newSrc = location + "?" + opts + "&" +  queryString.stringify( parsedQueryString );
                     } else {
-                        replaceWith = src + "?" + opts;
+                        newSrc = src + "?" + opts;
                     }
-                    $newIframe.attr( this.name, replaceWith );
+                    $newIframe.attr( this.name, newSrc );
 				} else {
 					$newIframe.attr( this.name, this.value );
 				}
