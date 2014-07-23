@@ -140,8 +140,6 @@
             attributes = $this.prop( "attributes" ),
 			src = $this.attr( "src" ),
             $newIframe = $( "<iframe></iframe>" ),
-			w = $this.attr( "width" ),
-			h = $this.attr( "height" ),
 			queryStringStart = src.indexOf( "?" ),
 			parsedQueryString,
 			location,
