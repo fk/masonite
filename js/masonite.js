@@ -37,10 +37,16 @@
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
 
-        var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
+        var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents,
+            options = {
+                title: 0,
+                byline: 0,
+                portrait: 0,
+                color: masonite.accents
+            };
 
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
-			changeIframeSource( this, opts );
+			changeIframeSource( this, options );
 		});
 
 		this.find( "object[data^='http://vimeo.com']" ).each(function() {
@@ -74,10 +80,12 @@
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
 
-        var opts = "showinfo=0&rel=0&theme=" + masonite.youtubePlayerTheme;
-
 		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
-			changeIframeSource( this, opts );
+			changeIframeSource( this, {
+                showinfo: 0,
+                rel: 0,
+                theme: masonite.youtubePlayerTheme
+            });
 		});
 		
 		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
@@ -134,7 +142,7 @@
 
 	function changeIframeSource( iframe, options ) {
 		var $this = $( iframe ),
-			opts = options ? options : "",
+            opts = options ? options : {},
             attributes = $this.prop( "attributes" ),
 			src = $this.attr( "src" ),
             $newIframe = $( "<iframe></iframe>" ),
@@ -143,17 +151,20 @@
 			location,
 			newSrc,
 			query;
-
+        
 			$.each( attributes, function() {
 				if ( this.name === "src" ) {
-                    if ( queryStringStart ) {
+                    if ( queryStringStart !== -1 ) {
                         query = src.slice( queryStringStart + 1 );
                         location = src.slice( 0, queryStringStart );
                         parsedQueryString = queryString.parse( query );
-                        parsedQueryString.color = masonite.accents;
-                        newSrc = location + "?" + opts + "&" +  queryString.stringify( parsedQueryString );
+
+                        $.each( opts, function( key, value ) {
+                          parsedQueryString[ key ] = value;
+                        });
+                        newSrc = location + "?" +  queryString.stringify( parsedQueryString );
                     } else {
-                        newSrc = src + "?" + opts;
+                        newSrc = src + "?" + decodeURIComponent( $.param( opts ) );
                     }
                     $newIframe.attr( this.name, newSrc );
 				} else {
