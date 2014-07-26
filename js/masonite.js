@@ -138,21 +138,21 @@
 	};
 
 	$.fn.fixTumblrVideo = function() {
-	    this.find( ".tumblr_video_container" ).each(function() {
-	        var $this = $( this ),
-		        id = $this.closest( "article" ).attr( "id" );
+		this.find( ".tumblr_video_container" ).each(function() {
+			var $this = $( this ),
+				id = $this.closest( "article" ).attr( "id" );
 
-	        $.ajax({
-	            url: "/api/read/json?id=" + id,
-	            dataType: "jsonp",
-	            timeout: 10000,
-	            success: function( data ) {
-	                $this.html( data.posts[ 0 ][ "video-player" ] );
-	            }
-	        });
-	    });
+			$.ajax({
+				url: "/api/read/json?id=" + id,
+				dataType: "jsonp",
+				timeout: 10000,
+				success: function( data ) {
+					$this.html( data.posts[ 0 ][ "video-player" ] );
+				}
+			});
+		});
 
-	    return this;
+		return this;
 	}
 
 	function changeIframeSource( iframe, options ) {
