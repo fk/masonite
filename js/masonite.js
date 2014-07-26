@@ -65,9 +65,10 @@
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
 		*/
-		this.find( "object[data^='http://vimeo.com']" ).each(function() {
-			var $obj = $( this ),
-				data = $obj.attr( "data" ),
+		this.find( "embed[src^='http://vimeo.com']" ).each(function() {
+			var $this = $( this ),
+				$obj = $this.parents( "object" ),
+				data = $this.attr( "src" ),
 				temp = data.split( "clip_id=" )[ 1 ],
 				id = temp.split( "&" )[ 0 ],
 				server = temp.split( "&" )[ 1 ],
