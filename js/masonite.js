@@ -20,7 +20,7 @@
 		});
 
 		return this;
-	}
+	};
 
 	$.fn.fixSoundcloud = function() {
 		this.find( "iframe[src*='//w.soundcloud.com/']" ).each(function() {
