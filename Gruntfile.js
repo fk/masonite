@@ -131,6 +131,17 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         'js/masonite.js'
       ]
+    },
+    watch: {
+      files: ['js/*', 'sass/*', 'sass/**/*'],
+      tasks: [
+        'clean:build',
+        'modernizr',
+        'copy',
+        'compass',
+        'concat',
+        'cssmin'
+      ]
     }
   });
 
@@ -142,6 +153,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', [
     'clean:build',

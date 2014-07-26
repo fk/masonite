@@ -18,6 +18,7 @@
     "grunt-modernizr": "^0.5.2",
     "npm": "^1.4.21",
     "install": "^0.1.7",
-    "jshint-stylish": "^0.4.0"
+    "jshint-stylish": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1"
   }
 }
