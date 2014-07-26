@@ -148,7 +148,9 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Switched to Tumblr's "new" HTML5 audio player ([#20](https://github.com/fk/masonite/issues/20)).
 * Localized audio download link text.
 * Improved infinite-scroll behavior ([#29](https://github.com/fk/masonite/issues/29)).
+  * Ditched the timeout to control infinite-scroll's loading message content (which altered the latter to display the current page and total page count) – instead we make use of infinite-scrolls "loading" configuration object and the methods it exposes.
   * Made infinite-scroll work on pages other the the blog root (e. g. "/page/10" or "/tagged/masonite/page/2").
+  * Display infinite-scroll's loading-message until imagesLoaded [returns](https://github.com/desandro/imagesloaded#always).
 * Added an option to set sidebar text alignment: Left, center or right ([#30](https://github.com/fk/masonite/issues/30)).
 * Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
 * Fixed "native" Tumblr video embeds for posts loaded via infinite-scroll.
@@ -160,6 +162,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Updated to ColorBox v1.5.10.
 * Updated to imagesLoaded v3.1.8.
 * Updated to Infinite Scroll v2.0.2.
+* Added grunt-contrib-watch and matching Grunt task: It matches the default task but does not invoke JSHint, minification and cleanup of the unminified sources.
 
 ### 0.2.11
 

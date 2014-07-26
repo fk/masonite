@@ -47,7 +47,13 @@
 				instance.beginAjax( opts );
 			}
 
-			instance.options.loading.finished =  function( opts ) {
+			instance.options.loading.finished =  function() {
+				return;
+			}
+
+			instance.options.loading.customFinished = function() {
+				var opts = instance.options;
+
 				if ( opts && !opts.state.isBeyondMaxPage ) {
 					opts.loading.msg.fadeOut(opts.loading.speed, function() {
 						opts.loading.msg.spin( false );

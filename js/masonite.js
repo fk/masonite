@@ -431,7 +431,12 @@
 						$loader.fadeIn();
 						instance.beginAjax( opts );
 					},
-					finished: function( opts ) {
+					finished: function() {
+						return;
+					},
+					customFinished: function() {
+						var opts =  $wall.data( "infinitescroll" ).options;
+
 						if ( opts && !opts.state.isBeyondMaxPage ) {
 							opts.loading.msg.fadeOut(opts.loading.speed, function() {
 								opts.loading.msg.spin( false );
@@ -487,6 +492,7 @@
 					prettifyCode();
 
 					$elems.imagesLoaded(function() {
+						$wall.data("infinitescroll").options.loading.customFinished();
 
 						if ( masonite.singleColumn ) {
 							$elems.animate( { opacity: 1.0 }, 200 );
