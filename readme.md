@@ -133,6 +133,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery Smartresize](https://github.com/louisremi/jquery-smartresize)
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.1
 * [An even better requestAnimationFrame](https://github.com/kof/animation-frame) v0.1.7
+* [query-string](https://github.com/sindresorhus/query-string) v0.4.1
 * icon-font generated with [IcoMoon](http://icomoon.io/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
