@@ -40,6 +40,10 @@
         #cboxLoadedContent {
           @include border-radius(3px);
         }
+        #cboxLoadedContent,
+        #cboxLoadingOverlay {
+          background-color: #333;
+        }
         #cboxLoadingGraphic {
           background: url('http://static.tumblr.com/wccjej0/lBbn8iqh8/ajax-loader.gif') center center no-repeat;
         }
