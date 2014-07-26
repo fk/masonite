@@ -25,6 +25,24 @@
 		return this;
 	};
 
+	$.fn.fixTumblrVideo = function() {
+		this.find( ".tumblr_video_container" ).each(function() {
+			var $this = $( this ),
+				id = $this.closest( "article" ).attr( "id" );
+
+			$.ajax({
+				url: "/api/read/json?id=" + id,
+				dataType: "jsonp",
+				timeout: 10000,
+				success: function( data ) {
+					$this.html( data.posts[ 0 ][ "video-player" ] );
+				}
+			});
+		});
+
+		return this;
+	}
+
 	$.fn.fixVimeo = function() {
         var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
 
@@ -84,7 +102,7 @@
 
 			Released under a Creative Commons attribution license:
 			http://creativecommons.org/licenses/by/3.0/nz/
-		*/		
+		*/
 		this.find( "embed[src*='//www.youtube.com']" ).each(function() {
 			// Identify and hide embed(s)
 			var parent = $( this ).closest( "object" ),
@@ -136,24 +154,6 @@
 
 		return this;
 	};
-
-	$.fn.fixTumblrVideo = function() {
-		this.find( ".tumblr_video_container" ).each(function() {
-			var $this = $( this ),
-				id = $this.closest( "article" ).attr( "id" );
-
-			$.ajax({
-				url: "/api/read/json?id=" + id,
-				dataType: "jsonp",
-				timeout: 10000,
-				success: function( data ) {
-					$this.html( data.posts[ 0 ][ "video-player" ] );
-				}
-			});
-		});
-
-		return this;
-	}
 
 	function changeIframeSource( iframe, options ) {
 		var $this = $( iframe ),
