@@ -32,6 +32,16 @@
 		return this;
 	};
 
+	$.fn.fixTumblrAudio = function() {
+		this.find( "iframe[class*='tumblr_audio_player']" ).each(function() {
+			changeIframeSource( this, {
+				color: masonite.tumblrAudioPlayerTheme
+			});
+		});
+		
+		return this;
+	};
+
 	$.fn.fixVimeo = function() {
 		var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
 
@@ -298,6 +308,7 @@
 			.fixYouTube()
 			.fixVimeo()
 			.fitVids()
+			.fixTumblrAudio()
 			.fixSoundcloud();
 
 		prettifyCode();
@@ -486,6 +497,7 @@
 						.fitVids()
 						.fixSoundcloud()
 						.fixTumblrVideo()
+						.fixTumblrAudio()
 						.find( ".title" )
 							.widowFix();
 

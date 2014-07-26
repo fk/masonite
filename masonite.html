@@ -59,6 +59,10 @@
         <meta name="select:Avatar Style" content="avatar-circle" title="Circle">
         <meta name="select:Avatar Style" content="avatar-rounded" title="Rounded">
 
+        <meta name="select:Tumblr Audio Player Theme" content="white" title="White">
+        <meta name="select:Tumblr Audio Player Theme" content="grey" title="Grey">
+        <meta name="select:Tumblr Audio Player Theme" content="black" title="Black">
+
         <meta name="if:Show Album Art on Audio Posts" content="1" />
         <meta name="if:Show Avatar" content="1" />
         <meta name="if:Show Archive" content="1" />
@@ -75,7 +79,6 @@
         <meta name="if:Show Tags on Index Page" content="1" />
         <meta name="if:Show Title" content="1" />
         <meta name="if:Show Twitter" content="0" />
-        <meta name="if:Use White Audio Player" content="1" />
 
         <meta name="image:Avatar" content="" />
         <meta name="image:Avatar HiDPI" content="" />
@@ -652,12 +655,7 @@
                                                 {AudioEmbed-500}
                                             {/block:PermalinkPage}
                                         {/block:AudioEmbed}
-                                        {block:IfUseWhiteAudioPlayer}
-                                            {AudioPlayerWhite}
-                                        {/block:IfUseWhiteAudioPlayer}
-                                        {block:IfNotUseWhiteAudioPlayer}
-                                            {AudioPlayerBlack}
-                                        {/block:IfNotUseWhiteAudioPlayer}
+                                        {AudioPlayer}
                                     </div>
                                     <div class="meta">
                                         {PlayCountWithLabel}{block:ExternalAudio} &bull; <a href="{ExternalAudioURL}">{lang:Download this track}</a>{/block:ExternalAudio}
@@ -905,6 +903,7 @@
                 centeredContent: {block:IfCenteredContent}true{/block:IfCenteredContent}{block:IfNotCenteredContent}false{/block:IfNotCenteredContent},
                 singleColumn: {block:IfOneColumnContent}true{/block:IfOneColumnContent}{block:IfNotOneColumnContent}false{/block:IfNotOneColumnContent},
                 headerLeft: {block:IfHeaderLeft}true{/block:IfHeaderLeft}{block:IfNotHeaderLeft}false{/block:IfNotHeaderLeft},
+                tumblrAudioPlayerTheme: "{select:Tumblr Audio Player Theme}",
                 headerAlignment: "{select:Sidebar Text Alignment}",
                 youtubePlayerTheme: "{select:Youtube Player Theme}",
                 colorbox: {block:IfEnableColorbox}true{/block:IfEnableColorbox}{block:IfNotEnableColorbox}false{/block:IfNotEnableColorbox},
