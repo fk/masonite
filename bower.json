@@ -14,11 +14,8 @@
     "jQuery-widowFix": "matthewlein/jQuery-widowFix#~1.3.2",
     "imagesloaded": "~3.1.5",
     "masonry": "~3.1.5",
-    "fitvids": "~1.1.0",
+    "fitvids": "master",
     "spinjs": "~2.0.1",
     "query-string": "~0.4.0"
-  },
-  "resolutions": {
-    "fitvids": "master"
   }
 }
