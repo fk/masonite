@@ -137,6 +137,24 @@
 		return this;
 	};
 
+	$.fn.fixTumblrVideo = function() {
+	    this.find( ".tumblr_video_container" ).each(function() {
+	        var $this = $( this ),
+		        id = $this.closest( "article" ).attr( "id" );
+
+	        $.ajax({
+	            url: "/api/read/json?id=" + id,
+	            dataType: "jsonp",
+	            timeout: 10000,
+	            success: function( data ) {
+	                $this.html( data.posts[ 0 ][ "video-player" ] );
+	            }
+	        });
+	    });
+
+	    return this;
+	}
+
 	function changeIframeSource( iframe, options ) {
 		var $this = $( iframe ),
             opts = options ? options : {},
@@ -469,6 +487,7 @@
 						.fixVimeo()
 						.fitVids()
 						.fixSoundcloud()
+						.fixTumblrVideo()
 						.find( ".title" )
 							.widowFix();
 
