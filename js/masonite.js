@@ -44,15 +44,15 @@
 	}
 
 	$.fn.fixVimeo = function() {
-        var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
+		var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
 
 		this.find( "iframe[src*='//player.vimeo.com']" ).each(function() {
 			changeIframeSource( this, {
-                title: 0,
-                byline: 0,
-                portrait: 0,
-                color: masonite.accents
-            });
+				title: 0,
+				byline: 0,
+				portrait: 0,
+				color: masonite.accents
+			});
 		});
 
 		/*
@@ -87,10 +87,10 @@
 	$.fn.fixYouTube = function() {
 		this.find( "iframe[src*='//www.youtube.com/']" ).each(function() {
 			changeIframeSource( this, {
-                showinfo: 0,
-                rel: 0,
-                theme: masonite.youtubePlayerTheme
-            });
+				showinfo: 0,
+				rel: 0,
+				theme: masonite.youtubePlayerTheme
+			});
 		});
 
 		/*
@@ -157,36 +157,39 @@
 
 	function changeIframeSource( iframe, options ) {
 		var $this = $( iframe ),
-            opts = options ? options : {},
-            attributes = $this.prop( "attributes" ),
+			opts = options ? options : {},
+			attributes = $this.prop( "attributes" ),
 			src = $this.attr( "src" ),
-            $newIframe = $( "<iframe></iframe>" ),
+			$newIframe = $( "<iframe></iframe>" ),
 			queryStringStart = src.indexOf( "?" ),
 			parsedQueryString,
 			location,
 			newSrc,
 			query;
-        
+
 			$.each( attributes, function() {
 				if ( this.name === "src" ) {
-                    if ( queryStringStart !== -1 ) {
-                        query = src.slice( queryStringStart + 1 );
-                        location = src.slice( 0, queryStringStart );
-                        parsedQueryString = queryString.parse( query );
+					if ( queryStringStart !== -1 ) {
+						query = src.slice( queryStringStart + 1 );
+						location = src.slice( 0, queryStringStart );
+						parsedQueryString = queryString.parse( query );
 
-                        $.each( opts, function( key, value ) {
-                          parsedQueryString[ key ] = value;
-                        });
-                        newSrc = location + "?" +  queryString.stringify( parsedQueryString );
-                    } else {
-                        newSrc = src + "?" + decodeURIComponent( $.param( opts ) );
-                    }
-                    $newIframe.attr( this.name, newSrc );
+						$.each( opts, function( key, value ) {
+							parsedQueryString[ key ] = value;
+						});
+
+						newSrc = location + "?" +  queryString.stringify( parsedQueryString );
+					} else {
+						newSrc = src + "?" + decodeURIComponent( $.param( opts ) );
+					}
+
+					$newIframe.attr( this.name, newSrc );
 				} else {
 					$newIframe.attr( this.name, this.value );
 				}
 			});
-        $this.replaceWith( $newIframe );
+
+		$this.replaceWith( $newIframe );
 	}
 
 	$.fn.initColorbox = function() {
