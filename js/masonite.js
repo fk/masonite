@@ -4,6 +4,24 @@
 (function( window, $, undefined ) {
 	"use strict";
 
+	$.fn.fixTumblrVideo = function() {
+		this.find( ".tumblr_video_container" ).each(function() {
+			var $this = $( this ),
+				id = $this.closest( "article" ).attr( "id" );
+
+			$.ajax({
+				url: "/api/read/json?id=" + id,
+				dataType: "jsonp",
+				timeout: 10000,
+				success: function( data ) {
+					$this.html( data.posts[ 0 ][ "video-player" ] );
+				}
+			});
+		});
+
+		return this;
+	}
+
 	$.fn.fixSoundcloud = function() {
 		this.find( "iframe[src^='https://w.soundcloud.com/']" ).each(function() {
 			var $obj = $( this ),
@@ -24,24 +42,6 @@
 
 		return this;
 	};
-
-	$.fn.fixTumblrVideo = function() {
-		this.find( ".tumblr_video_container" ).each(function() {
-			var $this = $( this ),
-				id = $this.closest( "article" ).attr( "id" );
-
-			$.ajax({
-				url: "/api/read/json?id=" + id,
-				dataType: "jsonp",
-				timeout: 10000,
-				success: function( data ) {
-					$this.html( data.posts[ 0 ][ "video-player" ] );
-				}
-			});
-		});
-
-		return this;
-	}
 
 	$.fn.fixVimeo = function() {
 		var opts = "title=0&byline=0&portrait=0&color=" + masonite.accents;
