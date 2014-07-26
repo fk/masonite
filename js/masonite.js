@@ -23,23 +23,12 @@
 	}
 
 	$.fn.fixSoundcloud = function() {
-		this.find( "iframe[src^='https://w.soundcloud.com/']" ).each(function() {
-			var $obj = $( this ),
-				attributes = $obj.prop( "attributes" ),
-				$newIframe = $( "<iframe></iframe>" ).insertAfter( $obj ).hide();
-
-			$obj.remove();
-			$newIframe.show();
-
-			$.each( attributes, function() {
-				if ( this.name === "src" ) {
-					$newIframe.attr( this.name, this.value + "&color=" + masonite.accents );
-				} else {
-					$newIframe.attr( this.name, this.value );
-				}
+		this.find( "iframe[src*='//w.soundcloud.com/']" ).each(function() {
+			changeIframeSource( this, {
+				color: masonite.accents
 			});
 		});
-
+		
 		return this;
 	};
 
