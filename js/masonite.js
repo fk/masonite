@@ -417,7 +417,10 @@
 			if ( masonite.infiniteScroll ) {
 
 				if ( masonite.headerAlignment === "right" ) {
-					masonite.spinjs.small.left = $copyright.width() + 10 + "px";
+					masonite.spinjs.small.left = $copyright.width() + 8 + "px";
+				} else if ( masonite.headerAlignment === "center" ) {
+					masonite.spinjs.small.left = $copyright.width() / 2 + "px";
+					masonite.spinjs.small.top = "-8px";
 				}
 
 				masonite.infiniteScrollLoadingOptions = {
