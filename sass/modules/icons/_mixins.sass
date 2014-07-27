@@ -1,0 +1,10 @@
+// icon font
+// http://jshak.es/easy-icomoon-icons-with-sass/
+@mixin icomoon($icon, $replace: false)
+  @if $replace
+    font-size: 0
+  @extend %icomoon
+  @extend %icon-#{$icon}
+  @if $replace
+    font-size: 1rem
+  @content

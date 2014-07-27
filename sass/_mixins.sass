@@ -22,25 +22,3 @@
   @if $size == "xlarge"
     @include adjust-font-size-to($xlarge-font-size)
     @include adjust-leading-to($xlarge-font-leading)
-
-%icomoon
-  font-family: "masonite"
-  speak: none
-  font-style: normal
-  font-weight: normal
-  font-variant: normal
-  text-transform: none
-  line-height: 1
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-
-// icon font
-// http://jshak.es/easy-icomoon-icons-with-sass/
-@mixin icomoon($icon, $replace: false)
-  @if $replace
-    font-size: 0
-  @extend %icomoon
-  @extend %icon-#{$icon}
-  @if $replace
-    font-size: 1rem
-  @content
