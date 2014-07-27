@@ -1,4 +1,4 @@
-# masonite v0.2.11
+# masonite v0.3.0
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -143,11 +143,13 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.3.0
 
 * Replaced infinite-scroll loading image with spin.js ([#10](https://github.com/fk/masonite/issues/10)).
+  * We now display the infinite-scroll loading indicator right below the posts as well as aside to the copyright.
 * Switched to Tumblr's "new" HTML5 audio player ([#20](https://github.com/fk/masonite/issues/20)).
-* Localized audio download link text.
+  * Instead of just offering the option to switch between a black or white Tumblr audio player, you can now choose among black, white and grey themes.
+  * Localized audio download link text.
 * Improved infinite-scroll behavior ([#29](https://github.com/fk/masonite/issues/29)).
   * Ditched the timeout to control infinite-scroll's loading message content (which altered the latter to display the current page and total page count) – instead we make use of infinite-scrolls "loading" configuration object and the methods it exposes.
   * Made infinite-scroll work on pages other the the blog root (e. g. "/page/10" or "/tagged/masonite/page/2").
@@ -155,15 +157,16 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * Added an option to set sidebar text alignment: Left, center or right ([#30](https://github.com/fk/masonite/issues/30)).
 * Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
 * Fixed "native" Tumblr video embeds for posts loaded via infinite-scroll.
-* Fixed ColorBox media background color - it should not be user-defined via ´{´ but instead fit the dark background overlay mimicking Tumblr's own photoset lightbox.
+* Fixed ColorBox media background color - it should not be user-defined via the ´Copy´ color option but instead fit the dark background overlay mimicking Tumblr's own photoset lightbox.
 * The .post .footer .date is now bold.
 * Changed .post .footer color from "Darks" to "Mids" for .no-touch and :hover.
-* Improved colors for the ColorBox loading indicator.
+* Improved colors for the ColorBox loading indicator image.
 * Replaced &larr;/&rarr; in #pagination links with icons.
 * Updated to ColorBox v1.5.10.
 * Updated to imagesLoaded v3.1.8.
 * Updated to Infinite Scroll v2.0.2.
 * Added grunt-contrib-watch and matching Grunt task: It matches the default task but does not invoke JSHint, minification and cleanup of the unminified sources.
+* Refactored/partly fixed fixVimeo(), fixYouTube(), fixSoundcloud(); in the progress, added [query-string](https://github.com/sindresorhus/query-string).
 
 ### 0.2.11
 
