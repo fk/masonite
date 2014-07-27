@@ -1,4 +1,4 @@
-# masonite v0.2.11
+# masonite v0.3.0
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -117,14 +117,15 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 ## Credits
 
 * originally based on [Off Franklin](http://somerandomdude.com/projects/off-franklin-tumblr-theme/), a Tumblr theme by [P.J. Onori](http://somerandomdude.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
-* pretty YouTube- and Vimeo-videos thanks to [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) plus [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
+* pretty YouTube- and Vimeo-videos scripts based on [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) and [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 * [Modernizr](http://modernizr.com/) v2.8.2 (via [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr))
 * [jQuery](http://jquery.com/) v1.11.1
 * [Masonry](http://masonry.desandro.com/) v3.1.5
-* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.5
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.9
-* [Infinite Scroll](http://www.infinite-scroll.com) v2.0.1
-* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1 ([slightly modified](https://github.com/fk/FitVids.js/tree/fit-vids-ignore))
+* [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.8
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.10
+* [Infinite Scroll](http://www.infinite-scroll.com) v2.0.2
+* [spin.js](http://fgnass.github.io/spin.js/) v2.0.1
+* [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1.0
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.10
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
@@ -132,6 +133,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery Smartresize](https://github.com/louisremi/jquery-smartresize)
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.1
 * [An even better requestAnimationFrame](https://github.com/kof/animation-frame) v0.1.7
+* [query-string](https://github.com/sindresorhus/query-string) v0.4.1
 * icon-font generated with [IcoMoon](http://icomoon.io/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
@@ -140,6 +142,31 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### 0.3.0
+
+* Replaced infinite-scroll loading image with spin.js ([#10](https://github.com/fk/masonite/issues/10)).
+  * We now display the infinite-scroll loading indicator right below the posts as well as aside to the copyright.
+* Switched to Tumblr's "new" HTML5 audio player ([#20](https://github.com/fk/masonite/issues/20)).
+  * Instead of just offering the option to switch between a black or white Tumblr audio player, you can now choose among black, white and grey themes.
+  * Localized audio download link text.
+* Improved infinite-scroll behavior ([#29](https://github.com/fk/masonite/issues/29)).
+  * Ditched the timeout to control infinite-scroll's loading message content (which altered the latter to display the current page and total page count) – instead we make use of infinite-scrolls "loading" configuration object and the methods it exposes.
+  * Made infinite-scroll work on pages other the the blog root (e. g. "/page/10" or "/tagged/masonite/page/2").
+  * Display infinite-scroll's loading-message until imagesLoaded [returns](https://github.com/desandro/imagesloaded#always).
+* Added an option to set sidebar text alignment: Left, center or right ([#30](https://github.com/fk/masonite/issues/30)).
+* Added an option to set the avatar style: Square (default), circle or rounded ([#31](https://github.com/fk/masonite/issues/31)).
+* Fixed "native" Tumblr video embeds for posts loaded via infinite-scroll.
+* Fixed ColorBox media background color - it should not be user-defined via the ´Copy´ color option but instead fit the dark background overlay mimicking Tumblr's own photoset lightbox.
+* The .post .footer .date is now bold.
+* Changed .post .footer color from "Darks" to "Mids" for .no-touch and :hover.
+* Improved colors for the ColorBox loading indicator image.
+* Replaced &larr;/&rarr; in #pagination links with icons.
+* Updated to ColorBox v1.5.10.
+* Updated to imagesLoaded v3.1.8.
+* Updated to Infinite Scroll v2.0.2.
+* Added grunt-contrib-watch and matching Grunt task: It matches the default task but does not invoke JSHint, minification and cleanup of the unminified sources.
+* Refactored/partly fixed fixVimeo(), fixYouTube(), fixSoundcloud(); in the progress, added [query-string](https://github.com/sindresorhus/query-string).
 
 ### 0.2.11
 

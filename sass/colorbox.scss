@@ -1,6 +1,5 @@
 @import "compass/css3";
-@import "mixins";
-@import "globals/icons";
+@import "modules/icons/*";
 
 /*
     Colorbox Core Style:
@@ -40,8 +39,12 @@
         #cboxLoadedContent {
           @include border-radius(3px);
         }
+        #cboxLoadedContent,
+        #cboxLoadingOverlay {
+          background-color: #333;
+        }
         #cboxLoadingGraphic {
-          background: url('http://static.tumblr.com/wccjej0/SzLlinacm/ajax-loader.gif') center center no-repeat;
+          background: url('http://static.tumblr.com/wccjej0/lBbn8iqh8/ajax-loader.gif') center center no-repeat;
         }
         #cboxTitle {
           position: absolute;

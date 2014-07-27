@@ -52,6 +52,10 @@ body
 #copyright
   .header-position-fixed &
     position: fixed
+  .sidebar-align-center &
+    text-align: center
+  .sidebar-align-right &
+    text-align: right
 
 .centered-content
   #container
@@ -92,11 +96,14 @@ body
 
 #posts
   margin: 0
-  padding-right: $sidebar
+  margin-right: $sidebar
+  position: relative
   @extend %clearfix
+  .index.infinite-scrolling &
+    padding-bottom: $gutter * 4
   .header-left &
-    padding-right: 0
-    padding-left: $sidebar
+    margin-right: 0
+    margin-left: $sidebar
 
 .searchresultcount,
 #footer
