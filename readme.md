@@ -122,7 +122,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery](http://jquery.com/) v1.11.1
 * [Masonry](http://masonry.desandro.com/) v3.1.5
 * [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.8
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.10
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.13
 * [Infinite Scroll](http://www.infinite-scroll.com) v2.0.2
 * [spin.js](http://fgnass.github.io/spin.js/) v2.0.1
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1.0
@@ -133,7 +133,7 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * [jQuery Smartresize](https://github.com/louisremi/jquery-smartresize)
 * built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.1
 * [An even better requestAnimationFrame](https://github.com/kof/animation-frame) v0.1.7
-* [query-string](https://github.com/sindresorhus/query-string) v0.4.1
+* [query-string](https://github.com/sindresorhus/query-string) v1.0.0
 * icon-font generated with [IcoMoon](http://icomoon.io/), containing icons from
   * [Typicons](http://typicons.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
   * [Entypo](http://www.entypo.com/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/)
@@ -142,6 +142,11 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
   * [Iconic](http://somerandomdude.com/work/iconic/) – License: [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/us/)
 
 ## Changelog
+
+### Not yet released
+
+* Updated to ColorBox v1.5.13.
+* Updated to query-string v1.0.0.
 
 ### 0.3.0
 
