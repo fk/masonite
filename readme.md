@@ -120,18 +120,18 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 * pretty YouTube- and Vimeo-videos scripts based on [Matthew Buchanan’s and Hayden Hunter’s YouTube improvement script](http://matthewbuchanan.name/post/451892574/widescreen-youtube-embeds) and [Better Vimeo Embeds](http://mattbu.ch/tumblr/vimeo-embeds/) by Matthew Buchanan
 * [Modernizr](http://modernizr.com/) v2.8.2 (via [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr))
 * [jQuery](http://jquery.com/) v1.11.1
-* [Masonry](http://masonry.desandro.com/) v3.1.5
+* [Masonry](http://masonry.desandro.com/) v3.2.1
 * [imagesLoaded](http://desandro.github.io/imagesloaded/) v3.1.8
-* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.13
-* [Infinite Scroll](http://www.infinite-scroll.com) v2.0.2
+* [ColorBox](http://jacklmoore.com/colorbox/) v1.5.14
+* [Infinite Scroll](http://www.infinite-scroll.com) v2.1.0
 * [spin.js](http://fgnass.github.io/spin.js/) v2.0.1
 * [FitVids.js](https://github.com/davatron5000/FitVids.js) v1.1.0
 * [HTML5 placeholder Polyfill](https://github.com/ginader/HTML5-placeholder-polyfill) v2.0.10
 * [jQuery WidowFix](http://matthewlein.com/widowfix/) v1.3.2
 * [Google Code Prettify](http://code.google.com/p/google-code-prettify/)
-* [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.3
+* [Web Font Loader](https://github.com/typekit/webfontloader) v1.5.6
 * [jQuery Smartresize](https://github.com/louisremi/jquery-smartresize)
-* built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.1
+* built on [HTML5 Boilerplate](http://html5boilerplate.com/) v4.3.0 CSS and [normalize.css](http://necolas.github.com/normalize.css/) v3.0.2
 * [An even better requestAnimationFrame](https://github.com/kof/animation-frame) v0.1.7
 * [query-string](https://github.com/sindresorhus/query-string) v1.0.0
 * icon-font generated with [IcoMoon](http://icomoon.io/), containing icons from
@@ -145,7 +145,11 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ### Not yet released
 
-* Updated to ColorBox v1.5.13.
+* Switched from Compass v1.0.0.alpha.19 to v1.0.1.
+* Updated to Masonry v3.2.1.
+* Updated to Infinie Scroll v2.1.0.
+* Updated to normalize.css v3.0.2.
+* Updated to ColorBox v1.5.14.
 * Updated to query-string v1.0.0.
 
 ### 0.3.0
