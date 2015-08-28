@@ -28,7 +28,7 @@
 				color: masonite.accents
 			});
 		});
-		
+
 		return this;
 	};
 
@@ -38,7 +38,7 @@
 				color: masonite.tumblrAudioPlayerTheme
 			});
 		});
-		
+
 		return this;
 	};
 

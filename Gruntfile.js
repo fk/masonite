@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         dest: build + 'js/jquery.min.js',
       },
       colorbox: {
-        src: bower + 'colorbox/jquery.colorbox-min.js',
+        src: bower + 'jquery-colorbox/jquery.colorbox-min.js',
         dest: build + 'js/jquery.colorbox-min.js'
       },
       placeholder: {
@@ -43,20 +43,11 @@ module.exports = function(grunt) {
           bower + 'jquery-smartresize/jquery.debouncedresize.js',
           bower + 'jQuery-widowFix/js/jquery.widowFix-1.3.2.js',
           bower + 'jquery.easing.1.3/index.js',
-          bower + 'fitvids/jquery.fitvids.js',
-          bower + 'jquery-bridget/jquery.bridget.js',
-          bower + 'get-style-property/get-style-property.js',
-          bower + 'get-size/get-size.js',
-          bower + 'matches-selector/matches-selector.js',
-          bower + 'eventEmitter/EventEmitter.js',
-          bower + 'eventie/eventie.js',
-          bower + 'doc-ready/doc-ready.js',
-          bower + 'outlayer/item.js',
-          bower + 'outlayer/outlayer.js',
           bower + 'imagesloaded/imagesloaded.pkgd.js',
           bower + 'masonry/dist/masonry.pkgd.js',
           bower + 'spinjs/spin.js',
           bower + 'spinjs/jquery.spin.js',
+          bower + 'fitvids/jquery.fitvids.js',
           'js/<%= pkg.name %>.js'
         ],
         dest: build + 'js/<%= pkg.name %>.js'
