@@ -122,7 +122,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/LKwng6353/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/bSZnttfb6/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -333,25 +333,25 @@
 
             body,
             textarea {
-                font-family: 
+                font-family:
                 {block:IfGoogleWebFontBody}
-                '{text:Google Web Font Body}', 
+                '{text:Google Web Font Body}',
                 {/block:IfGoogleWebFontBody}
                 {font:Body};
             }
 
             #header h1 {
-                font-family: 
+                font-family:
                 {block:IfGoogleWebFontTitle}
-                '{text:Google Web Font Title}', 
+                '{text:Google Web Font Title}',
                 {/block:IfGoogleWebFontTitle}
                 {font:Title};
             }
 
             .post.quote .quote {
-                font-family: 
+                font-family:
                 {block:IfGoogleWebFontQuote}
-                '{text:Google Web Font Quote}', 
+                '{text:Google Web Font Quote}',
                 {/block:IfGoogleWebFontQuote}
                 {font:Quote};
             }
@@ -359,17 +359,17 @@
             .post .footer,
             #navigation,
             #external {
-                font-family: 
+                font-family:
                 {block:IfGoogleWebFontMeta}
-                '{text:Google Web Font Meta}', 
+                '{text:Google Web Font Meta}',
                 {/block:IfGoogleWebFontMeta}
                 {font:Meta};
             }
 
             .post .title {
-                font-family: 
+                font-family:
                 {block:IfGoogleWebFontPostTitle}
-                '{text:Google Web Font Post Title}', 
+                '{text:Google Web Font Post Title}',
                 {/block:IfGoogleWebFontPostTitle}
                 {font:Title};
             }
@@ -377,9 +377,9 @@
             pre,
             code,
             tt {
-                font-family: 
+                font-family:
                 {block:IfGoogleWebFontPre}
-                '{text:Google Web Font Pre}', 
+                '{text:Google Web Font Pre}',
                 {/block:IfGoogleWebFontPre}
                 {font:Pre};
             }
@@ -973,36 +973,36 @@
 
             Modernizr.load([
                 {
-                    load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+                    load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
                     complete: function() {
                         if ( !window.jQuery ) {
-                            Modernizr.load( "http://static.tumblr.com/wccjej0/PxAn9dm0n/jquery.min.js" );
+                            Modernizr.load( "http://static.tumblr.com/wccjej0/4Yhnttf0p/jquery.min.js" );
                         }
                     }
                 },
                 {block:IfGoogleWebFont}
                     {
                         test: Modernizr.fontface,
-                        yep: "//ajax.googleapis.com/ajax/libs/webfont/1.5.6/webfont.js"
+                        yep: "//ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"
                     },
                 {/block:IfGoogleWebFont}
                 {
                     test: Modernizr.input.placeholder,
                     nope: [
-                        "http://static.tumblr.com/wccjej0/fxmng63dx/placeholder_polyfill.min.css",
-                        "http://static.tumblr.com/wccjej0/jxqn9dm2g/placeholder.min.js"
+                        "http://static.tumblr.com/wccjej0/8wFnttfbf/placeholder_polyfill.min.css",
+                        "http://static.tumblr.com/wccjej0/UFAnttf1b/placeholder.min.js"
                     ]
                 },
                 {
                     test: masonite.colorbox,
                     yep: [
-                        "http://static.tumblr.com/wccjej0/uXjng626p/colorbox.min.css",
-                        "http://static.tumblr.com/wccjej0/a4Nng625k/jquery.colorbox-min.js"
+                        "http://static.tumblr.com/wccjej0/eAknttfar/colorbox.min.css",
+                        "http://static.tumblr.com/wccjej0/FQQnttf0j/jquery.colorbox-min.js"
                     ]
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: "http://static.tumblr.com/wccjej0/cEIng62g6/infinitescroll.min.js"
+                    yep: "http://static.tumblr.com/wccjej0/ddTnttf0d/infinitescroll.min.js"
                 },
                 {
                     test: masonite.googlePrettify,
@@ -1019,7 +1019,7 @@
                                     "//{text:Disqus Shortname}.disqus.com/embed.js",
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            "http://static.tumblr.com/wccjej0/IwAng62eq/masonite.min.js"
+                            "http://static.tumblr.com/wccjej0/ucYnttf0z/masonite.min.js"
                         ]);
                      }
                 },

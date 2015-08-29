@@ -105,7 +105,7 @@ module.exports = function(grunt) {
     modernizr: {
       dist: {
         'devFile' : 'remote',
-        'outputFile' : build + 'js/modernizr.min.js',
+        'outputFile' : build + 'js/modernizr-custom.min.js',
         'files' : {
           'src': [
             'js/*.js',
