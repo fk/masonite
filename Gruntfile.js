@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   'use strict';
 
-  var bower = 'app/components/';
+  var bower = 'bower_components/';
   var build = 'build/';
 
   grunt.initConfig({
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         dest: build + 'js/jquery.min.js',
       },
       colorbox: {
-        src: bower + 'colorbox/jquery.colorbox-min.js',
+        src: bower + 'jquery-colorbox/jquery.colorbox-min.js',
         dest: build + 'js/jquery.colorbox-min.js'
       },
       placeholder: {
@@ -43,20 +43,11 @@ module.exports = function(grunt) {
           bower + 'jquery-smartresize/jquery.debouncedresize.js',
           bower + 'jQuery-widowFix/js/jquery.widowFix-1.3.2.js',
           bower + 'jquery.easing.1.3/index.js',
-          bower + 'fitvids/jquery.fitvids.js',
-          bower + 'jquery-bridget/jquery.bridget.js',
-          bower + 'get-style-property/get-style-property.js',
-          bower + 'get-size/get-size.js',
-          bower + 'matches-selector/matches-selector.js',
-          bower + 'eventEmitter/EventEmitter.js',
-          bower + 'eventie/eventie.js',
-          bower + 'doc-ready/doc-ready.js',
-          bower + 'outlayer/item.js',
-          bower + 'outlayer/outlayer.js',
           bower + 'imagesloaded/imagesloaded.pkgd.js',
           bower + 'masonry/dist/masonry.pkgd.js',
           bower + 'spinjs/spin.js',
           bower + 'spinjs/jquery.spin.js',
+          bower + 'fitvids/jquery.fitvids.js',
           'js/<%= pkg.name %>.js'
         ],
         dest: build + 'js/<%= pkg.name %>.js'
@@ -81,6 +72,13 @@ module.exports = function(grunt) {
           build + 'css/masonite.css'
         ],
         dest: build + 'css/masonite.css'
+      },
+      modernizr: {
+        src: [
+          bower + 'yepnope.js/yepnope.1.5.4-min.js',
+          build + 'js/modernizr-custom.min.js'
+        ],
+        dest: build + 'js/modernizr-custom.min.js'
       }
     },
     uglify: {
@@ -114,13 +112,19 @@ module.exports = function(grunt) {
     modernizr: {
       dist: {
         'devFile' : 'remote',
-        'outputFile' : build + 'js/modernizr.min.js',
+        'dest' : build + 'js/modernizr-custom.min.js',
         'files' : {
           'src': [
             'js/*.js',
             'masonite.html'
           ]
-        }
+        },
+        'tests': [
+          'touchevents'
+        ],
+        'options': [
+          'setClasses'
+        ]
       }
     },
     jshint: {
@@ -146,14 +150,14 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-modernizr');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-modernizr');
 
   grunt.registerTask('default', [
     'clean:build',

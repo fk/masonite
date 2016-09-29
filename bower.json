@@ -1,21 +1,22 @@
 {
   "name": "masonite",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "devDependencies": {
     "6155769": "https://gist.github.com/ArnoldZokas/6155769.git",
-    "jquery": "1.x",
-    "colorbox": "~1.5.5",
-    "animation-frame": "~0.1.6",
-    "html5-placeholder-polyfill": "~2.0.10",
-    "normalize-css": "~3.0.0",
-    "infinite-scroll": "*",
+    "jquery": "2.2.4",
+    "jquery-colorbox": "1.6.4",
+    "animation-frame": "0.2.5",
+    "html5-placeholder-polyfill": "2.1.0",
+    "normalize-css": "4.2.0",
+    "infinite-scroll": "2.1.0",
     "jquery-smartresize": "*",
     "jQuery-widowFix": "matthewlein/jQuery-widowFix#~1.3.2",
-    "imagesloaded": "~3.1.5",
-    "masonry": "~3.1.5",
+    "imagesloaded": "4.1.1",
+    "masonry": "4.1.1",
     "fitvids": "master",
-    "spinjs": "~2.0.1",
-    "query-string": "~0.4.0"
+    "spinjs": "2.3.2",
+    "query-string": "1.0.1",
+    "yepnope.js": "SlexAxton/yepnope.js#1.5.4"
   }
 }
