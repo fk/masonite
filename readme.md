@@ -1,4 +1,4 @@
-# masonite v0.3.0
+# masonite v0.3.1
 
 **A Tumblr theme.**  
 masonry + infinite-scroll = masonite.  
@@ -143,14 +143,25 @@ _Dribbble, Facebook, Github, Soundcloud, Twitter, Vimeo, Rdio, Yahoo, Skype, Eve
 
 ## Changelog
 
-### Not yet released
+### 0.3.1
 
-* Switched from Compass v1.0.0.alpha.19 to v1.0.1.
-* Updated to Masonry v3.2.1.
-* Updated to Infinie Scroll v2.1.0.
-* Updated to normalize.css v3.0.2.
-* Updated to ColorBox v1.5.14.
-* Updated to query-string v1.0.0.
+* Updated to Compass v1.0.3.
+* Updated to jQuery v2.2.4.
+* Updated to ColorBox v1.6.4.
+* Updated to HTML5 placeholder polyfill v2.1.0.
+* Updated to normalize.css v4.2.0.
+* Updated to Infinite Scroll v2.1.0.
+* Updated to Masonry v4.1.1 – which means no support for Internet Explorer 8 and 9 anymore.
+* Updated to imagesLoaded v4.1.1.
+* Updated to query-string v1.0.1.
+* Updated all Grunt plugins to latest stable version, most notably grunt-modernizr to v1.0.2.
+* Modernizr v3 does not come with yepnope/Modernizr.load anymore, so we included its version 1.5.4.
+* Updated Modernizr configuration and adjust to changed test for touch devices: `.no-touch` became `.no-touchevents`.
+* Removed `npm` and `install` devDependencies.
+* Freezed versions in package.json.
+* Removed `overflow-x: hidden` for `.index .post` – resolves [#34](https://github.com/fk/masonite/issues/34).
+* Reduced `z-index` for `#header` and `#copyright` so that they do not overlap Tumblrs "Never miss an update" box.
+* Brute-forced the size of Tumblr's "Reblog"-button (as its "size"-option does not seem to work anymore below 20px).
 
 ### 0.3.0
 

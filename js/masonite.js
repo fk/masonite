@@ -273,7 +273,7 @@
 
 		$likes.masonry({
 			itemSelector: "li",
-			isResizeBound: true,
+			resize: true,
 			columnWidth: $( "li" ).width()
 		});
 
@@ -326,8 +326,8 @@
 
 					$wall.masonry({
 						itemSelector: ".post",
-						isFitWidth: masonite.centeredContent,
-						isResizeBound: !masonite.centeredContent,
+						fitWidth: masonite.centeredContent,
+						resize: !masonite.centeredContent,
 						columnWidth: $( ".post" ).outerWidth( true ),
 						hiddenStyle: {
 							opacity: 0,

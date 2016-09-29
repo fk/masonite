@@ -122,7 +122,7 @@
         <meta name="text:Google Web Font Title" content="" />
         <meta name="text:Google Web Font Pre" content="" />
 
-        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/bSZnttfb6/masonite.min.css">
+        <link rel="stylesheet" href="http://static.tumblr.com/wccjej0/JCxoea5rg/masonite.min.css">
 
         <style type="text/css">
             ::-webkit-scrollbar,
@@ -170,13 +170,13 @@
                ========================================================================== */
 
             .post.photo .media .fullsize,
-            .no-touch .post.answer:hover .question,
-            .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
+            .no-touchevents .post.answer:hover .question,
+            .no-touchevents .dog-ear-zoom-icon .post.photo .media .fullsize:hover {
                 background-color: {color:Accents};
             }
 
             body,
-            .no-touch .post.photo .media .fullsize:hover {
+            .no-touchevents .post.photo .media .fullsize:hover {
                 background-color: {color:Background};
             }
 
@@ -192,9 +192,9 @@
             /* Border Colors
                ========================================================================== */
 
-            .no-touch .post a:hover,
-            .no-touch .post:hover a:hover,
-            .no-touch .post:hover a.title:hover strong {
+            .no-touchevents .post a:hover,
+            .no-touchevents .post:hover a:hover,
+            .no-touchevents .post:hover a.title:hover strong {
                 border-color: {color:Background};
             }
 
@@ -207,23 +207,23 @@
             }
 
             .post a,
-            .no-touch .post:hover a,
+            .no-touchevents .post:hover a,
             .post a.title strong,
-            .no-touch .post:hover a.title strong {
+            .no-touchevents .post:hover a.title strong {
                 border-color: {color:Accents};
             }
 
             blockquote,
             hr,
-            .no-touch .post a,
+            .no-touchevents .post a,
             .post .footer,
             .post.chat .line,
             a.title strong,
-            .no-touch a.title strong {
+            .no-touchevents a.title strong {
                 border-color: {color:Brights};
             }
 
-            .no-touch .post.answer:hover .question:after {
+            .no-touchevents .post.answer:hover .question:after {
                 border-top-color: {color:Accents};
             }
 
@@ -232,7 +232,7 @@
                 border-right-color: {color:Background};
             }
 
-            .no-touch .dog-ear-zoom-icon .post.photo .media .fullsize:hover:after {
+            .no-touchevents .dog-ear-zoom-icon .post.photo .media .fullsize:hover:after {
                 border-bottom-color: {color:Accents};
                 border-right-color: {color:Background};
             }
@@ -257,12 +257,12 @@
             #external li a,
             #copyright,
             #description,
-            .no-touch #likes li,
+            .no-touchevents #likes li,
             .dog-ear-zoom-icon .post.photo .media .fullsize,
             #loading,
-            .no-touch .post:hover .footer a,
-            .no-touch .post:hover .footer .tags,
-            .no-touch .post:hover .notes a,
+            .no-touchevents .post:hover .footer a,
+            .no-touchevents .post:hover .footer .tags,
+            .no-touchevents .post:hover .notes a,
             .custom-like-button:before,
             .like_button + .custom-like-button:before,
             .audio .meta {
@@ -272,10 +272,10 @@
             .post a,
             .post a:visited,
             .post a:active,
-            .no-touch #external li a:hover,
-            .no-touch .post:hover a,
-            .no-touch .post:hover .title em:before,
-            .no-touch .post.photo .media .fullsize:hover,
+            .no-touchevents #external li a:hover,
+            .no-touchevents .post:hover a,
+            .no-touchevents .post:hover .title em:before,
+            .no-touchevents .post.photo .media .fullsize:hover,
             #disqus_thread a,
             #title a:hover,
             #description a:hover,
@@ -283,14 +283,14 @@
             #copyright a:hover,
             .like_button.liked + .custom-like-button:before,
             .touch .like_button.liked + .custom-like-button:before,
-            .no-touch .index.custom-trigger-infinite-scrolling #pagination li a:hover {
+            .no-touchevents .index.custom-trigger-infinite-scrolling #pagination li a:hover {
                 color: {color:Accents};
             }
 
             body,
             #header h1 a,
             #disqus_thread,
-            .no-touch #likes li:hover,
+            .no-touchevents #likes li:hover,
             .browsehappy {
                 color: {color:Copy};
             }
@@ -298,13 +298,13 @@
             a,
             a:visited,
             a:active,
-            .no-touch a,
-            .no-touch a:visited,
-            .no-touch .post a,
-            .no-touch .post:hover blockquote,
+            .no-touchevents a,
+            .no-touchevents a:visited,
+            .no-touchevents .post a,
+            .no-touchevents .post:hover blockquote,
             .post.chat .line.even,
             .index.custom-trigger-infinite-scrolling #pagination li a,
-            .no-touch .post .footer a:hover {
+            .no-touchevents .post .footer a:hover {
                 color: {color:Darks};
             }
 
@@ -428,7 +428,7 @@
 
             {CustomCSS}
         </style>
-        <script src="http://static.tumblr.com/wccjej0/UQUn9dm1w/modernizr.min.js"></script>
+        <script src="http://static.tumblr.com/wccjej0/UIPoea5w2/modernizr-custom.min.js"></script>
     </head>
     <body class="{block:PermalinkPage}permalink{/block:PermalinkPage}{block:IndexPage}index{/block:IndexPage} {block:If500pxPosts}width-500{/block:If500pxPosts} {block:IfNot500pxPosts}width-400{/block:IfNot500pxPosts} {block:IfHeaderTop}header-top{/block:IfHeaderTop} {block:IfHeaderLeft}header-left{/block:IfHeaderLeft} {block:IfOneColumnContent}single-column{/block:IfOneColumnContent} {block:IfCenteredContent}centered-content{/block:IfCenteredContent} {block:IfNotShowTitle}hide-title{/block:IfNotShowTitle} {block:IfTwoColumnNavigation}two-column-navigation{/block:IfTwoColumnNavigation} {block:IfEnableInfiniteScrolling}infinite-scrolling{/block:IfEnableInfiniteScrolling} {block:IfCustomtriggerInfiniteScrolling}custom-trigger-infinite-scrolling{/block:IfCustomtriggerInfiniteScrolling} {block:IfNotShowCopyright}hide-copyright{/block:IfNotShowCopyright} {block:IfNotShowTwitter}hide-twitter{/block:IfNotShowTwitter} {block:IfNotShowPostFooterBorder}hide-post-footer-border{/block:IfNotShowPostFooterBorder} {block:IfDogEarZoomIcon}dog-ear-zoom-icon{/block:IfDogEarZoomIcon} {block:IfNotShowAvatar}hide-avatar{/block:IfNotShowAvatar} {block:IfEnableFixedPositioningofSidebar}header-position-fixed{/block:IfEnableFixedPositioningofSidebar} sidebar-align-{select:Sidebar Text Alignment} {select:Avatar Style}">
         <!--[if lt IE 8]>
@@ -971,12 +971,12 @@
               hideOnFocus: false
             };
 
-            Modernizr.load([
+            yepnope([
                 {
-                    load: "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+                    load: "//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js",
                     complete: function() {
                         if ( !window.jQuery ) {
-                            Modernizr.load( "http://static.tumblr.com/wccjej0/4Yhnttf0p/jquery.min.js" );
+                            Modernizr.load( "http://static.tumblr.com/wccjej0/3lyoea5up/jquery.min.js" );
                         }
                     }
                 },
@@ -989,20 +989,20 @@
                 {
                     test: Modernizr.input.placeholder,
                     nope: [
-                        "http://static.tumblr.com/wccjej0/8wFnttfbf/placeholder_polyfill.min.css",
-                        "http://static.tumblr.com/wccjej0/UFAnttf1b/placeholder.min.js"
+                        "http://static.tumblr.com/wccjej0/XUGoea5rw/placeholder_polyfill.min.css",
+                        "http://static.tumblr.com/wccjej0/Lmjoea5wu/placeholder.min.js"
                     ]
                 },
                 {
                     test: masonite.colorbox,
                     yep: [
-                        "http://static.tumblr.com/wccjej0/eAknttfar/colorbox.min.css",
-                        "http://static.tumblr.com/wccjej0/FQQnttf0j/jquery.colorbox-min.js"
+                        "http://static.tumblr.com/wccjej0/92Goea5p1/colorbox.min.css",
+                        "http://static.tumblr.com/wccjej0/fMUoea5u5/jquery.colorbox-min.js"
                     ]
                 },
                 {
                     test: masonite.infiniteScroll,
-                    yep: "http://static.tumblr.com/wccjej0/ddTnttf0d/infinitescroll.min.js"
+                    yep: "http://static.tumblr.com/wccjej0/Ohwoea5t7/infinitescroll.min.js"
                 },
                 {
                     test: masonite.googlePrettify,
@@ -1010,7 +1010,7 @@
                 },
                 {
                     complete: function ( url, res, key ) {
-                        Modernizr.load([
+                        yepnope([
                             {block:Twitter}
                                 "/tweets.js",
                             {/block:Twitter}
@@ -1019,7 +1019,7 @@
                                     "//{text:Disqus Shortname}.disqus.com/embed.js",
                                 {/block:PermalinkPagination}
                             {/block:IfDisqusShortname}
-                            "http://static.tumblr.com/wccjej0/ucYnttf0z/masonite.min.js"
+                            "http://static.tumblr.com/wccjej0/G0Coea5v8/masonite.min.js"
                         ]);
                      }
                 },

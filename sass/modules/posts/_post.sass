@@ -2,7 +2,7 @@
   margin: 0 $gutter $gutter 0
   position: relative
 
-  .js.no-touch &
+  .js.no-touchevents &
     &:hover
       .fullsize
         display: block
@@ -20,7 +20,6 @@
     z-index: 0
     float: left
     width: 400px
-    overflow-x: hidden
 
   .index.width-400 &
     @extend %t-small
@@ -94,7 +93,7 @@
 
   .fullsize
     @extend %fullsize
-  
+
   .footer
     @extend %footer
 
@@ -114,7 +113,7 @@
     .album_art
       img
         @extend %full-width
-  
+
   &.answer
     @extend %answer
 
@@ -140,3 +139,7 @@
 
 .audio-wrapper
   position: relative
+
+.reblog_button[style]
+  height: 11px !important
+  width: 11px !important

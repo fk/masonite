@@ -72,6 +72,13 @@ module.exports = function(grunt) {
           build + 'css/masonite.css'
         ],
         dest: build + 'css/masonite.css'
+      },
+      modernizr: {
+        src: [
+          bower + 'yepnope.js/yepnope.1.5.4-min.js',
+          build + 'js/modernizr-custom.min.js'
+        ],
+        dest: build + 'js/modernizr-custom.min.js'
       }
     },
     uglify: {
@@ -105,13 +112,19 @@ module.exports = function(grunt) {
     modernizr: {
       dist: {
         'devFile' : 'remote',
-        'outputFile' : build + 'js/modernizr-custom.min.js',
+        'dest' : build + 'js/modernizr-custom.min.js',
         'files' : {
           'src': [
             'js/*.js',
             'masonite.html'
           ]
-        }
+        },
+        'tests': [
+          'touchevents'
+        ],
+        'options': [
+          'setClasses'
+        ]
       }
     },
     jshint: {
